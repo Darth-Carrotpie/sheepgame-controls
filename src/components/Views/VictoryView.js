@@ -1,5 +1,5 @@
 import React from 'react';
-import win_view from '../images/win_view.png';
+import win_view from '../../images/win_view.png';
 
 function VictoryView() {
   return (

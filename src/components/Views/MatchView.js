@@ -1,10 +1,9 @@
 import React from 'react';
 
-import Healthbar from './components/Healthbar';
-import Bubble from './components/Bubble';
-import BubbleGroup from './components/BubbleGroup';
-import ControlWheel from './components/ControlWheel';
-import Recources from './components/Recources';
+import Healthbar from '../Healthbar';
+import BubbleGroup from '../BubbleGroup';
+import ControlWheel from '../ControlWheel';
+import Recources from '../Recources';
 
 function MatchView() {
   return (
