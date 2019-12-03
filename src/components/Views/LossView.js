@@ -1,14 +1,14 @@
 import React from 'react';
-import menu_view from '../images/menu_view.png';
+import healthbar from '../images/healthbar.png';
 
-function MenuView() {
+function LossView() {
   return (
     <img
-      src={menu_view}
-      alt="menu_view"
+      src={healthbar}
+      alt="healthbar"
       style={{ maxWidth: '100%', maxHeight: '100vh', position: 'absolute' }}
     />
   );
 }
 
-export default MenuView;
+export default LossView;

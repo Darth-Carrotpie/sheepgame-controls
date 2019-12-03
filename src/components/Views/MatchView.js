@@ -1,13 +1,19 @@
 import React from 'react';
-import healthbar from '../images/healthbar.png';
+
+import Healthbar from './components/Healthbar';
+import Bubble from './components/Bubble';
+import BubbleGroup from './components/BubbleGroup';
+import ControlWheel from './components/ControlWheel';
+import Recources from './components/Recources';
 
 function MatchView() {
   return (
-    <img
-      src={healthbar}
-      alt="healthbar"
-      style={{ maxWidth: '100%', maxHeight: '100vh', position: 'absolute' }}
-    />
+    <div>
+      <Healthbar></Healthbar>
+      <Recources></Recources>
+      <BubbleGroup></BubbleGroup>
+      <ControlWheel></ControlWheel>
+    </div>
   );
 }
 
