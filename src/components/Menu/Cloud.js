@@ -1,40 +1,43 @@
 import React from 'react';
 import styled from 'styled-components';
-import cloudImg from '../images/menu/name_cloud.png';
-
-const wheelSize = 100;
+import cloudImg from '../../images/menu/name_cloud.png';
+/* import { useStateValue } from '../../store/StateContext'; */
 
 const Wrapper = styled.div`
-  margin-top: 300px;
   flex: 1;
   display: flex;
   justify-content: center;
 `;
 
 const NamCloudBackground = styled.div`
-  height: ${wheelSize}px;
-  width: ${wheelSize*3}px;
-  background-color: white;
-  border-radius: 50%;
+  width:100%;
+  background-color: black;
   position: relative;
   opacity: 50%;
 `;
 
 const CloudImage = styled.img`
-  max-width: ${wheelSize - 40}px;
+  max-height: 75px;
   margin: 20px;
 `;
 
+function OnClickReady(){
+  var data = {"ready-button": "pressed"}
+  window.airconsole.message(window.airconsole.SCREEN, data);
+}
+/* me.airconsole.onMessage = function(from, data) {
+  console.log("onMessage", from, data);
+}; */
 function NameCloud(props) {
+/*   const [, dispatch] = useStateValue(); */
   return (
       <Wrapper>
         <NamCloudBackground>
-          <CloudImage src={cloudImg} alt="cloud" />
+          <CloudImage src={cloudImg} alt="cloud"
+            onClick = { OnClickReady }
+           />
         </NamCloudBackground>
       </Wrapper>
-{/*     <BubbleSpan {...props}>
-      <Typography>10</Typography>
-    </BubbleSpan> */}
   );
 }
 

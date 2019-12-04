@@ -1,11 +1,14 @@
 import React from 'react';
 import Router from './components/Router';
 import { StateProvider } from './store/StateContext';
+import MessageHandler from './components/MessageHandler';
 
 function App() {
   return (
     <StateProvider>
-      <Router></Router>
+      <MessageHandler>
+        <Router></Router>
+      </MessageHandler>
     </StateProvider>
   );
 }

@@ -4,10 +4,11 @@ import initialState from './initialState';
 
 export const StateContext = createContext();
 
-export const StateProvider = ({ children }) => (
+export const StateProvider = ({ children }) => {
+  return (
   <StateContext.Provider value={useReducer(mainReducer, initialState)}>
     {children}
-  </StateContext.Provider>
-);
+  </StateContext.Provider>)
+};
 
 export const useStateValue = () => useContext(StateContext);

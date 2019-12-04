@@ -1,3 +1,9 @@
+export const setHat = (value) => {
+  return {
+    type: 'setHat',
+    newHat: value
+  };
+};
 export const changeHatNext = () => {
   return {
     type: 'changeHat',
@@ -10,13 +16,19 @@ export const changeHatPrevious = () => {
     newHat: -1
   };
 };
+export const setScepter = (value) => {
+  return {
+    type: 'setScepter',
+    newScepter: value
+  };
+};
 export const changeScepterNext = () => {
   return {
     type: 'changeScepter',
     newScepter: 1
   };
 };
-export const changeHatPrevious = () => {
+export const changeScepterPrevious = () => {
   return {
     type: 'changeScepter',
     newScepter: 1
