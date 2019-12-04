@@ -22,7 +22,7 @@ const CloudImage = styled.img`
 `;
 
 function OnClickReady(){
-  var data = {"ready-button": "pressed"}
+  var data = {"element":"ready-button", "pressed":true}
   window.airconsole.message(window.airconsole.SCREEN, data);
 }
 /* me.airconsole.onMessage = function(from, data) {
