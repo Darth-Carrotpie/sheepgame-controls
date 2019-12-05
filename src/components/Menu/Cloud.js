@@ -1,15 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import cloudImg from '../../images/menu/name_cloud.png';
+import cloudImgReady from '../../images/menu/play_cloud.png';
+import cloudImgPlay from '../../images/menu/name_cloud.png';
 /* import { useStateValue } from '../../store/StateContext'; */
 
-const Wrapper = styled.div`
-  flex: 1;
-  display: flex;
-  justify-content: center;
-`;
-
-const NamCloudBackground = styled.div`
+const NameCloudBackground = styled.div`
   width:100%;
   background-color: black;
   position: relative;
@@ -17,28 +12,42 @@ const NamCloudBackground = styled.div`
 `;
 
 const CloudImage = styled.img`
-  max-height: 75px;
-  margin: 20px;
+  max-height: 80px;
+  /* margin: 20px; */
 `;
 
 function OnClickReady(){
   var data = {"element":"ready-button", "pressed":true}
   window.airconsole.message(window.airconsole.SCREEN, data);
 }
-/* me.airconsole.onMessage = function(from, data) {
-  console.log("onMessage", from, data);
-}; */
-function NameCloud(props) {
+
+/* var backgroundColor = '#000000'
+window.airconsole.onMessage = funcion(from, data){
+  backgroundColor = '#'+data['color'];
+} */
+export function NameCloud(props) {
 /*   const [, dispatch] = useStateValue(); */
   return (
-      <Wrapper>
-        <NamCloudBackground>
-          <CloudImage src={cloudImg} alt="cloud"
-            onClick = { OnClickReady }
-           />
-        </NamCloudBackground>
-      </Wrapper>
+      <NameCloudBackground>
+        <CloudImage src={cloudImgPlay} alt="cloudPlay"
+          //onClick = { OnClickReady } //dance king?
+          />
+      </NameCloudBackground>
   );
 }
 
+const ReadyCloudBackground = styled.div`
+  background-color: black;
+  opacity: 50%;
+  max-height : 20vh;
+`;
+export function ReadyCloud(props) {
+    return (
+      <ReadyCloudBackground>
+        <CloudImage src={cloudImgReady} alt="cloudRead"
+          onClick = { OnClickReady }
+          />
+      </ReadyCloudBackground>
+    );
+  }
 export default NameCloud;
