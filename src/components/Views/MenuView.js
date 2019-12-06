@@ -10,7 +10,7 @@ import ItemName from '../../components/Menu/ItemName';
 
 function MenuView() {
   const [{ menu }] = useStateValue();
-  const [, dispatch] = useStateValue();
+  //const [, dispatch] = useStateValue();
   return (
 
     <div style={{ maxWidth: '100%', maxHeight: '100%', position: 'absolute' }}>

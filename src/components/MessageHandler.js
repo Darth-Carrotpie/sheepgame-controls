@@ -39,6 +39,10 @@ function MessageHandler({
         if(data["element"] == "changeScepter"){
           dispatch((setScepter(data["value"])));
         }
+        //match messages:
+        if(data["element"] == "changeScepter"){
+          dispatch((setScepter(data["health"])));
+        }
       }
     };
   }, [])

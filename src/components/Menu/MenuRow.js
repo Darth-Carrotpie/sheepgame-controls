@@ -8,8 +8,7 @@ const Wrapper = styled.div`
 `;
 export function MenuRow() {
   return (
-      <Wrapper>
-      </Wrapper>
+      <Wrapper></Wrapper>
   );
 }
 export default MenuRow;

@@ -1,5 +1,5 @@
 import React from 'react';
-import healthbar from '../../images/healthbar.png';
+import healthbar from '../../images/match/healthbar_background.png';
 
 function LossView() {
   return (
