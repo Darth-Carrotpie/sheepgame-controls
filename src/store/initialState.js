@@ -1,5 +1,5 @@
 const screen = {
-  currentScreen: 'match'
+  currentScreen: "menu"
 };
 const menu = {
   currentScepter: 0,
@@ -16,7 +16,7 @@ const match = {
   currentPriceCharge: 7,
   currentPriceUpgrade1: 8,
   currentPriceUpgrade2: 9
-}
+};
 export default {
   screen,
   menu,

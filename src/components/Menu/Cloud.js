@@ -1,23 +1,22 @@
-import React from 'react';
-import styled from 'styled-components';
-import cloudImgReady from '../../images/menu/play_cloud.png';
-import cloudImgPlay from '../../images/menu/name_cloud.png';
+import React from "react";
+import styled from "styled-components";
+import cloudImgReady from "../../images/menu/play_cloud.png";
+import cloudImgPlay from "../../images/menu/name_cloud.png";
 /* import { useStateValue } from '../../store/StateContext'; */
 
 const NameCloudBackground = styled.div`
-  width:100%;
-  background-color: black;
-  position: relative;
-  opacity: 50%;
+  /* background-color: black; */
+  /* position: relative; */
+  /* opacity: 50%; */
+  max-width: 350px;
 `;
 
 const CloudImage = styled.img`
-  max-height: 80px;
-  /* margin: 20px; */
+  max-width: 100%;
 `;
 
-function OnClickReady(){
-  var data = {"element":"ready-button", "pressed":true}
+function OnClickReady() {
+  var data = { element: "ready-button", pressed: true };
   window.airconsole.message(window.airconsole.SCREEN, data);
 }
 
@@ -26,28 +25,28 @@ window.airconsole.onMessage = funcion(from, data){
   backgroundColor = '#'+data['color'];
 } */
 export function NameCloud(props) {
-/*   const [, dispatch] = useStateValue(); */
+  /*   const [, dispatch] = useStateValue(); */
   return (
-      <NameCloudBackground>
-        <CloudImage src={cloudImgPlay} alt="cloudPlay"
-          //onClick = { OnClickReady } //dance king?
-          />
-      </NameCloudBackground>
+    <NameCloudBackground>
+      <CloudImage
+        src={cloudImgPlay}
+        alt="cloudPlay"
+        //onClick = { OnClickReady } //dance king?
+      />
+    </NameCloudBackground>
   );
 }
 
 const ReadyCloudBackground = styled.div`
-  background-color: black;
-  opacity: 50%;
-  max-height : 20vh;
+  /* background-color: black;
+  opacity: 50%; */
+  max-width: 350px;
 `;
 export function ReadyCloud(props) {
-    return (
-      <ReadyCloudBackground>
-        <CloudImage src={cloudImgReady} alt="cloudRead"
-          onClick = { OnClickReady }
-          />
-      </ReadyCloudBackground>
-    );
-  }
+  return (
+    <ReadyCloudBackground>
+      <CloudImage src={cloudImgReady} alt="cloudRead" onClick={OnClickReady} />
+    </ReadyCloudBackground>
+  );
+}
 export default NameCloud;
