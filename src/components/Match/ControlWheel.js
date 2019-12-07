@@ -1,11 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
-import controlWheelImg from '../../images/match/swipewheel_icon.png';
+import React from "react";
+import styled from "styled-components";
+import { useSwipeable } from "react-swipeable";
+
+import controlWheelImg from "../../images/match/swipewheel_icon.png";
 
 const wheelSize = 60;
 
 const Wrapper = styled.div`
-/*   margin-top: 100px; */
+  /*   margin-top: 100px; */
   flex: 1;
   display: flex;
   justify-content: center;
@@ -26,18 +28,20 @@ const ControlWheelBackground = styled.div`
 `;
 
 const WheelImage = styled.img`
-
   height: 90%;
   margin-left: 5%;
   margin-right: 95%;
   padding-top: 5%;
   padding-bottom: 75%;
-
 `;
 
 function ControlWheel() {
+  const swipeHandlers = useSwipeable({
+    onSwiped: eventData => console.log(eventData)
+  });
+
   return (
-    <Wrapper>
+    <Wrapper {...swipeHandlers}>
       <ControlWheelBackground>
         <WheelImage src={controlWheelImg} alt="controlWheel" />
       </ControlWheelBackground>
