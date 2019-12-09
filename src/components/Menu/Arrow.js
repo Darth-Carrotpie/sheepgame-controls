@@ -7,6 +7,9 @@ const ImageStyle = styled.img`
   max-height: 45px;
   max-width: 100%;
   ${props => props.left && "transform: rotate(180deg)"};
+  &:active {
+    filter: brightness(50%);
+  }
 `;
 
 function OnClickArrow(props) {
