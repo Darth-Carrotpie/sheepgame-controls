@@ -1,7 +1,7 @@
 import React from 'react';
 import win_view from '../../images/win_view.png';
 
-function VictoryView() {
+function PostView() {
   return (
     <img
       src={win_view}
@@ -11,4 +11,4 @@ function VictoryView() {
   );
 }
 
-export default VictoryView;
+export default PostView;

@@ -15,7 +15,7 @@ const MenuWrapper = styled(FlexColumn)`
   height: 100vh;
   align-items: center;
   justify-content: space-between;
-  background-color: #42e7de;
+  background-color: ${props => props.color ? props.color : "#42e7de"};
 `;
 
 function MenuView() {
@@ -27,7 +27,7 @@ function MenuView() {
         alt="menu_view"
         style={{ maxWidth: "100%", maxHeight: "100vh", position: "absolute" }}
       /> */}
-      <MenuWrapper>
+      <MenuWrapper {...menu.color}>
         <MenuRow>
           <Margined>
             <NameCloud></NameCloud>

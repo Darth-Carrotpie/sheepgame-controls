@@ -25,3 +25,10 @@ export const changeScreenToLoss = () => {
     newScreen: 'loss'
   };
 };
+
+export const changeScreen = (value) => {
+  return {
+    type: 'changeScreen',
+    newScreen: value
+  };
+};

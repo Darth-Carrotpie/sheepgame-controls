@@ -40,3 +40,9 @@ export const announceReady = () => {
     ready: 1
   };
 };
+export const setColor = (value) => {
+  return {
+    type: 'color',
+    color: value
+  };
+};

@@ -8,7 +8,7 @@ import {
   announceReady,
   changeScreenToMatch,
   changeScreenToMenu,
-  setHat, setScepter
+  setHat, setScepter, setColor
 } from '../store/actions';
 function MessageHandler({
   children
@@ -19,26 +19,31 @@ function MessageHandler({
       console.log("MessageHandler", from, data);
 
       if (data["show_view"] != null && data["show_view"] != "") {
-        if (data["show_view"] == "menu") {
-          dispatch(changeScreenToMenu())
+        //general
+        if(data["element"] == "color"){
+          dispatch((setColor(data["value"])));
         }
-        if (data["show_view"] == "match") {
+        if (data["element"] == "view") {
+          dispatch(changeScreen(data["value"]))
+        }
+        if (data["view"] == "match") {
           dispatch(announceReady())
           dispatch(changeScreenToMatch())
         }
-
-        if (data["show_view"] == "victory") {
+        if (data["view"] == "victory") {
           dispatch(changeScreenToMenu())
         }
-        if (data["show_view"] == "loss") {
+        if (data["view"] == "loss") {
           dispatch(changeScreenToMenu())
         }
+        //menu
         if(data["element"] == "changeHat"){
           dispatch((setHat(data["value"])));
         }
         if(data["element"] == "changeScepter"){
           dispatch((setScepter(data["value"])));
         }
+
         //match messages:
         if(data["element"] == "changeScepter"){
           dispatch((setScepter(data["health"])));

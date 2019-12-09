@@ -25,6 +25,11 @@ export default (state, action) => {
                 ...state,
                 ready: action.ready
             };
+        case 'setColor':
+            return {
+                ...state,
+                color: action.color
+            };
         default:
             return state;
     }
