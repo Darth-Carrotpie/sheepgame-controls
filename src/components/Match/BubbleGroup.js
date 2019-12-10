@@ -3,7 +3,7 @@ import BigBubble from './BigBubble';
 import SmallBubble from './SmallBubble';
 import styled from 'styled-components';
 import grassButton from '../../images/match/grass_button.png';
-import sheepButton from '../../images/match/sheep_face.png';
+import sheepButton from '../../images/match/BuySheep_icon.png';
 import smiteButton from '../../images/match/smite_button.png';
 import { useStateValue } from '../../store/StateContext';
 
@@ -23,7 +23,10 @@ const FloatingBubbles = styled.div`
 /*   background-color: black;
   opacity: 50%; */
 `;
-
+function OnClickGrass() {
+  var data = { element: "ready-button", pressed: true };
+  window.airconsole.message(window.airconsole.SCREEN, data);
+}
 function BubbleGroup() {
 const [{ match, menu }] = useStateValue();
 return (
@@ -33,7 +36,7 @@ return (
         <BigBubble bckgColor={menu.playerColor}>{match.priceUpgrade1}</BigBubble>
       </BubblesInLine>
         <FloatingBubbles>
-          <SmallBubble bubbleImage={grassButton} top={2} >{match.priceGrass}</SmallBubble>
+          <SmallBubble bubbleImage={grassButton} top={2} onClick={OnClickGrass}>{match.priceGrass}</SmallBubble>
           <SmallBubble bubbleImage={sheepButton} top="0" bckgColor={menu.playerColor}>{match.priceSheep}</SmallBubble>
           <SmallBubble bubbleImage={smiteButton} top="2" >{match.priceCharge}</SmallBubble>
         </FloatingBubbles>

@@ -1,5 +1,5 @@
 const views = {
-  current: "menu"
+  current: "match"
 };
 const menu = {
   scepter: 0,
