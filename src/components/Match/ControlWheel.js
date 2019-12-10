@@ -43,7 +43,11 @@ const WheelImage = styled.img`
 function ControlWheel() {
 const [{ menu }] = useStateValue();
 const swipeHandlers = useSwipeable({
-    onSwiped: eventData => console.log(eventData)
+    onSwiped: eventData => {
+      console.log(eventData);
+      var data = { element: "swipe", data: eventData };
+      window.airconsole.message(window.airconsole.SCREEN, data);
+    }
   });
 
   return (
