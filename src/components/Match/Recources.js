@@ -11,14 +11,15 @@ const Container = styled.div`
   justify-content: space-between;
   margin-left: 20px;
   margin-right: 20px;
+
 `;
 
 function Recources() {
 const [{ match }] = useStateValue();
 return (
     <Container>
-      <Typography icon={grassIcon} textColor={"#009955"}>{match.currentGrass}</Typography>
-      <Typography icon={coinsIcon} textColor={"#ff00ff"}>{match.currentMoney}</Typography>
+      <Typography icon={grassIcon} textColor={"#739e58"}>{match.grass}</Typography>
+      <Typography icon={coinsIcon} textColor={"#fbb03b"}>{match.money}</Typography>
     </Container>
   );
 }

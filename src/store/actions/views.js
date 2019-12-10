@@ -1,34 +1,34 @@
 export const changeScreenToMenu = () => {
   return {
-    type: 'changeScreen',
-    newScreen: 'menu'
+    type: 'changeView',
+    current: 'menu'
   };
 };
 
 export const changeScreenToMatch = () => {
   return {
-    type: 'changeScreen',
-    newScreen: 'match'
+    type: 'changeView',
+    current: 'match'
   };
 };
 
 export const changeScreenToVictory = () => {
   return {
-    type: 'changeScreen',
-    newScreen: 'victory'
+    type: 'changeView',
+    current: 'victory'
   };
 };
 
 export const changeScreenToLoss = () => {
   return {
-    type: 'changeScreen',
-    newScreen: 'loss'
+    type: 'changeView',
+    current: 'loss'
   };
 };
 
 export const changeScreen = (value) => {
   return {
-    type: 'changeScreen',
-    newScreen: value
+    type: 'changeView',
+    current: value
   };
 };

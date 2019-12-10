@@ -6,10 +6,12 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+/*   background-color:gray;
+  opacity: 50%; */
 `;
 
 const Icon = styled.img`
-  width: 3vh;
+  height: 3vh;
   margin-top: 10px;
   margin-bottom: -2vh;
 `;

@@ -1,24 +1,25 @@
-const screen = {
-  currentScreen: "menu"
+const views = {
+  current: "menu"
 };
 const menu = {
-  currentScepter: 0,
-  currentHat: 0,
-  ready: 0
+  scepter: 0,
+  hat: 0,
+  ready: 0,
+  playerColor: "#0f0"
 };
 const match = {
-  currentHealth: 100,
-  currentMoney: 20,
-  currentGrass: 120,
-  currentCrowns: 0,
-  currentPriceGrass: 5,
-  currentPriceSheep: 6,
-  currentPriceCharge: 7,
-  currentPriceUpgrade1: 8,
-  currentPriceUpgrade2: 9
+  health: 100,
+  money: 20,
+  grass: 120,
+  crowns: 0,
+  priceGrass: 5,
+  priceSheep: 6,
+  priceCharge: 7,
+  priceUpgrade1: 8,
+  priceUpgrade2: 9
 };
 export default {
-  screen,
+  views,
   menu,
   match
 };

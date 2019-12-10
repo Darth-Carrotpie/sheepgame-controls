@@ -49,5 +49,7 @@ export const setPrice = (property, value) => {
                 type: 'setPriceUpgrade2',
                     newPriceUpgrade2: value
             };
+        default:
+            return property;
     }
 };

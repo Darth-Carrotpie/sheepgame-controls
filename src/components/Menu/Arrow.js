@@ -4,12 +4,14 @@ import image from "../../images/menu/arrow.png";
 /* import { useStateValue } from '../../store/StateContext'; */
 
 const ImageStyle = styled.img`
-  max-height: 45px;
+  max-height: 40px;
   max-width: 100%;
   ${props => props.left && "transform: rotate(180deg)"};
   &:active {
     filter: brightness(50%);
   }
+  margin-right: 3vh;
+  margin-left: 3vh;
 `;
 
 function OnClickArrow(props) {

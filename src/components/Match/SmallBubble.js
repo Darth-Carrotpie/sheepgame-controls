@@ -5,7 +5,7 @@ import BubbleText from './BubbleText';
 const BubbleSpan = styled.span`
   height: 13vh;
   width: 13vh;
-  background-color: ${props => props.bckgColor};
+  background-color: ${props => props.bckgColor ? props.bckgColor : "rgba(0, 0, 0, 0.0)"};
   border-radius: 50%;
   display: inline-flex;
   position: relative;
@@ -16,6 +16,9 @@ const BubbleSpan = styled.span`
   margin-right: 2vh;
   margin-bottom: 2vh;
   top: ${props => props.top}vh;
+  &:active {
+    filter: brightness(50%);
+  }
 /*   opacity: ${props => props.bubbleOpacity}; */
 `;
 const BubbleImage = styled.img`

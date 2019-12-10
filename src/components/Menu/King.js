@@ -1,19 +1,20 @@
 import React from "react";
 import styled from "styled-components";
-import kingImg from "../../images/win_view.png";
+import crownImg from "../../images/menu/crowns/icon_crown.png";
 /* import { useStateValue } from '../../store/StateContext'; */
 
 const KingImage = styled.img`
-  max-height: 40vh;
+  height: 40vh;
   margin: auto;
+  opacity: 50%;
   /*   max-height: 200px; */
   /* margin: 20px; */
 `;
 
-function OnClickReady() {
+/* function OnClickReady() {
   var data = { element: "ready-button", pressed: true };
   window.airconsole.message(window.airconsole.SCREEN, data);
-}
+} */
 
 /* var backgroundColor = '#000000'
 window.airconsole.onMessage = funcion(from, data){
@@ -23,7 +24,7 @@ export function KingScreen(props) {
   /*   const [, dispatch] = useStateValue(); */
   return (
     <KingImage
-      src={kingImg}
+      src={""}
       alt="king"
       //onClick = { OnClickReady } //dance king?
     />

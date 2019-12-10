@@ -7,9 +7,9 @@ import DetailsView from './Views/DetailsView';
 import { useStateValue } from '../store/StateContext';
 
 function Router() {
-  const [{ screen }] = useStateValue();
+  const [{ views }] = useStateValue();
 
-  switch (screen.currentScreen) {
+  switch (views.current) {
     case 'menu':
       return <MenuView></MenuView>;
     case 'match':

@@ -1,9 +1,9 @@
 export default (state, action) => {
   switch (action.type) {
-    case 'changeScreen':
+    case 'changeView':
       return {
         ...state,
-        currentScreen: action.newScreen
+        current: action.value
       };
 
     default:

@@ -3,32 +3,38 @@ export default (state, action) => {
         case 'setHat':
         return {
             ...state,
-            currentHat: action.newHat
+            hat: action.value
         };
         case 'changeHat':
             return {
                 ...state,
-                currentHat: state.currentHat + action.newHat
+                hat: state.hat + action.value
             };
         case 'setScepter':
             return {
                 ...state,
-                currentScepter: action.newScepter
+                scepter: action.value
             };
         case 'changeScepter':
             return {
                 ...state,
-                currentScepter: state.currentScepter + action.newScepter
+                scepter: state.scepter + action.value
             };
         case 'ready':
             return {
                 ...state,
-                ready: action.ready
+                ready: action.value
             };
-        case 'setColor':
+        case 'playerColor':
             return {
                 ...state,
-                color: action.color
+                playerColor: action.value
+            };
+        case 'playerName':
+            console.log("setting name:"+action.value);
+            return {
+                ...state,
+                playerName: action.value
             };
         default:
             return state;
