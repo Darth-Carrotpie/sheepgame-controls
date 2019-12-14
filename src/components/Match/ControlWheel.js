@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import { useSwipeable } from "react-swipeable";
+import React from 'react';
+import styled from 'styled-components';
+import { useSwipeable } from 'react-swipeable';
 
-import controlWheelImg from "../../images/match/swipewheel_icon.png";
+import controlWheelImg from '../../images/match/swipewheel_icon.png';
 import { useStateValue } from '../../store/StateContext';
 
 const wheelSize = 60;
@@ -12,17 +12,19 @@ const Wrapper = styled.div`
   flex: 1;
   display: flex;
   justify-content: center;
-/*   background-color: gray; */
+  align-items: center;
+  /*   background-color: gray; */
   opacity: 60%;
 `;
 
 const ControlWheelBackground = styled.div`
-  height: 55vh;
-  width: 55vh;
-  margin-top: -1vh;
+  height: 90vw;
+  width: 90vw;
+  max-height: 55vh;
+  max-width: 55vh;
 /*   height: ${wheelSize}vh; */
 /*   width: 100%; */
-  background-color: ${props => props.bckgColor ? props.bckgColor : "red"};
+  background-color: ${props => (props.bckgColor ? props.bckgColor : 'red')};
   border-radius: 50%;
   position: relative;
 /*   opacity: 50%; */
@@ -41,18 +43,19 @@ const WheelImage = styled.img`
 `;
 
 function ControlWheel() {
-const [{ menu }] = useStateValue();
-const swipeHandlers = useSwipeable({
+  const [{ menu }] = useStateValue();
+  const swipeHandlers = useSwipeable({
     onSwiped: eventData => {
-      console.log(eventData);
-      var data = { element: "swipe", data: eventData };
+      console.log('swip');
+      var data = { element: 'swipe', data: eventData };
       window.airconsole.message(window.airconsole.SCREEN, data);
+      console.log(eventData);
     }
   });
 
   return (
     <Wrapper {...swipeHandlers}>
-      <ControlWheelBackground bckgColor={menu.playerColor} >
+      <ControlWheelBackground bckgColor={menu.playerColor}>
         <WheelImage src={controlWheelImg} alt="controlWheel" />
       </ControlWheelBackground>
     </Wrapper>
