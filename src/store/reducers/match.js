@@ -9,7 +9,7 @@ export default (state, action) => {
             crowns: action.crowns,
             priceGrass: action.priceGrass,
             priceSheep: action.priceSheep,
-            priceCharge: action.priceCharge,
+            priceSmash: action.priceSmash,
             priceUpgrade1: action.priceUpgrade1,
             priceUpgrade2: action.priceUpgrade2
         };

@@ -32,7 +32,7 @@ function OnClickSheep() {
   window.airconsole.message(window.airconsole.SCREEN, data);
 }
 function OnClickSmite() {
-  var data = { element: "smite", pressed: true };
+  var data = { element: "smash", pressed: true };
   window.airconsole.message(window.airconsole.SCREEN, data);
 }
 function OnClickUpgrade1() {
@@ -48,13 +48,13 @@ const [{ match, menu }] = useStateValue();
 return (
     <div>
       <BubblesInLine>
-        <BigBubble bckgColor={menu.playerColor} onClick={OnClickUpgrade1}>{match.priceUpgrade1}</BigBubble>
-        <BigBubble bckgColor={menu.playerColor} onClick={OnClickUpgrade2}>{match.priceUpgrade1}</BigBubble>
+        <BigBubble bckgColor={menu.playerColor} onClick={OnClickUpgrade1}>{Math.round( match.priceUpgrade1 * 10) / 10 }</BigBubble>
+        <BigBubble bckgColor={menu.playerColor} onClick={OnClickUpgrade2}>{Math.round( match.priceUpgrade2 * 10) / 10 }</BigBubble>
       </BubblesInLine>
         <FloatingBubbles>
-          <SmallBubble bubbleImage={grassButton} top={2} onClick={OnClickGrass}>{match.priceGrass}</SmallBubble>
-          <SmallBubble bubbleImage={sheepButton} top="0" onClick={OnClickSheep} bckgColor={menu.playerColor}>{match.priceSheep}</SmallBubble>
-          <SmallBubble bubbleImage={smiteButton} top="2" onClick={OnClickSmite}>{match.priceCharge}</SmallBubble>
+          <SmallBubble bubbleImage={grassButton} top={2} onClick={OnClickGrass}>{Math.round( match.priceGrass * 10) / 10 }</SmallBubble>
+          <SmallBubble bubbleImage={sheepButton} top="0" onClick={OnClickSheep} bckgColor={menu.playerColor}>{Math.round( match.priceSheep * 10) / 10 }</SmallBubble>
+          <SmallBubble bubbleImage={smiteButton} top="2" onClick={OnClickSmite}>{Math.round( match.priceSmash * 10) / 10 }</SmallBubble>
         </FloatingBubbles>
     </div>
   );

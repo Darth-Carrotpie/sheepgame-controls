@@ -36,8 +36,8 @@ export const setPrice = (property, value) => {
             };
         case 'charge':
             return {
-                type: 'setPriceCharge',
-                    newPriceCharge: value
+                type: 'setPriceSmash',
+                    newPriceSmash: value
             };
         case 'upgrade1':
             return {

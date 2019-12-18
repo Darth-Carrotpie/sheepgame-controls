@@ -18,8 +18,8 @@ function Recources() {
 const [{ match }] = useStateValue();
 return (
     <Container>
-      <Typography icon={grassIcon} textColor={"#739e58"}>{match.grass}</Typography>
-      <Typography icon={coinsIcon} textColor={"#fbb03b"}>{match.money}</Typography>
+      <Typography icon={grassIcon} textColor={"#739e58"}>{Math.round( match.grass * 10) / 10 }</Typography>
+      <Typography icon={coinsIcon} textColor={"#fbb03b"}>{Math.round( match.money * 10) / 10 }</Typography>
     </Container>
   );
 }

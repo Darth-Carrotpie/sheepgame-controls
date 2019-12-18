@@ -46,10 +46,11 @@ function ControlWheel() {
   const [{ menu }] = useStateValue();
   const swipeHandlers = useSwipeable({
     onSwiped: eventData => {
-      console.log('swip');
-      var data = { element: 'swipe', data: eventData };
-      window.airconsole.message(window.airconsole.SCREEN, data);
-      console.log(eventData);
+      console.log(eventData.event);
+      var data = { element: 'swipe'};
+      eventData['element'] = 'swipe';
+      console.log('swip:'+JSON.stringify(eventData));
+      window.airconsole.message(window.airconsole.SCREEN, eventData);
     }
   });
 

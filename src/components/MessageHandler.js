@@ -6,7 +6,8 @@ function MessageHandler({ children }) {
     window.airconsole.onMessage = function(from, data) {
       if (from === window.AirConsole.SCREEN){
         if (data["type"] !== null && data["type"] !== "") {
-          console.log("MessageHandler", from, data);
+          if(data["type"] !== "playerProfile")
+            console.log("MessageHandler", from, data);
           dispatch(data);
         }
       }
