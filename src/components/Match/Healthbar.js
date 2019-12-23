@@ -13,7 +13,7 @@ const ImageContainer = styled.div`
 
 const AbsoluteImage = styled.img`
   max-height: 100vh;
-  margin-top: ${props => 100 - props.size}vh;
+  margin-top: -${props => 100 - props.size}vh;
 `;
 
 function Healthbar() {
