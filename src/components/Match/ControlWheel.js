@@ -40,17 +40,21 @@ const WheelImage = styled.img`
   margin-right: 95%;
   padding-top: 5%;
   padding-bottom: 75%;
+
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 `;
 
 function ControlWheel() {
   const [{ menu }] = useStateValue();
   const swipeHandlers = useSwipeable({
     onSwiped: eventData => {
-      console.log(eventData.event);
-      var data = { element: 'swipe'};
-      eventData['element'] = 'swipe';
-      console.log('swip:'+JSON.stringify(eventData));
-      window.airconsole.message(window.airconsole.SCREEN, eventData);
+      const { event, ...rest } = eventData;
+      window.airconsole.message(window.airconsole.SCREEN, rest);
     }
   });
 
