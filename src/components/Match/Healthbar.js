@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import healthbar from "../../images/match/healthbar_background.png";
-import { useStateValue } from "../../store/StateContext";
+import healthbar from '../../images/match/healthbar_background.png';
+import { useStateValue } from '../../store/StateContext';
 
 const ImageContainer = styled.div`
   max-height: 100vh;
@@ -29,7 +29,6 @@ function Healthbar() {
         alt="healthbar"
         size={currentHealth}
       ></AbsoluteImage>
-      ;
     </ImageContainer>
   );
 }
