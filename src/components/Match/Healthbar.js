@@ -19,7 +19,7 @@ const AbsoluteImage = styled.img`
 function Healthbar() {
   const [
     {
-      match: { currentHealth }
+      match: { health }
     }
   ] = useStateValue();
   return (
@@ -27,7 +27,7 @@ function Healthbar() {
       <AbsoluteImage
         src={healthbar}
         alt="healthbar"
-        size={currentHealth}
+        size={health}
       ></AbsoluteImage>
     </ImageContainer>
   );

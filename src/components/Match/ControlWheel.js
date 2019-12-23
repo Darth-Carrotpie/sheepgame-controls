@@ -54,6 +54,8 @@ function ControlWheel() {
   const swipeHandlers = useSwipeable({
     onSwiped: eventData => {
       const { event, ...rest } = eventData;
+      rest["element"] = "swipe";
+      console.log(rest);
       window.airconsole.message(window.airconsole.SCREEN, rest);
     }
   });
