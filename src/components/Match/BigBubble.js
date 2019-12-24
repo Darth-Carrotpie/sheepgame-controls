@@ -22,9 +22,9 @@ const BubbleButton = styled.button`
   }
 `;
 
-function BigBubble(props) {
+function BigBubble({ onClick, ...props }) {
   return (
-    <BubbleButton {...props}>
+    <BubbleButton {...props} onClick={onClick}>
       <BubbleText {...props}></BubbleText>
     </BubbleButton>
   );

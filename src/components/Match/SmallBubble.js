@@ -28,9 +28,9 @@ const BubbleImage = styled.img`
   height: 100%;
   width: 100%;
 `;
-function SmallBubble(props) {
+function SmallBubble({ onClick, ...props }) {
   return (
-    <BubbleButton {...props}>
+    <BubbleButton {...props} onClick={onClick}>
       <BubbleImage src={props.bubbleImage} alt="bubbleImage" />
       <BubbleText {...props}></BubbleText>
     </BubbleButton>
