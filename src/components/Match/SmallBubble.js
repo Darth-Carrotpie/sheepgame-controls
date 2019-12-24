@@ -2,10 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import BubbleText from './BubbleText';
 
-const BubbleSpan = styled.span`
+const BubbleButton = styled.button`
   height: 13vh;
   width: 13vh;
-  background-color: ${props => props.bckgColor ? props.bckgColor : "rgba(0, 0, 0, 0.0)"};
+  background-color: ${props =>
+    props.bckgColor ? props.bckgColor : 'rgba(0, 0, 0, 0.0)'};
   border-radius: 50%;
   display: inline-flex;
   position: relative;
@@ -16,6 +17,7 @@ const BubbleSpan = styled.span`
   margin-right: 2vh;
   margin-bottom: 2vh;
   top: ${props => props.top}vh;
+  border: none;
   &:active {
     filter: brightness(50%);
   }
@@ -27,10 +29,10 @@ const BubbleImage = styled.img`
 `;
 function SmallBubble(props) {
   return (
-    <BubbleSpan {...props}>
+    <BubbleButton {...props}>
       <BubbleImage src={props.bubbleImage} alt="bubbleImage" />
       <BubbleText {...props}></BubbleText>
-    </BubbleSpan>
+    </BubbleButton>
   );
 }
 

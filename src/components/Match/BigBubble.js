@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import BubbleText from './BubbleText';
 
-const BubbleSpan = styled.span`
+const BubbleButton = styled.button`
   height: 15vh;
   width: 15vh;
-  background-color: ${props => props.bckgColor ? props.bckgColor : "#0f0"};
+  background-color: ${props => (props.bckgColor ? props.bckgColor : '#0f0')};
   border-radius: 50%;
   display: inline-flex;
   position: relative;
@@ -15,6 +15,7 @@ const BubbleSpan = styled.span`
   margin-left: 2vh;
   margin-right: 2vh;
   top: 0vh;
+  border: none;
   &:active {
     filter: brightness(50%);
   }
@@ -22,9 +23,9 @@ const BubbleSpan = styled.span`
 
 function BigBubble(props) {
   return (
-    <BubbleSpan {...props}>
+    <BubbleButton {...props}>
       <BubbleText {...props}></BubbleText>
-    </BubbleSpan>
+    </BubbleButton>
   );
 }
 
