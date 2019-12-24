@@ -13,6 +13,15 @@ export default (state, action) => {
             priceUpgrade1: action.priceUpgrade1,
             priceUpgrade2: action.priceUpgrade2
         };
+        case 'upgradeData':
+        return {
+            upgradeDisplayName: action.upgrade.upgradeDisplayName,
+            upgradeDescription: action.upgrade.upgradeDescription,
+            priceUpgrade: action.upgrade.priceUpgrade,
+
+            sheepTypeInput: action.upgrade.sheepTypeInput,
+            sheepTypeOutput: action.upgrade.sheepTypeOutput
+        }
         default:
             return state;
     }

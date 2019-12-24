@@ -24,7 +24,7 @@ const FloatingBubbles = styled.div`
   opacity: 50%; */
 `;
 function SendMessage(elementName){
-  var data = { element: elementName, pressed: true };
+  var data = { element: elementName, pressed: false };
   console.log("sending msg: ",data);
   window.airconsole.message(window.airconsole.SCREEN, data);
 }

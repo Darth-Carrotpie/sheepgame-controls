@@ -6,6 +6,7 @@ import PostView from './Views/PostView';
 import DetailsView from './Views/DetailsView';
 import { useStateValue } from '../store/StateContext';
 
+
 function Router() {
   const [{ views }] = useStateValue();
 
