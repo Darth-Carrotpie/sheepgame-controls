@@ -18,6 +18,7 @@ const BubbleButton = styled.button`
   margin-bottom: 2vh;
   top: ${props => props.top}vh;
   border: none;
+  padding: 0;
   &:active {
     filter: brightness(50%);
   }
