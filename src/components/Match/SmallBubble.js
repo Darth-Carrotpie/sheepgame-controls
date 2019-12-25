@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import BubbleText from './BubbleText';
+import BubbleIcon from './BubbleIcon';
 
 const BubbleButton = styled.button`
   height: 13vh;
@@ -24,14 +25,11 @@ const BubbleButton = styled.button`
   }
 /*   opacity: ${props => props.bubbleOpacity}; */
 `;
-const BubbleImage = styled.img`
-  height: 100%;
-  width: 100%;
-`;
+
 function SmallBubble({ onClick, ...props }) {
   return (
     <BubbleButton {...props} onClick={onClick}>
-      <BubbleImage src={props.bubbleImage} alt="bubbleImage" />
+      <BubbleIcon {...props}/>
       <BubbleText {...props}></BubbleText>
     </BubbleButton>
   );

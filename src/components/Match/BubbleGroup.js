@@ -23,23 +23,32 @@ const FloatingBubbles = styled.div`
 /*   background-color: black;
   opacity: 50%; */
 `;
-function SendMessage(elementName){
-  var data = { element: elementName, pressed: false };
-  console.log("sending msg: ",data);
-  window.airconsole.message(window.airconsole.SCREEN, data);
+function SendMessage(elementName, priceVal){
+  if(priceVal > 0){
+    var data = { element: elementName, pressed: false };
+    console.log("sending msg: ",data);
+    window.airconsole.message(window.airconsole.SCREEN, data);
+  }
+}
+function ShowPriceVal(inputValue){
+  if(inputValue > 0){
+    return Math.round( inputValue * 10) / 10;
+  } else {
+    return "";
+  }
 }
 function BubbleGroup() {
 const [{ match, menu }] = useStateValue();
 return (
     <div>
       <BubblesInLine>
-        <BigBubble bckgColor={menu.playerColor} onClick={() => SendMessage("upgrade1")}>{Math.round( match.priceUpgrade1 * 10) / 10 }</BigBubble>
-        <BigBubble bckgColor={menu.playerColor} onClick={() => SendMessage("upgrade2")}>{Math.round( match.priceUpgrade2 * 10) / 10 }</BigBubble>
+        <BigBubble bubbleImage={grassButton} bckgColor={menu.playerColor} onClick={() => SendMessage("upgrade1", match.upgradeA_price)}>{() => ShowPriceVal(match.upgradeA_price)}</BigBubble>
+        <BigBubble bubbleImage={grassButton} bckgColor={menu.playerColor} onClick={() => SendMessage("upgrade2", match.upgradeB_price)}>{() => ShowPriceVal(match.upgradeB_price)}</BigBubble>
       </BubblesInLine>
         <FloatingBubbles>
-          <SmallBubble bubbleImage={grassButton} top={2} onClick={() => SendMessage("buyGrass")}>{Math.round( match.priceGrass * 10) / 10 }</SmallBubble>
-          <SmallBubble bubbleImage={sheepButton} top="0" onClick={() => SendMessage("buySheep")} bckgColor={menu.playerColor}>{Math.round( match.priceSheep * 10) / 10 }</SmallBubble>
-          <SmallBubble bubbleImage={smiteButton} top="2" onClick={() => SendMessage("smash")}>{Math.round( match.priceSmash * 10) / 10 }</SmallBubble>
+          <SmallBubble bubbleImage={grassButton} top={2} onClick={() => SendMessage("buyGrass", match.priceGrass)}>{Math.round( match.priceGrass * 10) / 10 }</SmallBubble>
+          <SmallBubble bubbleImage={sheepButton} top="0" onClick={() => SendMessage("buySheep", match.priceSheep)} bckgColor={menu.playerColor}>{Math.round( match.priceSheep * 10) / 10 }</SmallBubble>
+          <SmallBubble bubbleImage={smiteButton} top="2" onClick={() => SendMessage("smash",  match.priceSmash)}>{Math.round( match.priceSmash * 10) / 10 }</SmallBubble>
         </FloatingBubbles>
     </div>
   );

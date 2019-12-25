@@ -17,7 +17,7 @@ function MessageHandler({ children }) {
             console.log("MessageHandler", from, data);
           dispatch(data);
         }
-      if(data["type"] == "changeView")
+      if(data["type"] === "changeView")
         SendViewMessage(data["value"]);
       }
     };

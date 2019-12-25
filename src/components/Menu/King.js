@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import crownImg from "../../images/menu/crowns/icon_crown.png";
+//import crownImg from "../../images/menu/crowns/icon_crown.png";
 /* import { useStateValue } from '../../store/StateContext'; */
 
 const KingImage = styled.img`

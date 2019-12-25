@@ -14,7 +14,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "unity-build": "react-scripts build && ./unity-build.sh"
+    "unity-build": "react-scripts build && .\\unity-build.sh",
+    "unity": ".\\unity-build.sh"
   },
   "eslintConfig": {
     "extends": "react-app"

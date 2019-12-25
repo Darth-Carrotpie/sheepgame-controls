@@ -22,6 +22,14 @@ export default (state, action) => {
             sheepTypeInput: action.upgrade.sheepTypeInput,
             sheepTypeOutput: action.upgrade.sheepTypeOutput
         }
+        case 'upgradeButtons':
+        return {
+            upgradeA_icon: action.upgradeA_icon,
+            upgradeB_icon: action.upgradeB_icon,
+
+            upgradeA_price: action.upgradeA_price,
+            upgradeB_price: action.upgradeB_price
+        }
         default:
             return state;
     }

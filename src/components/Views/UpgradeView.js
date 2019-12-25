@@ -34,7 +34,7 @@ return (
       onClick={() => OnClickBack()}
       />
       <BubblesInLine>
-        <BigBubble bckgColor={menu.playerColor} onClick={() => OnClickBuyUpgrade("upgrade1")}>{Math.round( match.priceUpgrade * 10) / 10 }</BigBubble>
+        <BigBubble bckgColor={menu.playerColor} onClick={() => OnClickBuyUpgrade("upgrade")}>{Math.round( match.priceUpgrade * 10) / 10 }</BigBubble>
         <BigBubble bckgColor={menu.playerColor} onClick={() => OnClickBack()}>{"X"}</BigBubble>
       </BubblesInLine>
     </div>

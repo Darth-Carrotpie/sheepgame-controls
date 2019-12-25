@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import BubbleText from './BubbleText';
+import BubbleIcon from './BubbleIcon';
 
 const BubbleButton = styled.button`
   height: 15vh;
@@ -25,6 +26,7 @@ const BubbleButton = styled.button`
 function BigBubble({ onClick, ...props }) {
   return (
     <BubbleButton {...props} onClick={onClick}>
+      <BubbleIcon {...props}/>
       <BubbleText {...props}></BubbleText>
     </BubbleButton>
   );

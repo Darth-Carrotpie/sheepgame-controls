@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import menu_view from "../../images/menu_view.jpg";
+//import menu_view from "../../images/menu_view.jpg";
 import { useStateValue } from "../../store/StateContext";
 import { ReadyCloud } from "../../components/Menu/Cloud";
 import KingScreen from "../../components/Menu/King";
