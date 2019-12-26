@@ -20,10 +20,11 @@ const MenuWrapper = styled(FlexColumn)`
   align-items: center;
   justify-content: space-between;
   background: url(${backgroundImg});
-  background-color: ${props => props.playerColor ? props.playerColor : "#42e7de"};
+  background-color: ${props =>
+    props.playerColor ? props.playerColor : "#42e7de"};
   background-repeat: no-repeat;
   background-size: cover;
-/*   opacity: 50%; */
+  /*   opacity: 50%; */
 `;
 /* const FrontGround = styled(FlexColumn)`
   height: 100vh;
@@ -35,7 +36,7 @@ function MenuView() {
   const [{ menu, match }] = useStateValue();
   return (
     <div>
-{/*       {<img src={menu_view} alt="menu_view"
+      {/*       {<img src={menu_view} alt="menu_view"
         style={{ maxWidth: "100%", maxHeight: "100vh", position: "absolute", opacity: "50%" }}/>}
  */}
       <MenuWrapper {...menu}>
@@ -45,62 +46,84 @@ function MenuView() {
 
         <MenuRow>
           <Margined>
-              <ItemName nameValue={menu.playerName} fontSize={24} height={7} playerColor={menu.playerColor ? menu.playerColor:"black"}></ItemName>
+            <ItemName
+              nameValue={menu.playerName}
+              fontSize={24}
+              height={7}
+              playerColor={menu.playerColor ? menu.playerColor : "black"}
+            ></ItemName>
           </Margined>
         </MenuRow>
 
         <MenuRow>
-              <Typography icon={crownIcon} textColor={"white"}>{match.crowns}</Typography>
+          <Typography icon={crownIcon} textColor={"white"}>
+            {match.crowns}
+          </Typography>
         </MenuRow>
 
         <MenuRow>
-            <FlexColumn>
-              <MenuRow>
-                <ArrowButton
-                  elementMessage={"changeHat"}
-                  valueMessage={-1}
-                  left
-                ></ArrowButton>
-                <ItemName nameValue={menu.hat} fontSize={24} height={5}></ItemName>
-                <ArrowButton
-                  elementMessage={"changeHat"}
-                  valueMessage={1}
-                ></ArrowButton>
-              </MenuRow>
+          <FlexColumn>
+            <MenuRow>
+              <ArrowButton
+                elementMessage={"changeHat"}
+                valueMessage={-1}
+                left
+              ></ArrowButton>
+              <ItemName
+                nameValue={menu.hat}
+                fontSize={24}
+                height={5}
+              ></ItemName>
+              <ArrowButton
+                elementMessage={"changeHat"}
+                valueMessage={1}
+              ></ArrowButton>
+            </MenuRow>
 
-              <MenuRow>
-                <ItemName nameValue={"unlocked at xxx crowns"} fontSize={12} height={3}></ItemName>
-              </MenuRow>
+            <MenuRow>
+              <ItemName
+                nameValue={"unlocked at xxx crowns"}
+                fontSize={12}
+                height={3}
+              ></ItemName>
+            </MenuRow>
 
-              <MenuRow>
-                <EmptyRow rowHeight={2}></EmptyRow>
-              </MenuRow>
+            <MenuRow>
+              <EmptyRow rowHeight={2}></EmptyRow>
+            </MenuRow>
 
-              <MenuRow>
-                <ArrowButton
-                  elementMessage={"changeScepter"}
-                  valueMessage={-1}
-                  left
-                ></ArrowButton>
-                <ItemName nameValue={menu.scepter} fontSize={24} height={5}></ItemName>
-                <ArrowButton
-                  elementMessage={"changeScepter"}
-                  valueMessage={1}
-                ></ArrowButton>
-              </MenuRow>
-              <MenuRow>
-                <ItemName nameValue={"unlocked at xxx crowns"} fontSize={12} height={3}></ItemName>
-              </MenuRow>
-              
-              <MenuRow>
-                <EmptyRow rowHeight={3}></EmptyRow>
-              </MenuRow>
+            <MenuRow>
+              <ArrowButton
+                elementMessage={"changeScepter"}
+                valueMessage={-1}
+                left
+              ></ArrowButton>
+              <ItemName
+                nameValue={menu.scepter}
+                fontSize={24}
+                height={5}
+              ></ItemName>
+              <ArrowButton
+                elementMessage={"changeScepter"}
+                valueMessage={1}
+              ></ArrowButton>
+            </MenuRow>
+            <MenuRow>
+              <ItemName
+                nameValue={"unlocked at xxx crowns"}
+                fontSize={12}
+                height={3}
+              ></ItemName>
+            </MenuRow>
 
-              <MenuRow>
-                <ReadyCloud></ReadyCloud>
-              </MenuRow>
+            <MenuRow>
+              <EmptyRow rowHeight={3}></EmptyRow>
+            </MenuRow>
 
-            </FlexColumn>
+            <MenuRow>
+              <ReadyCloud></ReadyCloud>
+            </MenuRow>
+          </FlexColumn>
         </MenuRow>
       </MenuWrapper>
     </div>
