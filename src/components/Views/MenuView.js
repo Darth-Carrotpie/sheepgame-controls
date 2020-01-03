@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+//import styled from "styled-components";
 
 //import menu_view from "../../images/menu_view.jpg";
 import { useStateValue } from "../../store/StateContext";
@@ -11,27 +11,11 @@ import ItemName from "../../components/Menu/ItemName";
 import EmptyRow from "../Layout/EmptyRow";
 import FlexColumn from "../Layout/FlexColumn";
 import Margined from "../Layout/Margined";
-import backgroundImg from "../../images/menu/SelectionScreen_prebackground.png";
+import selectionScreenImg from "../../images/menu/SelectionScreen_prebackground.png";
 import crownIcon from "../../images/menu/icon_crown.png";
 import Typography from "../../components/Match/Typography";
+import PreBackground from "../../components/PreBackground";
 
-const MenuWrapper = styled(FlexColumn)`
-  height: 100vh;
-  align-items: center;
-  justify-content: space-between;
-  background: url(${backgroundImg});
-  background-color: ${props =>
-    props.playerColor ? props.playerColor : "#42e7de"};
-  background-repeat: no-repeat;
-  background-size: cover;
-  /*   opacity: 50%; */
-`;
-/* const FrontGround = styled(FlexColumn)`
-  height: 100vh;
-  align-items: center;
-  justify-content: space-between;
-  background: ${MenuFrontGround};
-`; */
 function MenuView() {
   const [{ menu, match }] = useStateValue();
   return (
@@ -39,7 +23,7 @@ function MenuView() {
       {/*       {<img src={menu_view} alt="menu_view"
         style={{ maxWidth: "100%", maxHeight: "100vh", position: "absolute", opacity: "50%" }}/>}
  */}
-      <MenuWrapper {...menu}>
+      <PreBackground {...menu} preBckgImage={selectionScreenImg}>
         <MenuRow>
           <KingScreen></KingScreen>
         </MenuRow>
@@ -125,7 +109,7 @@ function MenuView() {
             </MenuRow>
           </FlexColumn>
         </MenuRow>
-      </MenuWrapper>
+      </PreBackground>
     </div>
   );
 }

@@ -24,26 +24,30 @@ function UpgradeView() {
   const [{ match, menu }] = useStateValue();
   return (
     <div>
-      <h2>{"UpgradeView"}</h2>
-      <h3>{match.upgradeDisplayName}</h3>
-      <h3>{match.upgradeDescription}</h3>
-      <img
-        src={win_view}
-        alt="win_view"
-        style={{ maxWidth: "100%", maxHeight: "100vh", position: "absolute" }}
-        onClick={() => OnClickBack()}
-      />
-      <BubblesInLine>
-        <BigBubble
-          bckgColor={menu.playerColor}
-          onClick={() => OnClickBuyUpgrade("upgrade")}
-        >
-          {Math.round(match.priceUpgrade * 10) / 10}
-        </BigBubble>
-        <BigBubble bckgColor={menu.playerColor} onClick={() => OnClickBack()}>
-          {"X"}
-        </BigBubble>
-      </BubblesInLine>
+      <div>
+        <h2>{"UpgradeView"}</h2>
+        <h3>{match.upgradeDisplayName}</h3>
+        <h3>{match.upgradeDescription}</h3>
+        <img
+          src={win_view}
+          alt="win_view"
+          style={{ maxWidth: "100%", maxHeight: "100vh", position: "absolute" }}
+          onClick={() => OnClickBack()}
+        />
+      </div>
+      <div>
+        <BubblesInLine>
+          <BigBubble
+            bckgColor={menu.playerColor}
+            onClick={() => OnClickBuyUpgrade("upgrade")}
+          >
+            {Math.round(match.priceUpgrade * 10) / 10}
+          </BigBubble>
+          <BigBubble bckgColor={menu.playerColor} onClick={() => OnClickBack()}>
+            {"X"}
+          </BigBubble>
+        </BubblesInLine>
+      </div>
     </div>
   );
 }

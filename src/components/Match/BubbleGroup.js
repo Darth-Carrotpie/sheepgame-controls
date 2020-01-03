@@ -30,13 +30,13 @@ function SendMessage(elementName, priceVal) {
       element: elementName,
       pressed: false
     };
-    console.log("sending msg: ", data);
+    //console.log("sending msg: ", data);
     window.airconsole.message(window.airconsole.SCREEN, data);
   }
 }
 
 function ShowPriceVal(inputValue) {
-  console.log("inputval:" + inputValue);
+  //console.log("inputval:" + inputValue);
   if (inputValue > 0) {
     return Math.round(inputValue * 10) / 10;
   } else {

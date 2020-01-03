@@ -1,5 +1,5 @@
 const views = {
-  current: "menu"
+  current: "post"
 };
 const menu = {
   scepter: 0,
@@ -18,8 +18,13 @@ const match = {
   priceUpgrade1: 8,
   priceUpgrade2: 9
 };
+const post = {
+  selectedScore: 0,
+  win: 1
+};
 export default {
   views,
   menu,
-  match
+  match,
+  post
 };
