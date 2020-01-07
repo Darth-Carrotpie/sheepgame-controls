@@ -1,5 +1,5 @@
 const views = {
-  current: "post"
+  current: "menu"
 };
 const menu = {
   scepter: 0,
