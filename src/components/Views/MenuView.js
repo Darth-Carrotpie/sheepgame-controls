@@ -41,7 +41,7 @@ function MenuView() {
 
         <MenuRow>
           <Typography icon={crownIcon} textColor={"white"}>
-            {match.crowns}
+            {menu.crowns}
           </Typography>
         </MenuRow>
 
@@ -54,7 +54,7 @@ function MenuView() {
                 left
               ></ArrowButton>
               <ItemName
-                nameValue={menu.hat}
+                nameValue={menu.hatName}
                 fontSize={24}
                 height={5}
               ></ItemName>
@@ -66,7 +66,11 @@ function MenuView() {
 
             <MenuRow>
               <ItemName
-                nameValue={"unlocked at xxx crowns"}
+                nameValue={
+                  menu.hatUnlocked
+                    ? "available"
+                    : "unlocked at " + menu.hatCrownsReq + " crowns"
+                }
                 fontSize={12}
                 height={3}
               ></ItemName>
@@ -83,7 +87,7 @@ function MenuView() {
                 left
               ></ArrowButton>
               <ItemName
-                nameValue={menu.scepter}
+                nameValue={menu.scepterName}
                 fontSize={24}
                 height={5}
               ></ItemName>
@@ -94,7 +98,11 @@ function MenuView() {
             </MenuRow>
             <MenuRow>
               <ItemName
-                nameValue={"unlocked at xxx crowns"}
+                nameValue={
+                  menu.scepterUnlocked
+                    ? "available"
+                    : "unlocked at " + menu.scepterCrownsReq + " crowns"
+                }
                 fontSize={12}
                 height={3}
               ></ItemName>
