@@ -16,8 +16,22 @@ import crownIcon from "../../images/menu/icon_crown.png";
 import Typography from "../../components/Match/Typography";
 import PreBackground from "../../components/PreBackground";
 
+var requirementHatProps;
+
 function MenuView() {
   const [{ menu, match }] = useStateValue();
+  requirementHatProps = "";
+  if (menu.hatUnlocked) {
+    requirementHatProps = "available";
+  } else {
+    if (!menu.hatPremiumReqMet) {
+      requirementHatProps = "hero reward! ";
+    }
+    if (!menu.hatCrownsReqMet) {
+      requirementHatProps += "unlocked at " + menu.hatCrownsReq + " crowns";
+    }
+  }
+
   return (
     <div>
       {/*       {<img src={menu_view} alt="menu_view"
@@ -66,11 +80,7 @@ function MenuView() {
 
             <MenuRow>
               <ItemName
-                nameValue={
-                  menu.hatUnlocked
-                    ? "available"
-                    : "unlocked at " + menu.hatCrownsReq + " crowns"
-                }
+                nameValue={requirementHatProps}
                 fontSize={12}
                 height={3}
               ></ItemName>
