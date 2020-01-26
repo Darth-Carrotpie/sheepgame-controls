@@ -1,11 +1,11 @@
 const views = {
-  current: "menu"
+  current: 'post'
 };
 const menu = {
   scepter: 0,
   hat: 0,
   ready: 0,
-  playerColor: "#0f0"
+  playerColor: '#0f0'
 };
 const match = {
   health: 100,
