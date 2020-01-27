@@ -1,8 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import crownYellow from '../../images/post/DV_crown_GAINED_icon.png';
-import crownWhite from '../../images/post/DV_crown_icon.png';
+import crownYellow from "../../images/post/DV_crown_GAINED_icon.png";
+import crownWhite from "../../images/post/DV_crown_icon.png";
+
+import { useStateValue } from "../../store/StateContext";
+import { ACHIEVEMENTS } from "./constants";
 
 const BottomRow = styled.div`
   z-index: 1;
@@ -10,10 +13,13 @@ const BottomRow = styled.div`
   display: flex;
   justify-content: space-between;
   width: 90vw;
+  color: "white";
 `;
 
 const Number = styled.span`
-  font-size: 1.5rem;
+  color: "#FFFFFF";
+  font-size: 1.6rem;
+  font-weight: 1000;
 `;
 
 const Crown = styled.img`
@@ -21,19 +27,32 @@ const Crown = styled.img`
 `;
 
 const Text = styled.span`
-  font-size: 1.3rem;
+  color: "#FFFFFF";
+  font-size: 1.2rem;
+  font-weight: 1000;
 `;
 
 export default () => {
+  const [{ post }] = useStateValue();
+
+  var rewardDelta = "";
+  if (post.selectedScore > 0) {
+    if (post.scores.length > 0) {
+      rewardDelta = post.scores[post.selectedScore].rewardDelta;
+    } else {
+      rewardDelta = ACHIEVEMENTS[post.selectedScore].rewardDelta;
+    }
+  }
+
   return (
     <BottomRow>
       <Number>
-        <Crown src={crownYellow}></Crown> 100
+        <Crown src={crownYellow}></Crown> {post.totalScore}
       </Number>
       <Number>
-        <Crown src={crownWhite}></Crown> 100
+        <Crown src={crownWhite}></Crown> {rewardDelta}
       </Number>
-      <Text>play again</Text>
+      <Text>{post.playAgain ? "waiting..." : "play again"}</Text>
     </BottomRow>
   );
 };

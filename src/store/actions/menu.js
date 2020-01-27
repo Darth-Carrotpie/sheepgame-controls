@@ -1,48 +1,48 @@
-export const setHat = (value) => {
+export const setHat = value => {
   return {
-    type: 'setHat',
+    type: "setHat",
     newHat: value
   };
 };
 export const changeHatNext = () => {
   return {
-    type: 'changeHat',
+    type: "changeHat",
     newHat: 1
   };
 };
 export const changeHatPrevious = () => {
   return {
-    type: 'changeHat',
+    type: "changeHat",
     newHat: -1
   };
 };
-export const setScepter = (value) => {
+export const setScepter = value => {
   return {
-    type: 'setScepter',
+    type: "setScepter",
     newScepter: value
   };
 };
 export const changeScepterNext = () => {
   return {
-    type: 'changeScepter',
+    type: "changeScepter",
     newScepter: 1
   };
 };
 export const changeScepterPrevious = () => {
   return {
-    type: 'changeScepter',
+    type: "changeScepter",
     newScepter: 1
   };
 };
 export const announceReady = () => {
   return {
-    type: 'ready',
+    type: "ready",
     ready: 1
   };
 };
-export const setColor = (value) => {
+export const setColor = value => {
   return {
-    type: 'color',
+    type: "color",
     color: value
   };
 };

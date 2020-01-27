@@ -1,26 +1,26 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 //import menu_view from "../../images/menu_view.jpg";
-import { useStateValue } from '../../store/StateContext';
+import { useStateValue } from "../../store/StateContext";
 //import { ReadyCloud } from "../../components/Menu/Cloud";
-import KingScreen from '../../components/Menu/King';
-import MenuRow from '../../components/Menu/MenuRow';
-import ArrowButton from '../../components/Menu/Arrow';
-import ItemName from '../../components/Menu/ItemName';
-import EmptyRow from '../Layout/EmptyRow';
-import FlexColumn from '../Layout/FlexColumn';
-import FlexRow from '../Layout/FlexRow';
-import Margined from '../Layout/Margined';
-import defeatImg from '../../images/post/deafeat_prebackground.png';
-import victoryImg from '../../images/post/victoryr_background.png';
-import playAgainImg from '../../images/post/V_PlayAgain_button.png';
-import crownIcon from '../../images/menu/icon_crown.png';
-import Typography from '../../components/Match/Typography';
-import PreBackground from '../../components/PreBackground';
-import PlayAgainButton from '../Post/PlayAgainButton';
-import BottomRow from '../Post/BottomRow';
-import TalentSelection from '../Post/Achievements';
+import KingScreen from "../../components/Menu/King";
+import MenuRow from "../../components/Menu/MenuRow";
+import ArrowButton from "../../components/Menu/Arrow";
+import ItemName from "../../components/Menu/ItemName";
+import EmptyRow from "../Layout/EmptyRow";
+import FlexColumn from "../Layout/FlexColumn";
+import FlexRow from "../Layout/FlexRow";
+import Margined from "../Layout/Margined";
+import defeatImg from "../../images/post/deafeat_prebackground.png";
+import victoryImg from "../../images/post/victoryr_background.png";
+import playAgainImg from "../../images/post/V_PlayAgain_button.png";
+import crownIcon from "../../images/menu/icon_crown.png";
+import Typography from "../../components/Match/Typography";
+import PreBackground from "../../components/PreBackground";
+import PlayAgainButton from "../Post/PlayAgainButton";
+import BottomRow from "../Post/BottomRow";
+import TalentSelection from "../Post/Achievements";
 
 const FreeSpaceInsert = styled.div`
   height: 5vh;
@@ -51,7 +51,7 @@ function MenuView() {
         style={{ maxWidth: "100%", maxHeight: "100vh", position: "absolute", opacity: "50%" }}/>}
  */}
       <PreBackground {...menu} preBckgImage={victoryImg}>
-        <FreeSpaceInsert>abc insert</FreeSpaceInsert>{' '}
+        <FreeSpaceInsert>abc insert</FreeSpaceInsert>{" "}
         {
           //push elements down to start listing below center
         }
@@ -60,16 +60,16 @@ function MenuView() {
         <FlexRow justifyContent="center">
           <FlexColumn>
             <ItemName
-              nameValue="victory"
-              fontSize={45}
+              nameValue={post.win ? "victory" : "defeat"}
+              fontSize={55}
               height={7}
-              playerColor={menu.playerColor ? menu.playerColor : 'black'}
+              playerColor={post.win ? "#f7931e" : "black"}
             ></ItemName>
             <ItemName
               nameValue={menu.playerName}
               fontSize={24}
               height={7}
-              playerColor={menu.playerColor ? menu.playerColor : 'black'}
+              playerColor={post.win ? "#f7931e" : "black"}
             ></ItemName>
           </FlexColumn>
         </FlexRow>

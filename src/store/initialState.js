@@ -1,11 +1,11 @@
 const views = {
-  current: 'post'
+  current: "menu"
 };
 const menu = {
   scepter: 0,
   hat: 0,
   ready: 0,
-  playerColor: '#0f0'
+  playerColor: "#0f0"
 };
 const match = {
   health: 100,
@@ -19,8 +19,11 @@ const match = {
   priceUpgrade2: 9
 };
 const post = {
-  selectedScore: 0,
-  win: 1
+  totalScore: 909,
+  selectedScore: 2,
+  scores: 0,
+  win: 1,
+  playAgain: 0
 };
 export default {
   views,

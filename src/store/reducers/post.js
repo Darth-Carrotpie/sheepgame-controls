@@ -12,6 +12,11 @@ export default (state, action) => {
         ...state,
         selectedScore: action.value
       };
+    case "playAgain":
+      return {
+        ...state,
+        playAgain: action.value
+      };
     default:
       return state;
   }
