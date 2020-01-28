@@ -44,7 +44,12 @@ const NamePosition = styled.div`
 `;
 
 function MenuView() {
-  const [{ post, menu }] = useStateValue();
+  const [{ menu }] = useStateValue();
+  const [
+    {
+      post: { win }
+    }
+  ] = useStateValue();
   return (
     <div>
       {/*       {<img src={menu_view} alt="menu_view"
@@ -60,16 +65,16 @@ function MenuView() {
         <FlexRow justifyContent="center">
           <FlexColumn>
             <ItemName
-              nameValue={post.win ? "victory" : "defeat"}
+              nameValue={win ? "victory" : "defeat"}
               fontSize={55}
               height={7}
-              playerColor={post.win ? "#f7931e" : "black"}
+              playerColor={win ? "#f7931e" : "black"}
             ></ItemName>
             <ItemName
               nameValue={menu.playerName}
               fontSize={24}
               height={7}
-              playerColor={post.win ? "#f7931e" : "black"}
+              playerColor={win ? "#f7931e" : "black"}
             ></ItemName>
           </FlexColumn>
         </FlexRow>

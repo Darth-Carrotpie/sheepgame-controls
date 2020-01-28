@@ -13,12 +13,18 @@ import { selectScoreInfo } from "../../store/actions";
 
 const Icon = styled.img`
   height: 35px;
-  border: ${({ selected }) => selected && "3px solid"};
-  border-color: ${({ win }) => (win ? "#f7931e" : "black")};
+  width: 35px;
+  border: 3px solid;
+  border-color: ${({ win, selected }) => borderColorChooser(win, selected)};
   border-radius: 100%;
   box-sizing: border-box;
+  box-shadow: none;
 `;
-
+const borderColorChooser = (win, selected) => {
+  if (win && selected) return "#f7931e";
+  else if (selected && !win) return "black";
+  else return "#00000000";
+};
 const Title = styled.div`
   @font-face {
     font-family: NerisBlack;
@@ -66,7 +72,7 @@ export default () => {
     <FlexColumn>
       <Title>{title}</Title>
       <FlexRow justifyContent="space-between">
-        {ACHIEVEMENTS.map((talent, index) => {
+        {ACHIEVEMENTS.slice(1).map((talent, index) => {
           return (
             <Icon
               key={achievementIcons[talent.icon]}
