@@ -1,69 +1,79 @@
 export const ACHIEVEMENTS = [
   {
+    scoreType: "",
     icon: "",
-    title: "",
-    rewardDelta: 0,
+    scoreName: "",
+    reward: 0,
     description: "Tap an icon to view details..."
   },
   {
+    scoreType: "scoreType",
     icon: "icon1",
-    title: "title",
-    rewardDelta: 11,
+    scoreName: "scoreName",
+    reward: 11,
     description:
       "Text box fills up when selected with achievement goal text. It has the reward number written in it. The yellow number appears showing how much score selected achievement rewarded this match."
   },
   {
+    scoreType: "scoreType",
     icon: "icon2",
-    title: "title",
-    rewardDelta: 22,
+    scoreName: "scoreName",
+    reward: 22,
     description:
       "Text box fills up when selected with achievement goal text. It has the reward number written in it. The yellow number appears showing how much score selected achievement rewarded this match."
   },
   {
+    scoreType: "military",
     icon: "icon3",
-    title: "Staff",
-    rewardDelta: 33,
+    scoreName: "Staff",
+    reward: 33,
     description: "Staff description."
   },
   {
+    scoreType: "scoreType",
     icon: "icon4",
-    title: "title",
-    rewardDelta: 44,
+    scoreName: "scoreName",
+    reward: 44,
     description:
       "Text box fills up when selected with achievement goal text. It has the reward number written in it. The yellow number appears showing how much score selected achievement rewarded this match."
   },
   {
+    scoreType: "scoreType",
     icon: "icon5",
-    title: "title",
-    rewardDelta: 55,
+    scoreName: "scoreName",
+    reward: 55,
     description:
       "Text box fills up when selected with achievement goal text. It has the reward number written in it. The yellow number appears showing how much score selected achievement rewarded this match."
   },
   {
+    scoreType: "scoreType",
     icon: "icon6",
-    title: "title",
-    rewardDelta: 66,
+    scoreName: "scoreName",
+    reward: 66,
     description:
       "Text box fills up when selected with achievement goal text. It has the reward number written in it. The yellow number appears showing how much score selected achievement rewarded this match."
   },
   {
+    scoreType: "scoreType",
     icon: "icon7",
-    title: "title",
-    rewardDelta: 77,
+    scoreName: "scoreName",
+    reward: 77,
     description:
       "Text box fills up when selected with achievement goal text. It has the reward number written in it. The yellow number appears showing how much score selected achievement rewarded this match."
   },
   {
+    scoreType: "scoreType",
     icon: "icon8",
-    title: "title",
-    rewardDelta: 88,
+    scoreName: "scoreName",
+    reward: 88,
     description:
       "Text box fills up when selected with achievement goal text. It has the reward number written in it. The yellow number appears showing how much score selected achievement rewarded this match."
   },
   {
+    scoreType: "scoreType",
     icon: "icon9",
-    title: "title",
-    rewardDelta: 99,
+    scoreName: "scoreName",
+    reward: 99,
     description:
       "Text box fills up when selected with achievement goal text. It has the reward number written in it. The yellow number appears showing how much score selected achievement rewarded this match."
   }

@@ -52,40 +52,50 @@ const Description = styled.div`
   text-align: center;
 `;
 //when clicked, this has to be updated, if same clicked - reset to 0:
-//var activeIconIndex = 0;
-/* function OnClickIcon(activeIconIndex) {
-  const [{ post }, dispatch] = useStateValue();
-  if (post.selectedScore == activeIconIndex) {
-    return dispatch(selectScoreInfo(0));
+function OnClickIcon(activeIconIndex, selectedScore) {
+  if (selectedScore == activeIconIndex) {
+    //setScoreName(ACHIEVEMENTS[0].scoreName);
+    //setDescription(ACHIEVEMENTS[0].description);
+    return 0;
   } else {
-    return dispatch(selectScoreInfo(activeIconIndex));
+    return activeIconIndex;
   }
-} */
-
+}
 export default () => {
   const [selectedIcon, setSelectedIcon] = useState();
-  const [title, setTitle] = useState("");
+  const [scoreName, setScoreName] = useState("");
   const [description, setDescription] = useState("");
+  const [, dispatch] = useStateValue();
   const [{ post }] = useStateValue();
+  const emptyItem = ACHIEVEMENTS[0];
+  var scoreList = [];
+  if (post.scores.length > 0) {
+    scoreList = [emptyItem, post.scores.slice(0)];
+  } else {
+    scoreList = ACHIEVEMENTS.slice(0);
+  }
 
   return (
     <FlexColumn>
-      <Title>{title}</Title>
+      <Title>{scoreName}</Title>
       <FlexRow justifyContent="space-between">
-        {ACHIEVEMENTS.slice(1).map((talent, index) => {
+        {scoreList.slice(1).map((item, index) => {
           return (
             <Icon
-              key={achievementIcons[talent.icon]}
-              src={achievementIcons[talent.icon]}
+              key={achievementIcons[item.icon]}
+              src={achievementIcons[item.icon]}
               selected={
-                post.selectedScore > 0 ? selectedIcon === talent.icon : false
+                post.selectedScore > 0 ? selectedIcon === item.icon : false
               }
               win={post.win}
               onClick={() => {
-                setTitle(talent.title);
-                setDescription(talent.description);
-                setSelectedIcon(talent.icon);
-                //OnClickIcon(index + 1);
+                dispatch(
+                  selectScoreInfo(OnClickIcon(index + 1, post.selectedScore))
+                );
+                //for some reason there are late!
+                setScoreName(post.selectedScore.toString()); //post.selectedScore   item.scoreName
+                setDescription(item.description);
+                setSelectedIcon(item.icon);
               }}
             ></Icon>
           );

@@ -7,10 +7,10 @@ export default (state, action) => {
         scores: action.scores,
         totalScore: action.total
       };
-    case "scoreInfoSelected":
+    case "selectedScore":
       return {
         ...state,
-        selectedScore: action.value
+        selectedScore: action.newSelection
       };
     case "playAgain":
       return {
