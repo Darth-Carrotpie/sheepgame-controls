@@ -1,5 +1,5 @@
 const views = {
-  current: "post"
+  current: "menu"
 };
 const menu = {
   scepter: 0,
@@ -20,7 +20,7 @@ const match = {
 };
 const post = {
   totalScore: 909,
-  selectedScore: 2,
+  selectedScore: 0,
   scores: 0,
   win: 1,
   playAgain: 0

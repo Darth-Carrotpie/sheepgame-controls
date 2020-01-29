@@ -64,13 +64,16 @@ function OnClickIcon(activeIconIndex, selectedScore) {
 export default () => {
   const [selectedIcon, setSelectedIcon] = useState();
   const [scoreName, setScoreName] = useState("");
-  const [description, setDescription] = useState("");
+  const [description, setDescription] = useState(
+    "Tap an icon to view details..."
+  );
+  const [indexSelected, setIndexSelected] = useState("");
   const [, dispatch] = useStateValue();
   const [{ post }] = useStateValue();
   const emptyItem = ACHIEVEMENTS[0];
   var scoreList = [];
   if (post.scores.length > 0) {
-    scoreList = [emptyItem, post.scores.slice(0)];
+    scoreList = [emptyItem].concat(post.scores.slice(0)); //[emptyItem, post.scores.slice(0)];
   } else {
     scoreList = ACHIEVEMENTS.slice(0);
   }
@@ -92,10 +95,19 @@ export default () => {
                 dispatch(
                   selectScoreInfo(OnClickIcon(index + 1, post.selectedScore))
                 );
-                //for some reason there are late!
-                setScoreName(post.selectedScore.toString()); //post.selectedScore   item.scoreName
-                setDescription(item.description);
-                setSelectedIcon(item.icon);
+                if (indexSelected != index) {
+                  setIndexSelected(index);
+
+                  setScoreName(item.scoreName); //index
+                  setDescription(item.description);
+                  setSelectedIcon(item.icon);
+                } else {
+                  setIndexSelected(0);
+
+                  setScoreName(scoreList[0].scoreName); //index
+                  setDescription(scoreList[0].description);
+                  setSelectedIcon(scoreList[0].icon);
+                }
               }}
             ></Icon>
           );

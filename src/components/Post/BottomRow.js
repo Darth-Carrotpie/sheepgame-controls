@@ -33,24 +33,26 @@ const Text = styled.span`
 `;
 
 export default () => {
-  const [{ post }] = useStateValue();
+  const [{ match, post }] = useStateValue();
 
-  var rewardDelta = "";
+  var reward = "";
   if (post.selectedScore > 0) {
     if (post.scores.length > 0) {
-      rewardDelta = post.scores[post.selectedScore].rewardDelta;
+      reward = post.scores[post.selectedScore - 1].reward;
     } else {
-      rewardDelta = ACHIEVEMENTS[post.selectedScore].rewardDelta;
+      reward = ACHIEVEMENTS[post.selectedScore].reward;
     }
+  } else {
+    reward = post.totalScore;
   }
 
   return (
     <BottomRow>
       <Number>
-        <Crown src={crownYellow}></Crown> {post.totalScore}
+        <Crown src={crownYellow}></Crown> {match.crowns}
       </Number>
       <Number>
-        <Crown src={crownWhite}></Crown> {rewardDelta}
+        <Crown src={reward ? crownWhite : ""}></Crown> {reward}
       </Number>
       <Text>{post.playAgain ? "waiting..." : "play again"}</Text>
     </BottomRow>
