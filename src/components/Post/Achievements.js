@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import FlexColumn from "../Layout/FlexColumn";
 import FlexRow from "../Layout/FlexRow";
+import { Description } from "./Description";
 
 import * as achievementIcons from "../../images/post/achievement_icons";
 import { ACHIEVEMENTS } from "./constants";
@@ -38,36 +39,22 @@ const Title = styled.div`
   text-align: center;
 `;
 
-const Description = styled.div`
-  @font-face {
-    font-family: NerisBlack;
-    src: url(${NerisBlack});
-  }
-  font-size: 0.8rem;
-  letter-spacing: 1px;
-  font-weight: 900;
-  height: 100px;
-  margin: 20px;
-  color: "white";
-  text-align: center;
-`;
 //when clicked, this has to be updated, if same clicked - reset to 0:
 function OnClickIcon(activeIconIndex, selectedScore) {
   if (selectedScore == activeIconIndex) {
-    //setScoreName(ACHIEVEMENTS[0].scoreName);
-    //setDescription(ACHIEVEMENTS[0].description);
     return 0;
   } else {
     return activeIconIndex;
   }
 }
+
 export default () => {
   const [selectedIcon, setSelectedIcon] = useState();
   const [scoreName, setScoreName] = useState("");
-  const [description, setDescription] = useState(
+  /*   const [description, setDescription] = useState(
     "Tap an icon to view details..."
-  );
-  const [indexSelected, setIndexSelected] = useState("");
+  ); */
+  const [indexSelected, setIndexSelected] = useState(0);
   const [, dispatch] = useStateValue();
   const [{ post }] = useStateValue();
   const emptyItem = ACHIEVEMENTS[0];
@@ -98,14 +85,12 @@ export default () => {
                 if (indexSelected != index) {
                   setIndexSelected(index);
 
-                  setScoreName(item.scoreName); //index
-                  setDescription(item.description);
+                  setScoreName(item.scoreName);
                   setSelectedIcon(item.icon);
                 } else {
                   setIndexSelected(0);
 
-                  setScoreName(scoreList[0].scoreName); //index
-                  setDescription(scoreList[0].description);
+                  setScoreName(scoreList[0].scoreName);
                   setSelectedIcon(scoreList[0].icon);
                 }
               }}
@@ -113,7 +98,7 @@ export default () => {
           );
         })}
       </FlexRow>
-      <Description>{description}</Description>
+      <Description item={scoreList[indexSelected]}></Description>
     </FlexColumn>
   );
 };

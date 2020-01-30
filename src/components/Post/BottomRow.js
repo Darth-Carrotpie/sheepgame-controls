@@ -31,16 +31,20 @@ const Text = styled.span`
   font-size: 1.2rem;
   font-weight: 1000;
 `;
-
+function OnClickPlay() {
+  var data = { element: "playAgain", pressed: true };
+  console.log("data send:", data);
+  window.airconsole.message(window.airconsole.SCREEN, data);
+}
 export default () => {
-  const [{ match, post }] = useStateValue();
+  const [{ menu, post }] = useStateValue();
 
   var reward = "";
   if (post.selectedScore > 0) {
     if (post.scores.length > 0) {
       reward = post.scores[post.selectedScore - 1].reward;
     } else {
-      reward = ACHIEVEMENTS[post.selectedScore].reward;
+      reward = ACHIEVEMENTS[post.selectedScore].total;
     }
   } else {
     reward = post.totalScore;
@@ -49,12 +53,14 @@ export default () => {
   return (
     <BottomRow>
       <Number>
-        <Crown src={crownYellow}></Crown> {match.crowns}
+        <Crown src={crownYellow}></Crown> {menu.crowns}
       </Number>
       <Number>
         <Crown src={reward ? crownWhite : ""}></Crown> {reward}
       </Number>
-      <Text>{post.playAgain ? "waiting..." : "play again"}</Text>
+      <Text onClick={OnClickPlay}>
+        {post.playAgain ? "waiting..." : "play again"}
+      </Text>
     </BottomRow>
   );
 };
