@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Text, useState } from "react";
 import styled from "styled-components";
 import NerisBlack from "../../fonts/NerisBlack.otf";
 
@@ -12,13 +12,12 @@ const DescriptionStyle = styled.div`
   font-weight: 900;
   height: 100px;
   margin: 20px;
-  color: "white";
   text-align: center;
 `;
-var stringListItem = {
-  content: "",
-  color: ""
-};
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: flex-start;
+`;
 function ColorizeText(item) {
   var outputList = [];
   var stringList = item.description.split(/(\[X\]|\[Y\]|\[S\])/g);
@@ -64,13 +63,17 @@ function ColorizeText(item) {
 
 export function Description(props) {
   return (
-    <DescriptionStyle>
+    <Wrapper>
       {ColorizeText(props.item)
         .slice(1)
         .map(item => {
-          return <p style={{ color: item.color }}>{item.content}</p>;
+          return (
+            <DescriptionStyle style={{ color: item.color }}>
+              {item.content}
+            </DescriptionStyle>
+          );
         })}
-    </DescriptionStyle>
+    </Wrapper>
   );
 }
 export default Description;

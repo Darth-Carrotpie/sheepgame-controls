@@ -68,7 +68,7 @@ export default () => {
   return (
     <FlexColumn>
       <Title>{scoreName}</Title>
-      <FlexRow justifyContent="space-between">
+      <FlexRow justifyContent="center">
         {scoreList.slice(1).map((item, index) => {
           return (
             <Icon
