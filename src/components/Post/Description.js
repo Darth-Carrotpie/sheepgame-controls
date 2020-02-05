@@ -10,8 +10,9 @@ const DescriptionStyle = styled.span`
   font-size: 0.8rem;
   letter-spacing: 1px;
   font-weight: 900;
-  height: 100px;
-  margin: 20px;
+  height: 80px;
+  margin-left: 20px;
+  margin-right: 20px;
   text-align: center;
 `;
 const Wrapper = styled.div`
