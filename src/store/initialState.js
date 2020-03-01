@@ -1,11 +1,12 @@
 const views = {
-  current: "post"
+  current: "upgrade"
 };
 const menu = {
   scepter: 0,
   hat: 0,
   ready: 0,
-  playerColor: "#0f0"
+  playerColor: "#0f0",
+  hatID: 2
 };
 const match = {
   health: 100,

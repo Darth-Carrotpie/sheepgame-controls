@@ -1,6 +1,6 @@
-import React, { Text, useState } from 'react';
-import styled from 'styled-components';
-import NerisBlack from '../../fonts/NerisBlack.otf';
+import React from "react"; //, { Text, useState }
+import styled from "styled-components";
+import NerisBlack from "../../fonts/NerisBlack.otf";
 
 const DescriptionStyle = styled.span`
   @font-face {
@@ -24,37 +24,37 @@ function ColorizeText(item) {
   var stringList = item.description.split(/(\[X\]|\[Y\]|\[S\])/g);
   var i;
   for (i = 0; i < stringList.length; i++) {
-    var colr = '';
-    if (['[X]', '[Y]'].includes(stringList[i])) {
-      colr = '#f7931e';
+    var colr = "";
+    if (["[X]", "[Y]"].includes(stringList[i])) {
+      colr = "#f7931e";
     } else {
-      colr = 'white';
+      colr = "white";
     }
     outputList.push({ content: stringList[i], color: colr });
   }
   var pluralX = false;
   var pluralY = false;
   for (i = 0; i < outputList.length; i++) {
-    if ('[X]' == outputList[i].content) {
+    if ("[X]" === outputList[i].content) {
       outputList[i].content = item.reward;
       if (item.reward > 1) pluralX = true;
       else pluralX = false;
       pluralY = false;
     }
-    if ('[Y]' == outputList[i].content) {
+    if ("[Y]" === outputList[i].content) {
       outputList[i].content = item.rewardDelta;
       pluralX = false;
       if (item.rewardDelta > 1) pluralY = true;
       else pluralY = false;
-      if (item.rewardDelta == 0) outputList[i].content = item.wordDelta;
+      if (item.rewardDelta === 0) outputList[i].content = item.wordDelta;
     }
-    if ('[S]' == outputList[i].content) {
+    if ("[S]" === outputList[i].content) {
       outputList[i].content = item.rewardDelta;
-      if (pluralY || pluralX) outputList[i].content = 's';
-      else outputList[i].content = '';
+      if (pluralY || pluralX) outputList[i].content = "s";
+      else outputList[i].content = "";
     }
     if (stringList.length <= 1) {
-      outputList.push({ content: item.description, color: 'white' });
+      outputList.push({ content: item.description, color: "white" });
       return outputList;
     }
   }

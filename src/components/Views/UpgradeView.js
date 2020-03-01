@@ -3,6 +3,8 @@ import win_view from "../../images/win_view.png";
 import { useStateValue } from "../../store/StateContext";
 import BigBubble from "../Match/BigBubble";
 import styled from "styled-components";
+import UpgradeButton from "../Upgrade/UpgradeButton";
+import ItemName from "../../components/Menu/ItemName";
 
 function OnClickBack() {
   var data = { element: "view", value: "back" };
@@ -15,6 +17,12 @@ const BubblesInLine = styled.div`
   /*   background-color: gray;
   opacity: 50%; */
 `;
+const PlayAgainButtonPosition = styled.div`
+  position: absolute;
+  bottom: -3px;
+  right: 0;
+`;
+
 function OnClickBuyUpgrade(elementName) {
   var data = { element: elementName, pressed: true };
   console.log("sending msg: ", data);
@@ -47,6 +55,16 @@ function UpgradeView() {
             {"X"}
           </BigBubble>
         </BubblesInLine>
+        <PlayAgainButtonPosition>
+          <UpgradeButton bckgColor={menu.playerColor}>
+            <ItemName
+              nameValue={"Upgrade"}
+              fontSize={55}
+              height={7}
+              playerColor={"#ffffff"}
+            ></ItemName>
+          </UpgradeButton>
+        </PlayAgainButtonPosition>
       </div>
     </div>
   );

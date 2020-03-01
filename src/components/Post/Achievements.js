@@ -41,7 +41,7 @@ const Title = styled.div`
 
 //when clicked, this has to be updated, if same clicked - reset to 0:
 function OnClickIcon(activeIconIndex, selectedScore) {
-  if (selectedScore == activeIconIndex) {
+  if (selectedScore === activeIconIndex) {
     return 0;
   } else {
     return activeIconIndex;
@@ -82,7 +82,7 @@ export default () => {
                 dispatch(
                   selectScoreInfo(OnClickIcon(index + 1, post.selectedScore))
                 );
-                if (indexSelected != index) {
+                if (indexSelected !== index) {
                   setIndexSelected(index);
 
                   setScoreName(item.scoreName);

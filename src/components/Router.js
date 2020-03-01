@@ -3,7 +3,6 @@ import MenuView from "./Views/MenuView";
 import MatchView from "./Views/MatchView";
 import UpgradeView from "./Views/UpgradeView";
 import PostView from "./Views/PostView";
-import DetailsView from "./Views/DetailsView";
 import { useStateValue } from "../store/StateContext";
 
 function Router() {

@@ -1,7 +1,4 @@
 import React from "react";
-//import styled from "styled-components";
-
-//import menu_view from "../../images/menu_view.jpg";
 import { useStateValue } from "../../store/StateContext";
 import { ReadyCloud } from "../../components/Menu/Cloud";
 import KingScreen from "../../components/Menu/King";
@@ -19,7 +16,7 @@ import PreBackground from "../../components/PreBackground";
 var requirementHatProps;
 
 function MenuView() {
-  const [{ menu, match }] = useStateValue();
+  const [{ menu }] = useStateValue();
   requirementHatProps = "";
   if (menu.hatUnlocked) {
     requirementHatProps = "available";
@@ -34,12 +31,9 @@ function MenuView() {
 
   return (
     <div>
-      {/*       {<img src={menu_view} alt="menu_view"
-        style={{ maxWidth: "100%", maxHeight: "100vh", position: "absolute", opacity: "50%" }}/>}
- */}
       <PreBackground {...menu} preBckgImage={selectionScreenImg}>
         <MenuRow>
-          <KingScreen></KingScreen>
+          <KingScreen {...menu}></KingScreen>
         </MenuRow>
 
         <MenuRow>
