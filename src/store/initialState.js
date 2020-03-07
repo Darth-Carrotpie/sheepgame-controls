@@ -1,11 +1,11 @@
 const views = {
-  current: "upgrade"
+  current: 'menu'
 };
 const menu = {
-  scepter: 0,
-  hat: 0,
+  scepter: 2,
+  hat: 5,
   ready: 0,
-  playerColor: "#0f0",
+  playerColor: '#0f0',
   hatID: 2
 };
 const match = {
