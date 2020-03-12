@@ -18,7 +18,8 @@ const Text = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
+  text-align: center;
+  line-height: 85%;
   /*   background-color:orange;
   opacity: 50%; */
 `;

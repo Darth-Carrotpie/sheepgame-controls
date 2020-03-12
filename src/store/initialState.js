@@ -1,12 +1,27 @@
 const views = {
-  current: 'menu'
+  current: "menu"
 };
 const menu = {
-  scepter: 2,
-  hat: 5,
   ready: 0,
-  playerColor: '#0f0',
-  hatID: 2
+  playerColor: "#0f0",
+
+  hatID: 1,
+  hatName: "Princess Sweety Pop",
+  hatUnlocked: false,
+  hatCrownsReq: 555,
+  hatCrownsReqMet: false,
+  hatPremiumReq: true,
+  hatPremiumReqMet: true,
+  hatSpriteName: "CROWNS_45",
+
+  scepterID: 1,
+  scepterName: "Shimmers of Darkness",
+  scepterUnlocked: true,
+  scepterCrownsReq: 111,
+  scepterCrownsReqMet: true,
+  scepterPremiumReq: true,
+  scepterPremiumReqMet: true,
+  scepterSpriteName: "STAFFS_07"
 };
 const match = {
   health: 100,

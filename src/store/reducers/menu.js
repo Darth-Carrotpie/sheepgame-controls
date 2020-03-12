@@ -12,6 +12,7 @@ export default (state, action) => {
         hatCrownsReqMet: action.newHat.crowns.requirementMet,
         hatPremiumReq: action.newHat.premium.required,
         hatPremiumReqMet: action.newHat.premium.requirementMet,
+        hatSpriteName: action.newHat.spriteName,
 
         scepterID: action.newScepter.ID,
         scepterName: action.newScepter.itemName,
@@ -19,7 +20,8 @@ export default (state, action) => {
         scepterCrownsReq: action.newScepter.crowns.required,
         scepterCrownsReqMet: action.newScepter.crowns.requirementMet,
         scepterPremiumReq: action.newScepter.premium.required,
-        scepterPremiumReqMet: action.newScepter.premium.requirementMet
+        scepterPremiumReqMet: action.newScepter.premium.requirementMet,
+        scepterSpriteName: action.newScepter.spriteName
       };
 
     case "ready":
