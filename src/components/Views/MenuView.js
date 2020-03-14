@@ -34,7 +34,7 @@ function MenuView() {
   return (
     <div>
       <PreBackground {...menu} preBckgImage={selectionScreenImg}>
-        <King></King>
+        <King showLocks={true}></King>
         <MenuRow>
           <Margined>
             <ItemName

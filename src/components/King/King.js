@@ -54,26 +54,30 @@ function GetLockImage(unlocked, reqHero, isHero) {
   }
   return;
 }
-const King = () => {
+const King = props => {
   const [{ menu }] = useStateValue();
   return (
     <Position>
       <CrownImg src={kingItems[menu.hatSpriteName]}></CrownImg>
-      <CrownLock
-        src={GetLockImage(
-          menu.hatUnlocked,
-          menu.hatPremiumReq,
-          menu.hatPremiumReqMet //`staff${menu.scepterID}`
-        )}
-      ></CrownLock>
+      {props.showLocks && (
+        <CrownLock
+          src={GetLockImage(
+            menu.hatUnlocked,
+            menu.hatPremiumReq,
+            menu.hatPremiumReqMet //`staff${menu.scepterID}`
+          )}
+        ></CrownLock>
+      )}
       <StaffImg src={kingItems[menu.scepterSpriteName]}></StaffImg>
-      <StaffLock
-        src={GetLockImage(
-          menu.scepterUnlocked,
-          menu.scepterPremiumReq,
-          menu.scepterPremiumReqMet
-        )}
-      ></StaffLock>
+      {props.showLocks && (
+        <StaffLock
+          src={GetLockImage(
+            menu.scepterUnlocked,
+            menu.scepterPremiumReq,
+            menu.scepterPremiumReqMet
+          )}
+        ></StaffLock>
+      )}
       <KingContainer>
         <KingSheep color={menu.playerColor}></KingSheep>
       </KingContainer>
