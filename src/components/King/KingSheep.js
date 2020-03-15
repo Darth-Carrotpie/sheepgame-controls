@@ -2,10 +2,7 @@ import React from 'react';
 
 const KingSheep = ({ color }) => {
   return (
-    <svg
-      viewBox="0 0 1090.17 1336.47"
-      style={{ opacity: '50%', height: 'inherit' }}
-    >
+    <svg viewBox="0 0 1090.17 1336.47" style={{ height: 'inherit' }}>
       <g id="Layer_2" data-name="Layer 2">
         <g id="Layer_6" data-name="Layer 6">
           <path
