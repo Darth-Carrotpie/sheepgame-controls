@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-/*   background-color:gray;
+  /*   background-color:gray;
   opacity: 50%; */
 `;
 
@@ -16,22 +16,22 @@ const Icon = styled.img`
   margin-bottom: -2vh;
 `;
 
-const Text = styled.span`
+export const Text = styled.span`
   @font-face {
     font-family: NerisBlack;
     src: url(${NerisBlack});
   }
   font-size: 7vh;
-/*   font-weight: 100; */
+  /*   font-weight: 100; */
   font-weight: bold;
   margin-top: 0px;
-  color:${props => props.textColor};
+  color: ${props => props.textColor};
 `;
 
 function Typography(props) {
   return (
     <Wrapper>
-      <Icon src={props.icon} alt="resourceIcon" ></Icon>
+      <Icon src={props.icon} alt="resourceIcon"></Icon>
       <Text {...props}></Text>
     </Wrapper>
   );

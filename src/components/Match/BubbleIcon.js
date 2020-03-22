@@ -7,9 +7,8 @@ const BubbleImage = styled.img`
 `;
 
 function BubbleIcon(props) {
-  return (
-      <BubbleImage src={props.bubbleImage} alt="bubbleImage" />
-  );
+  if (!props.bubbleImage) return null;
+  return <BubbleImage src={props.bubbleImage} alt="bubbleImage" />;
 }
 
 export default BubbleIcon;

@@ -13,21 +13,31 @@ const BubbleButton = styled.button`
   align-items: center;
   justify-content: center;
   margin-top: 0px;
-  margin-left: 2vh;
-  margin-right: 2vh;
   top: 0vh;
   border: none;
   padding: 0;
   &:active {
     filter: brightness(50%);
   }
+  ${props => (props.rightHalf ? 'margin-left: -7.5vh;' : '')}
+  ${props => (props.leftHalf ? 'margin-right: -7.5vh;' : '')}
 `;
 
 function BigBubble({ onClick, ...props }) {
   return (
     <BubbleButton {...props} onClick={onClick}>
-      <BubbleIcon {...props}/>
-      <BubbleText {...props}></BubbleText>
+      <BubbleIcon {...props} />
+      <BubbleText {...props} top></BubbleText>
+    </BubbleButton>
+  );
+}
+
+export function BackBubble({ onClick, ...props }) {
+  return (
+    <BubbleButton {...props} onClick={onClick}>
+      <BubbleText {...props} small>
+        back
+      </BubbleText>
     </BubbleButton>
   );
 }
