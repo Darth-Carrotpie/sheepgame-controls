@@ -2,9 +2,9 @@ import React from "react";
 import BigBubble from "./BigBubble";
 import SmallBubble from "./SmallBubble";
 import styled from "styled-components";
-import grassButton from "../../images/match/grass_icon.png";
-import sheepButton from "../../images/match/BuySheep_icon.png";
-import smiteButton from "../../images/match/icon_smite.png";
+import grassButton from "../../images/match/buy_grass_icon.png";
+import sheepButton from "../../images/match/buy_sheep_icon.png";
+import smiteButton from "../../images/match/smite_icon.png";
 import { useStateValue } from "../../store/StateContext";
 import upgradeIcons from "../../images/upgrade/icons";
 
@@ -47,7 +47,6 @@ function ShowPriceVal(inputValue) {
 
 function BubbleGroup() {
   const [{ match, menu }] = useStateValue();
-  console.log("BubbleGroup:" + upgradeIcons[match.upgradeA_icon]);
   return (
     <div>
       <BubblesInLine>
@@ -71,7 +70,7 @@ function BubbleGroup() {
           bubbleImage={grassButton}
           top={2}
           onClick={() => SendMessage("buyGrass", match.priceGrass)}
-          bckgColor={"green"}
+          bckgColor={"#c2e5ac"}
         >
           {" "}
           {Math.round(match.priceGrass * 10) / 10}{" "}
@@ -89,7 +88,7 @@ function BubbleGroup() {
           bubbleImage={smiteButton}
           top="2"
           onClick={() => SendMessage("smash", match.priceSmash)}
-          bckgColor={"orange"}
+          bckgColor={"#f9b096"}
         >
           {" "}
           {Math.round(match.priceSmash * 10) / 10}{" "}

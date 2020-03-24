@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import NerisBlack from '../../fonts/NerisBlack.otf';
+import React from "react";
+import styled from "styled-components";
+import NerisBlack from "../../fonts/NerisBlack.otf";
 
 const Wrapper = styled.div`
   display: flex;
@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 `;
 
 const Icon = styled.img`
-  height: 3vh;
+  height: 4vh;
   margin-top: 10px;
   margin-bottom: -2vh;
 `;
