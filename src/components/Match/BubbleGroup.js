@@ -6,7 +6,7 @@ import grassButton from "../../images/match/grass_icon.png";
 import sheepButton from "../../images/match/BuySheep_icon.png";
 import smiteButton from "../../images/match/icon_smite.png";
 import { useStateValue } from "../../store/StateContext";
-import * as upgradeIcons from "../../images/upgrade/icons";
+import upgradeIcons from "../../images/upgrade/icons";
 
 const BubblesInLine = styled.div`
   flex: 1;
