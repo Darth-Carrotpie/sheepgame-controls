@@ -1,11 +1,9 @@
-import React from "react";
-import * as sheepImages from "./assets";
-import styled from "styled-components";
-
-const Icon = styled.img``;
+import React from 'react';
+import SheepImages from './assets';
 
 function Sheep(props) {
-  return <Icon src={sheepImages[props.selectedSheep]}></Icon>;
+  const Component = SheepImages[props.selectedSheep];
+  return <Component></Component>;
 }
 
 export default Sheep;
