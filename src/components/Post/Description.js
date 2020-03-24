@@ -7,6 +7,7 @@ const DescriptionStyle = styled.span`
     font-family: NerisBlack;
     src: url(${NerisBlack});
   }
+  font-family: NerisBlack;
   font-size: 0.8rem;
   letter-spacing: 1px;
   font-weight: 900;

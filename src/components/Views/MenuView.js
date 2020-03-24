@@ -21,10 +21,10 @@ function ShowRequirement(unlocked, premiumReqMet, crownsReqMet, crownsReq) {
     requirmentString = "available";
   } else {
     if (!premiumReqMet) {
-      requirmentString = "() hero only! "; //needs to display hero icon here (heroIcon)
+      requirmentString = "(%hero) only! "; //needs to display hero icon here (heroIcon)
     }
     if (!crownsReqMet) {
-      requirmentString += "(crowns) " + crownsReq; //needs to be an actual crown icon here (crownIcon)
+      requirmentString += "(%crowns) " + crownsReq; //needs to be an actual crown icon here (crownIcon)
     }
   }
   return requirmentString;

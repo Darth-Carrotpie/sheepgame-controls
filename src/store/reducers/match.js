@@ -21,7 +21,8 @@ export default (state, action) => {
         priceUpgrade: action.upgrade.priceUpgrade,
 
         sheepTypeInput: action.upgrade.sheepTypeInput,
-        sheepTypeOutput: action.upgrade.sheepTypeOutput
+        sheepTypeOutput: action.upgrade.sheepTypeOutput,
+        selectedUpgradeIcon: action.icon
       };
     case "upgradeButtons":
       return {

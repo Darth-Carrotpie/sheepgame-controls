@@ -1,9 +1,9 @@
 const views = {
-  current: "post"
+  current: "match"
 };
 const menu = {
   ready: 0,
-  playerColor: "#0f0",
+  playerColor: "#0ff",
 
   hatID: 1,
   hatName: "Princess Sweety Pop",
@@ -30,9 +30,16 @@ const match = {
   crowns: 0,
   priceGrass: 5,
   priceSheep: 6,
-  priceCharge: 7,
-  priceUpgrade1: 8,
-  priceUpgrade2: 9
+  priceSmash: 7,
+
+  upgradeDescription: "this upgrade is the best!",
+  upgradeDisplayName: "op sheep",
+  selectedUpgradeIcon: "Armored",
+
+  upgradeA_price: 25,
+  upgradeB_price: 10.5,
+  upgradeA_icon: "Bouncy",
+  upgradeB_icon: "Armored"
 };
 const post = {
   totalScore: 909,
