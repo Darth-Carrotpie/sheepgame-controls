@@ -1,9 +1,9 @@
 import React from 'react';
 import SheepImages from './assets';
 
-function Sheep(props) {
-  const Component = SheepImages[props.selectedSheep];
-  return <Component></Component>;
+function Sheep({ selectedSheep, color }) {
+  const Component = SheepImages[selectedSheep];
+  return <Component color={color}></Component>;
 }
 
 export default Sheep;

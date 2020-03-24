@@ -119,7 +119,10 @@ function UpgradeView() {
           <DescriptionStyle>{match.upgradeDescription}</DescriptionStyle>
         </UpgradeDescriptionText>
         <SheepContainer>
-          <Sheep selectedSheep={match.selectedUpgradeIcon}></Sheep>
+          <Sheep
+            selectedSheep={match.selectedUpgradeIcon}
+            color={menu.playerColor}
+          ></Sheep>
         </SheepContainer>
 
         <UpgradeButtonPosition>
