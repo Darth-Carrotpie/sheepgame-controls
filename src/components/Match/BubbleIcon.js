@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const BubbleImage = styled.img`
   margin-top: 25%;
@@ -9,7 +9,6 @@ const BubbleImage = styled.img`
 
 function BubbleIcon(props) {
   if (!props.bubbleImage) return null;
-  console.log("BubbleIcon:");
   return <BubbleImage src={props.bubbleImage} alt="bubbleImage" />;
 }
 

@@ -8,6 +8,14 @@ import Sheep from '../Upgrade/Sheep';
 import NerisBlack from '../../fonts/NerisBlack.otf';
 import upgradeIcons from '../../images/upgrade/icons';
 
+const WhiteBackground = styled.div`
+  background-color: white;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
+`;
 const DescriptionStyle = styled.span`
   @font-face {
     font-family: NerisBlack;
@@ -55,7 +63,6 @@ function OnClickBuyUpgrade(elementName) {
   window.airconsole.message(window.airconsole.SCREEN, data);
 }
 function ShowPriceVal(inputValue) {
-  //console.log("inputval:" + inputValue);
   if (inputValue > 0) {
     return Math.round(inputValue * 10) / 10;
   } else {
@@ -76,6 +83,7 @@ function UpgradeView() {
   return (
     <div>
       <div>
+        <WhiteBackground></WhiteBackground>
         <BubblesInLine>
           <BackBubble
             bckgColor={menu.playerColor}
