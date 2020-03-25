@@ -7,11 +7,12 @@ import ItemName from "../../components/Menu/ItemName";
 import EmptyRow from "../Layout/EmptyRow";
 import FlexColumn from "../Layout/FlexColumn";
 import Margined from "../Layout/Margined";
-import selectionScreenImg from "../../images/menu/SelectionScreen_prebackground.png";
+import selectionScreenImg from "../../images/menu/SelectionScreen_background.png";
 import crownIcon from "../../images/menu/icon_crown.png";
 import heroIcon from "../../images/menu/LogoHero_256.png";
 
 import Typography from "../../components/Match/Typography";
+import CrownsTypography from "../../components/Menu/CrownsTypography";
 import PreBackground from "../../components/PreBackground";
 import King from "../King";
 
@@ -30,7 +31,7 @@ function ShowRequirement(unlocked, premiumReqMet, crownsReqMet, crownsReq) {
   return requirmentString;
 }
 function MenuView() {
-  const [{ menu }] = useStateValue();
+  const [{ menu, match }] = useStateValue();
   return (
     <div>
       <PreBackground {...menu} preBckgImage={selectionScreenImg}>
@@ -46,9 +47,10 @@ function MenuView() {
           </Margined>
         </MenuRow>
         <MenuRow>
-          <Typography icon={crownIcon} textColor={"white"}>
-            {menu.crowns}
-          </Typography>
+          <CrownsTypography
+            isYellow={false}
+            text={match.crowns}
+          ></CrownsTypography>
         </MenuRow>
         <MenuRow>
           <FlexColumn>

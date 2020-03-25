@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import crownYellow from "../../images/post/DV_crown_GAINED_icon.png";
-import crownWhite from "../../images/post/DV_crown_icon.png";
+import CrownsTypography from "../../components/Menu/CrownsTypography";
 
 import { useStateValue } from "../../store/StateContext";
 import { ACHIEVEMENTS } from "./constants";
@@ -18,16 +17,6 @@ const BottomRow = styled.div`
   color: "white";
 `;
 
-const Number = styled.span`
-  color: "#FFFFFF";
-  font-size: 1.6rem;
-  font-weight: 1000;
-`;
-
-const Crown = styled.img`
-  height: 1rem;
-`;
-
 const Text = styled.span`
   color: "#FFFFFF";
   font-size: 1.2rem;
@@ -39,7 +28,7 @@ function OnClickPlay() {
   window.airconsole.message(window.airconsole.SCREEN, data);
 }
 export default () => {
-  const [{ menu, post }] = useStateValue();
+  const [{ match, post }] = useStateValue();
 
   var reward = "";
   if (post.selectedScore > 0) {
@@ -54,12 +43,8 @@ export default () => {
 
   return (
     <BottomRow>
-      <Number>
-        <Crown src={crownYellow}></Crown> {menu.crowns}
-      </Number>
-      <Number>
-        <Crown src={reward ? crownWhite : ""}></Crown> {reward ? reward : ""}
-      </Number>
+      <CrownsTypography isYellow={true} text={match.crowns}></CrownsTypography>
+      <CrownsTypography isYellow={false} text={reward}></CrownsTypography>
       <Text onClick={OnClickPlay} style={{ marginTop: "5px" }}>
         {post.playAgain ? "waiting..." : "play again"}
       </Text>

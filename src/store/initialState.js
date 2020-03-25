@@ -1,5 +1,5 @@
 const views = {
-  current: "match"
+  current: "menu"
 };
 const menu = {
   ready: 0,
@@ -27,7 +27,7 @@ const match = {
   health: 100,
   money: 20,
   grass: 120,
-  crowns: 0,
+  crowns: 77,
   priceGrass: 5,
   priceSheep: 6,
   priceSmash: 7,
