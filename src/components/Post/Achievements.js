@@ -82,8 +82,8 @@ export default () => {
                 dispatch(
                   selectScoreInfo(OnClickIcon(index + 1, post.selectedScore))
                 );
-                if (indexSelected !== index) {
-                  setIndexSelected(index);
+                if (indexSelected !== index + 1) {
+                  setIndexSelected(index + 1);
 
                   setScoreName(item.scoreName);
                   setSelectedIcon(item.icon);

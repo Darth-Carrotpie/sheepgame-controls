@@ -1,5 +1,5 @@
 const views = {
-  current: "menu"
+  current: "upgrade"
 };
 const menu = {
   ready: 0,
