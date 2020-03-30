@@ -1,12 +1,12 @@
-import React from "react";
-import { useStateValue } from "../../store/StateContext";
-import BigBubble, { BackBubble } from "../Match/BigBubble";
-import styled from "styled-components";
-import UpgradeButton from "../Upgrade/UpgradeButton";
-import ItemName from "../../components/Menu/ItemName";
-import Sheep from "../Upgrade/Sheep";
-import NerisBlack from "../../fonts/NerisBlack.otf";
-import upgradeIcons from "../../images/upgrade/icons";
+import React from 'react';
+import { useStateValue } from '../../store/StateContext';
+import BigBubble, { BackBubble } from '../Match/BigBubble';
+import styled from 'styled-components';
+import UpgradeButton from '../Upgrade/UpgradeButton';
+import ItemName from '../../components/Menu/ItemName';
+import Sheep from '../Upgrade/Sheep';
+import NerisBlack from '../../fonts/NerisBlack.otf';
+import upgradeIcons from '../../images/upgrade/icons';
 
 const WhiteBackground = styled.div`
   background-color: white;
@@ -30,7 +30,7 @@ const DescriptionStyle = styled.span`
   text-align: center;
 `;
 function OnClickBack() {
-  var data = { element: "view", value: "back" };
+  var data = { element: 'view', value: 'back' };
   console.log(data);
   window.airconsole.message(window.airconsole.SCREEN, data);
 }
@@ -68,11 +68,11 @@ function ShowPriceVal(inputValue) {
   if (inputValue > 0) {
     return Math.round(inputValue * 10) / 10;
   } else {
-    return "";
+    return '';
   }
 }
 function SendMessage(elementName, priceVal) {
-  console.log("SendMessage");
+  console.log('SendMessage');
   if (priceVal > 0) {
     var data = {
       element: elementName,
@@ -98,7 +98,7 @@ function UpgradeView() {
             selected={match.upgradeA_icon === match.selectedUpgradeIcon}
             bubbleImage={upgradeIcons[match.upgradeA_icon]}
             bckgColor={menu.playerColor}
-            onClick={() => SendMessage("upgrade1", match.upgradeA_price)}
+            onClick={() => SendMessage('upgrade1', match.upgradeA_price)}
           >
             {ShowPriceVal(match.upgradeA_price)}
           </BigBubble>
@@ -106,7 +106,7 @@ function UpgradeView() {
             selected={match.upgradeB_icon === match.selectedUpgradeIcon}
             bubbleImage={upgradeIcons[match.upgradeB_icon]}
             bckgColor={menu.playerColor}
-            onClick={() => SendMessage("upgrade2", match.upgradeB_price)}
+            onClick={() => SendMessage('upgrade2', match.upgradeB_price)}
           >
             {ShowPriceVal(match.upgradeB_price)}
           </BigBubble>
@@ -132,15 +132,8 @@ function UpgradeView() {
         <UpgradeButtonPosition>
           <UpgradeButton
             bckgColor={menu.playerColor}
-            onClick={() => OnClickBuyUpgrade("upgrade")}
-          >
-            <ItemName
-              nameValue={"Upgrade"}
-              fontSize={55}
-              height={7}
-              playerColor={"#ffffff"}
-            ></ItemName>
-          </UpgradeButton>
+            onClick={() => OnClickBuyUpgrade('upgrade')}
+          ></UpgradeButton>
         </UpgradeButtonPosition>
       </div>
     </div>
