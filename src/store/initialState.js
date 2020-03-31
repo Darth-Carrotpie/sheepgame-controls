@@ -1,5 +1,5 @@
 const views = {
-  current: "upgrade"
+  current: "menu"
 };
 const menu = {
   ready: 0,
@@ -36,10 +36,10 @@ const match = {
   upgradeDisplayName: "op sheep",
   selectedUpgradeIcon: "Armored",
 
-  upgradeA_price: 25,
-  upgradeB_price: 10.5,
-  upgradeA_icon: "Bouncy",
-  upgradeB_icon: "Armored"
+  upgradeA_price: 0,
+  upgradeB_price: 0,
+  upgradeA_icon: "",
+  upgradeB_icon: ""
 };
 const post = {
   totalScore: 909,
