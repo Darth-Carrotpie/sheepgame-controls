@@ -1,5 +1,5 @@
 const views = {
-  current: "menu"
+  current: "menu",
 };
 const menu = {
   ready: 0,
@@ -21,7 +21,7 @@ const menu = {
   scepterCrownsReqMet: true,
   scepterPremiumReq: true,
   scepterPremiumReqMet: true,
-  scepterSpriteName: "STAFFS_07"
+  scepterSpriteName: "STAFFS_07",
 };
 const match = {
   health: 100,
@@ -39,18 +39,18 @@ const match = {
   upgradeA_price: 0,
   upgradeB_price: 0,
   upgradeA_icon: "",
-  upgradeB_icon: ""
+  upgradeB_icon: "",
 };
 const post = {
   totalScore: 909,
   selectedScore: 0,
   scores: 0,
   win: 1,
-  playAgain: 0
+  playAgain: 0,
 };
 export default {
   views,
   menu,
   match,
-  post
+  post,
 };

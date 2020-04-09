@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import healthbar from '../../images/match/healthbar_background.png';
-import { useStateValue } from '../../store/StateContext';
+import healthbar from "../../images/match/healthbar_background.png";
+import { useStateValue } from "../../store/StateContext";
 
 const ImageContainer = styled.div`
   max-height: 100vh;
@@ -13,14 +13,14 @@ const ImageContainer = styled.div`
 
 const AbsoluteImage = styled.img`
   max-height: 100vh;
-  margin-top: -${props => 100 - props.size}vh;
+  margin-top: -${(props) => 100 - props.size}vh;
 `;
 
 function Healthbar() {
   const [
     {
-      match: { health }
-    }
+      match: { health },
+    },
   ] = useStateValue();
   return (
     <ImageContainer>
