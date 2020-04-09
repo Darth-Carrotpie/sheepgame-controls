@@ -13,13 +13,22 @@ function OnClickReady() {
 const ReadyCloudBackground = styled.div`
   max-width: 350px;
   height: 15vh;
+  &:active {
+    filter: brightness(50%);
+  }
 `;
 
 export function ReadyCloud(props) {
   const [{ menu }] = useStateValue();
   return (
     <ReadyCloudBackground>
-        <ItemName nameValue={menu.ready ? "READY" : "PLAY"} onClick={OnClickReady} fontSize={45} height={15} playerColor={menu.playerColor ? menu.playerColor:"black"}></ItemName>
+      <ItemName
+        nameValue={menu.ready ? "READY" : "PLAY"}
+        onClick={OnClickReady}
+        fontSize={45}
+        height={15}
+        playerColor={menu.playerColor ? menu.playerColor : "black"}
+      ></ItemName>
     </ReadyCloudBackground>
   );
 }

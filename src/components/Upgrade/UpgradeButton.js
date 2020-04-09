@@ -1,18 +1,22 @@
-import React from 'react';
-import styled from 'styled-components';
-import upgradeImg from '../../images/upgrade/upgrade_button_buy.png';
-import { Text } from '../Match/Typography';
-import NerisBlack from '../../fonts/NerisBlack.otf';
+import React from "react";
+import styled from "styled-components";
+import upgradeImg from "../../images/upgrade/upgrade_button_buy.png";
+import { Text } from "../Match/Typography";
+import NerisBlack from "../../fonts/NerisBlack.otf";
 
 const UpgradeButtonWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${props => (props.bckgColor ? props.bckgColor : '#0f0')};
+  background-color: ${(props) => (props.bckgColor ? props.bckgColor : "#0f0")};
 `;
 const UpgradeButton = styled.img`
   width: 100vw;
   overflow: hidden;
+  //fix this after changing to svg
+  &:active {
+    filter: brightness(50%);
+  }
 `;
 
 const TextPosition = styled(Text)`

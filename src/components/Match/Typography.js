@@ -12,8 +12,8 @@ const Wrapper = styled.div`
 
 const Icon = styled.img`
   height: 4vh;
-  margin-top: 10px;
-  margin-bottom: -2vh;
+  margin-top: 1vh;
+  margin-bottom: -1vh;
 `;
 
 export const Text = styled.span`
@@ -21,11 +21,11 @@ export const Text = styled.span`
     font-family: NerisBlack;
     src: url(${NerisBlack});
   }
-  font-size: 7vh;
+  font-size: 6vh;
   /*   font-weight: 100; */
   font-weight: bold;
   margin-top: 0px;
-  color: ${props => props.textColor};
+  color: ${(props) => props.textColor};
 `;
 
 function Typography(props) {

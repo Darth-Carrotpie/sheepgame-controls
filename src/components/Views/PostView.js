@@ -1,18 +1,18 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import { useStateValue } from '../../store/StateContext';
-import ItemName from '../../components/Menu/ItemName';
-import FlexColumn from '../Layout/FlexColumn';
-import FlexRow from '../Layout/FlexRow';
-import victoryImg from '../../images/post/victory_background.png';
-import defeatImg from '../../images/post/defeat_background.png';
-import PreBackground from '../../components/PreBackground';
-import PlayAgainButton from '../Post/PlayAgainButton';
-import BottomRow from '../Post/BottomRow';
-import Achievements from '../Post/Achievements';
-import King from '../King';
-import KingDead from '../King/KingDead';
+import { useStateValue } from "../../store/StateContext";
+import ItemName from "../../components/Menu/ItemName";
+import FlexColumn from "../Layout/FlexColumn";
+import FlexRow from "../Layout/FlexRow";
+import victoryImg from "../../images/post/victory_background.png";
+import defeatImg from "../../images/post/defeat_background.png";
+import PreBackground from "../../components/PreBackground";
+import PlayAgainButton from "../Post/PlayAgainButton";
+import BottomRow from "../Post/BottomRow";
+import Achievements from "../Post/Achievements";
+import King from "../King";
+import KingDead from "../King/KingDead";
 
 const PlayAgainButtonPosition = styled.div`
   position: absolute;
@@ -40,8 +40,8 @@ function MenuView() {
   const [{ menu }] = useStateValue();
   const [
     {
-      post: { win }
-    }
+      post: { win },
+    },
   ] = useStateValue();
   return (
     <div>
@@ -52,16 +52,16 @@ function MenuView() {
         <FlexRow justifyContent="center">
           <FlexColumn>
             <ItemName
-              nameValue={win ? 'victory' : 'defeat'}
+              nameValue={win ? "victory" : "defeat"}
               fontSize={55}
               height={7}
-              playerColor={win ? '#f7931e' : 'black'}
+              playerColor={win ? "#f7931e" : "black"}
             ></ItemName>
             <ItemName
               nameValue={menu.playerName}
               fontSize={24}
               height={7}
-              playerColor={win ? '#f7931e' : 'black'}
+              playerColor={win ? "#f7931e" : "black"}
             ></ItemName>
           </FlexColumn>
         </FlexRow>
