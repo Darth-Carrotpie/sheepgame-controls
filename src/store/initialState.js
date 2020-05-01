@@ -1,5 +1,5 @@
 const views = {
-  current: "post",
+  current: "loading",
 };
 const menu = {
   ready: 0,

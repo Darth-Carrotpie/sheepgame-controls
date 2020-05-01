@@ -1,4 +1,9 @@
 import React from "react";
+import InfoView from "./Views/InfoView";
+import maxPlayersImg from "../images/controller_toomanyplayers.png";
+import inProgressImg from "../images/controller_progress.png";
+import loadingImg from "../images/controller_loading.png";
+
 import MenuView from "./Views/MenuView";
 import MatchView from "./Views/MatchView";
 import UpgradeView from "./Views/UpgradeView";
@@ -9,20 +14,36 @@ function Router() {
   const [{ views }] = useStateValue();
   var view = null;
   switch (views.current) {
+    case "loading":
+      view = <InfoView infoImg={loadingImg} infoText={"loading"}></InfoView>;
+      break;
+    case "in_game":
+      view = (
+        <InfoView
+          infoImg={inProgressImg}
+          infoText={"game already in progress"}
+        ></InfoView>
+      );
+      break;
+    case "max_players":
+      view = (
+        <InfoView
+          opacity={"100%"}
+          infoImg={maxPlayersImg}
+          infoText={"no thrones available"}
+        ></InfoView>
+      );
+      break;
     case "menu":
-      console.log("menu: " + views.current);
       view = <MenuView></MenuView>;
       break;
     case "match":
-      console.log("match: " + views.current);
       view = <MatchView></MatchView>;
       break;
     case "upgrade":
-      console.log("upgrade: " + views.current);
       view = <UpgradeView></UpgradeView>;
       break;
     case "post":
-      console.log("post: " + views.current);
       view = <PostView></PostView>;
       break;
     default:
