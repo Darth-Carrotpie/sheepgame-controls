@@ -1,5 +1,5 @@
 const views = {
-  current: "loading",
+  current: "menu", //default=loading
 };
 const menu = {
   ready: 0,
@@ -22,6 +22,9 @@ const menu = {
   scepterPremiumReq: true,
   scepterPremiumReqMet: true,
   scepterSpriteName: "STAFFS_07",
+
+  firstOwner: true,
+  audioState: 0,
 };
 const match = {
   health: 100,

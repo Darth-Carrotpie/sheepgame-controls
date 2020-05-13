@@ -21,25 +21,38 @@ export default (state, action) => {
         scepterCrownsReqMet: action.newScepter.crowns.requirementMet,
         scepterPremiumReq: action.newScepter.premium.required,
         scepterPremiumReqMet: action.newScepter.premium.requirementMet,
-        scepterSpriteName: action.newScepter.spriteName
+        scepterSpriteName: action.newScepter.spriteName,
       };
 
     case "ready":
       return {
         ...state,
-        ready: action.value
+        ready: action.value,
       };
     case "playerColor":
       return {
         ...state,
-        playerColor: action.value
+        playerColor: action.value,
       };
     case "playerName":
       console.log("setting name:" + action.value);
       return {
         ...state,
-        playerName: action.value
+        playerName: action.value,
       };
+    case "firstOwner":
+      console.log("setting name:" + action.value);
+      return {
+        ...state,
+        firstOwner: action.value,
+      };
+    case "audio":
+      console.log("setting name:" + action.value);
+      return {
+        ...state,
+        audioState: action.value,
+      };
+
     default:
       return state;
   }

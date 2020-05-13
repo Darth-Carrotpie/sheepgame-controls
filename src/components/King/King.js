@@ -15,7 +15,7 @@ const KingContainer = styled.div`
 
 const Position = styled.div`
   align-items: center;
-  margin-top: 7vh;
+  margin-top: 1vh;
 `;
 
 const CrownImg = styled.img`
@@ -54,7 +54,7 @@ function GetLockImage(unlocked, reqHero, isHero) {
   }
   return;
 }
-const King = props => {
+const King = (props) => {
   const [{ menu }] = useStateValue();
   return (
     <Position>

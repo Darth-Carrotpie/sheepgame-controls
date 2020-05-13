@@ -3,6 +3,7 @@ import { useStateValue } from "../../store/StateContext";
 import { ReadyCloud } from "../../components/Menu/Cloud";
 import MenuRow from "../../components/Menu/MenuRow";
 import ArrowButton from "../../components/Menu/Arrow";
+import AudioButton from "../../components/Menu/AudioButton";
 import ItemName from "../../components/Menu/ItemName";
 import EmptyRow from "../Layout/EmptyRow";
 import FlexColumn from "../Layout/FlexColumn";
@@ -35,6 +36,7 @@ function MenuView() {
   return (
     <div>
       <PreBackground {...menu} preBckgImage={selectionScreenImg}>
+        <AudioButton {...menu}></AudioButton>
         <King showLocks={true}></King>
         <MenuRow>
           <Margined>
