@@ -18,29 +18,27 @@ import mutedImage from "../../images/menu/controler_audio_icon_NoAudio.png";
 
 import { useStateValue } from '../../store/StateContext'; // && "transform: rotate(180deg)"};*/
 
-const ImageStyle = styled.button`
-  height: 14vh;
-  width:
+const ButtonStyle = styled.button`
+  height: 7vh;
+  width: 7vh;
   border: 0px;
   border-radius: 100%;
   padding: 0;
+  background-color: ${(props) =>
+    props.playerColor ? props.playerColor : "white"};
+  align-items: left;
+
   &:active {
     filter: brightness(50%);
   }
   box-shadow: none;
-  max-height: 40px;
-  max-width: 100%;
-  align-items: left;
-  ${(props) => props.left};
-  &:active {
-    filter: brightness(50%);
-  }
   :focus {
     outline: 0;
   }
   margin-top: 1vh;
   margin-left: 1vh;
 `;
+
 const AudioIcon = styled.img`
   margin-top: 0%;
   height: 100%;
@@ -48,18 +46,16 @@ const AudioIcon = styled.img`
 `;
 
 function GetImage(props) {
-  if (props.firstOwner)
-    switch (props.audioState) {
-      case 0:
-        return fullAudioImage;
-      case 1:
-        return fxOnlyImage;
-      case 2:
-        return mutedImage;
-      default:
-        return mutedImage;
-    }
-  else return mutedImage;
+  switch (props.audioState) {
+    case 0:
+      return fullAudioImage;
+    case 1:
+      return fxOnlyImage;
+    case 2:
+      return mutedImage;
+    default:
+      return mutedImage;
+  }
 }
 function OnClickAudio() {
   var data = { element: "audio-button", value: true };
@@ -67,12 +63,13 @@ function OnClickAudio() {
   window.airconsole.message(window.airconsole.SCREEN, data);
 }
 export function AudioButton(props) {
-  /*   const [, dispatch] = useStateValue(); */
-  return (
-    <ImageStyle onClick={() => OnClickAudio(props)} {...props}>
-      <AudioIcon src={GetImage(props)} alt="audioImage"></AudioIcon>
-    </ImageStyle>
-  );
+  if (props.firstOwner)
+    return (
+      <ButtonStyle onClick={() => OnClickAudio(props)} {...props}>
+        <AudioIcon src={GetImage(props)} alt="audioImage"></AudioIcon>
+      </ButtonStyle>
+    );
+  else return null;
 }
 
 export default AudioButton;

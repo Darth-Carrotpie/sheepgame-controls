@@ -2,6 +2,7 @@ import React from "react";
 import { useStateValue } from "../../store/StateContext";
 import { ReadyCloud } from "../../components/Menu/Cloud";
 import MenuRow from "../../components/Menu/MenuRow";
+import MenuRowLeft from "../../components/Menu/MenuRowLeft";
 import ArrowButton from "../../components/Menu/Arrow";
 import AudioButton from "../../components/Menu/AudioButton";
 import ItemName from "../../components/Menu/ItemName";
@@ -36,8 +37,12 @@ function MenuView() {
   return (
     <div>
       <PreBackground {...menu} preBckgImage={selectionScreenImg}>
-        <AudioButton {...menu}></AudioButton>
-        <King showLocks={true}></King>
+        <MenuRowLeft>
+          <AudioButton {...menu}></AudioButton>
+        </MenuRowLeft>
+        <MenuRow>
+          <King showLocks={true}></King>
+        </MenuRow>
         <MenuRow>
           <Margined>
             <ItemName
