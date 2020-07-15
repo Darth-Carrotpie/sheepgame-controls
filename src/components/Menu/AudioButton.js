@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import fullAudioImage from "../../images/menu/controler_audio_icon_FullAudio.png";
 import fxOnlyImage from "../../images/menu/controler_audio_icon_NoMusic.png";
+import SendAirConsole from "../AirConsoleHandler";
 import mutedImage from "../../images/menu/controler_audio_icon_NoAudio.png";
 
 /*const AudioButton = styled(FlexColumn)`
@@ -60,7 +61,7 @@ function GetImage(props) {
 function OnClickAudio() {
   var data = { element: "audio-button", value: true };
   console.log(data);
-  window.airconsole.message(window.airconsole.SCREEN, data);
+  SendAirConsole(data);
 }
 export function AudioButton(props) {
   if (props.firstOwner)

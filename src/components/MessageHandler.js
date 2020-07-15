@@ -16,6 +16,7 @@ function ReplyImportant(elementValue) {
   };
   window.airconsole.message(window.airconsole.SCREEN, data);
 }
+
 function MessageHandler({ children }) {
   const [, dispatch] = useStateValue();
   useEffect(() => {

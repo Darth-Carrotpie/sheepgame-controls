@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import image from "../../images/menu/arrow.png";
+import SendAirConsole from "../AirConsoleHandler";
 /* import { useStateValue } from '../../store/StateContext'; */
 
 const ImageStyle = styled.img`
   max-height: 40px;
   max-width: 100%;
-  ${props => props.left && "transform: rotate(180deg)"};
+  ${(props) => props.left && "transform: rotate(180deg)"};
   &:active {
     filter: brightness(50%);
   }
@@ -16,7 +17,7 @@ const ImageStyle = styled.img`
 
 function OnClickArrow(props) {
   var data = { element: props.elementMessage, value: props.valueMessage };
-  window.airconsole.message(window.airconsole.SCREEN, data);
+  SendAirConsole(data);
 }
 export function ArrowButton(props) {
   /*   const [, dispatch] = useStateValue(); */

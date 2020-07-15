@@ -5,6 +5,7 @@ import CrownsTypography from "../../components/Menu/CrownsTypography";
 
 import { useStateValue } from "../../store/StateContext";
 import { ACHIEVEMENTS } from "./constants";
+import SendAirConsole from "../AirConsoleHandler";
 
 const BottomRow = styled.div`
   z-index: 1;
@@ -25,7 +26,7 @@ const Text = styled.span`
 function OnClickPlay() {
   var data = { element: "playAgain", pressed: true };
   console.log("data send:", data);
-  window.airconsole.message(window.airconsole.SCREEN, data);
+  SendAirConsole(data);
 }
 export default () => {
   const [{ match, post }] = useStateValue();

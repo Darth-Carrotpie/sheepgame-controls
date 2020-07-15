@@ -1,9 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
-import { useSwipeable } from 'react-swipeable';
+import React from "react";
+import styled from "styled-components";
+import { useSwipeable } from "react-swipeable";
 
-import controlWheelImg from '../../images/match/swipewheel_icon.png';
-import { useStateValue } from '../../store/StateContext';
+import controlWheelImg from "../../images/match/swipewheel_icon.png";
+import { useStateValue } from "../../store/StateContext";
+import SendAirConsole from "../AirConsoleHandler";
 
 const wheelSize = 60;
 
@@ -24,7 +25,7 @@ const ControlWheelBackground = styled.div`
   max-width: 55vh;
 /*   height: ${wheelSize}vh; */
 /*   width: 100%; */
-  background-color: ${props => (props.bckgColor ? props.bckgColor : 'red')};
+  background-color: ${(props) => (props.bckgColor ? props.bckgColor : "red")};
   border-radius: 50%;
   position: relative;
 /*   opacity: 50%; */
@@ -52,12 +53,12 @@ const WheelImage = styled.img`
 function ControlWheel() {
   const [{ menu }] = useStateValue();
   const swipeHandlers = useSwipeable({
-    onSwiped: eventData => {
+    onSwiped: (eventData) => {
       const { event, ...rest } = eventData;
       rest["element"] = "swipe";
       console.log(rest);
-      window.airconsole.message(window.airconsole.SCREEN, rest);
-    }
+      SendAirConsole(rest);
+    },
   });
 
   return (

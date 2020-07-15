@@ -7,7 +7,7 @@ import sheepButton from "../../images/match/buy_sheep_icon.png";
 import smiteButton from "../../images/match/smite_icon.png";
 import { useStateValue } from "../../store/StateContext";
 import upgradeIcons from "../../images/upgrade/icons";
-
+import SendAirConsole from "../AirConsoleHandler";
 const BubblesInLine = styled.div`
   flex: 1;
   display: flex;
@@ -31,9 +31,9 @@ function SendMessage(elementName, priceVal) {
   if (priceVal > 0) {
     var data = {
       element: elementName,
-      pressed: false
+      pressed: false,
     };
-    window.airconsole.message(window.airconsole.SCREEN, data);
+    SendAirConsole(data);
   }
 }
 

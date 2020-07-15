@@ -4,10 +4,11 @@ import styled from "styled-components";
 import ItemName from "../../components/Menu/ItemName";
 /* import { useStateValue } from '../../store/StateContext'; */
 import { useStateValue } from "../../store/StateContext";
+import SendAirConsole from "../AirConsoleHandler";
 
 function OnClickReady() {
   var data = { element: "ready-button", pressed: true };
-  window.airconsole.message(window.airconsole.SCREEN, data);
+  SendAirConsole(data);
 }
 
 const ReadyCloudBackground = styled.div`
