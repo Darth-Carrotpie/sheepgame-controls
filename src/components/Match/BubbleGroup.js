@@ -31,7 +31,7 @@ function SendMessage(elementName, priceVal) {
   if (priceVal > 0) {
     var data = {
       element: elementName,
-      pressed: false,
+      pressed: false
     };
     SendAirConsole(data);
   }
