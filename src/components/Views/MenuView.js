@@ -10,13 +10,14 @@ import EmptyRow from "../Layout/EmptyRow";
 import FlexColumn from "../Layout/FlexColumn";
 import Margined from "../Layout/Margined";
 import selectionScreenImg from "../../images/menu/SelectionScreen_background.png";
-import crownIcon from "../../images/menu/icon_crown.png";
-import heroIcon from "../../images/menu/LogoHero_256.png";
 
 import Typography from "../../components/Match/Typography";
 import CrownsTypography from "../../components/Menu/CrownsTypography";
 import PreBackground from "../../components/PreBackground";
 import King from "../King";
+
+import crownIcon from "../../images/menu/icon_crown.png";
+import heroIcon from "../../images/menu/LogoHero_256.png";
 
 function ShowRequirement(unlocked, premiumReqMet, crownsReqMet, crownsReq) {
   var requirmentString = "";
@@ -24,10 +25,16 @@ function ShowRequirement(unlocked, premiumReqMet, crownsReqMet, crownsReq) {
     requirmentString = "available";
   } else {
     if (!premiumReqMet) {
-      requirmentString = "(%hero) only! "; //needs to display hero icon here (heroIcon)
+      requirmentString = "(%hero) only"; //needs to display hero icon here (heroIcon)
+    }
+    if (!premiumReqMet && !crownsReqMet) {
+      requirmentString += ", ";
+    }
+    if (!premiumReqMet && crownsReqMet) {
+      requirmentString += "!";
     }
     if (!crownsReqMet) {
-      requirmentString += "(%crowns) " + crownsReq; //needs to be an actual crown icon here (crownIcon)
+      requirmentString += crownsReq + "(%crowns) "; //needs to be an actual crown icon here (crownIcon)
     }
   }
   return requirmentString;
@@ -56,7 +63,7 @@ function MenuView() {
         <MenuRow>
           <CrownsTypography
             isYellow={false}
-            text={match.crowns}
+            text={match.permanentCrownCount}
           ></CrownsTypography>
         </MenuRow>
         <MenuRow>

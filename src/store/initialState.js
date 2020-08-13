@@ -1,5 +1,5 @@
 const views = {
-  current: "match", //default=loading
+  current: "menu" //default=loading
 };
 const menu = {
   ready: 0,
@@ -11,7 +11,7 @@ const menu = {
   hatCrownsReq: 555,
   hatCrownsReqMet: false,
   hatPremiumReq: true,
-  hatPremiumReqMet: true,
+  hatPremiumReqMet: false,
   hatSpriteName: "CROWNS_45",
 
   scepterID: 1,
@@ -24,7 +24,7 @@ const menu = {
   scepterSpriteName: "STAFFS_07",
 
   firstOwner: false,
-  audioState: 0,
+  audioState: 0
 };
 const match = {
   health: 100,
@@ -42,18 +42,18 @@ const match = {
   upgradeA_price: 0,
   upgradeB_price: 0,
   upgradeA_icon: "",
-  upgradeB_icon: "",
+  upgradeB_icon: ""
 };
 const post = {
   totalScore: 909,
   selectedScore: 0,
   scores: 0,
   win: 1,
-  playAgain: 0,
+  playAgain: 0
 };
 export default {
   views,
   menu,
   match,
-  post,
+  post
 };
