@@ -5,7 +5,7 @@ export default (state, action) => {
         ...state,
         win: action.value,
         scores: action.scores,
-        totalScore: action.total
+        totalScore: action.totalScore
       };
     case "selectedScore":
       //console.log("reducer action.newSelection:", action.newSelection);

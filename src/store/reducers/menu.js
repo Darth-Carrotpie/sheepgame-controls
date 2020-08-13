@@ -3,7 +3,6 @@ export default (state, action) => {
     case "kingItems":
       return {
         ...state,
-        crowns: action.crowns,
         permanentCrownCount: action.permanentCrownCount,
 
         hatID: action.newHat.ID,

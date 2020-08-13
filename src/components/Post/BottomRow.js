@@ -29,12 +29,13 @@ function OnClickPlay() {
   SendAirConsole(data);
 }
 export default () => {
-  const [{ match, post }] = useStateValue();
+  const [{ menu, post }] = useStateValue();
 
   var reward = "";
   if (post.selectedScore > 0) {
     if (post.scores.length > 0) {
-      reward = post.scores[post.selectedScore - 1].reward;
+      var score = post.scores[post.selectedScore - 1];
+      reward = Math.floor((score.counter / score.rewardDelta) * score.reward);
     } else {
       reward = ACHIEVEMENTS[post.selectedScore].total;
     }
@@ -44,7 +45,10 @@ export default () => {
 
   return (
     <BottomRow>
-      <CrownsTypography isYellow={true} text={match.crowns}></CrownsTypography>
+      <CrownsTypography
+        isYellow={true}
+        text={menu.permanentCrownCount}
+      ></CrownsTypography>
       <CrownsTypography isYellow={false} text={reward}></CrownsTypography>
       <Text onClick={OnClickPlay} style={{ marginTop: "5px" }}>
         {post.playAgain ? "waiting..." : "play again"}

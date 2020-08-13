@@ -7,6 +7,7 @@ export default (state, action) => {
         money: action.money,
         grass: action.grass,
         crowns: action.crowns,
+        permanentCrownCount: action.permanentCrownCount,
         priceGrass: action.priceGrass,
         priceSheep: action.priceSheep,
         priceSmash: action.priceSmash,

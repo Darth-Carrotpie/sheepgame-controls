@@ -63,7 +63,7 @@ function MenuView() {
         <MenuRow>
           <CrownsTypography
             isYellow={false}
-            text={match.permanentCrownCount}
+            text={menu.permanentCrownCount}
           ></CrownsTypography>
         </MenuRow>
         <MenuRow>
