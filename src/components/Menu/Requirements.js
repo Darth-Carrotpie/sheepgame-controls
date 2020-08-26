@@ -1,0 +1,50 @@
+import React from 'react';
+import styled from 'styled-components';
+import ItemName from './ItemName';
+import crownIcon from '../../images/menu/icon_crown.png';
+import heroIcon from '../../images/menu/LogoHero_256.png';
+
+const ImageStyle = styled.img`
+  max-height: 20px;
+  max-width: 100%;
+  ${(props) => props.left && 'transform: rotate(180deg)'};
+  &:active {
+    filter: brightness(50%);
+  }
+  margin-right: 1.5vh;
+  margin-left: 1.5vh;
+`;
+
+const Wrapper = styled.div`
+  margin: 1.5vh 0 1.5vh 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+
+export function Requirements(props) {
+  const { hatUnlocked, premiumReqMet, crownsReqMet, crownsReq } = props;
+  if (hatUnlocked) return 'available';
+  const text = `${!premiumReqMet ? 'only' : ''}${
+    !premiumReqMet && !crownsReqMet ? ', ' : ''
+  }${!premiumReqMet && crownsReqMet ? '!' : ''}${
+    !crownsReqMet ? crownsReq : ''
+  }`;
+
+  return (
+    <Wrapper>
+      {!premiumReqMet ? (
+        <React.Fragment>
+          <ImageStyle src={heroIcon} alt="(%hero)" />
+        </React.Fragment>
+      ) : null}
+      <ItemName nameValue={text} fontSize={12} height={3}></ItemName>
+      {!crownsReqMet ? (
+        <React.Fragment>
+          <ImageStyle src={crownIcon} alt="(%crowns)" />
+        </React.Fragment>
+      ) : null}
+    </Wrapper>
+  );
+}
+export default Requirements;

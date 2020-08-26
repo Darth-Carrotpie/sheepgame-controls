@@ -1,44 +1,22 @@
-import React from "react";
-import { useStateValue } from "../../store/StateContext";
-import { ReadyCloud } from "../../components/Menu/Cloud";
-import MenuRow from "../../components/Menu/MenuRow";
-import MenuRowLeft from "../../components/Menu/MenuRowLeft";
-import ArrowButton from "../../components/Menu/Arrow";
-import AudioButton from "../../components/Menu/AudioButton";
-import ItemName from "../../components/Menu/ItemName";
-import EmptyRow from "../Layout/EmptyRow";
-import FlexColumn from "../Layout/FlexColumn";
-import Margined from "../Layout/Margined";
-import selectionScreenImg from "../../images/menu/SelectionScreen_background.png";
+import React from 'react';
+import { useStateValue } from '../../store/StateContext';
+import { ReadyCloud } from '../../components/Menu/Cloud';
+import MenuRow from '../../components/Menu/MenuRow';
+import MenuRowLeft from '../../components/Menu/MenuRowLeft';
+import ArrowButton from '../../components/Menu/Arrow';
+import AudioButton from '../../components/Menu/AudioButton';
+import ItemName from '../../components/Menu/ItemName';
+import EmptyRow from '../Layout/EmptyRow';
+import FlexColumn from '../Layout/FlexColumn';
+import Margined from '../Layout/Margined';
+import selectionScreenImg from '../../images/menu/SelectionScreen_background.png';
 
-import Typography from "../../components/Match/Typography";
-import CrownsTypography from "../../components/Menu/CrownsTypography";
-import PreBackground from "../../components/PreBackground";
-import King from "../King";
+import Typography from '../../components/Match/Typography';
+import CrownsTypography from '../../components/Menu/CrownsTypography';
+import PreBackground from '../../components/PreBackground';
+import King from '../King';
+import Requirements from '../../components/Menu/Requirements';
 
-import crownIcon from "../../images/menu/icon_crown.png";
-import heroIcon from "../../images/menu/LogoHero_256.png";
-
-function ShowRequirement(unlocked, premiumReqMet, crownsReqMet, crownsReq) {
-  var requirmentString = "";
-  if (unlocked) {
-    requirmentString = "available";
-  } else {
-    if (!premiumReqMet) {
-      requirmentString = "(%hero) only"; //needs to display hero icon here (heroIcon)
-    }
-    if (!premiumReqMet && !crownsReqMet) {
-      requirmentString += ", ";
-    }
-    if (!premiumReqMet && crownsReqMet) {
-      requirmentString += "!";
-    }
-    if (!crownsReqMet) {
-      requirmentString += crownsReq + "(%crowns) "; //needs to be an actual crown icon here (crownIcon)
-    }
-  }
-  return requirmentString;
-}
 function MenuView() {
   const [{ menu, match }] = useStateValue();
   return (
@@ -56,7 +34,7 @@ function MenuView() {
               nameValue={menu.playerName}
               fontSize={24}
               height={7}
-              playerColor={menu.playerColor ? menu.playerColor : "black"}
+              playerColor={menu.playerColor ? menu.playerColor : 'black'}
             ></ItemName>
           </Margined>
         </MenuRow>
@@ -70,7 +48,7 @@ function MenuView() {
           <FlexColumn>
             <MenuRow>
               <ArrowButton
-                elementMessage={"changeHat"}
+                elementMessage={'changeHat'}
                 valueMessage={-1}
                 left
               ></ArrowButton>
@@ -80,22 +58,18 @@ function MenuView() {
                 height={5}
               ></ItemName>
               <ArrowButton
-                elementMessage={"changeHat"}
+                elementMessage={'changeHat'}
                 valueMessage={1}
               ></ArrowButton>
             </MenuRow>
 
             <MenuRow>
-              <ItemName
-                nameValue={ShowRequirement(
-                  menu.hatUnlocked,
-                  menu.hatPremiumReqMet,
-                  menu.hatCrownsReqMet,
-                  menu.hatCrownsReq
-                )}
-                fontSize={12}
-                height={3}
-              ></ItemName>
+              <Requirements
+                hatUnlocked={menu.hatUnlocked}
+                premiumReqMet={menu.hatPremiumReqMet}
+                crownsReqMet={menu.hatCrownsReqMet}
+                crownsReq={menu.hatCrownsReq}
+              ></Requirements>
             </MenuRow>
 
             <MenuRow>
@@ -104,7 +78,7 @@ function MenuView() {
 
             <MenuRow>
               <ArrowButton
-                elementMessage={"changeScepter"}
+                elementMessage={'changeScepter'}
                 valueMessage={-1}
                 left
               ></ArrowButton>
@@ -114,21 +88,17 @@ function MenuView() {
                 height={5}
               ></ItemName>
               <ArrowButton
-                elementMessage={"changeScepter"}
+                elementMessage={'changeScepter'}
                 valueMessage={1}
               ></ArrowButton>
             </MenuRow>
             <MenuRow>
-              <ItemName
-                nameValue={ShowRequirement(
-                  menu.scepterUnlocked,
-                  menu.scepterPremiumReqMet,
-                  menu.scepterCrownsReqMet,
-                  menu.scepterCrownsReq
-                )}
-                fontSize={12}
-                height={3}
-              ></ItemName>
+              <Requirements
+                hatUnlocked={menu.scepterUnlocked}
+                premiumReqMet={menu.scepterPremiumReqMet}
+                crownsReqMet={menu.scepterCrownsReqMet}
+                crownsReq={menu.scepterCrownsReq}
+              ></Requirements>
             </MenuRow>
 
             <MenuRow>
