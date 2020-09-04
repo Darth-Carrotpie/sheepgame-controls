@@ -25,7 +25,7 @@ const ControlWheelBackground = styled.div`
   max-width: 55vh;
 /*   height: ${wheelSize}vh; */
 /*   width: 100%; */
-  background-color: ${(props) => (props.bckgColor ? props.bckgColor : "red")};
+  background-color: ${props => (props.bckgColor ? props.bckgColor : "red")};
   border-radius: 50%;
   position: relative;
 /*   opacity: 50%; */
@@ -53,12 +53,20 @@ const WheelImage = styled.img`
 function ControlWheel() {
   const [{ menu }] = useStateValue();
   const swipeHandlers = useSwipeable({
-    onSwiped: (eventData) => {
+    onSwiped: eventData => {
       const { event, ...rest } = eventData;
       rest["element"] = "swipe";
+      rest["clicked"] = "false";
       console.log(rest);
       SendAirConsole(rest);
     },
+    onSwiping: eventData => {
+      const { event, ...rest } = eventData;
+      rest["element"] = "swipe";
+      rest["clicked"] = "true";
+      console.log(rest);
+      SendAirConsole(rest);
+    }
   });
 
   return (
