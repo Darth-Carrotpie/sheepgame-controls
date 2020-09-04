@@ -3,8 +3,13 @@ import styled from "styled-components";
 
 import crownYellow from "../../images/post/DV_crown_GAINED_icon.png";
 import crownWhite from "../../images/post/DV_crown_icon.png";
+import NerisBlack from "../../fonts/NerisBlack.otf";
 
 const Number = styled.span`
+  @font-face {
+    font-family: NerisBlack;
+    src: url(${NerisBlack});
+  }
   color: "#FFFFFF";
   font-size: 1.6rem;
   font-weight: 1000;

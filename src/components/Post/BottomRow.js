@@ -6,8 +6,13 @@ import CrownsTypography from "../../components/Menu/CrownsTypography";
 import { useStateValue } from "../../store/StateContext";
 import { ACHIEVEMENTS } from "./constants";
 import SendAirConsole from "../AirConsoleHandler";
+import NerisBlack from "../../fonts/NerisBlack.otf";
 
 const BottomRow = styled.div`
+  @font-face {
+    font-family: NerisBlack;
+    src: url(${NerisBlack});
+  }
   z-index: 1;
   margin-left: 10px;
   margin-right: 10px;

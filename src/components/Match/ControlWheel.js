@@ -5,7 +5,9 @@ import { useSwipeable } from "react-swipeable";
 import controlWheelImg from "../../images/match/swipewheel_icon.png";
 import { useStateValue } from "../../store/StateContext";
 import SendAirConsole from "../AirConsoleHandler";
+import RateLimiter from "../../rate-limiter";
 
+var rateLimiter = new RateLimiter(window.airconsole);
 const wheelSize = 60;
 
 const Wrapper = styled.div`
@@ -58,7 +60,8 @@ function ControlWheel() {
       rest["element"] = "swipe";
       rest["clicked"] = "false";
       console.log(rest);
-      SendAirConsole(rest);
+      //SendAirConsole(rest);
+      rateLimiter.message(window.airconsole.SCREEN, rest);
     },
     onSwiping: eventData => {
       const { event, ...rest } = eventData;
