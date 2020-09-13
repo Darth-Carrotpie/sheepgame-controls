@@ -32,7 +32,7 @@
  * @param airconsole - The constructor configuration.
  * @constructor
  */
-function RateLimiter(airconsole, opts) {
+export function RateLimiter(airconsole, opts) {
   opts = opts || {};
   this.airconsole = airconsole;
   this.pending = {};
@@ -51,26 +51,26 @@ function RateLimiter(airconsole, opts) {
  * @param device_id
  * @param data
  */
-RateLimiter.prototype.message = function(device_id, data) {
+RateLimiter.prototype.message = function (device_id, data) {
   var rate_limit_id = device_id;
   if (device_id == undefined) {
-    rate_limit_id = "";
+    rate_limit_id = '';
   }
   if (this.pending[rate_limit_id] == undefined) {
     this.pending[rate_limit_id] = [];
   }
   for (var i = 0; i < this.pending[rate_limit_id].length; ++i) {
     var pending = this.pending[rate_limit_id][i];
-    if (pending.action == "message" && pending.device_id == device_id) {
+    if (pending.action == 'message' && pending.device_id == device_id) {
       this.mergeData_(data, pending.data);
       this.send_(rate_limit_id);
       return;
     }
   }
   this.pending[rate_limit_id].push({
-    action: "message",
+    action: 'message',
     device_id: device_id,
-    data: data
+    data: data,
   });
   this.send_(rate_limit_id);
 };
@@ -79,7 +79,7 @@ RateLimiter.prototype.message = function(device_id, data) {
  * Rate-limited version of AirConsole.broadcast(device_id).
  * @param data
  */
-RateLimiter.prototype.broadcast = function(data) {
+RateLimiter.prototype.broadcast = function (data) {
   this.message(undefined, data);
 };
 
@@ -87,7 +87,7 @@ RateLimiter.prototype.broadcast = function(data) {
  * Rate-limited version of AirConsole.setCustomDeviceState(data).
  * @param data
  */
-RateLimiter.prototype.setCustomDeviceState = function(data) {
+RateLimiter.prototype.setCustomDeviceState = function (data) {
   this.setCustomDeviceState_(data, true);
 };
 
@@ -95,7 +95,7 @@ RateLimiter.prototype.setCustomDeviceState = function(data) {
  * Rate-limited version of AirConsole.setCustomDeviceStateProperty(key, value).
  * @param data
  */
-RateLimiter.prototype.setCustomDeviceStateProperty = function(key, value) {
+RateLimiter.prototype.setCustomDeviceStateProperty = function (key, value) {
   var data = {};
   data[key] = value;
   this.setCustomDeviceState_(data);
@@ -108,15 +108,15 @@ RateLimiter.prototype.setCustomDeviceStateProperty = function(key, value) {
  * @param device_id
  * @returns {*}
  */
-RateLimiter.prototype.getCustomDeviceState = function(device_id) {
+RateLimiter.prototype.getCustomDeviceState = function (device_id) {
   var me = this;
   if (
     (device_id == undefined || device_id == me.airconsole.getDeviceId()) &&
-    this.pending[""]
+    this.pending['']
   ) {
-    for (var i = 0; i < this.pending[""].length; ++i) {
-      var pending = this.pending[""][i];
-      if (pending.action == "custom") {
+    for (var i = 0; i < this.pending[''].length; ++i) {
+      var pending = this.pending[''][i];
+      if (pending.action == 'custom') {
         if (pending.clear) {
           return pending.data;
         }
@@ -140,29 +140,29 @@ RateLimiter.prototype.getCustomDeviceState = function(device_id) {
  * @param clear
  * @private
  */
-RateLimiter.prototype.setCustomDeviceState_ = function(data, clear) {
-  if (this.pending[""] == undefined) {
-    this.pending[""] = [];
+RateLimiter.prototype.setCustomDeviceState_ = function (data, clear) {
+  if (this.pending[''] == undefined) {
+    this.pending[''] = [];
   }
-  for (var i = 0; i < this.pending[""].length; ++i) {
-    var pending = this.pending[""][i];
-    if (pending.action == "custom") {
+  for (var i = 0; i < this.pending[''].length; ++i) {
+    var pending = this.pending[''][i];
+    if (pending.action == 'custom') {
       if (clear) {
         pending.data = data;
         pending.clear = true;
       } else {
         this.mergeData_(data, pending.data);
       }
-      this.send_("");
+      this.send_('');
       return;
     }
   }
-  this.pending[""].push({
-    action: "custom",
+  this.pending[''].push({
+    action: 'custom',
     data: data,
-    clear: clear
+    clear: clear,
   });
-  this.send_("");
+  this.send_('');
 };
 
 /**
@@ -170,7 +170,7 @@ RateLimiter.prototype.setCustomDeviceState_ = function(data, clear) {
  * @param data
  * @private
  */
-RateLimiter.prototype.mergeData_ = function(add, data) {
+RateLimiter.prototype.mergeData_ = function (add, data) {
   for (var key in add) {
     if (add.hasOwnProperty(key)) {
       data[key] = add[key];
@@ -181,7 +181,7 @@ RateLimiter.prototype.mergeData_ = function(add, data) {
 /**
  * @private
  */
-RateLimiter.prototype.send_ = function(rate_limit_id) {
+RateLimiter.prototype.send_ = function (rate_limit_id) {
   var me = this;
   if (
     !me.pending[rate_limit_id] ||
@@ -222,13 +222,14 @@ RateLimiter.prototype.send_ = function(rate_limit_id) {
   } else {
     me.running_at_limit[rate_limit_id] = false;
   }
-  me.timeout[rate_limit_id] = window.setTimeout(function() {
+  me.timeout[rate_limit_id] = window.setTimeout(function () {
     me.timeout[rate_limit_id] = undefined;
     me.rate[rate_limit_id].push(new Date().getTime());
     var pending = me.pending[rate_limit_id].shift();
-    if (pending.action == "message") {
+    if (pending.action == 'message') {
+      console.log('send', pending.data);
       me.airconsole.message(pending.device_id, pending.data);
-    } else if (pending.action == "custom") {
+    } else if (pending.action == 'custom') {
       var data = pending.data;
       if (!pending.clear) {
         data = me.airconsole.getCustomDeviceState();

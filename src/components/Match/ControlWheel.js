@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import { useSwipeable } from "react-swipeable";
+import React from 'react';
+import styled from 'styled-components';
+import { useSwipeable } from 'react-swipeable';
 
-import controlWheelImg from "../../images/match/swipewheel_icon.png";
-import { useStateValue } from "../../store/StateContext";
-import SendAirConsole from "../AirConsoleHandler";
-import RateLimiter from "../../rate-limiter";
+import controlWheelImg from '../../images/match/swipewheel_icon.png';
+import { useStateValue } from '../../store/StateContext';
+import SendAirConsole from '../AirConsoleHandler';
+import { RateLimiter } from '../../rate-limiter';
 
 var rateLimiter = new RateLimiter(window.airconsole);
 const wheelSize = 60;
@@ -25,12 +25,12 @@ const ControlWheelBackground = styled.div`
   width: 90vw;
   max-height: 55vh;
   max-width: 55vh;
-/*   height: ${wheelSize}vh; */
-/*   width: 100%; */
-  background-color: ${props => (props.bckgColor ? props.bckgColor : "red")};
+  /*   height: ${wheelSize}vh; */
+  /*   width: 100%; */
+  background-color: ${(props) => (props.bckgColor ? props.bckgColor : 'red')};
   border-radius: 50%;
   position: relative;
-/*   opacity: 50%; */
+  /*   opacity: 50%; */
 
   &:active {
     filter: brightness(50%);
@@ -55,21 +55,18 @@ const WheelImage = styled.img`
 function ControlWheel() {
   const [{ menu }] = useStateValue();
   const swipeHandlers = useSwipeable({
-    onSwiped: eventData => {
+    onSwiped: (eventData) => {
       const { event, ...rest } = eventData;
-      rest["element"] = "swipe";
-      rest["clicked"] = "false";
-      console.log(rest);
-      //SendAirConsole(rest);
+      rest['element'] = 'swipe';
+      rest['clicked'] = 'false';
+      SendAirConsole(rest);
+    },
+    onSwiping: (eventData) => {
+      const { event, ...rest } = eventData;
+      rest['element'] = 'swipe';
+      rest['clicked'] = 'true';
       rateLimiter.message(window.airconsole.SCREEN, rest);
     },
-    onSwiping: eventData => {
-      const { event, ...rest } = eventData;
-      rest["element"] = "swipe";
-      rest["clicked"] = "true";
-      console.log(rest);
-      SendAirConsole(rest);
-    }
   });
 
   return (
