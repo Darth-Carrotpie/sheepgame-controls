@@ -1,5 +1,5 @@
 const views = {
-  current: "loading" //default=loading
+  current: "match", //default=loading
 };
 const menu = {
   ready: 0,
@@ -24,7 +24,7 @@ const menu = {
   scepterSpriteName: "STAFFS_07",
 
   firstOwner: false,
-  audioState: 0
+  audioState: 0,
 };
 const match = {
   health: 100,
@@ -42,18 +42,20 @@ const match = {
   upgradeA_price: 0,
   upgradeB_price: 0,
   upgradeA_icon: "",
-  upgradeB_icon: ""
+  upgradeB_icon: "",
+
+  ballista_loaded: true,
 };
 const post = {
   totalScore: 909,
   selectedScore: 0,
   scores: 0,
   win: 0,
-  playAgain: 0
+  playAgain: 0,
 };
 export default {
   views,
   menu,
   match,
-  post
+  post,
 };

@@ -12,7 +12,7 @@ export default (state, action) => {
         priceSheep: action.priceSheep,
         priceSmash: action.priceSmash,
         priceUpgrade1: action.priceUpgrade1,
-        priceUpgrade2: action.priceUpgrade2
+        priceUpgrade2: action.priceUpgrade2,
       };
     case "upgradeData":
       return {
@@ -23,7 +23,7 @@ export default (state, action) => {
 
         sheepTypeInput: action.upgrade.sheepTypeInput,
         sheepTypeOutput: action.upgrade.sheepTypeOutput,
-        selectedUpgradeIcon: action.icon
+        selectedUpgradeIcon: action.icon,
       };
     case "upgradeButtons":
       return {
@@ -32,7 +32,12 @@ export default (state, action) => {
         upgradeB_icon: action.upgradeB_icon,
 
         upgradeA_price: action.upgradeA_price,
-        upgradeB_price: action.upgradeB_price
+        upgradeB_price: action.upgradeB_price,
+      };
+    case "ballista":
+      return {
+        ...state,
+        ballista_loaded: action.ballista_loaded,
       };
     default:
       return state;
