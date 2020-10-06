@@ -38,13 +38,15 @@ const ControlWheelBackground = styled.div`
     filter: brightness(50%);
   }
 `;
+
+//transform: rotate(${(props) => props.rotationEuler}deg);
+//transform: rotate(${ballista_rotation}deg);
 const BallistaImage = styled.img`
   position: absolute;
   margin-left: 30%;
   margin-top: 30%;
   width: 40%;
-  transform: [{rotate:'${(props) => props.rotationEuler}deg'}];
-
+  transform: rotate(${(props) => props.rotationEuler}deg);
   user-drag: none;
   user-select: none;
   -moz-user-select: none;
@@ -75,8 +77,8 @@ function euler_angle(x, y) {
 }
 
 function ControlWheel() {
-  const [{ menu, match }] = useStateValue();
   var ballista_rotation = 0;
+  const [{ menu, match }] = useStateValue();
   const swipeHandlers = useSwipeable({
     onSwiped: (eventData) => {
       const { event, ...rest } = eventData;
@@ -97,6 +99,7 @@ function ControlWheel() {
       SendAirConsole(rest);
     },
     onSwiping: (eventData) => {
+      console.log("Angle: " + ballista_rotation);
       const { event, ...rest } = eventData;
       rest["element"] = "swipe";
       rest["clicked"] = "true";
@@ -114,7 +117,6 @@ function ControlWheel() {
       rest["rotationEuler"] = ballista_rotation;
       rateLimiter.message(window.airconsole.SCREEN, rest);
       //console.log("Coordinates: " + rect.left + "px, " + rect.top + "px");
-      console.log("Angle: " + ballista_rotation);
       //console.log({ endPointCenteredX, endPointCenteredY });
     },
   });
