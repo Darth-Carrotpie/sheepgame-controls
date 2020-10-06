@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { useSwipeable } from 'react-swipeable';
+import React, { useState } from "react";
+import styled from "styled-components";
+import { useSwipeable } from "react-swipeable";
 
-import controlWheelImg from '../../images/match/swipewheel_icon.png';
-import ballistaLoaded from '../../images/match/ballista_load.png';
-import ballistaShot from '../../images/match/ballista_shoot.png';
-import { useStateValue } from '../../store/StateContext';
-import SendAirConsole from '../AirConsoleHandler';
-import { RateLimiter } from '../../rate-limiter';
+import controlWheelImg from "../../images/match/swipewheel_icon.png";
+import ballistaLoaded from "../../images/match/ballista_load.png";
+import ballistaShot from "../../images/match/ballista_shoot.png";
+import { useStateValue } from "../../store/StateContext";
+import SendAirConsole from "../AirConsoleHandler";
+import { RateLimiter } from "../../rate-limiter";
 
 var rateLimiter = new RateLimiter(window.airconsole);
 const wheelSize = 60;
@@ -29,7 +29,7 @@ const ControlWheelBackground = styled.div`
   max-width: 55vh;
   /*   height: ${wheelSize}vh; */
   /*   width: 100%; */
-  background-color: ${(props) => (props.bckgColor ? props.bckgColor : 'red')};
+  background-color: ${(props) => (props.bckgColor ? props.bckgColor : "red")};
   border-radius: 50%;
   position: relative;
   /*   opacity: 50%; */
@@ -46,7 +46,7 @@ const BallistaImage = styled.img`
   margin-left: 30%;
   margin-top: 30%;
   width: 40%;
-  transform: rotate(${(props) => props.rotationEuler}deg);
+  transform: rotate(${(props) => -props.rotationEuler}deg);
   user-drag: none;
   user-select: none;
   -moz-user-select: none;
@@ -81,41 +81,61 @@ function ControlWheel() {
   const [{ menu, match }] = useStateValue();
   const [rotation, setRotation] = useState(0);
   const swipeHandlers = useSwipeable({
+    onTap: (eventData) => {
+      const { event, ...rest } = eventData;
+      console.log("tap: " + rest);
+      return;
+      rest["element"] = "swipe";
+      rest["clicked"] = "false";
+      rest["startRelative"] = [,];
+      const elementWidth = document.getElementById("controlWheel").clientWidth;
+      var div = document.getElementById("controlWheel");
+      var rect = div.getBoundingClientRect();
+      rest["startRelative"][0] =
+        rest["initial"][0] - rect.left - elementWidth / 2.0;
+      rest["startRelative"][1] =
+        rect.top + elementWidth / 2.0 - rest["initial"][1];
+      const endPointCenteredX = rest["startRelative"][0] - rest["deltaX"];
+      const endPointCenteredY = rest["startRelative"][1] + rest["deltaY"];
+      ballista_rotation = euler_angle(endPointCenteredX, endPointCenteredY);
+      rest["rotationEuler"] = ballista_rotation;
+      SendAirConsole(rest);
+    },
     onSwiped: (eventData) => {
       const { event, ...rest } = eventData;
-      rest['element'] = 'swipe';
-      rest['clicked'] = 'false';
-      rest['startRelative'] = [,];
-      const elementWidth = document.getElementById('controlWheel').clientWidth;
-      var div = document.getElementById('controlWheel');
+      rest["element"] = "swipe";
+      rest["clicked"] = "false";
+      rest["startRelative"] = [,];
+      const elementWidth = document.getElementById("controlWheel").clientWidth;
+      var div = document.getElementById("controlWheel");
       var rect = div.getBoundingClientRect();
-      rest['startRelative'][0] =
-        rest['initial'][0] - rect.left - elementWidth / 2.0;
-      rest['startRelative'][1] =
-        rect.top + elementWidth / 2.0 - rest['initial'][1];
-      const endPointCenteredX = rest['startRelative'][0] - rest['deltaX'];
-      const endPointCenteredY = rest['startRelative'][1] + rest['deltaY'];
+      rest["startRelative"][0] =
+        rest["initial"][0] - rect.left - elementWidth / 2.0;
+      rest["startRelative"][1] =
+        rect.top + elementWidth / 2.0 - rest["initial"][1];
+      const endPointCenteredX = rest["startRelative"][0] - rest["deltaX"];
+      const endPointCenteredY = rest["startRelative"][1] + rest["deltaY"];
       ballista_rotation = euler_angle(endPointCenteredX, endPointCenteredY);
-      rest['rotationEuler'] = ballista_rotation;
+      rest["rotationEuler"] = ballista_rotation;
       SendAirConsole(rest);
     },
     onSwiping: (eventData) => {
       const { event, ...rest } = eventData;
-      rest['element'] = 'swipe';
-      rest['clicked'] = 'true';
-      const elementWidth = document.getElementById('controlWheel').clientWidth;
-      var div = document.getElementById('controlWheel');
+      rest["element"] = "swipe";
+      rest["clicked"] = "true";
+      const elementWidth = document.getElementById("controlWheel").clientWidth;
+      var div = document.getElementById("controlWheel");
       var rect = div.getBoundingClientRect();
-      rest['startRelative'] = [,];
-      rest['startRelative'][0] =
-        rest['initial'][0] - rect.left - elementWidth / 2.0;
-      rest['startRelative'][1] =
-        rect.top + elementWidth / 2.0 - rest['initial'][1];
-      const endPointCenteredX = rest['startRelative'][0] - rest['deltaX'];
-      const endPointCenteredY = rest['startRelative'][1] + rest['deltaY'];
+      rest["startRelative"] = [,];
+      rest["startRelative"][0] =
+        rest["initial"][0] - rect.left - elementWidth / 2.0;
+      rest["startRelative"][1] =
+        rect.top + elementWidth / 2.0 - rest["initial"][1];
+      const endPointCenteredX = rest["startRelative"][0] - rest["deltaX"];
+      const endPointCenteredY = rest["startRelative"][1] + rest["deltaY"];
       ballista_rotation = euler_angle(endPointCenteredX, endPointCenteredY);
       setRotation(ballista_rotation);
-      rest['rotationEuler'] = ballista_rotation;
+      rest["rotationEuler"] = ballista_rotation;
       rateLimiter.message(window.airconsole.SCREEN, rest);
       //console.log("Coordinates: " + rect.left + "px, " + rect.top + "px");
       //console.log({ endPointCenteredX, endPointCenteredY });
