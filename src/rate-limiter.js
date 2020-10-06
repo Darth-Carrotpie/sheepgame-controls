@@ -227,7 +227,6 @@ RateLimiter.prototype.send_ = function (rate_limit_id) {
     me.rate[rate_limit_id].push(new Date().getTime());
     var pending = me.pending[rate_limit_id].shift();
     if (pending.action == 'message') {
-      console.log('send', pending.data);
       me.airconsole.message(pending.device_id, pending.data);
     } else if (pending.action == 'custom') {
       var data = pending.data;
