@@ -8,6 +8,7 @@ import ballistaShot from "../../images/match/ballista_shoot.png";
 import { useStateValue } from "../../store/StateContext";
 import SendAirConsole from "../AirConsoleHandler";
 import { RateLimiter } from "../../rate-limiter";
+import Sheep from "../Upgrade/Sheep";
 
 var rateLimiter = new RateLimiter(window.airconsole);
 const wheelSize = 60;
@@ -19,7 +20,6 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   /*   background-color: gray; */
-  opacity: 60%;
 `;
 
 const ControlWheelBackground = styled.div`
@@ -37,14 +37,13 @@ const ControlWheelBackground = styled.div`
   &:active {
     filter: brightness(50%);
   }
+  opacity: 60%;
 `;
 
 //transform: rotate(${(props) => props.rotationEuler}deg);
 //transform: rotate(${ballista_rotation}deg);
 const BallistaImage = styled.img`
   position: absolute;
-  margin-left: 30%;
-  margin-top: 30%;
   width: 40%;
   transform: rotate(${(props) => -props.rotationEuler}deg);
   user-drag: none;
@@ -54,13 +53,16 @@ const BallistaImage = styled.img`
   -webkit-user-select: none;
   -ms-user-select: none;
 `;
+const SheepContainer = styled.div`
+  position: absolute;
+  width: 25%;
+`;
 const WheelImage = styled.img`
   height: 90%;
+  margin-top: 5%;
   margin-left: 5%;
-  margin-right: 95%;
-  padding-top: 5%;
-  padding-bottom: 75%;
-
+  margin-right: 5%;
+  margin-bottom: 5%;
   user-drag: none;
   user-select: none;
   -moz-user-select: none;
@@ -144,13 +146,19 @@ function ControlWheel() {
   return (
     <Wrapper {...swipeHandlers}>
       <ControlWheelBackground bckgColor={menu.playerColor} id="controlWheel">
-        <BallistaImage
-          src={match.ballista_loaded ? ballistaLoaded : ballistaShot}
-          alt="ballista"
-          rotationEuler={rotation}
-        />
         <WheelImage src={controlWheelImg} alt="controlWheel"></WheelImage>
       </ControlWheelBackground>
+      <BallistaImage
+        src={match.ballista_loaded ? ballistaLoaded : ballistaShot}
+        alt="ballista"
+        rotationEuler={rotation}
+      />
+      <SheepContainer>
+        <Sheep
+          selectedSheep={match.selectedUpgradeIcon}
+          color={menu.playerColor}
+        ></Sheep>
+      </SheepContainer>
     </Wrapper>
   );
 }

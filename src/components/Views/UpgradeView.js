@@ -8,7 +8,12 @@ import Sheep from "../Upgrade/Sheep";
 import NerisBlack from "../../fonts/NerisBlack.otf";
 import upgradeIcons from "../../images/upgrade/icons";
 import SendAirConsole from "../AirConsoleHandler";
-
+const Wrapper = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 const WhiteBackground = styled.div`
   background-color: white;
   height: 100vh;
@@ -54,10 +59,11 @@ const UpgradeButtonPosition = styled.div`
   position: absolute;
   bottom: -3px;
   right: 0;
+  border: 0;
 `;
 const SheepContainer = styled.div`
-  transform: scale(0.7);
-  margin-top: -10vh;
+  width: 40vh;
+  margin-top: -5vh;
 `;
 
 function OnClickBuyUpgrade(elementName) {
@@ -123,13 +129,14 @@ function UpgradeView() {
         <UpgradeDescriptionText>
           <DescriptionStyle>{match.upgradeDescription}</DescriptionStyle>
         </UpgradeDescriptionText>
-        <SheepContainer>
-          <Sheep
-            selectedSheep={match.selectedUpgradeIcon}
-            color={menu.playerColor}
-          ></Sheep>
-        </SheepContainer>
-
+        <Wrapper>
+          <SheepContainer>
+            <Sheep
+              selectedSheep={match.selectedUpgradeIcon}
+              color={menu.playerColor}
+            ></Sheep>
+          </SheepContainer>
+        </Wrapper>
         <UpgradeButtonPosition>
           <UpgradeButton
             bckgColor={menu.playerColor}

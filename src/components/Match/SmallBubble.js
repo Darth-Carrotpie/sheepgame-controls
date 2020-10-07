@@ -14,8 +14,8 @@ const BubbleButton = styled.button`
   align-items: center;
   justify-content: center;
   margin-top: 0px;
-  margin-left: 2vh;
-  margin-right: 2vh;
+  margin-left: 1vh;
+  margin-right: 1vh;
   margin-bottom: 2vh;
   top: ${(props) => props.top}vh;
   border: none;
@@ -27,7 +27,7 @@ const BubbleButton = styled.button`
   :focus {
     outline: 0;
   }
-/*   opacity: ${(props) => props.bubbleOpacity}; */
+  /*   opacity: ${(props) => props.bubbleOpacity}; */
 `;
 
 function SmallBubble({ onClick, ...props }) {

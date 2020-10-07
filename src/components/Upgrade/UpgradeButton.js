@@ -9,6 +9,7 @@ const UpgradeButtonWrapper = styled.div`
   align-items: center;
   justify-content: center;
   background-color: ${(props) => (props.bckgColor ? props.bckgColor : "#0f0")};
+  border-style: none;
 `;
 const UpgradeButton = styled.img`
   width: 100vw;
@@ -17,6 +18,7 @@ const UpgradeButton = styled.img`
   &:active {
     filter: brightness(50%);
   }
+  border-style: none;
 `;
 
 const TextPosition = styled(Text)`
