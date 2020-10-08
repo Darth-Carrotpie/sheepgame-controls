@@ -35,9 +35,10 @@ const ControlWheelBackground = styled.div`
   position: relative;
   /*   opacity: 50%; */
 
-  &:active {
+  /*&:active {
     filter: brightness(50%);
-  }
+    opacity: 100%;
+  }*/
   opacity: 60%;
 `;
 
@@ -53,10 +54,12 @@ const BallistaImage = styled.img`
   -webkit-user-drag: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+  pointer-events: none;
 `;
 const SheepContainer = styled.div`
   position: absolute;
   width: 25%;
+  pointer-events: none;
 `;
 const WheelImage = styled.img`
   height: 90%;
@@ -79,21 +82,21 @@ function euler_angle(x, y) {
   return Math.floor(eul);
 }
 function SendMessage(eventData, setRotation) {
-  const { event, ...rest } = eventData;
-  rest["element"] = "swipe";
-  rest["clicked"] = "false";
+  var dataToSend = {};
+  dataToSend["element"] = "swipe";
+  dataToSend["clicked"] = "false";
   //console.log("clientX: " + eventData.nativeEvent.offsetX);
   //console.log("clientY: " + eventData.nativeEvent.offsetY);
-  //console.log("tap: " + rest);
-  const elementWidth = document.getElementById("controlWheel").clientWidth;
+  const elementWidth = document.getElementById("controlWheelImage").clientWidth;
   const endPointCenteredX = eventData.nativeEvent.offsetX - elementWidth / 2.0;
   const endPointCenteredY = -eventData.nativeEvent.offsetY + elementWidth / 2.0;
+  dataToSend["endPointCentered"] = [endPointCenteredX, endPointCenteredY];
   ballista_rotation = euler_angle(endPointCenteredX, endPointCenteredY);
-  rest["rotationEuler"] = ballista_rotation;
+  dataToSend["rotationEuler"] = ballista_rotation;
   console.log({ endPointCenteredX, endPointCenteredY });
-  console.log(ballista_rotation);
+  //console.log(ballista_rotation);
   setRotation(ballista_rotation);
-  SendAirConsole(rest);
+  SendAirConsole(dataToSend);
 }
 function getStartRelative(rest) {
   const elementWidth = document.getElementById("controlWheel").clientWidth;
@@ -115,6 +118,7 @@ function ControlWheel() {
 
       const endPointCenteredX = rest["startRelative"][0] - rest["deltaX"];
       const endPointCenteredY = rest["startRelative"][1] + rest["deltaY"];
+      rest["endPointCentered"] = [endPointCenteredX, endPointCenteredY];
       ballista_rotation = euler_angle(endPointCenteredX, endPointCenteredY);
       rest["rotationEuler"] = ballista_rotation;
       setRotation(ballista_rotation);
@@ -127,6 +131,7 @@ function ControlWheel() {
       rest["startRelative"] = getStartRelative(rest);
       const endPointCenteredX = rest["startRelative"][0] - rest["deltaX"];
       const endPointCenteredY = rest["startRelative"][1] + rest["deltaY"];
+      rest["endPointCentered"] = [endPointCenteredX, endPointCenteredY];
       ballista_rotation = euler_angle(endPointCenteredX, endPointCenteredY);
       setRotation(ballista_rotation);
       rest["rotationEuler"] = ballista_rotation;
@@ -139,9 +144,10 @@ function ControlWheel() {
     <Wrapper {...swipeHandlers}>
       <ControlWheelBackground bckgColor={menu.playerColor} id="controlWheel">
         <WheelImage
+          id="controlWheelImage"
           src={controlWheelImg}
           alt="controlWheel"
-          onClick={(e) => SendMessage(e, useState)}
+          onClick={(e) => SendMessage(e, setRotation)}
         ></WheelImage>
       </ControlWheelBackground>
       <BallistaImage

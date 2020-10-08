@@ -7,7 +7,7 @@ const PlayAgainButton = styled.img`
   overflow: hidden;
   //fix this after changing to svg. this doesnt work anyways ATM
   &:active {
-    filter: brightness(50%);
+    opacity: 40%;
   }
 `;
 

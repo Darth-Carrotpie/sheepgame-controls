@@ -21,6 +21,7 @@ const BottomRow = styled.div`
   justify-content: space-between;
   width: 90vw;
   color: "white";
+  pointer-events: none;
 `;
 
 const Text = styled.span`

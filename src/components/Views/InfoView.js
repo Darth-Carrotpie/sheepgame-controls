@@ -32,7 +32,7 @@ function InfoView(props) {
           <FlexColumn>
             <ItemName
               nameValue={props.infoText}
-              fontSize={10}
+              fontSize={18}
               height={8}
               playerColor={"white"}
             ></ItemName>

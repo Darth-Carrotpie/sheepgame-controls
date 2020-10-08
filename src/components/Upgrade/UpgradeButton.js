@@ -10,14 +10,15 @@ const UpgradeButtonWrapper = styled.div`
   justify-content: center;
   background-color: ${(props) => (props.bckgColor ? props.bckgColor : "#0f0")};
   border-style: none;
+  &:active {
+    opacity: 40%;
+  }
 `;
 const UpgradeButton = styled.img`
   width: 100vw;
   overflow: hidden;
   //fix this after changing to svg
-  &:active {
-    filter: brightness(50%);
-  }
+
   border-style: none;
 `;
 
