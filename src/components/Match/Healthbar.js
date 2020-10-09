@@ -6,6 +6,7 @@ import { useStateValue } from "../../store/StateContext";
 
 const ImageContainer = styled.div`
   max-height: 100vh;
+  max-width: 100vw;
   overflow: hidden;
   position: absolute;
   bottom: 0;

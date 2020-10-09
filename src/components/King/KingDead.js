@@ -11,17 +11,18 @@ const Position = styled.div`
 
 const CrownImg = styled.img`
   position: absolute;
-  margin-left: 6vh;
-  margin-top: 14vh;
-  width: 150px;
+  margin-left: 4vh;
+  margin-top: 2vh;
+  width: 18vh;
   transform: rotate(90deg);
 `;
 
 const StaffImg = styled.img`
   position: absolute;
-  margin-top: 14vh;
+  margin-top: 2vh;
   margin-left: -20vh;
-  width: 150px;
+  width: 18vh;
+  //width: 150px;
   transform: rotate(-90deg);
 `;
 

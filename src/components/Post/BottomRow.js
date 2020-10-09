@@ -7,27 +7,50 @@ import { useStateValue } from "../../store/StateContext";
 import { ACHIEVEMENTS } from "./constants";
 import SendAirConsole from "../AirConsoleHandler";
 import NerisBlack from "../../fonts/NerisBlack.otf";
+import PlayAgainButton from "../Post/PlayAgainButton";
 
+const TypographyPosition = styled.div`
+  position: absolute;
+  bottom: 3vh;
+  left: 5vw;
+`;
+const TabSpace = styled.span`
+  margin-left: 20vw;
+`;
 const BottomRow = styled.div`
   @font-face {
     font-family: NerisBlack;
     src: url(${NerisBlack});
   }
   z-index: 1;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-bottom: 15px;
   display: flex;
   justify-content: space-between;
-  width: 90vw;
   color: "white";
-  pointer-events: none;
+  height: 100%;
+  width: 100%;
 `;
-
+const PlayAgainContainer = styled.button`
+  position: absolute;
+  padding: 0;
+  background-color: #0000;
+  border: #000;
+  border-width: 0;
+  opacity: 80%;
+  overflow: hidden;
+  :focus {
+    outline: 0;
+  }
+  bottom: 0;
+  right: 0;
+`;
 const Text = styled.span`
+  position: absolute;
+  bottom: 3vh;
+  right: 5vw;
   color: "#FFFFFF";
   font-size: 1.2rem;
   font-weight: 1000;
+  pointer-events: none;
 `;
 function OnClickPlay() {
   var data = { element: "playAgain", pressed: true };
@@ -51,14 +74,20 @@ export default () => {
 
   return (
     <BottomRow>
-      <CrownsTypography
-        isYellow={true}
-        text={menu.permanentCrownCount}
-      ></CrownsTypography>
-      <CrownsTypography isYellow={false} text={reward}></CrownsTypography>
-      <Text onClick={OnClickPlay} style={{ marginTop: "5px" }}>
-        {post.playAgain ? "waiting..." : "play again"}
-      </Text>
+      <PlayAgainContainer onClick={OnClickPlay}>
+        <PlayAgainButton></PlayAgainButton>
+        <Text style={{ marginTop: "5px" }}>
+          {post.playAgain ? "waiting..." : "play again"}
+        </Text>
+      </PlayAgainContainer>
+      <TypographyPosition>
+        <CrownsTypography
+          isYellow={true}
+          text={menu.permanentCrownCount}
+        ></CrownsTypography>
+        <TabSpace></TabSpace>
+        <CrownsTypography isYellow={false} text={reward}></CrownsTypography>
+      </TypographyPosition>
     </BottomRow>
   );
 };
