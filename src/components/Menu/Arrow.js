@@ -7,7 +7,7 @@ import SendAirConsole from "../AirConsoleHandler";
 const ImageStyle = styled.img`
   max-height: 40px;
   max-width: 100%;
-  ${(props) => props.left && "transform: rotate(180deg)"};
+  ${props => props.left && "transform: rotate(180deg)"};
   &:active {
     filter: brightness(50%);
   }
@@ -20,7 +20,6 @@ function OnClickArrow(props) {
   SendAirConsole(data);
 }
 export function ArrowButton(props) {
-  /*   const [, dispatch] = useStateValue(); */
   return (
     <ImageStyle
       src={image}

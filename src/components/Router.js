@@ -8,46 +8,51 @@ import MenuView from "./Views/MenuView";
 import MatchView from "./Views/MatchView";
 import UpgradeView from "./Views/UpgradeView";
 import PostView from "./Views/PostView";
+import TutorialView from "./Views/TutorialView";
 import { useStateValue } from "../store/StateContext";
 
 function Router() {
-  const [{ views }] = useStateValue();
+  const [{ views, menu }] = useStateValue();
   var view = null;
-  switch (views.current) {
-    case "loading":
-      view = <InfoView infoImg={loadingImg} infoText={"loading"}></InfoView>;
-      break;
-    case "in_game":
-      view = (
-        <InfoView
-          infoImg={inProgressImg}
-          infoText={"game already in progress"}
-        ></InfoView>
-      );
-      break;
-    case "max_players":
-      view = (
-        <InfoView
-          opacity={"100%"}
-          infoImg={maxPlayersImg}
-          infoText={"no thrones available"}
-        ></InfoView>
-      );
-      break;
-    case "menu":
-      view = <MenuView></MenuView>;
-      break;
-    case "match":
-      view = <MatchView></MatchView>;
-      break;
-    case "upgrade":
-      view = <UpgradeView></UpgradeView>;
-      break;
-    case "post":
-      view = <PostView></PostView>;
-      break;
-    default:
-      view = <MenuView></MenuView>;
+  if (menu.tutorialIndex > 0) {
+    view = <TutorialView></TutorialView>;
+  } else {
+    switch (views.current) {
+      case "loading":
+        view = <InfoView infoImg={loadingImg} infoText={"loading"}></InfoView>;
+        break;
+      case "in_game":
+        view = (
+          <InfoView
+            infoImg={inProgressImg}
+            infoText={"game already in progress"}
+          ></InfoView>
+        );
+        break;
+      case "max_players":
+        view = (
+          <InfoView
+            opacity={"100%"}
+            infoImg={maxPlayersImg}
+            infoText={"no thrones available"}
+          ></InfoView>
+        );
+        break;
+      case "menu":
+        view = <MenuView></MenuView>;
+        break;
+      case "match":
+        view = <MatchView></MatchView>;
+        break;
+      case "upgrade":
+        view = <UpgradeView></UpgradeView>;
+        break;
+      case "post":
+        view = <PostView></PostView>;
+        break;
+      default:
+        view = <MenuView></MenuView>;
+    }
   }
   //last solution from here: https://hackernoon.com/lazy-loading-and-preloading-components-in-react-16-6-804de091c82d
   return (
