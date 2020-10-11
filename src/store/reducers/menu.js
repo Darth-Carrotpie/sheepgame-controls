@@ -41,10 +41,10 @@ export default (state, action) => {
         playerName: action.value
       };
     case "tutorialIndex":
-      console.log("setting tutorial reducer:" + action.value);
+      console.log("setting tutorial reducer:" + action.playerTutorialPage);
       return {
         ...state,
-        tutorialIndex: action.value
+        tutorialIndex: action.playerTutorialPage
       };
     case "firstOwner":
       console.log("setting name:" + action.value);
