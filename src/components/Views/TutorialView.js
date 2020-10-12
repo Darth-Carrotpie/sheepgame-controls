@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import tutorialImages from '../../images/tutorial';
-import { useStateValue } from '../../store/StateContext';
-import { setTutorialIndex } from '../../store/actions';
+import tutorialImages from "../../images/tutorial";
+import { useStateValue } from "../../store/StateContext";
+import { setTutorialIndex } from "../../store/actions";
 
 const ImageContainer = styled.div`
   height: 100vh;
@@ -32,12 +32,11 @@ function TutorialView(props) {
   const { tutorialIndex } = menu;
 
   function onClickTutorial() {
-    console.log('tutorialIndex before dispatch: ' + tutorialIndex);
-    var data = { type: 'tutorialIndex', value: 2 };
     dispatch(setTutorialIndex(tutorialIndex + 1)); // neveikia??? blogas action? gal turi but reduceris?
-    console.log('tutorialIndex after dispatch: ' + tutorialIndex);
-    console.log('tutorialImages.length: ' + tutorialImages.length);
-    if (tutorialIndex > tutorialImages.length) {
+    console.log(
+      "tutorialIndex after dispatch: " + tutorialImages[tutorialIndex]
+    );
+    if (tutorialIndex >= tutorialImages.length) {
       dispatch(setTutorialIndex(0));
     }
   }
@@ -46,10 +45,13 @@ function TutorialView(props) {
     <div>
       <ImageContainer
         bckgImg={
-          tutorialImages[tutorialIndex] //menu.tutorialIndex - 1
+          tutorialImages[tutorialIndex - 1] //menu.tutorialIndex - 1
         }
       >
-        <ButtonPosition onClick={() => onClickTutorial()}></ButtonPosition>
+        <ButtonPosition
+          onClick={() => onClickTutorial()}
+          {...props}
+        ></ButtonPosition>
       </ImageContainer>
     </div>
   );

@@ -5,6 +5,7 @@ import MenuRow from "../../components/Menu/MenuRow";
 import MenuRowLeft from "../../components/Menu/MenuRowLeft";
 import ArrowButton from "../../components/Menu/Arrow";
 import AudioButton from "../../components/Menu/AudioButton";
+import TutorialButton from "../../components/Menu/TutorialButton";
 import ItemName from "../../components/Menu/ItemName";
 import EmptyRow from "../Layout/EmptyRow";
 import FlexColumn from "../Layout/FlexColumn";
@@ -23,6 +24,7 @@ function MenuView() {
       <PreBackground {...menu} preBckgImage={selectionScreenImg}>
         <MenuRowLeft>
           <AudioButton {...menu}></AudioButton>
+          <TutorialButton {...menu}></TutorialButton>
         </MenuRowLeft>
         <MenuRow>
           <King showLocks={true}></King>
