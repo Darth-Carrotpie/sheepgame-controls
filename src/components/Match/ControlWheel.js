@@ -84,7 +84,7 @@ function euler_angle(x, y) {
 function SendMessage(eventData, setRotation) {
   var dataToSend = {};
   dataToSend["element"] = "swipe";
-  dataToSend["clicked"] = "false";
+  dataToSend["clicked"] = "true";
   //console.log("clientX: " + eventData.nativeEvent.offsetX);
   //console.log("clientY: " + eventData.nativeEvent.offsetY);
   const elementWidth = document.getElementById("controlWheelImage").clientWidth;
@@ -93,7 +93,7 @@ function SendMessage(eventData, setRotation) {
   dataToSend["endPointCentered"] = [endPointCenteredX, endPointCenteredY];
   ballista_rotation = euler_angle(endPointCenteredX, endPointCenteredY);
   dataToSend["rotationEuler"] = ballista_rotation;
-  console.log({ endPointCenteredX, endPointCenteredY });
+  //console.log({ endPointCenteredX, endPointCenteredY });
   //console.log(ballista_rotation);
   setRotation(ballista_rotation);
   SendAirConsole(dataToSend);
@@ -113,7 +113,7 @@ function ControlWheel() {
     onSwiped: (eventData) => {
       const { event, ...rest } = eventData;
       rest["element"] = "swipe";
-      rest["clicked"] = "false";
+      rest["clicked"] = "true";
       rest["startRelative"] = getStartRelative(rest);
 
       const endPointCenteredX = rest["startRelative"][0] - rest["deltaX"];
@@ -127,7 +127,7 @@ function ControlWheel() {
     onSwiping: (eventData) => {
       const { event, ...rest } = eventData;
       rest["element"] = "swipe";
-      rest["clicked"] = "true";
+      rest["clicked"] = "false";
       rest["startRelative"] = getStartRelative(rest);
       const endPointCenteredX = rest["startRelative"][0] - rest["deltaX"];
       const endPointCenteredY = rest["startRelative"][1] + rest["deltaY"];

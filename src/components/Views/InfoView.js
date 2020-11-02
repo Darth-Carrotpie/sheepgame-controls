@@ -11,8 +11,13 @@ const ImageContainer = styled.div`
   position: absolute;
   bottom: 0;
 `;
-const AbsoluteImage = styled.img`
-  max-height: 100vh;
+const AbsoluteImage = styled.div`
+  height: 100vh;
+  background: url(${(props) => props.bckgImg}) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 `;
 
 const NamePosition = styled.div`
@@ -24,9 +29,7 @@ const NamePosition = styled.div`
 function InfoView(props) {
   return (
     <div>
-      <ImageContainer>
-        <AbsoluteImage src={props.infoImg} alt="info"></AbsoluteImage>
-      </ImageContainer>
+      <AbsoluteImage bckgImg={props.infoImg} alt="info"></AbsoluteImage>
       <NamePosition {...props}>
         <FlexRow justifyContent="center">
           <FlexColumn>

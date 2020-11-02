@@ -13,16 +13,4 @@ const PreBackgroundWrapper = styled(FlexColumn)`
   /*   opacity: 50%; */
 `;
 
-/* function PreBackground(props) {
-  const [{ menu }] = useStateValue();
-  return (
-    <div>
-      <PreBackgroundWrapper
-        {...menu}
-        preBckgImage={props.preBckgImage}
-      ></PreBackgroundWrapper>
-    </div>
-  );
-} */
-
 export default PreBackgroundWrapper;

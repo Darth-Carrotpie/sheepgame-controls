@@ -1,7 +1,7 @@
-export const setTutorialIndex = value => {
-  console.log("setting tutorial action:" + value);
+export const setTutorialIndex = (input) => {
+  ///console.log("setting tutorial action:" + input);
   return {
     type: "tutorialIndex",
-    playerTutorialPage: value
+    value: input,
   };
 };

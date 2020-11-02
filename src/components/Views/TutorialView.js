@@ -32,7 +32,7 @@ function TutorialView(props) {
   const { tutorialIndex } = menu;
 
   function onClickTutorial() {
-    dispatch(setTutorialIndex(tutorialIndex + 1)); // neveikia??? blogas action? gal turi but reduceris?
+    dispatch(setTutorialIndex(tutorialIndex + 1));
     console.log(
       "tutorialIndex after dispatch: " + tutorialImages[tutorialIndex]
     );
