@@ -37,20 +37,19 @@ function ColorizeText(item) {
   var pluralY = false;
   for (i = 0; i < outputList.length; i++) {
     if ("[X]" === outputList[i].content) {
-      outputList[i].content = item.reward;
+      outputList[i].content = item.X;
       if (item.reward > 1) pluralX = true;
       else pluralX = false;
       pluralY = false;
     }
     if ("[Y]" === outputList[i].content) {
-      outputList[i].content = item.rewardDelta;
+      outputList[i].content = item.Y;
       pluralX = false;
       if (item.rewardDelta > 1) pluralY = true;
       else pluralY = false;
       if (item.rewardDelta === 0) outputList[i].content = item.wordDelta;
     }
     if ("[S]" === outputList[i].content) {
-      outputList[i].content = item.rewardDelta;
       if (pluralY || pluralX) outputList[i].content = "s";
       else outputList[i].content = "";
     }
@@ -69,7 +68,7 @@ export function Description({ item }) {
       <DescriptionStyle>
         {ColorizeText(item)
           .slice(1)
-          .map(item => {
+          .map((item) => {
             return <span style={{ color: item.color }}>{item.content}</span>;
           })}
       </DescriptionStyle>

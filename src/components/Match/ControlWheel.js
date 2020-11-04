@@ -157,7 +157,7 @@ function ControlWheel() {
       />
       <SheepContainer>
         <Sheep
-          selectedSheep={match.selectedUpgradeIcon}
+          selectedSheep={match.currentUpgradeIcon}
           color={menu.playerColor}
         ></Sheep>
       </SheepContainer>

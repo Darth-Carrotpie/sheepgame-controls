@@ -25,6 +25,11 @@ export default (state, action) => {
         sheepTypeOutput: action.upgrade.sheepTypeOutput,
         selectedUpgradeIcon: action.icon,
       };
+    case "currentUpgradeIcon":
+      return {
+        ...state,
+        currentUpgradeIcon: action.icon,
+      };
     case "upgradeButtons":
       return {
         ...state,
