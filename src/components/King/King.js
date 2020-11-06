@@ -15,7 +15,7 @@ const KingContainer = styled.div`
 
 const Position = styled.div`
   align-items: center;
-  margin-top: ${(props) => (props.firstOwner ? "-2vh" : "6vh")};
+  margin-top: 6vh;
 `;
 
 const CrownImg = styled.img`
@@ -57,7 +57,7 @@ function GetLockImage(unlocked, reqHero, isHero) {
 const King = (props) => {
   const [{ menu }] = useStateValue();
   return (
-    <Position firstOwner={menu.firstOwner}>
+    <Position>
       <CrownImg src={kingItems[menu.hatSpriteName]}></CrownImg>
       {props.showLocks && (
         <CrownLock

@@ -52,7 +52,7 @@ const post = {
   totalScore: 909,
   selectedScore: 0,
   scores: 0,
-  win: 0,
+  win: 1,
   playAgain: 0,
 };
 export default {

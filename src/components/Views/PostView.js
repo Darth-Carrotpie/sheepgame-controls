@@ -20,7 +20,7 @@ const BottomRowPosition = styled.div`
 `;
 const AchievementsPosition = styled.div`
   position: absolute;
-  bottom: 15vh;
+  bottom: 14vh;
   z-index: 1;
 `;
 

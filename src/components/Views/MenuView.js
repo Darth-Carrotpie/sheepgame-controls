@@ -11,12 +11,17 @@ import EmptyRow from "../Layout/EmptyRow";
 import FlexColumn from "../Layout/FlexColumn";
 import Margined from "../Layout/Margined";
 import selectionScreenImg from "../../images/menu/SelectionScreen_background.png";
+import styled from "styled-components";
 
 import CrownsTypography from "../../components/Menu/CrownsTypography";
 import PreBackground from "../../components/PreBackground";
 import King from "../King";
 import Requirements from "../../components/Menu/Requirements";
 
+const KingPosition = styled.div`
+  align-items: center;
+  margin-top: -6vh;
+`;
 function MenuView() {
   const [{ menu }] = useStateValue();
   return (
@@ -27,7 +32,9 @@ function MenuView() {
           <TutorialButton {...menu}></TutorialButton>
         </MenuRowLeft>
         <MenuRow>
-          <King showLocks={true}></King>
+          <KingPosition>
+            <King showLocks={true}></King>
+          </KingPosition>
         </MenuRow>
         <MenuRow>
           <Margined>
