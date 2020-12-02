@@ -81,15 +81,33 @@ function euler_angle(x, y) {
   var eul = (270 + deg) % 360; // folded to [0,360) domain
   return Math.floor(eul);
 }
-function SendMessage(eventData, setRotation) {
+function SendMessage(eventData, setRotation, isDown, location) {
   var dataToSend = {};
-  dataToSend["element"] = "swipe";
-  dataToSend["clicked"] = "true";
+  dataToSend["element"] = "tap";
+  dataToSend["clicked"] = isDown;
   //console.log("clientX: " + eventData.nativeEvent.offsetX);
   //console.log("clientY: " + eventData.nativeEvent.offsetY);
+  const offsetTop = document
+    .getElementById("controlWheelImage")
+    .getBoundingClientRect().top;
+  const offsetLeft = document
+    .getElementById("controlWheelImage")
+    .getBoundingClientRect().left;
   const elementWidth = document.getElementById("controlWheelImage").clientWidth;
-  const endPointCenteredX = eventData.nativeEvent.offsetX - elementWidth / 2.0;
-  const endPointCenteredY = -eventData.nativeEvent.offsetY + elementWidth / 2.0;
+  //const endPointCenteredX = eventData.nativeEvent.offsetX - elementWidth / 2.0;
+  const endPointCenteredX = location.x - elementWidth / 2.0 - offsetLeft;
+  //const endPointCenteredY = -eventData.nativeEvent.offsetY + elementWidth / 2.0;
+  const endPointCenteredY = offsetTop - location.y + elementWidth / 2.0;
+  /*   console.log(
+    " elementWidth:   " +
+      elementWidth +
+      "  topOffset: " +
+      offsetTop +
+      "  location: " +
+      location.y +
+      " tot: " +
+      endPointCenteredY
+  ); */
   dataToSend["endPointCentered"] = [endPointCenteredX, endPointCenteredY];
   ballista_rotation = euler_angle(endPointCenteredX, endPointCenteredY);
   dataToSend["rotationEuler"] = ballista_rotation;
@@ -97,6 +115,24 @@ function SendMessage(eventData, setRotation) {
   //console.log(ballista_rotation);
   setRotation(ballista_rotation);
   SendAirConsole(dataToSend);
+}
+function OnTouchStart(eventdata, setRotation) {
+  const firstTouchEvent = eventdata.touches[0];
+  //console.log(firstTouchEvent);
+  const location = {
+    x: firstTouchEvent.clientX,
+    y: firstTouchEvent.clientY,
+  };
+  SendMessage(eventdata, setRotation, true, location);
+}
+function OnTouchEnd(eventdata, setRotation) {
+  const firstTouchEvent = eventdata.changedTouches[0];
+  //console.log(firstTouchEvent);
+  const location = {
+    x: firstTouchEvent.clientX, //get the location of the end of the touch
+    y: firstTouchEvent.clientY,
+  };
+  SendMessage(eventdata, setRotation, false, location);
 }
 function getStartRelative(rest) {
   const elementWidth = document.getElementById("controlWheel").clientWidth;
@@ -113,7 +149,7 @@ function ControlWheel() {
     onSwiped: (eventData) => {
       const { event, ...rest } = eventData;
       rest["element"] = "swipe";
-      rest["clicked"] = "true";
+      rest["isDelta"] = "False";
       rest["startRelative"] = getStartRelative(rest);
 
       const endPointCenteredX = rest["startRelative"][0] - rest["deltaX"];
@@ -127,7 +163,7 @@ function ControlWheel() {
     onSwiping: (eventData) => {
       const { event, ...rest } = eventData;
       rest["element"] = "swipe";
-      rest["clicked"] = "false";
+      rest["isDelta"] = "True";
       rest["startRelative"] = getStartRelative(rest);
       const endPointCenteredX = rest["startRelative"][0] - rest["deltaX"];
       const endPointCenteredY = rest["startRelative"][1] + rest["deltaY"];
@@ -139,6 +175,8 @@ function ControlWheel() {
       //console.log("Coordinates: " + rect.left + "px, " + rect.top + "px");
       //console.log({ endPointCenteredX, endPointCenteredY });
     },
+    delta: 2,
+    trackMouse: true,
   });
   return (
     <Wrapper {...swipeHandlers}>
@@ -147,7 +185,9 @@ function ControlWheel() {
           id="controlWheelImage"
           src={controlWheelImg}
           alt="controlWheel"
-          onClick={(e) => SendMessage(e, setRotation)}
+          //onClick={(e) => SendMessage(e, setRotation)}
+          onTouchStart={(e) => OnTouchStart(e, setRotation)}
+          onTouchEnd={(e) => OnTouchEnd(e, setRotation)}
         ></WheelImage>
       </ControlWheelBackground>
       <BallistaImage
