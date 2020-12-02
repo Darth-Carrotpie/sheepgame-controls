@@ -15,15 +15,20 @@ export default (state, action) => {
         priceUpgrade2: action.priceUpgrade2,
       };
     case "upgradeData":
+      var upgrades = [];
+      for (var i = 0; i < action.upgrade.length; i++) {
+        upgrades[i] = {
+          upgradeDisplayName: action.upgrade[i].upgradeDisplayName,
+          upgradeDescription: action.upgrade[i].upgradeDescription,
+          //priceUpgrade: action.upgrade[i].priceUpgrade,
+
+          sheepTypeInput: action.upgrade[i].sheepTypeInput,
+          sheepTypeOutput: action.upgrade[i].sheepTypeOutput,
+        };
+      }
       return {
         ...state,
-        upgradeDisplayName: action.upgrade.upgradeDisplayName,
-        upgradeDescription: action.upgrade.upgradeDescription,
-        priceUpgrade: action.upgrade.priceUpgrade,
-
-        sheepTypeInput: action.upgrade.sheepTypeInput,
-        sheepTypeOutput: action.upgrade.sheepTypeOutput,
-        selectedUpgradeIcon: action.icon,
+        upgradeData: upgrades,
       };
     case "currentUpgradeIcon":
       return {
@@ -33,6 +38,7 @@ export default (state, action) => {
     case "upgradeButtons":
       return {
         ...state,
+
         upgradeA_icon: action.upgradeA_icon,
         upgradeB_icon: action.upgradeB_icon,
 
@@ -43,6 +49,12 @@ export default (state, action) => {
       return {
         ...state,
         ballista_loaded: action.ballista_loaded,
+      };
+    case "showUpgrade":
+      //console.log("setting tutorial reducer:" + action.value);
+      return {
+        ...state,
+        showUpgrade: action.value,
       };
     default:
       return state;

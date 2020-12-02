@@ -6,7 +6,6 @@ import loadingImg from "../images/controller_loading.png";
 
 import MenuView from "./Views/MenuView";
 import MatchView from "./Views/MatchView";
-import UpgradeView from "./Views/UpgradeView";
 import PostView from "./Views/PostView";
 import TutorialView from "./Views/TutorialView";
 import { useStateValue } from "../store/StateContext";
@@ -44,9 +43,6 @@ function Router() {
       case "match":
         view = <MatchView></MatchView>;
         break;
-      case "upgrade":
-        view = <UpgradeView></UpgradeView>;
-        break;
       case "post":
         view = <PostView></PostView>;
         break;
@@ -64,7 +60,6 @@ function Router() {
           <PostView></PostView>
           <MenuView></MenuView>
           <MatchView></MatchView>
-          <UpgradeView></UpgradeView>
         </div>
       </React.Suspense>
     </React.Suspense>

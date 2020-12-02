@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import tutorialImages from "../../images/tutorial";
-import { useStateValue } from "../../store/StateContext";
-import { setTutorialIndex } from "../../store/actions";
+import tutorialImages from '../../images/tutorial';
+import { useStateValue } from '../../store/StateContext';
+import { setTutorialIndex } from '../../store/actions';
 
 const ImageContainer = styled.div`
   height: 100vh;
@@ -33,9 +33,6 @@ function TutorialView(props) {
 
   function onClickTutorial() {
     dispatch(setTutorialIndex(tutorialIndex + 1));
-    console.log(
-      "tutorialIndex after dispatch: " + tutorialImages[tutorialIndex]
-    );
     if (tutorialIndex >= tutorialImages.length) {
       dispatch(setTutorialIndex(0));
     }

@@ -1,27 +1,27 @@
 const views = {
-  current: "loading", //default=loading
+  current: 'match', //default=loading
 };
 const menu = {
   ready: 0,
-  playerColor: "#0ff",
+  playerColor: '#0ff',
 
   hatID: 1,
-  hatName: "Princess Sweety Pop",
+  hatName: 'Princess Sweety Pop',
   hatUnlocked: false,
   hatCrownsReq: 555,
   hatCrownsReqMet: false,
   hatPremiumReq: true,
   hatPremiumReqMet: false,
-  hatSpriteName: "CROWNS_45",
+  hatSpriteName: 'CROWNS_45',
 
   scepterID: 1,
-  scepterName: "Shimmers of Darkness",
+  scepterName: 'Shimmers of Darkness',
   scepterUnlocked: true,
   scepterCrownsReq: 111,
   scepterCrownsReqMet: true,
   scepterPremiumReq: true,
   scepterPremiumReqMet: true,
-  scepterSpriteName: "STAFFS_07",
+  scepterSpriteName: 'STAFFS_07',
 
   firstOwner: false,
   audioState: 0,
@@ -37,16 +37,19 @@ const match = {
   priceSheep: 6,
   priceSmash: 7,
 
-  upgradeDescription: "this upgrade is the best!",
-  upgradeDisplayName: "op sheep",
-  selectedUpgradeIcon: "Armored",
+  upgradeDescription: 'this upgrade is the best!',
+  upgradeDisplayName: 'op sheep',
+  selectedUpgradeIcon: 'Armored',
 
   upgradeA_price: 0,
   upgradeB_price: 0,
-  upgradeA_icon: "",
-  upgradeB_icon: "",
+  upgradeA_icon: '',
+  upgradeB_icon: '',
 
   ballista_loaded: true,
+
+  upgradeData: [],
+  upgradeIndex: 0,
 };
 const post = {
   totalScore: 909,

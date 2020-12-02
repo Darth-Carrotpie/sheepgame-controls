@@ -8,6 +8,7 @@ import smiteButton from "../../images/match/smite_icon.png";
 import { useStateValue } from "../../store/StateContext";
 import upgradeIcons from "../../images/upgrade/icons";
 import SendAirConsole from "../AirConsoleHandler";
+import { showUpgrade } from "../../store/actions";
 const BubblesInLine = styled.div`
   flex: 1;
   display: flex;
@@ -31,12 +32,23 @@ function SendMessage(elementName, priceVal) {
   if (priceVal > 0) {
     var data = {
       element: elementName,
-      pressed: false
+      pressed: false,
     };
     SendAirConsole(data);
   }
 }
+function ShowUpgrade(upgradeIndex, priceVal) {
+  //const [{ match }] = useStateValue();
 
+  console.log(upgradeIndex);
+  //console.log(match.upgradeData);
+  if (priceVal > 0) {
+    var data = {
+      //element: elementName,
+      pressed: false,
+    };
+  }
+}
 function ShowPriceVal(inputValue) {
   if (inputValue > 0) {
     return Math.round(inputValue * 10) / 10;
@@ -46,21 +58,31 @@ function ShowPriceVal(inputValue) {
 }
 
 function BubbleGroup() {
-  const [{ match, menu }] = useStateValue();
+  const [{ match, menu }, dispatch] = useStateValue();
+  const { upgradeIndex } = match;
+  function onClickUpgrade(i) {
+    dispatch(showUpgrade(i));
+  }
   return (
     <div>
       <BubblesInLine>
         <BigBubble
           bubbleImage={upgradeIcons[match.upgradeA_icon]}
           bckgColor={menu.playerColor}
-          onClick={() => SendMessage("upgrade1", match.upgradeA_price)}
+          onClick={() => {
+            onClickUpgrade(1);
+            ShowUpgrade(upgradeIndex, match.upgradeA_price);
+          }}
         >
           {ShowPriceVal(match.upgradeA_price)}
         </BigBubble>
         <BigBubble
           bubbleImage={upgradeIcons[match.upgradeB_icon]}
           bckgColor={menu.playerColor}
-          onClick={() => SendMessage("upgrade2", match.upgradeB_price)}
+          onClick={() => {
+            onClickUpgrade(2);
+            ShowUpgrade(upgradeIndex, match.upgradeB_price);
+          }}
         >
           {ShowPriceVal(match.upgradeB_price)}
         </BigBubble>

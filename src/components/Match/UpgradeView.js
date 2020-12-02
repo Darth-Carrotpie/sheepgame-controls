@@ -8,6 +8,7 @@ import Sheep from "../Upgrade/Sheep";
 import NerisBlack from "../../fonts/NerisBlack.otf";
 import upgradeIcons from "../../images/upgrade/icons";
 import SendAirConsole from "../AirConsoleHandler";
+import { showUpgrade } from "../../store/actions";
 const Wrapper = styled.div`
   flex: 1;
   display: flex;
@@ -90,7 +91,7 @@ function SendMessage(elementName, priceVal) {
   }
 }
 function UpgradeView() {
-  const [{ match, menu }] = useStateValue();
+  const [{ match, menu }, dispatch] = useStateValue();
   return (
     <div>
       <div>
@@ -98,7 +99,7 @@ function UpgradeView() {
         <BubblesInLine>
           <BackBubble
             bckgColor={menu.playerColor}
-            onClick={() => OnClickBack()}
+            onClick={() => dispatch(showUpgrade(0))}
             rightHalf
           ></BackBubble>
           <BigBubble
@@ -119,7 +120,7 @@ function UpgradeView() {
           </BigBubble>
           <BackBubble
             bckgColor={menu.playerColor}
-            onClick={() => OnClickBack()}
+            onClick={() => dispatch(showUpgrade(0))}
             leftHalf
           ></BackBubble>
         </BubblesInLine>

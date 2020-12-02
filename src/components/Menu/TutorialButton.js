@@ -31,10 +31,9 @@ const IconImage = styled.img`
 `;
 
 export function TutorialButton(props) {
-  const [{ menu }, dispatch] = useStateValue();
-  const { tutorialIndex } = menu;
+  const [, dispatch] = useStateValue();
   function onClickTutorial() {
-    dispatch(setTutorialIndex(1)); // neveikia??? blogas action? gal turi but reduceris?
+    dispatch(setTutorialIndex(1));
   }
 
   return (
