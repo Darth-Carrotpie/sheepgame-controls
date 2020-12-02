@@ -114,6 +114,7 @@ function SendMessage(eventData, setRotation, isDown, location) {
   //console.log({ endPointCenteredX, endPointCenteredY });
   //console.log(ballista_rotation);
   setRotation(ballista_rotation);
+  dataToSend["elementWidth"] = elementWidth;
   SendAirConsole(dataToSend);
 }
 function OnTouchStart(eventdata, setRotation) {
@@ -135,8 +136,8 @@ function OnTouchEnd(eventdata, setRotation) {
   SendMessage(eventdata, setRotation, false, location);
 }
 function getStartRelative(rest) {
-  const elementWidth = document.getElementById("controlWheel").clientWidth;
-  var div = document.getElementById("controlWheel");
+  const elementWidth = document.getElementById("controlWheelImage").clientWidth;
+  var div = document.getElementById("controlWheelImage");
   var rect = div.getBoundingClientRect();
   var x = rest["initial"][0] - rect.left - elementWidth / 2.0;
   var y = rect.top + elementWidth / 2.0 - rest["initial"][1];
@@ -158,6 +159,9 @@ function ControlWheel() {
       ballista_rotation = euler_angle(endPointCenteredX, endPointCenteredY);
       rest["rotationEuler"] = ballista_rotation;
       setRotation(ballista_rotation);
+      rest["elementWidth"] = document.getElementById(
+        "controlWheelImage"
+      ).clientWidth;
       SendAirConsole(rest);
     },
     onSwiping: (eventData) => {
@@ -171,6 +175,9 @@ function ControlWheel() {
       ballista_rotation = euler_angle(endPointCenteredX, endPointCenteredY);
       setRotation(ballista_rotation);
       rest["rotationEuler"] = ballista_rotation;
+      rest["elementWidth"] = document.getElementById(
+        "controlWheelImage"
+      ).clientWidth;
       rateLimiter.message(window.airconsole.SCREEN, rest);
       //console.log("Coordinates: " + rect.left + "px, " + rect.top + "px");
       //console.log({ endPointCenteredX, endPointCenteredY });
