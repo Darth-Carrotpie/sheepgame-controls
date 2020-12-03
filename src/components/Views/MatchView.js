@@ -11,8 +11,7 @@ import { useStateValue } from '../../store/StateContext';
 
 function MatchView() {
   const [{ match }] = useStateValue();
-  var upgradeView = null;
-  if (match.upgradeIndex > 0) upgradeView = <UpgradeView></UpgradeView>;
+  if (match.showUpgrade > 0) return <UpgradeView></UpgradeView>;
   return (
     <div>
       <Healthbar></Healthbar>
@@ -21,7 +20,6 @@ function MatchView() {
         <BubbleGroup></BubbleGroup>
         <ControlWheel></ControlWheel>
       </FlexColumn>
-      {upgradeView}
     </div>
   );
 }
