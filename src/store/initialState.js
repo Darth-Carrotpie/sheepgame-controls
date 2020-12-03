@@ -16,7 +16,7 @@ const menu = {
 
   scepterID: 1,
   scepterName: 'Shimmers of Darkness',
-  scepterUnlocked: true,
+  scepterUnlocked: false,
   scepterCrownsReq: 111,
   scepterCrownsReqMet: true,
   scepterPremiumReq: true,

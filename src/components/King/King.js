@@ -1,12 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import { useStateValue } from "../../store/StateContext";
-import KingSheep from "./KingSheep";
-import styled from "styled-components";
-import * as kingItems from "../../images/king_items";
-import LockedNormal from "../../images/menu/locks/Lock_1.png";
-import LockedHero from "../../images/menu/locks/Lock_2.png";
-import UnlockedHero from "../../images/menu/locks/unlocked.png";
+import { useStateValue } from '../../store/StateContext';
+import KingSheep from './KingSheep';
+import styled from 'styled-components';
+import * as kingItems from '../../images/king_items';
+import LockedNormal from '../../images/menu/locks/Lock_1.png';
+import LockedHero from '../../images/menu/locks/Lock_2.png';
 
 const KingContainer = styled.div`
   width: 100%;
@@ -26,9 +25,9 @@ const CrownImg = styled.img`
 `;
 const CrownLock = styled.img`
   position: absolute;
-  margin-top: 30px;
-  margin-left: 175px;
-  width: 30px;
+  margin-top: -30px;
+  margin-left: 115px;
+  width: 60px;
 `;
 const StaffImg = styled.img`
   position: absolute;
@@ -38,21 +37,14 @@ const StaffImg = styled.img`
 `;
 const StaffLock = styled.img`
   position: absolute;
-  margin-top: 30px;
-  margin-left: -55px;
-  width: 30px;
+  margin-top: -10px;
+  margin-left: -15px;
+  width: 60px;
 `;
 function GetLockImage(unlocked, reqHero, isHero) {
-  if (reqHero && !unlocked) {
-    return LockedHero;
-  } else {
-    if (reqHero && unlocked && isHero) {
-      return UnlockedHero;
-    } else {
-      if (!reqHero && !unlocked) return LockedNormal;
-    }
-  }
-  return;
+  if (!reqHero && !unlocked) return LockedNormal;
+  if (reqHero && !unlocked) return LockedHero;
+  return null;
 }
 const King = (props) => {
   const [{ menu }] = useStateValue();
