@@ -1,6 +1,6 @@
 export default (state, action) => {
   switch (action.type) {
-    case "playerProfile":
+    case 'playerProfile':
       return {
         ...state,
         health: action.health,
@@ -14,28 +14,38 @@ export default (state, action) => {
         priceUpgrade1: action.priceUpgrade1,
         priceUpgrade2: action.priceUpgrade2,
       };
-    case "upgradeData":
+    case 'upgradeData':
       var upgrades = [];
-      for (var i = 0; i < action.upgrade.length; i++) {
-        upgrades[i] = {
-          upgradeDisplayName: action.upgrade[i].upgradeDisplayName,
-          upgradeDescription: action.upgrade[i].upgradeDescription,
-          //priceUpgrade: action.upgrade[i].priceUpgrade,
+      var upgArray = JSON.parse(action.upgrade);
+      for (var i = 0; i < upgArray.length; i++) {
+        console.log('upgArray[i]:', upgArray[i]);
+        upgrades[upgArray[i].enumStringName] = {
+          upgradeDisplayName: upgArray[i].upgradeDisplayName,
+          upgradeDescription: upgArray[i].upgradeDescription,
+          //priceUpgrade: upgArray[i].priceUpgrade,
 
-          sheepTypeInput: action.upgrade[i].sheepTypeInput,
-          sheepTypeOutput: action.upgrade[i].sheepTypeOutput,
+          sheepTypeInput: upgArray[i].sheepTypeInput,
+          sheepTypeOutput: upgArray[i].sheepTypeOutput,
+          enumStringName: upgArray[i].enumStringName,
         };
+        console.log(
+          'upgrades[upgArray[i].enumStringName]:',
+          upgrades[upgArray[i].enumStringName]
+        );
+      }
+      for (var i = 0; i < upgrades.length; i++) {
+        //console.log('upgrade:upgrades:', upgrades[upgArray[i].enumStringName]);
       }
       return {
         ...state,
         upgradeData: upgrades,
       };
-    case "currentUpgradeIcon":
+    case 'currentUpgradeIcon':
       return {
         ...state,
         currentUpgradeIcon: action.icon,
       };
-    case "upgradeButtons":
+    case 'upgradeButtons':
       return {
         ...state,
 
@@ -45,12 +55,12 @@ export default (state, action) => {
         upgradeA_price: action.upgradeA_price,
         upgradeB_price: action.upgradeB_price,
       };
-    case "ballista":
+    case 'ballista':
       return {
         ...state,
         ballista_loaded: action.ballista_loaded,
       };
-    case "showUpgrade":
+    case 'showUpgrade':
       //console.log("setting tutorial reducer:" + action.value);
       return {
         ...state,

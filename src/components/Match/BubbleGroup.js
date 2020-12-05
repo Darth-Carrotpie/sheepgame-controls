@@ -1,14 +1,14 @@
-import React from "react";
-import BigBubble from "./BigBubble";
-import SmallBubble from "./SmallBubble";
-import styled from "styled-components";
-import grassButton from "../../images/match/buy_grass_icon.png";
-import sheepButton from "../../images/match/buy_sheep_icon.png";
-import smiteButton from "../../images/match/smite_icon.png";
-import { useStateValue } from "../../store/StateContext";
-import upgradeIcons from "../../images/upgrade/icons";
-import SendAirConsole from "../AirConsoleHandler";
-import { showUpgrade } from "../../store/actions";
+import React from 'react';
+import BigBubble from './BigBubble';
+import SmallBubble from './SmallBubble';
+import styled from 'styled-components';
+import grassButton from '../../images/match/buy_grass_icon.png';
+import sheepButton from '../../images/match/buy_sheep_icon.png';
+import smiteButton from '../../images/match/smite_icon.png';
+import { useStateValue } from '../../store/StateContext';
+import upgradeIcons from '../../images/upgrade/icons';
+import SendAirConsole from '../AirConsoleHandler';
+import { showUpgrade } from '../../store/actions';
 const BubblesInLine = styled.div`
   flex: 1;
   display: flex;
@@ -37,51 +37,42 @@ function SendMessage(elementName, priceVal) {
     SendAirConsole(data);
   }
 }
-function ShowUpgrade(upgradeIndex, priceVal) {
-  //const [{ match }] = useStateValue();
 
-  console.log(upgradeIndex);
-  //console.log(match.upgradeData);
-  if (priceVal > 0) {
-    var data = {
-      //element: elementName,
-      pressed: false,
-    };
-  }
-}
 function ShowPriceVal(inputValue) {
   if (inputValue > 0) {
     return Math.round(inputValue * 10) / 10;
   } else {
-    return "";
+    return '';
   }
 }
 
 function BubbleGroup() {
   const [{ match, menu }, dispatch] = useStateValue();
-  const { upgradeIndex } = match;
+  const { upgradeA_icon, upgradeB_icon } = match;
   function onClickUpgrade(i) {
-    dispatch(showUpgrade(i));
+    if (upgradeA_icon != '' || upgradeB_icon != '') dispatch(showUpgrade(i));
+    else dispatch(showUpgrade('Base'));
   }
+
   return (
     <div>
       <BubblesInLine>
         <BigBubble
-          bubbleImage={upgradeIcons[match.upgradeA_icon]}
+          bubbleImage={upgradeIcons[upgradeA_icon]}
           bckgColor={menu.playerColor}
           onClick={() => {
-            onClickUpgrade(1);
-            ShowUpgrade(upgradeIndex, match.upgradeA_price);
+            onClickUpgrade(upgradeA_icon);
+            //ShowUpgrade(upgradeIndex, match.upgradeA_price);
           }}
         >
           {ShowPriceVal(match.upgradeA_price)}
         </BigBubble>
         <BigBubble
-          bubbleImage={upgradeIcons[match.upgradeB_icon]}
+          bubbleImage={upgradeIcons[upgradeB_icon]}
           bckgColor={menu.playerColor}
           onClick={() => {
-            onClickUpgrade(2);
-            ShowUpgrade(upgradeIndex, match.upgradeB_price);
+            onClickUpgrade(upgradeB_icon);
+            //ShowUpgrade(upgradeIndex, match.upgradeB_price);
           }}
         >
           {ShowPriceVal(match.upgradeB_price)}
@@ -91,31 +82,31 @@ function BubbleGroup() {
         <SmallBubble
           bubbleImage={grassButton}
           top={2}
-          onClick={() => SendMessage("buyGrass", match.priceGrass)}
-          bckgColor={"#c2e5ac"}
+          onClick={() => SendMessage('buyGrass', match.priceGrass)}
+          bckgColor={'#c2e5ac'}
         >
-          {" "}
-          {Math.round(match.priceGrass * 10) / 10}{" "}
-        </SmallBubble>{" "}
+          {' '}
+          {Math.round(match.priceGrass * 10) / 10}{' '}
+        </SmallBubble>{' '}
         <SmallBubble
           bubbleImage={sheepButton}
           top="0"
-          onClick={() => SendMessage("buySheep", match.priceSheep)}
+          onClick={() => SendMessage('buySheep', match.priceSheep)}
           bckgColor={menu.playerColor}
         >
-          {" "}
-          {Math.round(match.priceSheep * 10) / 10}{" "}
-        </SmallBubble>{" "}
+          {' '}
+          {Math.round(match.priceSheep * 10) / 10}{' '}
+        </SmallBubble>{' '}
         <SmallBubble
           bubbleImage={smiteButton}
           top="2"
-          onClick={() => SendMessage("smash", match.priceSmash)}
-          bckgColor={"#f9b096"}
+          onClick={() => SendMessage('smash', match.priceSmash)}
+          bckgColor={'#f9b096'}
         >
-          {" "}
-          {Math.round(match.priceSmash * 10) / 10}{" "}
-        </SmallBubble>{" "}
-      </FloatingBubbles>{" "}
+          {' '}
+          {Math.round(match.priceSmash * 10) / 10}{' '}
+        </SmallBubble>{' '}
+      </FloatingBubbles>{' '}
     </div>
   );
 }

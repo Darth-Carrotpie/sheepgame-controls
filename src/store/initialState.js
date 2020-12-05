@@ -1,5 +1,5 @@
 const views = {
-  current: 'match', //default=loading
+  current: 'menu', //default=loading
 };
 const menu = {
   ready: 0,
@@ -49,7 +49,7 @@ const match = {
   ballista_loaded: true,
 
   upgradeData: [],
-  upgradeIndex: 0,
+  showUpgrade: '',
 };
 const post = {
   totalScore: 909,

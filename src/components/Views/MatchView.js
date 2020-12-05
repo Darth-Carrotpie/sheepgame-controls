@@ -11,7 +11,7 @@ import { useStateValue } from '../../store/StateContext';
 
 function MatchView() {
   const [{ match }] = useStateValue();
-  if (match.showUpgrade > 0) return <UpgradeView></UpgradeView>;
+  if (match.showUpgrade != '') return <UpgradeView></UpgradeView>;
   return (
     <div>
       <Healthbar></Healthbar>
