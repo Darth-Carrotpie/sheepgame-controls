@@ -1,32 +1,66 @@
-import React from "react";
-import { useStateValue } from "../../store/StateContext";
-import { ReadyCloud } from "../../components/Menu/Cloud";
-import MenuRow from "../../components/Menu/MenuRow";
-import MenuRowLeft from "../../components/Menu/MenuRowLeft";
-import ArrowButton from "../../components/Menu/Arrow";
-import AudioButton from "../../components/Menu/AudioButton";
-import TutorialButton from "../../components/Menu/TutorialButton";
-import ItemName from "../../components/Menu/ItemName";
-import EmptyRow from "../Layout/EmptyRow";
-import FlexColumn from "../Layout/FlexColumn";
-import Margined from "../Layout/Margined";
-import selectionScreenImg from "../../images/menu/SelectionScreen_background.png";
-import styled from "styled-components";
+import React from 'react';
+import { useStateValue } from '../../store/StateContext';
+import { ReadyCloud } from '../../components/Menu/Cloud';
+import MenuRow from '../../components/Menu/MenuRow';
+import MenuRowLeft from '../../components/Menu/MenuRowLeft';
+import ArrowButton from '../../components/Menu/Arrow';
+import AudioButton from '../../components/Menu/AudioButton';
+import TutorialButton from '../../components/Menu/TutorialButton';
+import ItemName from '../../components/Menu/ItemName';
+import EmptyRow from '../Layout/EmptyRow';
+import FlexColumn from '../Layout/FlexColumn';
+import Margined from '../Layout/Margined';
+import styled from 'styled-components';
 
-import CrownsTypography from "../../components/Menu/CrownsTypography";
-import PreBackground from "../../components/PreBackground";
-import King from "../King";
-import Requirements from "../../components/Menu/Requirements";
+import CrownsTypography from '../../components/Menu/CrownsTypography';
+import BckgTop from '../../components/Menu/Background/top';
+import BckgBottom from '../../components/Menu/Background/bottom';
+import King from '../King';
+import Requirements from '../../components/Menu/Requirements';
 
 const KingPosition = styled.div`
   align-items: center;
   margin-top: -6vh;
 `;
+
+const ImageContainer = styled.div`
+  position: absolute;
+  height: 100vh;
+  max-width: 100vw;
+  overflow: hidden;
+  top: 40vh;
+  background-color: ${(props) =>
+    props.bckgColor ? props.bckgColor : '#ff00ff00'};
+`;
+const ContentContainer = styled.div`
+  height: 100vh;
+  max-width: 100vw;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+`;
+const TopWave = styled.div`
+  position: absolute;
+  width: 100vw;
+`;
+const BotWave = styled.div`
+  position: absolute;
+  width: 100vw;
+  top: 45vh;
+`;
 function MenuView() {
   const [{ menu }] = useStateValue();
   return (
     <div>
-      <PreBackground {...menu} preBckgImage={selectionScreenImg}>
+      <ImageContainer bckgColor={menu.playerColor}>
+        <TopWave>
+          <BckgTop color={menu.playerColor}></BckgTop>
+        </TopWave>
+        <BotWave>
+          <BckgBottom color={menu.playerColor}></BckgBottom>
+        </BotWave>
+      </ImageContainer>
+      <ContentContainer>
         <MenuRowLeft>
           <AudioButton {...menu}></AudioButton>
           <TutorialButton {...menu}></TutorialButton>
@@ -42,7 +76,7 @@ function MenuView() {
               nameValue={menu.playerName}
               fontSize={24}
               height={7}
-              playerColor={menu.playerColor ? menu.playerColor : "black"}
+              playerColor={menu.playerColor ? menu.playerColor : 'black'}
             ></ItemName>
           </Margined>
         </MenuRow>
@@ -56,7 +90,7 @@ function MenuView() {
           <FlexColumn>
             <MenuRow>
               <ArrowButton
-                elementMessage={"changeHat"}
+                elementMessage={'changeHat'}
                 valueMessage={-1}
                 left
               ></ArrowButton>
@@ -66,7 +100,7 @@ function MenuView() {
                 height={5}
               ></ItemName>
               <ArrowButton
-                elementMessage={"changeHat"}
+                elementMessage={'changeHat'}
                 valueMessage={1}
               ></ArrowButton>
             </MenuRow>
@@ -86,7 +120,7 @@ function MenuView() {
 
             <MenuRow>
               <ArrowButton
-                elementMessage={"changeScepter"}
+                elementMessage={'changeScepter'}
                 valueMessage={-1}
                 left
               ></ArrowButton>
@@ -96,7 +130,7 @@ function MenuView() {
                 height={5}
               ></ItemName>
               <ArrowButton
-                elementMessage={"changeScepter"}
+                elementMessage={'changeScepter'}
                 valueMessage={1}
               ></ArrowButton>
             </MenuRow>
@@ -118,7 +152,7 @@ function MenuView() {
             </MenuRow>
           </FlexColumn>
         </MenuRow>
-      </PreBackground>
+      </ContentContainer>
     </div>
   );
 }
