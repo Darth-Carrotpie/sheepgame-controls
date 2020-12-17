@@ -60,6 +60,7 @@ function BubbleGroup() {
         <BigBubble
           bubbleImage={upgradeIcons[upgradeA_icon]}
           bckgColor={menu.playerColor}
+          notEnoughGold={match.upgradeA_price > match.money}
           onClick={() => {
             onClickUpgrade(upgradeA_icon);
             //ShowUpgrade(upgradeIndex, match.upgradeA_price);
@@ -70,6 +71,7 @@ function BubbleGroup() {
         <BigBubble
           bubbleImage={upgradeIcons[upgradeB_icon]}
           bckgColor={menu.playerColor}
+          notEnoughGold={match.upgradeB_price > match.money}
           onClick={() => {
             onClickUpgrade(upgradeB_icon);
             //ShowUpgrade(upgradeIndex, match.upgradeB_price);
@@ -84,6 +86,7 @@ function BubbleGroup() {
           top={2}
           onClick={() => SendMessage('buyGrass', match.priceGrass)}
           bckgColor={'#c2e5ac'}
+          notEnoughGold={match.priceGrass > match.money}
         >
           {' '}
           {Math.round(match.priceGrass * 10) / 10}{' '}
@@ -93,6 +96,7 @@ function BubbleGroup() {
           top="0"
           onClick={() => SendMessage('buySheep', match.priceSheep)}
           bckgColor={menu.playerColor}
+          notEnoughGold={match.priceSheep > match.money}
         >
           {' '}
           {Math.round(match.priceSheep * 10) / 10}{' '}
@@ -102,6 +106,7 @@ function BubbleGroup() {
           top="2"
           onClick={() => SendMessage('smash', match.priceSmash)}
           bckgColor={'#f9b096'}
+          notEnoughGold={match.priceSmash > match.money}
         >
           {' '}
           {Math.round(match.priceSmash * 10) / 10}{' '}

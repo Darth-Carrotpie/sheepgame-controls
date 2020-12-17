@@ -13,7 +13,9 @@ const BubbleButton = styled.button`
   justify-content: center;
   margin-top: 0px;
   top: 0vh;
-  border: #f7931e ${(props) => (props.selected ? '3px solid' : 'none')};
+  border-color: ${(props) => (props.notEnoughGold ? 'red' : '#f7931e')};
+  border: ${(props) =>
+    props.selected || props.notEnoughGold ? '3px solid' : 'none'};
   border-radius: 100%;
   padding: 0;
   &:active {

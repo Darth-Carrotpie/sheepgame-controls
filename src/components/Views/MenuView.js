@@ -25,12 +25,12 @@ const KingPosition = styled.div`
 
 const ImageContainer = styled.div`
   position: absolute;
-  height: 100vh;
-  max-width: 100vw;
-  overflow: hidden;
-  top: 40vh;
-  background-color: ${(props) =>
-    props.bckgColor ? props.bckgColor : '#ff00ff00'};
+  height: 30vh;
+  width: 100vw;
+  overflow: show;
+  top: 50vh;
+  background-color: ${(props) => (props.bckgColor ? props.bckgColor : '#f0f')};
+  margin: 0;
 `;
 const ContentContainer = styled.div`
   height: 100vh;
@@ -38,21 +38,26 @@ const ContentContainer = styled.div`
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  background-color: black;
 `;
 const TopWave = styled.div`
+  display: inline-block;
   position: absolute;
   width: 100vw;
+  -webkit-transform: translateY(-95%);
+  -moz-transform: translateY(-95%);
+  margin: 0;
 `;
 const BotWave = styled.div`
   position: absolute;
   width: 100vw;
-  top: 45vh;
+  top: 100%;
 `;
 function MenuView() {
   const [{ menu }] = useStateValue();
   return (
     <div>
-      <ImageContainer bckgColor={menu.playerColor}>
+      <ImageContainer bckgColor={menu.playerColor} id="coloredBckg">
         <TopWave>
           <BckgTop color={menu.playerColor}></BckgTop>
         </TopWave>

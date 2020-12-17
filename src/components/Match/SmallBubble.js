@@ -1,13 +1,15 @@
-import React from "react";
-import styled from "styled-components";
-import BubbleText from "./BubbleText";
-import BubbleIcon from "./BubbleIcon";
+import React from 'react';
+import styled from 'styled-components';
+import BubbleText from './BubbleText';
+import BubbleIcon from './BubbleIcon';
 
 const BubbleButton = styled.button`
   height: 13vh;
   width: 13vh;
   background-color: ${(props) =>
-    props.bckgColor ? props.bckgColor : "rgba(0, 0, 0, 0.0)"};
+    props.bckgColor ? props.bckgColor : 'rgba(0, 0, 0, 0.0)'};
+  border: ${(props) => (props.notEnoughGold ? '3px solid' : 'none')};
+  border-color: ${(props) => (props.notEnoughGold ? 'red' : 'white')};
   border-radius: 50%;
   display: inline-flex;
   position: relative;
@@ -18,7 +20,6 @@ const BubbleButton = styled.button`
   margin-right: 1vh;
   margin-bottom: 2vh;
   top: ${(props) => props.top}vh;
-  border: none;
   padding: 0;
   box-shadow: none;
   &:active {
