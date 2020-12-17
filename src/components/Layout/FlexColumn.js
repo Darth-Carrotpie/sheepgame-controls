@@ -5,7 +5,7 @@ const FlexColumn = styled.div`
   flex-direction: column;
   justify-content: ${(props) => props.justifyContent};
   ${(props) => props.fullscreen && 'height: 100vh'}
-  background-color: ${(props) => (props.bckgColor ? props.bckgColor : '#f0f')};
+  background-color: ${(props) => (props.bckgColor ? props.bckgColor : '#f0f0')};
 `;
 
 export default FlexColumn;
