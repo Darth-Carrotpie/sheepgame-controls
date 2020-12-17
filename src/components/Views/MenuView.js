@@ -38,33 +38,29 @@ const ContentContainer = styled.div`
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background-color: black;
 `;
 const TopWave = styled.div`
-  display: inline-block;
-  position: absolute;
   width: 100vw;
+  /*display: inline-block;
+  position: absolute;
   -webkit-transform: translateY(-95%);
-  -moz-transform: translateY(-95%);
+  -moz-transform: translateY(-95%);*/
   margin: 0;
+  border: none;
+`;
+const CrownText = styled.div`
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 115%);
 `;
 const BotWave = styled.div`
   position: absolute;
   width: 100vw;
-  top: 100%;
 `;
 function MenuView() {
   const [{ menu }] = useStateValue();
   return (
     <div>
-      <ImageContainer bckgColor={menu.playerColor} id="coloredBckg">
-        <TopWave>
-          <BckgTop color={menu.playerColor}></BckgTop>
-        </TopWave>
-        <BotWave>
-          <BckgBottom color={menu.playerColor}></BckgBottom>
-        </BotWave>
-      </ImageContainer>
       <ContentContainer>
         <MenuRowLeft>
           <AudioButton {...menu}></AudioButton>
@@ -86,13 +82,18 @@ function MenuView() {
           </Margined>
         </MenuRow>
         <MenuRow>
-          <CrownsTypography
-            isYellow={false}
-            text={menu.permanentCrownCount}
-          ></CrownsTypography>
+          <TopWave>
+            <BckgTop color={menu.playerColor}></BckgTop>
+          </TopWave>
+          <CrownText>
+            <CrownsTypography
+              isYellow={false}
+              text={menu.permanentCrownCount}
+            ></CrownsTypography>
+          </CrownText>
         </MenuRow>
         <MenuRow>
-          <FlexColumn>
+          <FlexColumn bckgColor={menu.playerColor} id="FlexColumn">
             <MenuRow>
               <ArrowButton
                 elementMessage={'changeHat'}
@@ -149,10 +150,13 @@ function MenuView() {
             </MenuRow>
 
             <MenuRow>
-              <EmptyRow rowHeight={3}></EmptyRow>
+              <EmptyRow rowHeight={1}></EmptyRow>
             </MenuRow>
 
-            <MenuRow>
+            <MenuRow bckgColor={'#fff'}>
+              <BotWave>
+                <BckgBottom color={menu.playerColor}></BckgBottom>
+              </BotWave>
               <ReadyCloud></ReadyCloud>
             </MenuRow>
           </FlexColumn>

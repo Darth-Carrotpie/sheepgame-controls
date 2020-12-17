@@ -1,13 +1,13 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 /* import cloudImgReady from "../../images/menu/play_cloud.png"; */
-import ItemName from "../../components/Menu/ItemName";
+import ItemName from '../../components/Menu/ItemName';
 /* import { useStateValue } from '../../store/StateContext'; */
-import { useStateValue } from "../../store/StateContext";
-import SendAirConsole from "../AirConsoleHandler";
+import { useStateValue } from '../../store/StateContext';
+import SendAirConsole from '../AirConsoleHandler';
 
 function OnClickReady() {
-  var data = { element: "ready-button", pressed: true };
+  var data = { element: 'ready-button', pressed: true };
   SendAirConsole(data);
 }
 
@@ -24,11 +24,11 @@ export function ReadyCloud(props) {
   return (
     <ReadyCloudBackground>
       <ItemName
-        nameValue={menu.ready ? "READY" : "PLAY"}
+        nameValue={menu.ready ? 'READY' : 'PLAY'}
         onClick={OnClickReady}
         fontSize={45}
         height={15}
-        playerColor={menu.playerColor ? menu.playerColor : "black"}
+        playerColor={menu.playerColor ? menu.playerColor : 'black'}
       ></ItemName>
     </ReadyCloudBackground>
   );
