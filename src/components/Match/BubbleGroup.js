@@ -86,7 +86,9 @@ function BubbleGroup() {
           top={2}
           onClick={() => SendMessage('buyGrass', match.priceGrass)}
           bckgColor={'#c2e5ac'}
-          notEnoughGold={match.priceGrass > match.money}
+          notEnoughGold={
+            Math.round(match.priceGrass * 10) / 10 > Math.round(match.money)
+          }
         >
           {' '}
           {Math.round(match.priceGrass * 10) / 10}{' '}
@@ -96,7 +98,9 @@ function BubbleGroup() {
           top="0"
           onClick={() => SendMessage('buySheep', match.priceSheep)}
           bckgColor={menu.playerColor}
-          notEnoughGold={match.priceSheep > match.money}
+          notEnoughGold={
+            Math.round(match.priceSheep * 10) / 10 > Math.round(match.money)
+          }
         >
           {' '}
           {Math.round(match.priceSheep * 10) / 10}{' '}
@@ -106,7 +110,9 @@ function BubbleGroup() {
           top="2"
           onClick={() => SendMessage('smash', match.priceSmash)}
           bckgColor={'#f9b096'}
-          notEnoughGold={match.priceSmash > match.money}
+          notEnoughGold={
+            Math.round(match.priceSmash * 10) / 10 > Math.round(match.money)
+          }
         >
           {' '}
           {Math.round(match.priceSmash * 10) / 10}{' '}

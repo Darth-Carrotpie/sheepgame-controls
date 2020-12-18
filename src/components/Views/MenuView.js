@@ -56,6 +56,7 @@ const CrownText = styled.div`
 const BotWave = styled.div`
   position: absolute;
   width: 100vw;
+  pointer-events: none;
 `;
 function MenuView() {
   const [{ menu }] = useStateValue();
