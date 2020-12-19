@@ -7,9 +7,14 @@ import * as kingItems from '../../images/king_items';
 import LockedNormal from '../../images/menu/locks/Lock_1.png';
 import LockedHero from '../../images/menu/locks/Lock_2.png';
 
+const DEFAULT_SIZE_IN_VH = 30;
+const calculatePositionInVh = (positionInPx) => {
+  return (positionInPx / 200) * DEFAULT_SIZE_IN_VH;
+};
+
 const KingContainer = styled.div`
   width: 100%;
-  height: 200px;
+  height: ${calculatePositionInVh(200)}vh;
 `;
 
 const Position = styled.div`
@@ -19,27 +24,27 @@ const Position = styled.div`
 
 const CrownImg = styled.img`
   position: absolute;
-  margin-left: 45px;
-  margin-top: -45px;
-  width: 150px;
+  margin-left: ${calculatePositionInVh(45)}vh;
+  margin-top: ${calculatePositionInVh(-45)}vh;
+  width: ${calculatePositionInVh(150)}vh;
 `;
 const CrownLock = styled.img`
   position: absolute;
-  margin-top: -30px;
-  margin-left: 115px;
-  width: 60px;
+  margin-top: ${calculatePositionInVh(-30)}vh;
+  margin-left: ${calculatePositionInVh(115)}vh;
+  width: ${calculatePositionInVh(60)}vh;
 `;
 const StaffImg = styled.img`
   position: absolute;
-  margin-top: -23px;
-  margin-left: -70px;
-  width: 150px;
+  margin-top: ${calculatePositionInVh(-23)}vh;
+  margin-left: ${calculatePositionInVh(-70)}vh;
+  width: ${calculatePositionInVh(150)}vh;
 `;
 const StaffLock = styled.img`
   position: absolute;
-  margin-top: -10px;
-  margin-left: -15px;
-  width: 60px;
+  margin-top: ${calculatePositionInVh(-10)}vh;
+  margin-left: ${calculatePositionInVh(-15)}vh;
+  width: ${calculatePositionInVh(60)}vh;
 `;
 function GetLockImage(unlocked, reqHero, isHero) {
   if (!reqHero && !unlocked) return LockedNormal;

@@ -14,6 +14,7 @@ import styled from 'styled-components';
 
 import CrownsTypography from '../../components/Menu/CrownsTypography';
 import BckgTop from '../../components/Menu/Background/top';
+import Wave from '../../components/Menu/Background/Wave';
 import BckgBottom from '../../components/Menu/Background/bottom';
 import King from '../King';
 import Requirements from '../../components/Menu/Requirements';
@@ -42,11 +43,17 @@ const ContentContainer = styled.div`
 const TopWave = styled.div`
   width: 100vw;
   /*display: inline-block;
-  position: absolute;
-  -webkit-transform: translateY(-95%);
-  -moz-transform: translateY(-95%);*/
+position: absolute;
+-webkit-transform: translateY(-95%);
+-moz-transform: translateY(-95%);*/
   margin: 0;
   border: none;
+`;
+const FullWave = styled.div`
+  width: 100vw;
+  height: 40vh;
+  position: absolute;
+  z-index: -1;
 `;
 const CrownText = styled.div`
   position: absolute;
@@ -83,18 +90,20 @@ function MenuView() {
           </Margined>
         </MenuRow>
         <MenuRow>
-          <TopWave>
+          {/* <TopWave>
             <BckgTop color={menu.playerColor}></BckgTop>
-          </TopWave>
+          </TopWave> */}
+          <FullWave>
+            <Wave />
+          </FullWave>
           <CrownText>
             <CrownsTypography
               isYellow={false}
               text={menu.permanentCrownCount}
             ></CrownsTypography>
           </CrownText>
-        </MenuRow>
-        <MenuRow>
-          <FlexColumn bckgColor={menu.playerColor} id="FlexColumn">
+
+          <FlexColumn id="FlexColumn">
             <MenuRow>
               <ArrowButton
                 elementMessage={'changeHat'}
@@ -154,10 +163,7 @@ function MenuView() {
               <EmptyRow rowHeight={1}></EmptyRow>
             </MenuRow>
 
-            <MenuRow bckgColor={'#fff'}>
-              <BotWave>
-                <BckgBottom color={menu.playerColor}></BckgBottom>
-              </BotWave>
+            <MenuRow>
               <ReadyCloud></ReadyCloud>
             </MenuRow>
           </FlexColumn>
