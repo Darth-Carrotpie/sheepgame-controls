@@ -12,11 +12,14 @@ function OnClickReady() {
 }
 
 const ReadyCloudBackground = styled.div`
-  max-width: 350px;
   height: 15vh;
+  max-height: 80px;
   &:active {
     filter: brightness(50%);
   }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export function ReadyCloud(props) {
@@ -27,7 +30,6 @@ export function ReadyCloud(props) {
         nameValue={menu.ready ? 'READY' : 'PLAY'}
         onClick={OnClickReady}
         fontSize={45}
-        height={15}
         playerColor={menu.playerColor ? menu.playerColor : 'black'}
       ></ItemName>
     </ReadyCloudBackground>

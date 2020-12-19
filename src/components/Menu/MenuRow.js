@@ -6,5 +6,6 @@ const MenuRow = styled.div`
   /*   background-color:teal;
   opacity: 50%; */
   background-color: ${(props) => (props.bckgColor ? props.bckgColor : 'none')};
+  ${(props) => (props.transparent ? 'opacity: 0.5;' : '')}
 `;
 export default MenuRow;
