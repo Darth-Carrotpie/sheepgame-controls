@@ -29,7 +29,7 @@ function ItemSelection() {
 
       <MenuRow>
         <Requirements
-          hatUnlocked={menu.hatUnlocked}
+          isUnlocked={menu.hatUnlocked}
           premiumReqMet={menu.hatPremiumReqMet}
           crownsReqMet={menu.hatCrownsReqMet}
           crownsReq={menu.hatCrownsReq}
@@ -58,7 +58,7 @@ function ItemSelection() {
       </MenuRow>
       <MenuRow>
         <Requirements
-          hatUnlocked={menu.scepterUnlocked}
+          isUnlocked={menu.scepterUnlocked}
           premiumReqMet={menu.scepterPremiumReqMet}
           crownsReqMet={menu.scepterCrownsReqMet}
           crownsReq={menu.scepterCrownsReq}

@@ -47,7 +47,7 @@ const WaveElementsContainer = styled.div`
   flex-direction: column;
 `;
 const CrownText = styled.div`
-  margin-bottom: 8px;
+  margin-bottom: 18px;
 `;
 function MenuView() {
   const [{ menu }] = useStateValue();
@@ -76,7 +76,7 @@ function MenuView() {
         <MenuRow>
           <WaveContainer>
             <WavePosition>
-              <Wave />
+              <Wave color={menu.playerColor ? menu.playerColor : 'black'} />
             </WavePosition>
             <WaveElementsContainer>
               <MenuRow>

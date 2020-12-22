@@ -12,6 +12,7 @@ const ImageContainer = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  background-color: #f1f2f2;
 `;
 const ButtonPosition = styled.button`
   height: 100vh;

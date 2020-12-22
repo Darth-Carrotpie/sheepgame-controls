@@ -1,5 +1,5 @@
 const views = {
-  current: 'loading', //default=loading
+  current: 'menu', //default=loading
 };
 const menu = {
   ready: 0,
@@ -18,9 +18,9 @@ const menu = {
   scepterName: 'Shimmers of Darkness',
   scepterUnlocked: false,
   scepterCrownsReq: 111,
-  scepterCrownsReqMet: true,
+  scepterCrownsReqMet: false,
   scepterPremiumReq: true,
-  scepterPremiumReqMet: true,
+  scepterPremiumReqMet: false,
   scepterSpriteName: 'STAFFS_07',
 
   firstOwner: false,

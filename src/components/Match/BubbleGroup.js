@@ -1,9 +1,11 @@
 import React from 'react';
 import BigBubble from './BigBubble';
 import SmallBubble from './SmallBubble';
+import SmallBubbleVector from './SmallBubbleVector';
 import styled from 'styled-components';
 import grassButton from '../../images/match/buy_grass_icon.png';
-import sheepButton from '../../images/match/buy_sheep_icon.png';
+//import sheepButton from '../../images/match/buy_sheep_icon.png';
+import KingUpgradeIcon from './Vectors/KingUpgradeVectors';
 import smiteButton from '../../images/match/smite_icon.png';
 import { useStateValue } from '../../store/StateContext';
 import upgradeIcons from '../../images/upgrade/icons';
@@ -93,8 +95,9 @@ function BubbleGroup() {
           {' '}
           {Math.round(match.priceGrass * 10) / 10}{' '}
         </SmallBubble>{' '}
-        <SmallBubble
-          bubbleImage={sheepButton}
+        <SmallBubbleVector
+          bubbleImage={KingUpgradeIcon}
+          iconColor={'#ffffff'}
           top="0"
           onClick={() => SendMessage('buySheep', match.priceSheep)}
           bckgColor={menu.playerColor}
@@ -104,7 +107,7 @@ function BubbleGroup() {
         >
           {' '}
           {Math.round(match.priceSheep * 10) / 10}{' '}
-        </SmallBubble>{' '}
+        </SmallBubbleVector>{' '}
         <SmallBubble
           bubbleImage={smiteButton}
           top="2"

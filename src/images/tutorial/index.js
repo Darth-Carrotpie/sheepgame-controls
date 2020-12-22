@@ -1,6 +1,7 @@
-import Goal from "./AVYStutorial-01.png";
-import Abilities from "./AVYStutorial-02.png";
-import AimAndShoot from "./AVYStutorial-03.png";
-import Upgrade from "./AVYStutorial-04.png";
+import Goal from './controler_tutorial_01.png';
+import Gold from './controler_tutorial_02.png';
+import Abilities from './controler_tutorial_03.png';
+import AimAndShoot from './controler_tutorial_04.png';
+import Upgrade from './controler_tutorial_05.png';
 
-export default [Goal, Abilities, AimAndShoot, Upgrade];
+export default [Goal, Gold, Abilities, AimAndShoot, Upgrade];
