@@ -16,7 +16,6 @@ const ImageStyle = styled.img`
 `;
 
 const Wrapper = styled.div`
-  margin: 1.5vh 0 1.5vh 0;
   width: 100%;
   display: flex;
   justify-content: center;
