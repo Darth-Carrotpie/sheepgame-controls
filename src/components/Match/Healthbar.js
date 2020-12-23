@@ -1,8 +1,9 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import healthbar from "../../images/match/healthbar_background.png";
-import { useStateValue } from "../../store/StateContext";
+import HealthbarVector from './Vectors/HealthbarVector';
+//import healthbar from "../../images/match/healthbar_background.png";
+import { useStateValue } from '../../store/StateContext';
 
 const ImageContainer = styled.div`
   max-height: 100vh;
@@ -12,7 +13,9 @@ const ImageContainer = styled.div`
   bottom: 0;
 `;
 
-const AbsoluteImage = styled.img`
+const AbsoluteImage = styled.div`
+  height: 100vh;
+  width: 100vw;
   max-height: 100vh;
   margin-top: -${(props) => 100 - props.size}vh;
 `;
@@ -25,11 +28,9 @@ function Healthbar() {
   ] = useStateValue();
   return (
     <ImageContainer>
-      <AbsoluteImage
-        src={healthbar}
-        alt="healthbar"
-        size={grass}
-      ></AbsoluteImage>
+      <AbsoluteImage alt="healthbar" size={grass}>
+        <HealthbarVector></HealthbarVector>
+      </AbsoluteImage>
     </ImageContainer>
   );
 }
