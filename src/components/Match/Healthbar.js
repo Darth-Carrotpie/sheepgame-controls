@@ -6,18 +6,18 @@ import HealthbarVector from './Vectors/HealthbarVector';
 import { useStateValue } from '../../store/StateContext';
 
 const ImageContainer = styled.div`
-  max-height: 100vh;
-  max-width: 100vw;
+  height: 100vh;
   overflow: hidden;
   position: absolute;
   bottom: 0;
+  clip-path: inset(${(props) => 100 - props.size}vh 0 0 0);
 `;
 
 const AbsoluteImage = styled.div`
   height: 100vh;
-  width: 100vw;
+  width: 30vw;
+  min-width: 130px;
   max-height: 100vh;
-  margin-top: -${(props) => 100 - props.size}vh;
 `;
 
 function Healthbar() {
@@ -27,8 +27,8 @@ function Healthbar() {
     },
   ] = useStateValue();
   return (
-    <ImageContainer>
-      <AbsoluteImage alt="healthbar" size={grass}>
+    <ImageContainer size={grass}>
+      <AbsoluteImage alt="healthbar">
         <HealthbarVector></HealthbarVector>
       </AbsoluteImage>
     </ImageContainer>
