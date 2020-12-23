@@ -5,7 +5,8 @@ import crownIcon from '../../images/menu/icon_crown.png';
 import heroIcon from '../../images/menu/LogoHero_256.png';
 
 const ImageStyle = styled.img`
-  max-height: 20px;
+  /*max-height: 20px;*/
+  height: 3vh;
   max-width: 100%;
   ${(props) => props.left && 'transform: rotate(180deg)'};
   &:active {
@@ -16,6 +17,7 @@ const ImageStyle = styled.img`
 `;
 
 const Wrapper = styled.div`
+  /*margin: 1vh 0 1vh 0;*/
   width: 100%;
   display: flex;
   justify-content: center;

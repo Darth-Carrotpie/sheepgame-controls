@@ -8,12 +8,17 @@ const Text = styled.div`
     src: url(${NerisBlack});
   }
   font-weight: 750;
-  letter-spacing: 4px;
-  font-size: ${(props) => (props.fontSize ? props.fontSize : 35)}px;
-  height: ${(props) => (props.height ? props.height : 5)}vh;
+  letter-spacing: 2px;
+  font-size: 12px;
+  font-size: clamp(
+    8px,
+    ${(props) => (props.fontSize ? props.fontSize / 4 : 1)}vw,
+    32px
+  );
+  height: ${(props) => (props.height ? props.height : 4)}vh;
   /*   font-weight: 500; */
   color: ${(props) => (props.playerColor ? props.playerColor : 'white')};
-  max-width: 350px;
+  max-width: 400px;
   display: flex;
   justify-content: center;
   align-items: center;

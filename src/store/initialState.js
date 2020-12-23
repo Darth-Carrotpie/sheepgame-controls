@@ -1,5 +1,5 @@
 const views = {
-  current: 'loading', //default=loading
+  current: 'menu', //default=loading
 };
 const menu = {
   ready: 0,
