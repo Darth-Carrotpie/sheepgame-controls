@@ -5,15 +5,15 @@ const SvgImage = styled.svg`
   width: 100%;
   height: 100%;
 `;
-
-const PlayAgainButton = ({ color }) => {
+const GrayDownside = ({ color }) => {
   return (
-    <SvgImage viewBox="0 0 1470 347">
+    <SvgImage viewBox="0 0 2160.3 600.8">
       <g id="Layer_2" data-name="Layer 2">
-        <g id="Layer_4" data-name="Layer 4">
+        <g id="Layer_4">
           <path
             fill={color}
-            d="M0,0v347c0,0,165.2-61,278.1-112.6s432-199.3,718.2-216.9s231.1-0.2,342.2-8.9S1470,0,1470,0L0,0z"
+            d="M0,0c132.5,26,229.8,68,319.3,93.8c221.4,63.7,399,154.6,1256.1,31.5c258.2-37.1,447-61.9,584.9-78.6
+			l-0.3,554.1H0V0z"
           />
         </g>
       </g>
@@ -21,4 +21,4 @@ const PlayAgainButton = ({ color }) => {
   );
 };
 
-export default PlayAgainButton;
+export default GrayDownside;
