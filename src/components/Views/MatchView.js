@@ -13,7 +13,12 @@ function MatchView() {
   const [{ match }] = useStateValue();
   if (match.showUpgrade != '') return <UpgradeView></UpgradeView>;
   return (
-    <div>
+    <div
+      onContextMenu={(e) => {
+        //this prevents righ-click contentmenue event on long tab to pop up the menu
+        e.preventDefault();
+      }}
+    >
       <Healthbar></Healthbar>
       <FlexColumn justifyContent="space-between" fullscreen>
         <Recources></Recources>

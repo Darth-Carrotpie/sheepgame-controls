@@ -5,10 +5,13 @@
   "homepage": "./",
   "dependencies": {
     "git": "^0.1.5",
+    "long-press-event": "^2.4.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-longpressable": "^1.1.1",
     "react-scripts": "3.2.0",
     "react-swipeable": "^5.5.1",
+    "react-tooltip": "^4.2.13",
     "styled-components": "^4.4.1"
   },
   "scripts": {
