@@ -1,5 +1,5 @@
 const views = {
-  current: 'match', //default=loading
+  current: 'menu', //default=loading
 };
 const menu = {
   ready: 0,
@@ -26,7 +26,7 @@ const menu = {
   firstOwner: false,
   audioState: 0,
   permanentCrownCount: 44,
-  tutorialIndex: 0,
+  tutorialIndex: 1,
 };
 const match = {
   health: 100,

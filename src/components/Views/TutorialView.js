@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import tutorialImages from '../../images/tutorial';
+import tutorialImages from '../../components/Tutorial';
 import { useStateValue } from '../../store/StateContext';
 import { setTutorialIndex } from '../../store/actions';
 
 const ImageContainer = styled.div`
   height: 100vh;
   width: 100vw;
-  background: url(${(props) => props.bckgImg});
+  /*background: url(${(props) => props.bckgImg});*/
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -22,12 +22,7 @@ const ButtonPosition = styled.button`
   border: none;
   background: none;
 `;
-const AbsoluteImage = styled.img`
-  height: 100vh;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-`;
+
 function TutorialView(props) {
   const [{ menu }, dispatch] = useStateValue();
   const { tutorialIndex } = menu;
@@ -37,19 +32,19 @@ function TutorialView(props) {
     if (tutorialIndex >= tutorialImages.length) {
       dispatch(setTutorialIndex(0));
     }
+    console.log('click clock');
   }
-
+  const TutImg = tutorialImages[tutorialIndex - 1];
   return (
     <div>
       <ImageContainer
-        bckgImg={
-          tutorialImages[tutorialIndex - 1] //menu.tutorialIndex - 1
-        }
+      //bckgImg={
+      //  tutorialImages[tutorialIndex - 1] //menu.tutorialIndex - 1
+      //}
       >
-        <ButtonPosition
-          onClick={() => onClickTutorial()}
-          {...props}
-        ></ButtonPosition>
+        <ButtonPosition onClick={() => onClickTutorial()} {...props}>
+          <TutImg></TutImg>
+        </ButtonPosition>
       </ImageContainer>
     </div>
   );
