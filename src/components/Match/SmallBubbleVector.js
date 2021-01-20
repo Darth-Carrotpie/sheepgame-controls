@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import BubbleText from './BubbleText';
 import BubbleIconVector from './BubbleIconVector';
@@ -31,13 +31,13 @@ const BubbleButton = styled.button`
   /*   opacity: ${(props) => props.bubbleOpacity}; */
 `;
 
-function SmallBubbleVector({ onClick, ...props }) {
+function SmallBubbleVector(props, ref) {
   return (
-    <BubbleButton {...props} onClick={onClick}>
+    <BubbleButton {...props} ref={ref}>
       <BubbleIconVector {...props} />
       <BubbleText {...props}></BubbleText>
     </BubbleButton>
   );
 }
 
-export default SmallBubbleVector;
+export default forwardRef(SmallBubbleVector);

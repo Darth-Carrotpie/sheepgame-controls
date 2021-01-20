@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import BubbleText from './BubbleText';
 import BubbleIcon from './BubbleIcon';
@@ -37,9 +37,9 @@ const HalfBubble = styled(BubbleButton)`
   width: 7.5vh;
 `;
 
-function BigBubble({ onClick, ...props }) {
+function BigBubble(props, ref) {
   return (
-    <BubbleButton {...props} onClick={onClick}>
+    <BubbleButton {...props} ref={ref}>
       <BubbleIcon {...props} />
       <BubbleText {...props} top></BubbleText>
     </BubbleButton>
@@ -56,4 +56,4 @@ export function BackBubble({ onClick, ...props }) {
   );
 }
 
-export default BigBubble;
+export default forwardRef(BigBubble);

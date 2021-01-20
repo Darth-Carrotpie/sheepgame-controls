@@ -53,69 +53,98 @@ function ShowPriceVal(inputValue) {
 }
 
 function BubbleGroup() {
-  const idRef = useRef(null);
+  const idRefUpgA = useRef(null);
+  const idRefUpgB = useRef(null);
+  const idRefGrass = useRef(null);
+  const idRefSpeed = useRef(null);
+  const idRefSmash = useRef(null);
   const [{ match, menu }, dispatch] = useStateValue();
   const { upgradeA_icon, upgradeB_icon } = match;
   function onClickUpgrade(i) {
     if (upgradeA_icon != '' || upgradeB_icon != '') dispatch(showUpgrade(i));
     else dispatch(showUpgrade('Base'));
   }
-  function onLongPress(e) {
-    ReactTooltip.show(idRef.current);
-    //ReactTooltip.show(this.fooRef);
-    console.log('Long pressed.');
+  function OnLongPress(e) {
+    switch (e) {
+      case 'upgA':
+        ReactTooltip.show(idRefUpgA.current);
+        break;
+      case 'upgB':
+        ReactTooltip.show(idRefUpgB.current);
+        break;
+      case 'buyGrass':
+        ReactTooltip.show(idRefGrass.current);
+        break;
+      case 'buySheep':
+        ReactTooltip.show(idRefSpeed.current);
+        break;
+      case 'smash':
+        ReactTooltip.show(idRefSmash.current);
+        break;
+    }
+    console.log('Long pressed.:' + e);
   }
 
   return (
     <div>
       <BubblesInLine>
-        <BigBubble
-          bubbleImage={upgradeIcons[upgradeA_icon]}
-          bckgColor={menu.playerColor}
-          notEnoughGold={match.upgradeA_price > match.money}
-          onClick={() => {
-            onClickUpgrade(upgradeA_icon);
-            //ShowUpgrade(upgradeIndex, match.upgradeA_price);
-          }}
-          data-tip={
-            upgradeA_icon
-              ? 'Upgrade to ' + upgradeA_icon
-              : 'Upgrade not available'
-          }
-          data-for="item_info"
+        <LongPressable
+          onShortPress={() => onClickUpgrade(upgradeA_icon)}
+          onLongPress={() => OnLongPress('upgA')}
+          longPressTime={500}
         >
-          {ShowPriceVal(match.upgradeA_price)}
-        </BigBubble>
-
-        <BigBubble
-          bubbleImage={upgradeIcons[upgradeB_icon]}
-          bckgColor={menu.playerColor}
-          notEnoughGold={match.upgradeB_price > match.money}
-          onClick={() => {
-            onClickUpgrade(upgradeB_icon);
-            //ShowUpgrade(upgradeIndex, match.upgradeB_price);
-          }}
-          data-tip={
-            upgradeB_icon
-              ? 'Upgrade to ' + upgradeB_icon
-              : 'Upgrade not available'
-          }
-          data-for="item_info"
+          <BigBubble
+            data-class="mySepecialClass"
+            ref={idRefUpgA}
+            bubbleImage={upgradeIcons[upgradeA_icon]}
+            bckgColor={menu.playerColor}
+            notEnoughGold={match.upgradeA_price > match.money}
+            data-tip={
+              upgradeA_icon
+                ? 'upgrade to ' + upgradeA_icon
+                : 'upgrade not available'
+            }
+            data-for="item_info"
+            data-event="c"
+          >
+            {ShowPriceVal(match.upgradeA_price)}
+          </BigBubble>
+        </LongPressable>
+        <LongPressable
+          onShortPress={() => onClickUpgrade(upgradeB_icon)}
+          onLongPress={() => OnLongPress('upgB')}
+          longPressTime={500}
         >
-          {ShowPriceVal(match.upgradeB_price)}
-        </BigBubble>
+          <BigBubble
+            data-class="mySepecialClass"
+            ref={idRefUpgB}
+            bubbleImage={upgradeIcons[upgradeB_icon]}
+            bckgColor={menu.playerColor}
+            notEnoughGold={match.upgradeB_price > match.money}
+            data-tip={
+              upgradeB_icon
+                ? 'upgrade to ' + upgradeB_icon
+                : 'upgrade not available'
+            }
+            data-for="item_info"
+            data-event="c"
+          >
+            {ShowPriceVal(match.upgradeB_price)}
+          </BigBubble>
+        </LongPressable>
       </BubblesInLine>
       <FloatingBubbles>
         <LongPressable
           onShortPress={() => SendMessage('buyGrass', match.priceGrass)}
-          onLongPress={onLongPress}
+          onLongPress={() => OnLongPress('buyGrass')}
           longPressTime={500}
         >
           <SmallBubble
-            data-tip="Fill up missing grass"
+            data-class="mySepecialClass"
+            ref={idRefGrass}
+            data-tip="fill up missing grass"
             data-for="item_info"
             data-event="c"
-            ref={idRef}
             //ref={(ref) => (this.fooRef = ref)} // example from "static methods" part in https://www.npmjs.com/package/react-tooltip
             bubbleImage={grassButton}
             top={2}
@@ -129,37 +158,53 @@ function BubbleGroup() {
             {Math.round(match.priceGrass * 10) / 10}{' '}
           </SmallBubble>
         </LongPressable>
-        <SmallBubbleVector
-          bubbleImage={KingUpgradeIcon}
-          iconColor={'#ffffff'}
-          top="0"
-          onClick={() => SendMessage('buySheep', match.priceSheep)}
-          bckgColor={menu.playerColor}
-          notEnoughGold={
-            Math.round(match.priceSheep * 10) / 10 > Math.round(match.money)
-          }
-          data-tip="Upgrade king's attack speed"
-          data-for="item_info"
+        <LongPressable
+          onShortPress={() => SendMessage('buySheep', match.priceSheep)}
+          onLongPress={() => OnLongPress('buySheep')}
+          longPressTime={500}
         >
-          {' '}
-          {Math.round(match.priceSheep * 10) / 10}{' '}
-        </SmallBubbleVector>{' '}
-        <SmallBubble
-          bubbleImage={smiteButton}
-          top="2"
-          onClick={() => SendMessage('smash', match.priceSmash)}
-          bckgColor={'#f9b096'}
-          notEnoughGold={
-            Math.round(match.priceSmash * 10) / 10 > Math.round(match.money)
-          }
-          data-tip="Smash the ground to knock all sheep"
-          data-for="item_info"
+          <SmallBubbleVector
+            data-class="mySepecialClass"
+            ref={idRefSpeed}
+            bubbleImage={KingUpgradeIcon}
+            iconColor={'#ffffff'}
+            top="0"
+            bckgColor={menu.playerColor}
+            notEnoughGold={
+              Math.round(match.priceSheep * 10) / 10 > Math.round(match.money)
+            }
+            data-tip="upgrade king's move and attack speed"
+            data-for="item_info"
+            data-event="c"
+          >
+            {' '}
+            {Math.round(match.priceSheep * 10) / 10}{' '}
+          </SmallBubbleVector>{' '}
+        </LongPressable>
+        <LongPressable
+          onShortPress={() => SendMessage('smash', match.priceSmash)}
+          onLongPress={() => OnLongPress('smash')}
+          longPressTime={500}
         >
-          {' '}
-          {Math.round(match.priceSmash * 10) / 10}{' '}
-        </SmallBubble>{' '}
+          <SmallBubble
+            data-class="mySepecialClass"
+            ref={idRefSmash}
+            bubbleImage={smiteButton}
+            top="2"
+            bckgColor={'#f9b096'}
+            notEnoughGold={
+              Math.round(match.priceSmash * 10) / 10 > Math.round(match.money)
+            }
+            data-tip="smash the ground to knock all sheep"
+            data-for="item_info"
+            data-event="c"
+          >
+            {' '}
+            {Math.round(match.priceSmash * 10) / 10}{' '}
+          </SmallBubble>{' '}
+        </LongPressable>
       </FloatingBubbles>{' '}
-      <SheepdomTooltip ref={idRef}></SheepdomTooltip>
+      <SheepdomTooltip></SheepdomTooltip>
     </div>
   );
 }

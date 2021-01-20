@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import BubbleText from './BubbleText';
 import BubbleIcon from './BubbleIcon';
@@ -31,13 +31,13 @@ const BubbleButton = styled.button`
   /*   opacity: ${(props) => props.bubbleOpacity}; */
 `;
 
-function SmallBubble({ onClick, ...props }) {
+function SmallBubble(props, ref) {
   return (
-    <BubbleButton {...props} onClick={onClick}>
+    <BubbleButton {...props} ref={ref}>
       <BubbleIcon {...props} />
       <BubbleText {...props}></BubbleText>
     </BubbleButton>
   );
 }
 
-export default SmallBubble;
+export default forwardRef(SmallBubble);
