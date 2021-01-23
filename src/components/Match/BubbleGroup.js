@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, componentDidMount, useRef } from 'react';
 import ReactTooltip from 'react-tooltip';
 import LongPressable from 'react-longpressable';
 import SheepdomTooltip from '../SheepdomTooltip';
@@ -84,10 +84,19 @@ function BubbleGroup() {
     }
     console.log('Long pressed.:' + e);
   }
+  useEffect(() => {
+    ReactTooltip.show(document.getElementById('bubleLineTop'));
+  }, []);
 
   return (
     <div>
-      <BubblesInLine>
+      <BubblesInLine
+        id={'bubleLineTop'}
+        data-tip="tap-hold to show an info tooltip about a button!"
+        data-for="item_info"
+        data-class="mySepecialClass"
+        data-event="c"
+      >
         <LongPressable
           onShortPress={() => onClickUpgrade(upgradeA_icon)}
           onLongPress={() => OnLongPress('upgA')}
