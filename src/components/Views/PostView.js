@@ -5,15 +5,15 @@ import { useStateValue } from '../../store/StateContext';
 import ItemName from '../../components/Menu/ItemName';
 import FlexColumn from '../Layout/FlexColumn';
 import FlexRow from '../Layout/FlexRow';
-import victoryImg from '../../images/post/victory_background.png';
-import defeatImg from '../../images/post/defeat_background.png';
-import PreBackground from '../../components/PreBackground';
 import BottomRow from '../Post/BottomRow';
 import Achievements from '../Post/Achievements';
 import King from '../King';
 import KingDead from '../King/KingDead';
 import VictoryRays from '../Post/Backgrounds/VictoryRays';
 import VictoryWave from '../Post/Backgrounds/VictoryWave';
+import DefeatWave from '../Post/Backgrounds/DefeatWave';
+import GrayUpside from '../Post/Backgrounds/GrayUpside';
+import GrayDownside from '../Post/Backgrounds/GrayDownside';
 
 const BottomRowPosition = styled.div`
   width: 100%;
@@ -55,12 +55,24 @@ function MenuView() {
   return (
     <div>
       <ScreenBackground color={menu.playerColor}></ScreenBackground>
-      <FlexRow justifyContent="center" height="40vh">
-        <KingArea isKingAlive={win} />
+      {win === 1 ? (
         <VictoryRays color="white" />
+      ) : (
+        <>
+          <GrayUpside></GrayUpside>
+          <GrayDownside></GrayDownside>
+        </>
+      )}
+      <FlexRow justifyContent="center">
+        <KingArea isKingAlive={win} />
       </FlexRow>
+
       <NamePosition>
-        <VictoryWave color="white"></VictoryWave>
+        {win === 1 ? (
+          <VictoryWave color="white"></VictoryWave>
+        ) : (
+          <DefeatWave color="white"></DefeatWave>
+        )}
         <FlexRow justifyContent="center">
           <FlexColumn>
             <ItemName

@@ -8,7 +8,7 @@ const SvgImage = styled.svg`
 
 const PlayAgainSVG = ({ color }) => {
   return (
-    <SvgImage viewBox="0 0 1470 347">
+    <SvgImage preserveAspectRatio="none" viewBox="0 0 1470 347">
       <g id="Layer_2" data-name="Layer 2">
         <g id="Layer_4" data-name="Layer 4">
           <path

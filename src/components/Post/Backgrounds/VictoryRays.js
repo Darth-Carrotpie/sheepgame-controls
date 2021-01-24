@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const SvgImage = styled.svg`
   width: 100%;
-  height: 100%;
+  height: 40vh;
   position: absolute;
   z-index: -1;
 `;
