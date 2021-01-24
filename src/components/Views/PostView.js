@@ -12,6 +12,8 @@ import BottomRow from '../Post/BottomRow';
 import Achievements from '../Post/Achievements';
 import King from '../King';
 import KingDead from '../King/KingDead';
+import VictoryRays from '../Post/Backgrounds/VictoryRays';
+import VictoryWave from '../Post/Backgrounds/VictoryWave';
 
 const BottomRowPosition = styled.div`
   width: 100%;
@@ -26,7 +28,15 @@ const AchievementsPosition = styled.div`
 
 const NamePosition = styled.div`
   position: absolute;
-  top: 45vh;
+  top: 40vh;
+`;
+
+const ScreenBackground = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: ${(props) => props.color};
+  z-index: -1;
 `;
 function KingArea(props) {
   if (props.isKingAlive) {
@@ -44,12 +54,13 @@ function MenuView() {
   ] = useStateValue();
   return (
     <div>
-      <PreBackground {...menu} preBckgImage={win ? victoryImg : defeatImg}>
-        <FlexRow justifyContent="center">
-          <KingArea isKingAlive={win} />
-        </FlexRow>
-      </PreBackground>
+      <ScreenBackground color={menu.playerColor}></ScreenBackground>
+      <FlexRow justifyContent="center" height="40vh">
+        <KingArea isKingAlive={win} />
+        <VictoryRays color="white" />
+      </FlexRow>
       <NamePosition>
+        <VictoryWave color="white"></VictoryWave>
         <FlexRow justifyContent="center">
           <FlexColumn>
             <ItemName

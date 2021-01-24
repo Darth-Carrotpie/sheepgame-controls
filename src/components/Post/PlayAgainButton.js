@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import playAgainImg from "../../images/post/V_PlayAgain_button.png";
+import React from 'react';
+import styled from 'styled-components';
+import PlayAgainSVG from './Backgrounds/PlayAgainSVG';
 
 const PlayAgainButton = styled.img`
   height: 10vh;
@@ -15,7 +15,5 @@ const PlayAgainButton = styled.img`
 `;
 
 export default () => {
-  return (
-    <PlayAgainButton src={playAgainImg} alt="Play again"></PlayAgainButton>
-  );
+  return <PlayAgainSVG color="red" />;
 };
