@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import ItemName from "../../components/Menu/ItemName";
-import FlexColumn from "../Layout/FlexColumn";
-import FlexRow from "../Layout/FlexRow";
+import ItemName from '../../components/Menu/ItemName';
+import FlexColumn from '../Layout/FlexColumn';
+import FlexRow from '../Layout/FlexRow';
 
 const ImageContainer = styled.div`
   max-height: 100vh;
@@ -13,11 +13,10 @@ const ImageContainer = styled.div`
 `;
 const AbsoluteImage = styled.div`
   height: 100vh;
-  background: url(${(props) => props.bckgImg}) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  width: 100vw;
+  min-width: 130px;
+  max-height: 100vh;
+  background-color: #c0eaff;
 `;
 
 const NamePosition = styled.div`
@@ -27,9 +26,10 @@ const NamePosition = styled.div`
 `;
 
 function InfoView(props) {
+  var comp = props.infoImg;
   return (
-    <div>
-      <AbsoluteImage bckgImg={props.infoImg} alt="info"></AbsoluteImage>
+    <AbsoluteImage>
+      <props.infoImg></props.infoImg>
       <NamePosition {...props}>
         <FlexRow justifyContent="center">
           <FlexColumn>
@@ -37,12 +37,12 @@ function InfoView(props) {
               nameValue={props.infoText}
               fontSize={18}
               height={8}
-              playerColor={"white"}
+              playerColor={'white'}
             ></ItemName>
           </FlexColumn>
         </FlexRow>
       </NamePosition>
-    </div>
+    </AbsoluteImage>
   );
 }
 

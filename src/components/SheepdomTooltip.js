@@ -3,11 +3,6 @@ import React from 'react';
 import styled from 'styled-components';
 import NerisBlack from '../fonts/NerisBlack.otf';
 
-const SvgImage = styled.svg`
-  width: 100%;
-  height: 100%;
-`;
-
 const SheepdomTooltip = ({ color }) => {
   return (
     <ReactTooltip
@@ -15,8 +10,8 @@ const SheepdomTooltip = ({ color }) => {
       type="warning"
       effect="solid"
       globalEventOff="mousedown"
-      textColor="#FF4F8BFF"
-      backgroundColor="#000"
+      textColor="#FFF"
+      backgroundColor="#4a2f8c"
       getContent={(dataTip) => `${dataTip}`}
     />
     /*.customeTheme {

@@ -1,14 +1,14 @@
-import React from "react";
-import InfoView from "./Views/InfoView";
-import maxPlayersImg from "../images/controller_toomanyplayers.png";
-import inProgressImg from "../images/controller_progress.png";
-import loadingImg from "../images/controller_loading.png";
+import React from 'react';
+import InfoView from './Views/InfoView';
+import TooManyPlayers from '../images/too_many_players';
+import InProgress from '../images/in_progress';
+import Loading from '../images/loading';
 
-import MenuView from "./Views/MenuView";
-import MatchView from "./Views/MatchView";
-import PostView from "./Views/PostView";
-import TutorialView from "./Views/TutorialView";
-import { useStateValue } from "../store/StateContext";
+import MenuView from './Views/MenuView';
+import MatchView from './Views/MatchView';
+import PostView from './Views/PostView';
+import TutorialView from './Views/TutorialView';
+import { useStateValue } from '../store/StateContext';
 
 function Router() {
   const [{ views, menu }] = useStateValue();
@@ -17,33 +17,33 @@ function Router() {
     view = <TutorialView></TutorialView>;
   } else {
     switch (views.current) {
-      case "loading":
-        view = <InfoView infoImg={loadingImg} infoText={"loading"}></InfoView>;
+      case 'loading':
+        view = <InfoView infoImg={Loading} infoText={'loading'}></InfoView>;
         break;
-      case "in_game":
+      case 'in_game':
         view = (
           <InfoView
-            infoImg={inProgressImg}
-            infoText={"game already in progress"}
+            infoImg={InProgress}
+            infoText={'game already in progress'}
           ></InfoView>
         );
         break;
-      case "max_players":
+      case 'max_players':
         view = (
           <InfoView
-            opacity={"100%"}
-            infoImg={maxPlayersImg}
-            infoText={"no thrones available"}
+            opacity={'100%'}
+            infoImg={TooManyPlayers}
+            infoText={'no thrones available'}
           ></InfoView>
         );
         break;
-      case "menu":
+      case 'menu':
         view = <MenuView></MenuView>;
         break;
-      case "match":
+      case 'match':
         view = <MatchView></MatchView>;
         break;
-      case "post":
+      case 'post':
         view = <PostView></PostView>;
         break;
       default:
