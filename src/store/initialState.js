@@ -1,5 +1,5 @@
 const views = {
-  current: 'post', //default=loading
+  current: 'match', //default=loading
 };
 const menu = {
   ready: 0,

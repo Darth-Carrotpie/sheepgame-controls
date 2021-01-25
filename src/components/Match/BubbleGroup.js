@@ -94,7 +94,7 @@ function BubbleGroup() {
         id={'bubleLineTop'}
         data-tip="tap-hold to show an info tooltip about a button!"
         data-for="item_info"
-        data-class="mySepecialClass"
+        data-class="tooltipThemeClass"
         data-event="c"
       >
         <LongPressable
@@ -103,7 +103,7 @@ function BubbleGroup() {
           longPressTime={500}
         >
           <BigBubble
-            data-class="mySepecialClass"
+            data-class="tooltipThemeClass"
             ref={idRefUpgA}
             bubbleImage={upgradeIcons[upgradeA_icon]}
             bckgColor={menu.playerColor}
@@ -125,7 +125,7 @@ function BubbleGroup() {
           longPressTime={500}
         >
           <BigBubble
-            data-class="mySepecialClass"
+            data-class="tooltipThemeClass"
             ref={idRefUpgB}
             bubbleImage={upgradeIcons[upgradeB_icon]}
             bckgColor={menu.playerColor}
@@ -149,7 +149,7 @@ function BubbleGroup() {
           longPressTime={500}
         >
           <SmallBubble
-            data-class="mySepecialClass"
+            data-class="tooltipThemeClass"
             ref={idRefGrass}
             data-tip="fill up missing grass"
             data-for="item_info"
@@ -173,7 +173,7 @@ function BubbleGroup() {
           longPressTime={500}
         >
           <SmallBubbleVector
-            data-class="mySepecialClass"
+            data-class="tooltipThemeClass"
             ref={idRefSpeed}
             bubbleImage={KingUpgradeIcon}
             iconColor={'#ffffff'}
@@ -196,7 +196,7 @@ function BubbleGroup() {
           longPressTime={500}
         >
           <SmallBubble
-            data-class="mySepecialClass"
+            data-class="tooltipThemeClass"
             ref={idRefSmash}
             bubbleImage={smiteButton}
             top="2"

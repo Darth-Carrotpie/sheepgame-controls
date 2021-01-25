@@ -17,8 +17,11 @@ code {
     monospace;
 }
 
-.mySepecialClass {
+.tooltipThemeClass {
   font-family: 'NerisBlack' !important;
-  font-size: 1.2rem !important;
+  font-size: 1rem !important;
   font-weight: bold !important;
+  max-width: 40% !important;
+  text-align: center !important;
+  opacity: 0.75 !important;
 }

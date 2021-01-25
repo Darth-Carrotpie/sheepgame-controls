@@ -11,7 +11,7 @@ import PlayAgainSVG from '../Post/Backgrounds/PlayAgainSVG';
 
 const TypographyPosition = styled.div`
   position: absolute;
-  bottom: 3vh;
+  bottom: 10px;
   left: 5vw;
 `;
 const TabSpace = styled.span`
@@ -35,12 +35,15 @@ const PlayAgainContainer = styled.div`
   bottom: 0;
   right: 0;
   width: 250px;
+  &:active {
+    filter: opacity(50%);
+  }
 `;
 const Text = styled.span`
   position: absolute;
-  bottom: 3vh;
+  bottom: 18px;
   right: 5vw;
-  color: '#FFFFFF';
+  color: #ffffff;
   font-size: 1.2rem;
   font-weight: 1000;
   pointer-events: none;
@@ -68,7 +71,7 @@ export default () => {
   return (
     <BottomRow>
       <PlayAgainContainer onClick={OnClickPlay}>
-        <PlayAgainSVG color="red"></PlayAgainSVG>
+        <PlayAgainSVG color={post.win ? '#f7931e' : 'black'}></PlayAgainSVG>
         <Text style={{ marginTop: '5px' }}>
           {post.playAgain ? 'waiting...' : 'play again'}
         </Text>
