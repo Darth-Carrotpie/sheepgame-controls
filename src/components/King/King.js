@@ -22,29 +22,40 @@ const Position = styled.div`
   margin-top: 6vh;
 `;
 
-const CrownImg = styled.img`
+const KingImage = styled.div`
+  background: url(${(props) => props.bckgImg});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+`;
+
+const CrownImg = styled(KingImage)`
   position: absolute;
   margin-left: ${calculatePositionInVh(45)}vh;
   margin-top: ${calculatePositionInVh(-45)}vh;
   width: ${calculatePositionInVh(150)}vh;
+  height: ${calculatePositionInVh(150)}vh;
 `;
-const CrownLock = styled.img`
+const CrownLock = styled(KingImage)`
   position: absolute;
   margin-top: ${calculatePositionInVh(-30)}vh;
   margin-left: ${calculatePositionInVh(115)}vh;
   width: ${calculatePositionInVh(60)}vh;
+  height: ${calculatePositionInVh(60)}vh;
 `;
-const StaffImg = styled.img`
+const StaffImg = styled(KingImage)`
   position: absolute;
   margin-top: ${calculatePositionInVh(-23)}vh;
   margin-left: ${calculatePositionInVh(-70)}vh;
   width: ${calculatePositionInVh(150)}vh;
+  height: ${calculatePositionInVh(150)}vh;
 `;
-const StaffLock = styled.img`
+const StaffLock = styled(KingImage)`
   position: absolute;
   margin-top: ${calculatePositionInVh(-10)}vh;
   margin-left: ${calculatePositionInVh(-15)}vh;
   width: ${calculatePositionInVh(60)}vh;
+  height: ${calculatePositionInVh(60)}vh;
 `;
 function GetLockImage(unlocked, reqHero, isHero) {
   if (!reqHero && !unlocked) return LockedNormal;
@@ -55,20 +66,20 @@ const King = (props) => {
   const [{ menu }] = useStateValue();
   return (
     <Position>
-      <CrownImg src={kingItems[menu.hatSpriteName]}></CrownImg>
+      <CrownImg bckgImg={kingItems[menu.hatSpriteName]}></CrownImg>
       {props.showLocks && (
         <CrownLock
-          src={GetLockImage(
+          bckgImg={GetLockImage(
             menu.hatUnlocked,
             menu.hatPremiumReq,
             menu.hatPremiumReqMet //`staff${menu.scepterID}`
           )}
         ></CrownLock>
       )}
-      <StaffImg src={kingItems[menu.scepterSpriteName]}></StaffImg>
+      <StaffImg bckgImg={kingItems[menu.scepterSpriteName]}></StaffImg>
       {props.showLocks && (
         <StaffLock
-          src={GetLockImage(
+          bckgImg={GetLockImage(
             menu.scepterUnlocked,
             menu.scepterPremiumReq,
             menu.scepterPremiumReqMet

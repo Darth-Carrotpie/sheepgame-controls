@@ -13,9 +13,10 @@ const TypographyPosition = styled.div`
   position: absolute;
   bottom: 10px;
   left: 5vw;
-`;
-const TabSpace = styled.span`
-  margin-left: 20vw;
+  right: 45vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 `;
 const BottomRow = styled.div`
   @font-face {
@@ -81,7 +82,6 @@ export default () => {
           isYellow={true}
           text={menu.permanentCrownCount}
         ></CrownsTypography>
-        <TabSpace></TabSpace>
         <CrownsTypography isYellow={false} text={reward}></CrownsTypography>
       </TypographyPosition>
     </BottomRow>

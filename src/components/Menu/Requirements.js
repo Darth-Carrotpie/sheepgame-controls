@@ -4,9 +4,15 @@ import ItemName from './ItemName';
 import crownIcon from '../../images/menu/icon_crown.png';
 import heroIcon from '../../images/menu/LogoHero_256.png';
 
-const ImageStyle = styled.img`
+const ImageStyle = styled.div`
+  background: url(${(props) => props.bckgImg});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
   /*max-height: 20px;*/
   height: 3vh;
+  width: 3vh;
   max-width: 100%;
   ${(props) => props.left && 'transform: rotate(180deg)'};
   &:active {
@@ -35,13 +41,13 @@ export function Requirements(props) {
     <Wrapper>
       {!premiumReqMet ? (
         <React.Fragment>
-          <ImageStyle src={heroIcon} alt="(%hero)" />
+          <ImageStyle bckgImg={heroIcon} alt="(%hero)" />
         </React.Fragment>
       ) : null}
       <ItemName nameValue={textFirst} fontSize={12} height={3}></ItemName>
       {!crownsReqMet ? (
         <React.Fragment>
-          <ImageStyle src={crownIcon} alt="(%crowns)" />
+          <ImageStyle bckgImg={crownIcon} alt="(%crowns)" />
         </React.Fragment>
       ) : null}
       <ItemName nameValue={textSecond} fontSize={12} height={3}></ItemName>

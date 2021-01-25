@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import NerisBlack from "../../fonts/NerisBlack.otf";
+import React from 'react';
+import styled from 'styled-components';
+import NerisBlack from '../../fonts/NerisBlack.otf';
 
 const Wrapper = styled.div`
   display: flex;
@@ -10,7 +10,13 @@ const Wrapper = styled.div`
   opacity: 50%; */
 `;
 
-const Icon = styled.img`
+const Icon = styled.div`
+  background: url(${(props) => props.bckgImg});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  width: 4vh;
   height: 4vh;
   margin-top: 1vh;
   margin-bottom: -1vh;
@@ -31,7 +37,7 @@ export const Text = styled.span`
 function Typography(props) {
   return (
     <Wrapper>
-      <Icon src={props.icon} alt="resourceIcon"></Icon>
+      <Icon bckgImg={props.icon} alt="resourceIcon"></Icon>
       <Text {...props}></Text>
     </Wrapper>
   );

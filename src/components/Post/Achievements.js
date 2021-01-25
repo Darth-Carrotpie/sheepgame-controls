@@ -1,20 +1,27 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
-import FlexColumn from "../Layout/FlexColumn";
-import FlexRow from "../Layout/FlexRow";
-import { Description } from "./Description";
+import FlexColumn from '../Layout/FlexColumn';
+import FlexRow from '../Layout/FlexRow';
+import { Description } from './Description';
 
-import * as achievementIcons from "../../images/post/achievement_icons";
-import { ACHIEVEMENTS } from "./constants";
+import * as achievementIcons from '../../images/post/achievement_icons';
+import { ACHIEVEMENTS } from './constants';
 
-import { useStateValue } from "../../store/StateContext";
-import NerisBlack from "../../fonts/NerisBlack.otf";
-import { selectScoreInfo } from "../../store/actions";
+import { useStateValue } from '../../store/StateContext';
+import NerisBlack from '../../fonts/NerisBlack.otf';
+import { selectScoreInfo } from '../../store/actions';
 
-const Icon = styled.img`
-  height: 35px;
-  width: 35px;
+const Icon = styled.div`
+  background: url(${(props) => props.bckgImg});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  height: 10vw;
+  max-height: 50px;
+  width: 10vw;
+  max-width: 50pxw;
   border: 3px solid;
   border-color: ${({ win, selected }) => borderColorChooser(win, selected)};
   border-radius: 100%;
@@ -22,9 +29,9 @@ const Icon = styled.img`
   box-shadow: none;
 `;
 const borderColorChooser = (win, selected) => {
-  if (win && selected) return "#f7931e";
-  else if (selected && !win) return "black";
-  else return "#00000000";
+  if (win && selected) return '#f7931e';
+  else if (selected && !win) return 'black';
+  else return '#00000000';
 };
 const Title = styled.div`
   @font-face {
@@ -35,7 +42,7 @@ const Title = styled.div`
   font-weight: 1000;
   height: 30px;
   margin: auto;
-  color: "white";
+  color: 'white';
   text-align: center;
 `;
 
@@ -50,7 +57,7 @@ function OnClickIcon(activeIconIndex, selectedScore) {
 
 export default () => {
   const [selectedIcon, setSelectedIcon] = useState();
-  const [scoreName, setScoreName] = useState("");
+  const [scoreName, setScoreName] = useState('');
   /*   const [description, setDescription] = useState(
     "Tap an icon to view details..."
   ); */
@@ -73,7 +80,7 @@ export default () => {
           return (
             <Icon
               key={achievementIcons[item.icon]}
-              src={achievementIcons[item.icon]}
+              bckgImg={achievementIcons[item.icon]}
               selected={
                 post.selectedScore > 0 ? selectedIcon === item.icon : false
               }

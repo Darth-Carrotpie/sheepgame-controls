@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import fullAudioImage from "../../images/menu/controler_audio_icon_FullAudio.png";
-import fxOnlyImage from "../../images/menu/controler_audio_icon_NoMusic.png";
-import SendAirConsole from "../AirConsoleHandler";
-import mutedImage from "../../images/menu/controler_audio_icon_NoAudio.png";
+import React from 'react';
+import styled from 'styled-components';
+import fullAudioImage from '../../images/menu/controler_audio_icon_FullAudio.png';
+import fxOnlyImage from '../../images/menu/controler_audio_icon_NoMusic.png';
+import SendAirConsole from '../AirConsoleHandler';
+import mutedImage from '../../images/menu/controler_audio_icon_NoAudio.png';
 
 const ButtonStyle = styled.button`
   height: 7vh;
@@ -11,8 +11,8 @@ const ButtonStyle = styled.button`
   border: 0px;
   border-radius: 100%;
   padding: 0;
-  background-color: ${props =>
-    props.playerColor ? props.playerColor : "white"};
+  background-color: ${(props) =>
+    props.playerColor ? props.playerColor : 'white'};
   align-items: left;
 
   &:active {
@@ -26,7 +26,12 @@ const ButtonStyle = styled.button`
   margin-left: 1vh;
 `;
 
-const AudioIcon = styled.img`
+const AudioIcon = styled.div`
+  background: url(${(props) => props.bckgImg});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
   margin-top: 0%;
   height: 100%;
   width: 100%;
@@ -45,7 +50,7 @@ function GetImage(props) {
   }
 }
 function OnClickAudio() {
-  var data = { element: "audio-button", value: true };
+  var data = { element: 'audio-button', value: true };
   console.log(data);
   SendAirConsole(data);
 }
@@ -53,7 +58,7 @@ export function AudioButton(props) {
   if (props.firstOwner)
     return (
       <ButtonStyle onClick={() => OnClickAudio(props)} {...props}>
-        <AudioIcon src={GetImage(props)} alt="audioImage"></AudioIcon>
+        <AudioIcon bckgImg={GetImage(props)} alt="audioImage"></AudioIcon>
       </ButtonStyle>
     );
   else return null;

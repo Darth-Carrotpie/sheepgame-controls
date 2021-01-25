@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import tutorialIcon from "../../images/menu/tutorial_icon.png";
-import { useStateValue } from "../../store/StateContext";
-import { setTutorialIndex } from "../../store/actions";
+import React from 'react';
+import styled from 'styled-components';
+import tutorialIcon from '../../images/menu/tutorial_icon.png';
+import { useStateValue } from '../../store/StateContext';
+import { setTutorialIndex } from '../../store/actions';
 const ButtonStyle = styled.button`
   height: 7vh;
   width: 7vh;
@@ -10,7 +10,7 @@ const ButtonStyle = styled.button`
   border-radius: 100%;
   padding: 0;
   background-color: ${(props) =>
-    props.playerColor ? props.playerColor : "white"};
+    props.playerColor ? props.playerColor : 'white'};
   align-items: left;
 
   &:active {
@@ -24,7 +24,11 @@ const ButtonStyle = styled.button`
   margin-left: 1vh;
 `;
 
-const IconImage = styled.img`
+const IconImage = styled.div`
+  background: url(${(props) => props.bckgImg});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   margin-top: 0%;
   height: 100%;
   width: 100%;
@@ -38,7 +42,7 @@ export function TutorialButton(props) {
 
   return (
     <ButtonStyle onClick={() => onClickTutorial()} {...props}>
-      <IconImage src={tutorialIcon} alt="tutorialIconImage"></IconImage>
+      <IconImage bckgImg={tutorialIcon} alt="tutorialIconImage"></IconImage>
     </ButtonStyle>
   );
 }

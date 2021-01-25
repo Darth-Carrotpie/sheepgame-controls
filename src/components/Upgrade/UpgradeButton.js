@@ -1,20 +1,26 @@
-import React from "react";
-import styled from "styled-components";
-import upgradeImg from "../../images/upgrade/upgrade_button_buy.png";
-import { Text } from "../Match/Typography";
-import NerisBlack from "../../fonts/NerisBlack.otf";
+import React from 'react';
+import styled from 'styled-components';
+import upgradeImg from '../../images/upgrade/upgrade_button_buy.png';
+import { Text } from '../Match/Typography';
+import NerisBlack from '../../fonts/NerisBlack.otf';
 
 const UpgradeButtonWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${(props) => (props.bckgColor ? props.bckgColor : "#0f0")};
+  background-color: ${(props) => (props.bckgColor ? props.bckgColor : '#0f0')};
   border-style: none;
   &:active {
     opacity: 40%;
   }
 `;
-const UpgradeButton = styled.img`
+const UpgradeButton = styled.div`
+  background: url(${(props) => props.bckgImg});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  height: 100%;
   width: 100vw;
   overflow: hidden;
   //fix this after changing to svg
@@ -35,7 +41,7 @@ const TextPosition = styled(Text)`
 function UpgradeButtonFunction({ ...props }) {
   return (
     <UpgradeButtonWrapper {...props}>
-      <UpgradeButton src={upgradeImg} alt="upgrade"></UpgradeButton>
+      <UpgradeButton bckgImg={upgradeImg} alt="upgrade"></UpgradeButton>
       <TextPosition>upgrade</TextPosition>
     </UpgradeButtonWrapper>
   );
