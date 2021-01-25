@@ -3,13 +3,12 @@ import ReactTooltip from 'react-tooltip';
 import LongPressable from 'react-longpressable';
 import SheepdomTooltip from '../SheepdomTooltip';
 import BigBubble from './BigBubble';
-import SmallBubble from './SmallBubble';
 import SmallBubbleVector from './SmallBubbleVector';
 import styled from 'styled-components';
-import grassButton from '../../images/match/buy_grass_icon.png';
+import GrassIcon from './Vectors/GrassVector';
 //import sheepButton from '../../images/match/buy_sheep_icon.png';
 import KingUpgradeIcon from './Vectors/KingUpgradeVectors';
-import smiteButton from '../../images/match/smite_icon.png';
+import SmashIcon from './Vectors/SmashVector';
 import { useStateValue } from '../../store/StateContext';
 import upgradeIcons from '../../images/upgrade/icons';
 import SendAirConsole from '../AirConsoleHandler';
@@ -148,14 +147,14 @@ function BubbleGroup() {
           onLongPress={() => OnLongPress('buyGrass')}
           longPressTime={500}
         >
-          <SmallBubble
+          <SmallBubbleVector
             data-class="tooltipThemeClass"
             ref={idRefGrass}
             data-tip="fill up missing grass"
             data-for="item_info"
             data-event="c"
             //ref={(ref) => (this.fooRef = ref)} // example from "static methods" part in https://www.npmjs.com/package/react-tooltip
-            bubbleImage={grassButton}
+            bubbleImage={GrassIcon}
             top={2}
             //onClick={() => SendMessage('buyGrass', match.priceGrass)}
             bckgColor={'#c2e5ac'}
@@ -165,7 +164,7 @@ function BubbleGroup() {
           >
             {' '}
             {Math.round(match.priceGrass * 10) / 10}{' '}
-          </SmallBubble>
+          </SmallBubbleVector>
         </LongPressable>
         <LongPressable
           onShortPress={() => SendMessage('buySheep', match.priceSheep)}
@@ -195,10 +194,10 @@ function BubbleGroup() {
           onLongPress={() => OnLongPress('smash')}
           longPressTime={500}
         >
-          <SmallBubble
+          <SmallBubbleVector
             data-class="tooltipThemeClass"
             ref={idRefSmash}
-            bubbleImage={smiteButton}
+            bubbleImage={SmashIcon}
             top="2"
             bckgColor={'#f9b096'}
             notEnoughGold={
@@ -210,7 +209,7 @@ function BubbleGroup() {
           >
             {' '}
             {Math.round(match.priceSmash * 10) / 10}{' '}
-          </SmallBubble>{' '}
+          </SmallBubbleVector>{' '}
         </LongPressable>
       </FloatingBubbles>{' '}
       <SheepdomTooltip></SheepdomTooltip>

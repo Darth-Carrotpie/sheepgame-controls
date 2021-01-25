@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import Typography from "./Typography";
-import grassIcon from "../../images/match/buy_grass_icon.png";
-import coinsIcon from "../../images/match/coin_icon.png";
-import { useStateValue } from "../../store/StateContext";
+import React from 'react';
+import styled from 'styled-components';
+import TypographyVec from './TypographyVector';
+import GrassVec from './Vectors/GrassVector';
+import CoinsVec from './Vectors/CoinVector';
+import { useStateValue } from '../../store/StateContext';
 
 const Container = styled.div`
   position: relative;
@@ -17,12 +17,12 @@ function Recources() {
   const [{ match }] = useStateValue();
   return (
     <Container>
-      <Typography icon={grassIcon} textColor={"#739e58"}>
+      <TypographyVec icon={GrassVec} textColor={'#739e58'}>
         {Math.round(match.grass * 10) / 10}
-      </Typography>
-      <Typography icon={coinsIcon} textColor={"#fbb03b"}>
+      </TypographyVec>
+      <TypographyVec icon={CoinsVec} textColor={'#fbb03b'}>
         {Math.round(match.money * 10) / 10}
-      </Typography>
+      </TypographyVec>
     </Container>
   );
 }

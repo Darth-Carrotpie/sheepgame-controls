@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { useSwipeable } from "react-swipeable";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { useSwipeable } from 'react-swipeable';
 
-import controlWheelImg from "../../images/match/swipewheel_icon.png";
-import ballistaLoaded from "../../images/match/ballista_load.png";
-import ballistaShot from "../../images/match/ballista_shoot.png";
-import { useStateValue } from "../../store/StateContext";
-import SendAirConsole from "../AirConsoleHandler";
-import { RateLimiter } from "../../rate-limiter";
-import Sheep from "../Upgrade/Sheep";
+import ControlWheelVec from './Vectors/ArrowsVector';
+import ballistaLoaded from '../../images/match/ballista_load.png';
+import ballistaShot from '../../images/match/ballista_shoot.png';
+import { useStateValue } from '../../store/StateContext';
+import SendAirConsole from '../AirConsoleHandler';
+import { RateLimiter } from '../../rate-limiter';
+import Sheep from '../Upgrade/Sheep';
 
 var rateLimiter = new RateLimiter(window.airconsole);
 const wheelSize = 60;
@@ -30,7 +30,7 @@ const ControlWheelBackground = styled.div`
   max-width: 55vh;
   /*   height: ${wheelSize}vh; */
   /*   width: 100%; */
-  background-color: ${(props) => (props.bckgColor ? props.bckgColor : "red")};
+  background-color: ${(props) => (props.bckgColor ? props.bckgColor : 'red')};
   border-radius: 50%;
   position: relative;
   /*   opacity: 50%; */
@@ -44,9 +44,15 @@ const ControlWheelBackground = styled.div`
 
 //transform: rotate(${(props) => props.rotationEuler}deg);
 //transform: rotate(${ballista_rotation}deg);
-const BallistaImage = styled.img`
+const BallistaImage = styled.div`
+  background: url(${(props) => props.bckgImg});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   position: absolute;
+  height: 40%;
   width: 40%;
+
   transform: rotate(${(props) => -props.rotationEuler}deg);
   user-drag: none;
   user-select: none;
@@ -61,7 +67,7 @@ const SheepContainer = styled.div`
   width: 25%;
   pointer-events: none;
 `;
-const WheelImage = styled.img`
+const WheelImage = styled.div`
   height: 90%;
   margin-top: 5%;
   margin-left: 5%;
@@ -83,17 +89,17 @@ function euler_angle(x, y) {
 }
 function SendMessage(eventData, setRotation, isDown, location) {
   var dataToSend = {};
-  dataToSend["element"] = "tap";
-  dataToSend["clicked"] = isDown;
+  dataToSend['element'] = 'tap';
+  dataToSend['clicked'] = isDown;
   //console.log("clientX: " + eventData.nativeEvent.offsetX);
   //console.log("clientY: " + eventData.nativeEvent.offsetY);
   const offsetTop = document
-    .getElementById("controlWheelImage")
+    .getElementById('controlWheelImage')
     .getBoundingClientRect().top;
   const offsetLeft = document
-    .getElementById("controlWheelImage")
+    .getElementById('controlWheelImage')
     .getBoundingClientRect().left;
-  const elementWidth = document.getElementById("controlWheelImage").clientWidth;
+  const elementWidth = document.getElementById('controlWheelImage').clientWidth;
   //const endPointCenteredX = eventData.nativeEvent.offsetX - elementWidth / 2.0;
   const endPointCenteredX = location.x - elementWidth / 2.0 - offsetLeft;
   //const endPointCenteredY = -eventData.nativeEvent.offsetY + elementWidth / 2.0;
@@ -108,13 +114,13 @@ function SendMessage(eventData, setRotation, isDown, location) {
       " tot: " +
       endPointCenteredY
   ); */
-  dataToSend["endPointCentered"] = [endPointCenteredX, endPointCenteredY];
+  dataToSend['endPointCentered'] = [endPointCenteredX, endPointCenteredY];
   ballista_rotation = euler_angle(endPointCenteredX, endPointCenteredY);
-  dataToSend["rotationEuler"] = ballista_rotation;
+  dataToSend['rotationEuler'] = ballista_rotation;
   //console.log({ endPointCenteredX, endPointCenteredY });
   //console.log(ballista_rotation);
   setRotation(ballista_rotation);
-  dataToSend["elementWidth"] = elementWidth;
+  dataToSend['elementWidth'] = elementWidth;
   SendAirConsole(dataToSend);
 }
 function OnTouchStart(eventdata, setRotation) {
@@ -136,11 +142,11 @@ function OnTouchEnd(eventdata, setRotation) {
   SendMessage(eventdata, setRotation, false, location);
 }
 function getStartRelative(rest) {
-  const elementWidth = document.getElementById("controlWheelImage").clientWidth;
-  var div = document.getElementById("controlWheelImage");
+  const elementWidth = document.getElementById('controlWheelImage').clientWidth;
+  var div = document.getElementById('controlWheelImage');
   var rect = div.getBoundingClientRect();
-  var x = rest["initial"][0] - rect.left - elementWidth / 2.0;
-  var y = rect.top + elementWidth / 2.0 - rest["initial"][1];
+  var x = rest['initial'][0] - rect.left - elementWidth / 2.0;
+  var y = rect.top + elementWidth / 2.0 - rest['initial'][1];
   return [x, y];
 }
 function ControlWheel() {
@@ -149,34 +155,34 @@ function ControlWheel() {
   const swipeHandlers = useSwipeable({
     onSwiped: (eventData) => {
       const { event, ...rest } = eventData;
-      rest["element"] = "swipe";
-      rest["isDelta"] = "False";
-      rest["startRelative"] = getStartRelative(rest);
+      rest['element'] = 'swipe';
+      rest['isDelta'] = 'False';
+      rest['startRelative'] = getStartRelative(rest);
 
-      const endPointCenteredX = rest["startRelative"][0] - rest["deltaX"];
-      const endPointCenteredY = rest["startRelative"][1] + rest["deltaY"];
-      rest["endPointCentered"] = [endPointCenteredX, endPointCenteredY];
+      const endPointCenteredX = rest['startRelative'][0] - rest['deltaX'];
+      const endPointCenteredY = rest['startRelative'][1] + rest['deltaY'];
+      rest['endPointCentered'] = [endPointCenteredX, endPointCenteredY];
       ballista_rotation = euler_angle(endPointCenteredX, endPointCenteredY);
-      rest["rotationEuler"] = ballista_rotation;
+      rest['rotationEuler'] = ballista_rotation;
       setRotation(ballista_rotation);
-      rest["elementWidth"] = document.getElementById(
-        "controlWheelImage"
+      rest['elementWidth'] = document.getElementById(
+        'controlWheelImage'
       ).clientWidth;
       SendAirConsole(rest);
     },
     onSwiping: (eventData) => {
       const { event, ...rest } = eventData;
-      rest["element"] = "swipe";
-      rest["isDelta"] = "True";
-      rest["startRelative"] = getStartRelative(rest);
-      const endPointCenteredX = rest["startRelative"][0] - rest["deltaX"];
-      const endPointCenteredY = rest["startRelative"][1] + rest["deltaY"];
-      rest["endPointCentered"] = [endPointCenteredX, endPointCenteredY];
+      rest['element'] = 'swipe';
+      rest['isDelta'] = 'True';
+      rest['startRelative'] = getStartRelative(rest);
+      const endPointCenteredX = rest['startRelative'][0] - rest['deltaX'];
+      const endPointCenteredY = rest['startRelative'][1] + rest['deltaY'];
+      rest['endPointCentered'] = [endPointCenteredX, endPointCenteredY];
       ballista_rotation = euler_angle(endPointCenteredX, endPointCenteredY);
       setRotation(ballista_rotation);
-      rest["rotationEuler"] = ballista_rotation;
-      rest["elementWidth"] = document.getElementById(
-        "controlWheelImage"
+      rest['rotationEuler'] = ballista_rotation;
+      rest['elementWidth'] = document.getElementById(
+        'controlWheelImage'
       ).clientWidth;
       rateLimiter.message(window.airconsole.SCREEN, rest);
       //console.log("Coordinates: " + rect.left + "px, " + rect.top + "px");
@@ -190,15 +196,16 @@ function ControlWheel() {
       <ControlWheelBackground bckgColor={menu.playerColor} id="controlWheel">
         <WheelImage
           id="controlWheelImage"
-          src={controlWheelImg}
           alt="controlWheel"
           //onClick={(e) => SendMessage(e, setRotation)}
           onTouchStart={(e) => OnTouchStart(e, setRotation)}
           onTouchEnd={(e) => OnTouchEnd(e, setRotation)}
-        ></WheelImage>
+        >
+          <ControlWheelVec />
+        </WheelImage>
       </ControlWheelBackground>
       <BallistaImage
-        src={match.ballista_loaded ? ballistaLoaded : ballistaShot}
+        bckgImg={match.ballista_loaded ? ballistaLoaded : ballistaShot}
         alt="ballista"
         rotationEuler={rotation}
       />

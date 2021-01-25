@@ -15,7 +15,7 @@ function MatchView() {
   return (
     <div
       onContextMenu={(e) => {
-        //this prevents righ-click contentmenue event on long tab to pop up the menu
+        //this prevents righ-click contentmenu event on long tab to pop up the menu
         e.preventDefault();
       }}
     >
