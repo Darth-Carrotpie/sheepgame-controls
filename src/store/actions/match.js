@@ -1,42 +1,46 @@
 export const setCrowns = (value) => {
   return {
-    type: "setCrowns",
+    type: 'setCrowns',
     newCrowns: value,
   };
 };
 export const showUpgrade = (input) => {
-  console.log("show upgrade:" + input);
   return {
-    type: "showUpgrade",
+    type: 'showUpgrade',
     value: input,
   };
 };
-
+export const infoTooltipShown = () => {
+  return {
+    type: 'infoTooltipShown',
+    value: 1,
+  };
+};
 export const setPrice = (property, value) => {
   switch (property.type) {
-    case "grass":
+    case 'grass':
       return {
-        type: "setPriceGrass",
+        type: 'setPriceGrass',
         newPriceGrass: value,
       };
-    case "sheep":
+    case 'sheep':
       return {
-        type: "setPriceSheep",
+        type: 'setPriceSheep',
         newPriceSheep: value,
       };
-    case "charge":
+    case 'charge':
       return {
-        type: "setPriceSmash",
+        type: 'setPriceSmash',
         newPriceSmash: value,
       };
-    case "upgrade1":
+    case 'upgrade1':
       return {
-        type: "setPriceUpgrade1",
+        type: 'setPriceUpgrade1',
         newPriceUpgrade1: value,
       };
-    case "upgrade2":
+    case 'upgrade2':
       return {
-        type: "setPriceUpgrade2",
+        type: 'setPriceUpgrade2',
         newPriceUpgrade2: value,
       };
     default:

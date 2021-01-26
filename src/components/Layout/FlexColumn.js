@@ -6,6 +6,7 @@ const FlexColumn = styled.div`
   justify-content: ${(props) => props.justifyContent};
   ${(props) => props.fullscreen && 'height: 100vh'}
   background-color: ${(props) => (props.bckgColor ? props.bckgColor : '#f0f0')};
+  z-index: inherit;
 `;
 
 export default FlexColumn;

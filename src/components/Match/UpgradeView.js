@@ -13,6 +13,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: +1;
 `;
 const WhiteBackground = styled.div`
   background-color: white;
@@ -60,10 +61,12 @@ const UpgradeButtonPosition = styled.div`
   bottom: -3px;
   right: 0;
   border: 0;
+  width: 100vw;
 `;
 const SheepContainer = styled.div`
   width: 30vh;
   margin-top: -5vh;
+  z-index: inherit;
 `;
 
 function OnClickBuyUpgrade(elementName, index) {
@@ -102,14 +105,16 @@ function UpgradeView() {
             rightHalf
           ></BackBubble>
           <BigBubble
+            notEnoughGold={match.upgradeA_price > match.money}
             selected={match.upgradeA_icon === match.selectedUpgradeIcon}
             bubbleImage={upgradeIcons[match.upgradeA_icon]}
             bckgColor={menu.playerColor}
-            onClick={() => onClickUpgrade(upgradeB_icon)}
+            onClick={() => onClickUpgrade(upgradeA_icon)}
           >
             {ShowPriceVal(match.upgradeA_price)}
           </BigBubble>
           <BigBubble
+            notEnoughGold={match.upgradeB_price > match.money}
             selected={match.upgradeB_icon === match.selectedUpgradeIcon}
             bubbleImage={upgradeIcons[match.upgradeB_icon]}
             bckgColor={menu.playerColor}

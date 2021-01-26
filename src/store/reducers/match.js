@@ -61,10 +61,14 @@ export default (state, action) => {
         ballista_loaded: action.ballista_loaded,
       };
     case 'showUpgrade':
-      //console.log("setting tutorial reducer:" + action.value);
       return {
         ...state,
         showUpgrade: action.value,
+      };
+    case 'infoTooltipShown':
+      return {
+        ...state,
+        infoTooltipShown: action.value,
       };
     default:
       return state;

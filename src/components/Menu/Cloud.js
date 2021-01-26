@@ -27,7 +27,7 @@ export function ReadyCloud(props) {
   return (
     <ReadyCloudBackground>
       <ItemName
-        nameValue={menu.ready ? "I'M READY" : 'READY'}
+        nameValue={menu.ready ? 'waiting...' : 'READY'}
         onClick={OnClickReady}
         fontSize={45}
         playerColor={menu.playerColor ? menu.playerColor : 'black'}

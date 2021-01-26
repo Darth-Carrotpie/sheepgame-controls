@@ -81,10 +81,11 @@ function BubbleGroup() {
         ReactTooltip.show(idRefSmash.current);
         break;
     }
-    console.log('Long pressed.:' + e);
+    //console.log('Long pressed.:' + e);
   }
   useEffect(() => {
-    ReactTooltip.show(document.getElementById('bubleLineTop'));
+    if (match.infoTooltipShown == 0)
+      ReactTooltip.show(document.getElementById('bubleLineTop'));
   }, []);
 
   return (

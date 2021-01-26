@@ -1,9 +1,11 @@
 import ReactTooltip from 'react-tooltip';
 import React from 'react';
-import styled from 'styled-components';
-import NerisBlack from '../fonts/NerisBlack.otf';
+import { useStateValue } from '../store/StateContext';
+import { infoTooltipShown } from '../store/actions';
 
 const SheepdomTooltip = ({ color }) => {
+  const [{}, dispatch] = useStateValue();
+
   return (
     <ReactTooltip
       id="item_info"
@@ -13,23 +15,10 @@ const SheepdomTooltip = ({ color }) => {
       textColor="#FFF"
       backgroundColor="#4a2f8c"
       getContent={(dataTip) => `${dataTip}`}
+      afterShow={() => {
+        dispatch(infoTooltipShown());
+      }}
     />
-    /*.customeTheme {
-      @font-face {
-        font-family: NerisBlack;
-        src: url(${NerisBlack});
-      }
-      color: #ff6e00 !important;
-      background-color: orange !important;
-      &.place-top {
-      &:after {
-      border-top-color: orange !important;
-      border-top-style: solid !important;
-      border-top-width: 6px !important;
-      font-size: '1.2rem';
-      font-weight: bold;
-      font-family: NerisBlack;
-      }*/
   );
 };
 

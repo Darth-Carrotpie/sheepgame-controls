@@ -24,7 +24,7 @@ const menu = {
   scepterSpriteName: 'STAFFS_07',
 
   firstOwner: true,
-  audioState: 1,
+  audioState: 0,
   permanentCrownCount: 44,
   tutorialIndex: 0,
 };
@@ -48,14 +48,21 @@ const match = {
 
   ballista_loaded: true,
 
-  upgradeData: [],
+  upgradeData: {
+    Base: {
+      upgradeDisplayName: 'name name name',
+      upgradeDescription: 'description description description',
+    },
+  },
   showUpgrade: '',
+  infoTooltipShown: 0,
+  currentUpgradeIcon: 'Bouncy',
 };
 const post = {
   totalScore: 909,
   selectedScore: 0,
   scores: 0,
-  win: 0,
+  win: 1,
   playAgain: 0,
 };
 export default {

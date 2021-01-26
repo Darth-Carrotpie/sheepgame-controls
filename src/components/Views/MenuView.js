@@ -27,6 +27,7 @@ const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: #505050;
 `;
 const WaveContainer = styled.div`
   width: 100vw;
@@ -39,15 +40,16 @@ const WavePosition = styled.div`
   width: inherit;
   height: inherit;
   min-height: inherit;
-  z-index: -1;
 `;
 const WaveElementsContainer = styled.div`
   padding-top: 5vh;
   padding-bottom: 5vh;
   flex-direction: column;
+  z-index: +1;
 `;
 const CrownText = styled.div`
   margin-bottom: 18px;
+  z-index: inherit;
 `;
 function MenuView() {
   const [{ menu }] = useStateValue();

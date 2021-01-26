@@ -12,7 +12,11 @@ const Text = styled.span`
   font-family: NerisBlack;
   margin-top: 0%;
   color: ${(props) =>
-    props.notEnoughGold ? 'red' : props.textColor ? props.textColor : 'white'};
+    props.notEnoughGold
+      ? '#620000'
+      : props.textColor
+      ? props.textColor
+      : 'white'};
   text-align: center;
   position: absolute;
   ${(props) => (props.top ? 'top: -0.5vh;' : '')};

@@ -21,6 +21,7 @@ const ImageStyle = styled.div`
   }
   margin-right: 3vh;
   margin-left: 3vh;
+  z-index: inherit;
 `;
 
 function OnClickArrow(props) {

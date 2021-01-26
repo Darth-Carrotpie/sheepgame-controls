@@ -13,14 +13,13 @@ const UpgradeButtonWrapper = styled.div`
   &:active {
     opacity: 40%;
   }
+  width: 100vw;
 `;
 const UpgradeButton = styled.div`
   background: url(${(props) => props.bckgImg});
-  background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
-
-  height: 100%;
+  background-size: 100%;
+  height: 40vw;
   width: 100vw;
   overflow: hidden;
   //fix this after changing to svg
@@ -37,6 +36,7 @@ const TextPosition = styled(Text)`
   font-weight: 800;
   color: white;
   position: absolute;
+  bottom: 25%;
 `;
 function UpgradeButtonFunction({ ...props }) {
   return (

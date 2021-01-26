@@ -27,6 +27,7 @@ const KingImage = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  border-style; none;
 `;
 
 const CrownImg = styled(KingImage)`

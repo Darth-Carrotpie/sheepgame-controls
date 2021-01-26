@@ -18,6 +18,7 @@ const Number = styled.span`
   display: flex;
   flex-direction: row;
   justify-content: start;
+  z-index: inherit;
 `;
 
 function GetCrown(isYellow, textInput) {
