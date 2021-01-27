@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useStateValue } from '../../store/StateContext';
 import upgradeImg from '../../images/upgrade/upgrade_button_buy.png';
 import { Text } from '../Match/Typography';
 import NerisBlack from '../../fonts/NerisBlack.otf';
@@ -34,15 +35,17 @@ const TextPosition = styled(Text)`
   }
   font-family: NerisBlack;
   font-weight: 800;
-  color: white;
+  color: ${(props) =>
+    props.backgroundColor ? props.backgroundColor : 'white'};
   position: absolute;
   bottom: 25%;
 `;
 function UpgradeButtonFunction({ ...props }) {
+  const [{ global }] = useStateValue();
   return (
     <UpgradeButtonWrapper {...props}>
       <UpgradeButton bckgImg={upgradeImg} alt="upgrade"></UpgradeButton>
-      <TextPosition>upgrade</TextPosition>
+      <TextPosition {...global}>upgrade</TextPosition>
     </UpgradeButtonWrapper>
   );
 }

@@ -1,5 +1,5 @@
 const views = {
-  current: 'match', //default=loading
+  current: 'post', //default=loading
 };
 const menu = {
   ready: 0,
@@ -62,12 +62,16 @@ const post = {
   totalScore: 909,
   selectedScore: 0,
   scores: 0,
-  win: 1,
+  win: 0,
   playAgain: 0,
+};
+const global = {
+  backgroundColor: '#404040', //'#505050',
 };
 export default {
   views,
   menu,
   match,
   post,
+  global,
 };

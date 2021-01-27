@@ -19,20 +19,17 @@ const Icon = styled.div`
   background-position: center;
 
   height: 10vw;
-  max-height: 50px;
+  max-height: 100px;
   width: 10vw;
-  max-width: 50pxw;
+  max-width: 100px;
   border: 3px solid;
-  border-color: ${({ win, selected }) => borderColorChooser(win, selected)};
+  border-color: ${(props) =>
+    props.selected ? props.backgroundColor : '#00000000'};
   border-radius: 100%;
   box-sizing: border-box;
   box-shadow: none;
 `;
-const borderColorChooser = (win, selected) => {
-  if (win && selected) return '#f7931e';
-  else if (selected && !win) return 'black';
-  else return '#00000000';
-};
+
 const Title = styled.div`
   @font-face {
     font-family: NerisBlack;
@@ -40,10 +37,10 @@ const Title = styled.div`
   }
   font-size: 1.2rem;
   font-weight: 1000;
-  height: 30px;
+  height: 5vh;
   margin: auto;
-  color: 'white';
   text-align: center;
+  color: ${(props) => props.textColor};
 `;
 
 //when clicked, this has to be updated, if same clicked - reset to 0:
@@ -63,7 +60,7 @@ export default () => {
   ); */
   const [indexSelected, setIndexSelected] = useState(0);
   const [, dispatch] = useStateValue();
-  const [{ post }] = useStateValue();
+  const [{ post, global }] = useStateValue();
   const emptyItem = ACHIEVEMENTS[0];
   var scoreList = [];
   if (post.scores.length > 0) {
@@ -74,11 +71,12 @@ export default () => {
 
   return (
     <FlexColumn>
-      <Title>{scoreName}</Title>
+      <Title textColor={global.backgroundColor}>{scoreName}</Title>
       <FlexRow justifyContent="center">
         {scoreList.slice(1).map((item, index) => {
           return (
             <Icon
+              {...global}
               key={achievementIcons[item.icon]}
               bckgImg={achievementIcons[item.icon]}
               selected={

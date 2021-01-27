@@ -153,6 +153,7 @@ function BubbleGroup() {
             ref={idRefGrass}
             data-tip="fill up missing grass"
             data-for="item_info"
+            iconColor="#9bce76"
             data-event="c"
             //ref={(ref) => (this.fooRef = ref)} // example from "static methods" part in https://www.npmjs.com/package/react-tooltip
             bubbleImage={GrassIcon}
@@ -176,7 +177,6 @@ function BubbleGroup() {
             data-class="tooltipThemeClass"
             ref={idRefSpeed}
             bubbleImage={KingUpgradeIcon}
-            iconColor={'#ffffff'}
             top="0"
             bckgColor={menu.playerColor}
             notEnoughGold={
@@ -207,6 +207,7 @@ function BubbleGroup() {
             data-tip="smash the ground to knock all sheep"
             data-for="item_info"
             data-event="c"
+            iconColor="#80372d"
           >
             {' '}
             {Math.round(match.priceSmash * 10) / 10}{' '}

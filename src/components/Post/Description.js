@@ -1,6 +1,7 @@
 import React from 'react'; //, { Text, useState }
 import styled from 'styled-components';
 import NerisBlack from '../../fonts/NerisBlack.otf';
+import { useStateValue } from '../../store/StateContext';
 
 const DescriptionStyle = styled.span`
   @font-face {
@@ -8,7 +9,7 @@ const DescriptionStyle = styled.span`
     src: url(${NerisBlack});
   }
   font-family: NerisBlack;
-  font-size: 0.8rem;
+  font-size: 2vh;
   letter-spacing: 1px;
   font-weight: 900;
   height: 80px;
@@ -21,6 +22,7 @@ const Wrapper = styled.div`
   justify-content: flex-start;
 `;
 function ColorizeText(item) {
+  const [{ global }] = useStateValue();
   var outputList = [];
   var stringList = item.description.split(/(\[X\]|\[Y\]|\[S\])/g);
   var i;
@@ -29,7 +31,7 @@ function ColorizeText(item) {
     if (['[X]', '[Y]'].includes(stringList[i])) {
       colr = '#f7931e';
     } else {
-      colr = 'white';
+      colr = global.backgroundColor;
     }
     outputList.push({ content: stringList[i], color: colr });
   }
@@ -54,7 +56,10 @@ function ColorizeText(item) {
       else outputList[i].content = '';
     }
     if (stringList.length <= 1) {
-      outputList.push({ content: item.description, color: 'white' });
+      outputList.push({
+        content: item.description,
+        color: global.backgroundColor,
+      });
       return outputList;
     }
   }

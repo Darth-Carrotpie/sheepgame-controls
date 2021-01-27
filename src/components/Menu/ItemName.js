@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useStateValue } from '../../store/StateContext';
 import NerisBlack from '../../fonts/NerisBlack.otf';
 
 const Text = styled.div`
@@ -17,7 +18,8 @@ const Text = styled.div`
   );
   height: ${(props) => (props.height ? props.height : 4)}vh;
   /*   font-weight: 500; */
-  color: ${(props) => (props.playerColor ? props.playerColor : 'white')};
+  color: ${(props) =>
+    props.playerColor ? props.playerColor : props.backgroundColor};
   max-width: 400px;
   display: flex;
   justify-content: center;
@@ -28,6 +30,11 @@ const Text = styled.div`
   opacity: 50%; */
 `;
 export function ItemName(props) {
-  return <Text {...props}>{props.nameValue ? props.nameValue : 'noName'}</Text>;
+  const [{ global }] = useStateValue();
+  return (
+    <Text {...props} {...global}>
+      {props.nameValue ? props.nameValue : 'noName'}
+    </Text>
+  );
 }
 export default ItemName;

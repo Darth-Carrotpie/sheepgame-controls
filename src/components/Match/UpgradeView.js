@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   z-index: +1;
 `;
 const WhiteBackground = styled.div`
-  background-color: white;
+  background-color: ${(props) => props.backgroundColor};
   height: 100vh;
   width: 100vw;
   position: absolute;
@@ -82,7 +82,7 @@ function ShowPriceVal(inputValue) {
   }
 }
 function UpgradeView() {
-  const [{ match, menu }, dispatch] = useStateValue();
+  const [{ match, menu, global }, dispatch] = useStateValue();
   const { upgradeA_icon, upgradeB_icon } = match;
   const hideUpgrade = () => {
     dispatch(showUpgrade(''));
@@ -97,7 +97,7 @@ function UpgradeView() {
   return (
     <div>
       <div>
-        <WhiteBackground></WhiteBackground>
+        <WhiteBackground {...global}></WhiteBackground>
         <BubblesInLine>
           <BackBubble
             bckgColor={menu.playerColor}

@@ -150,7 +150,7 @@ function getStartRelative(rest) {
   return [x, y];
 }
 function ControlWheel() {
-  const [{ menu, match }] = useStateValue();
+  const [{ menu, match, global }] = useStateValue();
   const [rotation, setRotation] = useState(0);
   const swipeHandlers = useSwipeable({
     onSwiped: (eventData) => {
@@ -201,7 +201,7 @@ function ControlWheel() {
           onTouchStart={(e) => OnTouchStart(e, setRotation)}
           onTouchEnd={(e) => OnTouchEnd(e, setRotation)}
         >
-          <ControlWheelVec />
+          <ControlWheelVec color={global.backgroundColor} />
         </WheelImage>
       </ControlWheelBackground>
       <BallistaImage

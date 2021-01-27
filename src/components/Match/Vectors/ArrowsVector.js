@@ -1,8 +1,9 @@
 import React from 'react';
 const ArrowsVec = ({ color }) => {
   var filler = 'none';
+  var stroke = 'none';
   if (color != null) {
-    filler = color;
+    stroke = color;
   }
 
   return (
@@ -13,68 +14,68 @@ const ArrowsVec = ({ color }) => {
           <polyline
             points="279.3 23.19 316.38 3 351.23 26.83"
             fill={filler}
-            stroke="#fff"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="6"
+            stroke={stroke}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="6"
           />
           <polyline
             points="325.7 581.81 288.62 602 253.77 578.17"
             fill={filler}
-            stroke="#fff"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="6"
+            stroke={stroke}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="6"
           />
           <polyline
             points="23.19 325.7 3 288.62 26.83 253.77"
             fill={filler}
-            stroke="#fff"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="6"
+            stroke={stroke}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="6"
           />
           <polyline
             points="581.81 279.3 602 316.38 578.17 351.23"
             fill={filler}
-            stroke="#fff"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="6"
+            stroke={stroke}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="6"
           />
           <polyline
             points="88.59 121.4 100.53 80.91 142.03 73.11"
             fill={filler}
-            stroke="#fff"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="6"
+            stroke={stroke}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="6"
           />
           <polyline
             points="516.41 483.6 504.46 524.09 462.97 531.88"
             fill={filler}
-            stroke="#fff"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="6"
+            stroke={stroke}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="6"
           />
           <polyline
             points="121.4 516.41 80.91 504.46 73.11 462.97"
             fill={filler}
-            stroke="#fff"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="6"
+            stroke={stroke}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="6"
           />
           <polyline
             points="483.6 88.59 524.09 100.53 531.88 142.03"
             fill={filler}
-            stroke="#fff"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="6"
+            stroke={stroke}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="6"
           />
-          <circle cx="302.56" cy="301.23" r="12.38" fill="#fff" />
+          <circle cx="302.56" cy="301.23" r="12.38" fill={stroke} />
         </g>
       </g>
     </svg>

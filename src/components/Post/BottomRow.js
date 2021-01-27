@@ -55,7 +55,7 @@ function OnClickPlay() {
   SendAirConsole(data);
 }
 export default () => {
-  const [{ menu, post }] = useStateValue();
+  const [{ menu, post, global }] = useStateValue();
 
   var reward = '';
   if (post.selectedScore > 0) {
@@ -72,17 +72,19 @@ export default () => {
   return (
     <BottomRow>
       <PlayAgainContainer onClick={OnClickPlay}>
-        <PlayAgainSVG color={post.win ? '#f7931e' : 'black'}></PlayAgainSVG>
+        <PlayAgainSVG
+          color={post.win ? global.backgroundColor : 'black'}
+        ></PlayAgainSVG>
         <Text style={{ marginTop: '5px' }}>
           {post.playAgain ? 'waiting...' : 'play again'}
         </Text>
       </PlayAgainContainer>
       <TypographyPosition>
         <CrownsTypography
-          isYellow={true}
+          color="white"
           text={menu.permanentCrownCount}
         ></CrownsTypography>
-        <CrownsTypography isYellow={false} text={reward}></CrownsTypography>
+        <CrownsTypography color="white" text={reward}></CrownsTypography>
       </TypographyPosition>
     </BottomRow>
   );

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import crownYellow from '../../images/post/DV_crown_GAINED_icon.png';
 import crownWhite from '../../images/post/DV_crown_icon.png';
 import NerisBlack from '../../fonts/NerisBlack.otf';
+import { useStateValue } from '../../store/StateContext';
 
 const Number = styled.span`
   @font-face {
@@ -13,7 +14,7 @@ const Number = styled.span`
   color: '#FFFFFF';
   font-size: 1.6rem;
   font-weight: 1000;
-  color: ${(props) => (props.isYellow ? '#f7931e' : 'white')};
+  color: ${(props) => (props.color ? props.color : props.backgroundColor)};
   text-shadow: none;
   display: flex;
   flex-direction: row;
@@ -43,8 +44,9 @@ const Crown = styled.div`
 `;
 
 function Typography(props) {
+  const [{ global }] = useStateValue();
   return (
-    <Number {...props}>
+    <Number {...props} {...global}>
       <Crown bckgImg={GetCrown(props.isYellow, props.text)}></Crown>{' '}
       {props.text ? props.text : ''}
     </Number>

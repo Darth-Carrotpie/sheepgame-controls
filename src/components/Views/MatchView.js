@@ -11,11 +11,11 @@ import UpgradeView from '../Match/UpgradeView';
 import { useStateValue } from '../../store/StateContext';
 
 const ContentContainer = styled.div`
-  background-color: #505050;
+  background-color: ${(props) => props.backgroundColor};
 `;
 
 function MatchView() {
-  const [{ match }] = useStateValue();
+  const [{ match, global }] = useStateValue();
   if (match.showUpgrade != '') return <UpgradeView></UpgradeView>;
   return (
     <div
@@ -24,7 +24,7 @@ function MatchView() {
         e.preventDefault();
       }}
     >
-      <ContentContainer>
+      <ContentContainer {...global}>
         <Healthbar></Healthbar>
         <FlexColumn justifyContent="space-between" fullscreen>
           <Recources></Recources>

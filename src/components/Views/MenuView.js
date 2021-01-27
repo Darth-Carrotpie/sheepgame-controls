@@ -27,7 +27,8 @@ const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #505050;
+  background-color: ${(props) => props.backgroundColor};
+  /*background-color: #505050;*/
 `;
 const WaveContainer = styled.div`
   width: 100vw;
@@ -52,10 +53,10 @@ const CrownText = styled.div`
   z-index: inherit;
 `;
 function MenuView() {
-  const [{ menu }] = useStateValue();
+  const [{ menu, global }] = useStateValue();
   return (
     <div>
-      <ContentContainer>
+      <ContentContainer {...global}>
         <MenuRowLeft>
           <AudioButton {...menu}></AudioButton>
           <TutorialButton {...menu}></TutorialButton>

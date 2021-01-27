@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useStateValue } from '../../store/StateContext';
 import NerisBlack from '../../fonts/NerisBlack.otf';
 
 const Text = styled.span`
@@ -7,7 +8,7 @@ const Text = styled.span`
     font-family: NerisBlack;
     src: url(${NerisBlack});
   }
-  font-size: ${(props) => (props.small ? '1rem' : '1.9rem')};
+  font-size: ${(props) => (props.small ? '2vh' : '4.5vh')};
   font-weight: bold;
   font-family: NerisBlack;
   margin-top: 0%;
@@ -16,14 +17,15 @@ const Text = styled.span`
       ? '#620000'
       : props.textColor
       ? props.textColor
-      : 'white'};
+      : props.backgroundColor};
   text-align: center;
   position: absolute;
   ${(props) => (props.top ? 'top: -0.5vh;' : '')};
 `;
 
 function BubbleText(props) {
-  return <Text {...props}></Text>;
+  const [{ global }] = useStateValue();
+  return <Text {...props} {...global}></Text>;
 }
 
 export default BubbleText;
