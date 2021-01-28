@@ -6,7 +6,6 @@ import MenuRow from './MenuRow';
 import ArrowButton from './Arrow';
 import ItemName from './ItemName';
 import Requirements from './Requirements';
-import EmptyRow from '../Layout/EmptyRow';
 import FlexColumn from '../Layout/FlexColumn';
 
 function ItemSelection() {

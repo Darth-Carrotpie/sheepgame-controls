@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import fullAudioImage from '../../images/menu/controler_audio_icon_FullAudio.png';
-import fxOnlyImage from '../../images/menu/controler_audio_icon_NoMusic.png';
+import FullAudio from './Vectors/FullAudio';
+import NoMusic from './Vectors/NoMusic';
 import SendAirConsole from '../AirConsoleHandler';
-import mutedImage from '../../images/menu/controler_audio_icon_NoAudio.png';
+import NoAudio from './Vectors/NoAudio';
 
 const ButtonStyle = styled.button`
   height: 7vh;
@@ -27,26 +27,24 @@ const ButtonStyle = styled.button`
 `;
 
 const AudioIcon = styled.div`
-  background: url(${(props) => props.bckgImg});
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-
-  margin-top: 0%;
-  height: 100%;
-  width: 100%;
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 5%;
+  height: 90%;
+  width: 90%;
 `;
 
 function GetImage(props) {
   switch (props.audioState) {
     case 0:
-      return fullAudioImage;
+      return FullAudio;
     case 1:
-      return fxOnlyImage;
+      return NoMusic;
     case 2:
-      return mutedImage;
+      return NoAudio;
     default:
-      return mutedImage;
+      return NoAudio;
   }
 }
 function OnClickAudio() {
@@ -55,10 +53,13 @@ function OnClickAudio() {
   SendAirConsole(data);
 }
 export function AudioButton(props) {
+  var IconImage = GetImage(props);
   if (props.firstOwner)
     return (
       <ButtonStyle onClick={() => OnClickAudio(props)} {...props}>
-        <AudioIcon bckgImg={GetImage(props)} alt="audioImage"></AudioIcon>
+        <AudioIcon>
+          <IconImage alt="audioImage"></IconImage>
+        </AudioIcon>
       </ButtonStyle>
     );
   else return null;

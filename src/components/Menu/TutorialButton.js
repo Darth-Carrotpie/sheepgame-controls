@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import tutorialIcon from '../../images/menu/tutorial_icon.png';
 import TutorialIcon from '../Menu/Vectors/TutorialIcon';
 import { useStateValue } from '../../store/StateContext';
 import { setTutorialIndex } from '../../store/actions';

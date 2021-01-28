@@ -39,16 +39,16 @@ const MoreGold = ({ color }) => {
         y2="64"
         fill="none"
         stroke="#be1e2d"
-        stroke-miterlimit="10"
-        stroke-width="5"
+        strokeMiterlimit="10"
+        strokeWidth="5"
       />
       <line
         y1="64"
         x2="64"
         fill="none"
         stroke="#be1e2d"
-        stroke-miterlimit="10"
-        stroke-width="5"
+        strokeMiterlimit="10"
+        strokeWidth="5"
       />
     </svg>
   );

@@ -23,7 +23,7 @@ const menu = {
   scepterPremiumReqMet: false,
   scepterSpriteName: 'STAFFS_07',
 
-  firstOwner: false,
+  firstOwner: true,
   audioState: 0,
   permanentCrownCount: 44,
   tutorialIndex: 0,
