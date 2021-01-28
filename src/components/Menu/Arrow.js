@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import image from '../../images/menu/arrow.png';
+import ArrowButtonSVG from '../Menu/Vectors/ArrowButton';
 import SendAirConsole from '../AirConsoleHandler';
-/* import { useStateValue } from '../../store/StateContext'; */
+import { useStateValue } from '../../store/StateContext';
 
 const ImageStyle = styled.div`
-  background: url(${(props) => props.bckgImg});
+  /*background: url(${(props) => props.bckgImg});
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center;*/
 
   height: 20vw;
   width: 20vw;
@@ -29,13 +29,11 @@ function OnClickArrow(props) {
   SendAirConsole(data);
 }
 export function ArrowButton(props) {
+  const [{ global }] = useStateValue();
   return (
-    <ImageStyle
-      bckgImg={image}
-      alt="arrowImage"
-      onClick={() => OnClickArrow(props)}
-      {...props}
-    />
+    <ImageStyle alt="arrowImage" onClick={() => OnClickArrow(props)} {...props}>
+      <ArrowButtonSVG color={global.backgroundColor}></ArrowButtonSVG>
+    </ImageStyle>
   );
 }
 export default ArrowButton;

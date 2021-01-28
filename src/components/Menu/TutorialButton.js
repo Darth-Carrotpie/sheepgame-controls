@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import tutorialIcon from '../../images/menu/tutorial_icon.png';
+import TutorialIcon from '../Menu/Vectors/TutorialIcon';
 import { useStateValue } from '../../store/StateContext';
 import { setTutorialIndex } from '../../store/actions';
 const ButtonStyle = styled.button`
@@ -29,20 +30,25 @@ const IconImage = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  margin-top: 0%;
-  height: 100%;
-  width: 100%;
+  margin-top: 5%;
+  margin-right: 5%;
+  margin-left: 5%;
+  margin-bottom: 5%;
+  height: 90%;
+  width: 90%;
 `;
 
 export function TutorialButton(props) {
-  const [, dispatch] = useStateValue();
+  const [{ global }, dispatch] = useStateValue();
   function onClickTutorial() {
     dispatch(setTutorialIndex(1));
   }
 
   return (
     <ButtonStyle onClick={() => onClickTutorial()} {...props}>
-      <IconImage bckgImg={tutorialIcon} alt="tutorialIconImage"></IconImage>
+      <IconImage alt="tutorialIconImage">
+        <TutorialIcon color={global.backgroundColor}></TutorialIcon>
+      </IconImage>
     </ButtonStyle>
   );
 }

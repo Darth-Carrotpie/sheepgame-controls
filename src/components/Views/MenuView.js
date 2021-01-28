@@ -31,9 +31,10 @@ const ContentContainer = styled.div`
   /*background-color: #505050;*/
 `;
 const WaveContainer = styled.div`
+  display: flex;
   width: 100vw;
-  height: 40vh;
-  min-height: 250px;
+  height: 50vh;
+  min-height: 200px;
   margin-top: -40px;
 `;
 const WavePosition = styled.div`
@@ -43,13 +44,14 @@ const WavePosition = styled.div`
   min-height: inherit;
 `;
 const WaveElementsContainer = styled.div`
+  width: 100%;
   padding-top: 5vh;
-  padding-bottom: 5vh;
+  padding-bottom: 4vh;
   flex-direction: column;
+  align-self: center;
   z-index: +1;
 `;
 const CrownText = styled.div`
-  margin-bottom: 18px;
   z-index: inherit;
 `;
 function MenuView() {
@@ -87,6 +89,7 @@ function MenuView() {
                   <CrownsTypography
                     isYellow={false}
                     text={menu.permanentCrownCount}
+                    color={global.backgroundColor}
                   ></CrownsTypography>
                 </CrownText>
               </MenuRow>

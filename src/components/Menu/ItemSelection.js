@@ -20,7 +20,7 @@ function ItemSelection() {
           valueMessage={-1}
           left
         ></ArrowButton>
-        <ItemName nameValue={menu.hatName} fontSize={24} height={5}></ItemName>
+        <ItemName nameValue={menu.hatName} fontSize={20} height={4}></ItemName>
         <ArrowButton
           elementMessage={'changeHat'}
           valueMessage={1}
@@ -37,10 +37,6 @@ function ItemSelection() {
       </MenuRow>
 
       <MenuRow>
-        <EmptyRow rowHeight={2}></EmptyRow>
-      </MenuRow>
-
-      <MenuRow>
         <ArrowButton
           elementMessage={'changeScepter'}
           valueMessage={-1}
@@ -48,8 +44,8 @@ function ItemSelection() {
         ></ArrowButton>
         <ItemName
           nameValue={menu.scepterName}
-          fontSize={24}
-          height={5}
+          fontSize={20}
+          height={4}
         ></ItemName>
         <ArrowButton
           elementMessage={'changeScepter'}

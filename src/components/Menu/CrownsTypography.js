@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import crownYellow from '../../images/post/DV_crown_GAINED_icon.png';
-import crownWhite from '../../images/post/DV_crown_icon.png';
+import CrownIcon from '../Menu/Vectors/CrownIcon';
 import NerisBlack from '../../fonts/NerisBlack.otf';
 import { useStateValue } from '../../store/StateContext';
 
@@ -22,15 +21,6 @@ const Number = styled.span`
   z-index: inherit;
 `;
 
-function GetCrown(isYellow, textInput) {
-  if (textInput) {
-    if (isYellow) return crownYellow;
-    else return crownWhite;
-  } else {
-    return '';
-  }
-}
-
 const Crown = styled.div`
   background: url(${(props) => props.bckgImg});
   background-size: contain;
@@ -47,7 +37,11 @@ function Typography(props) {
   const [{ global }] = useStateValue();
   return (
     <Number {...props} {...global}>
-      <Crown bckgImg={GetCrown(props.isYellow, props.text)}></Crown>{' '}
+      <Crown>
+        <CrownIcon
+          color={props.color ? props.color : global.backgroundColor}
+        ></CrownIcon>
+      </Crown>
       {props.text ? props.text : ''}
     </Number>
   );

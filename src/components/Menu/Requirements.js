@@ -1,25 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
 import ItemName from './ItemName';
-import crownIcon from '../../images/menu/icon_crown.png';
+import CrownIcon from '../Menu/Vectors/CrownIcon';
 import heroIcon from '../../images/menu/LogoHero_256.png';
+import { useStateValue } from '../../store/StateContext';
 
 const ImageStyle = styled.div`
-  background: url(${(props) => props.bckgImg});
+  background: url(${(props) => (props.bckgImg ? props.bckgImg : 'none')});
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 
-  /*max-height: 20px;*/
   height: 3vh;
   width: 3vh;
+  max-height: 100%;
   max-width: 100%;
-  ${(props) => props.left && 'transform: rotate(180deg)'};
-  &:active {
-    filter: brightness(50%);
-  }
-  margin-right: 1.5vh;
+
+  margin-right: 1vh;
   margin-left: 1.5vh;
+  align-self: center;
 `;
 
 const Wrapper = styled.div`
@@ -29,7 +28,15 @@ const Wrapper = styled.div`
   justify-content: center;
 `;
 
+const CrownSvgPosition = styled.div`
+  margin-right: 1vh;
+  margin-left: 1.5vh;
+  width: 3vh;
+  align-self: center;
+`;
+
 export function Requirements(props) {
+  const [{ global }] = useStateValue();
   const { isUnlocked, premiumReqMet, crownsReqMet, crownsReq } = props;
   if (isUnlocked)
     return <ItemName nameValue="available" fontSize={12} height={3}></ItemName>;
@@ -47,7 +54,12 @@ export function Requirements(props) {
       <ItemName nameValue={textFirst} fontSize={12} height={3}></ItemName>
       {!crownsReqMet ? (
         <React.Fragment>
-          <ImageStyle bckgImg={crownIcon} alt="(%crowns)" />
+          <CrownSvgPosition>
+            <CrownIcon
+              color={global.backgroundColor}
+              alt="(%crowns)"
+            ></CrownIcon>
+          </CrownSvgPosition>
         </React.Fragment>
       ) : null}
       <ItemName nameValue={textSecond} fontSize={12} height={3}></ItemName>

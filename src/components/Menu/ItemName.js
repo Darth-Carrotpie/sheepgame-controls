@@ -28,6 +28,7 @@ const Text = styled.div`
   line-height: 85%;
   /*   background-color:orange;
   opacity: 50%; */
+  align-self: center;
 `;
 export function ItemName(props) {
   const [{ global }] = useStateValue();
