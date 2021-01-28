@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useStateValue } from '../../store/StateContext';
-import upgradeImg from '../../images/upgrade/upgrade_button_buy.png';
+import UpgradeSVG from './UpgradeButtonSVG';
 import { Text } from '../Match/Typography';
 import NerisBlack from '../../fonts/NerisBlack.otf';
 
@@ -9,7 +9,8 @@ const UpgradeButtonWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${(props) => (props.bckgColor ? props.bckgColor : '#0f0')};
+  background-color: ${(props) =>
+    props.backgroundColor ? props.backgroundColor : '#0f0'};
   border-style: none;
   &:active {
     opacity: 40%;
@@ -17,7 +18,7 @@ const UpgradeButtonWrapper = styled.div`
   width: 100vw;
 `;
 const UpgradeButton = styled.div`
-  background: url(${(props) => props.bckgImg});
+  background-color: none;
   background-repeat: no-repeat;
   background-size: 100%;
   height: 40vw;
@@ -43,8 +44,10 @@ const TextPosition = styled(Text)`
 function UpgradeButtonFunction({ ...props }) {
   const [{ global }] = useStateValue();
   return (
-    <UpgradeButtonWrapper {...props}>
-      <UpgradeButton bckgImg={upgradeImg} alt="upgrade"></UpgradeButton>
+    <UpgradeButtonWrapper {...props} {...global}>
+      <UpgradeButton alt="upgrade">
+        <UpgradeSVG color={props.buttonColor}></UpgradeSVG>
+      </UpgradeButton>
       <TextPosition {...global}>upgrade</TextPosition>
     </UpgradeButtonWrapper>
   );

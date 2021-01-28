@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import BubbleText from './BubbleText';
-import BubbleIcon from './BubbleIcon';
+import BubbleIconVector from './BubbleIconVector';
 
 const BubbleButton = styled.button`
   height: 15vh;
@@ -40,7 +40,7 @@ const HalfBubble = styled(BubbleButton)`
 function BigBubble(props, ref) {
   return (
     <BubbleButton {...props} ref={ref}>
-      <BubbleIcon {...props} />
+      <BubbleIconVector {...props} />
       <BubbleText {...props} top></BubbleText>
     </BubbleButton>
   );

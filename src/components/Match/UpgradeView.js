@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import UpgradeButton from '../Upgrade/UpgradeButton';
 import Sheep from '../Upgrade/Sheep';
 import NerisBlack from '../../fonts/NerisBlack.otf';
-import upgradeIcons from '../../images/upgrade/icons';
+import UpgradeIcons from './icons';
 import SendAirConsole from '../AirConsoleHandler';
 import { showUpgrade } from '../../store/actions';
 const Wrapper = styled.div`
@@ -35,12 +35,9 @@ const DescriptionStyle = styled.span`
   margin-left: 20px;
   margin-right: 20px;
   text-align: center;
+  color: white;
 `;
-function OnClickBack() {
-  var data = { element: 'view', value: 'back' };
-  console.log(data);
-  SendAirConsole(data);
-}
+
 const BubblesInLine = styled.div`
   flex: 1;
   display: flex;
@@ -107,7 +104,7 @@ function UpgradeView() {
           <BigBubble
             notEnoughGold={match.upgradeA_price > match.money}
             selected={match.upgradeA_icon === match.selectedUpgradeIcon}
-            bubbleImage={upgradeIcons[match.upgradeA_icon]}
+            bubbleImage={UpgradeIcons[match.upgradeA_icon]}
             bckgColor={menu.playerColor}
             onClick={() => onClickUpgrade(upgradeA_icon)}
           >
@@ -116,7 +113,7 @@ function UpgradeView() {
           <BigBubble
             notEnoughGold={match.upgradeB_price > match.money}
             selected={match.upgradeB_icon === match.selectedUpgradeIcon}
-            bubbleImage={upgradeIcons[match.upgradeB_icon]}
+            bubbleImage={UpgradeIcons[match.upgradeB_icon]}
             bckgColor={menu.playerColor}
             onClick={() => onClickUpgrade(upgradeB_icon)}
           >
@@ -148,7 +145,7 @@ function UpgradeView() {
         </Wrapper>
         <UpgradeButtonPosition>
           <UpgradeButton
-            bckgColor={menu.playerColor}
+            buttonColor={menu.playerColor}
             onClick={() => {
               OnClickBuyUpgrade('upgrade', index);
               hideUpgrade();

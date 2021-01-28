@@ -1,5 +1,5 @@
 const views = {
-  current: 'post', //default=loading
+  current: 'match', //default=loading
 };
 const menu = {
   ready: 0,
@@ -43,14 +43,14 @@ const match = {
 
   upgradeA_price: 0,
   upgradeB_price: 0,
-  upgradeA_icon: '',
-  upgradeB_icon: '',
+  upgradeA_icon: 'Bouncy',
+  upgradeB_icon: 'Bouncy',
 
   ballista_loaded: true,
 
   upgradeData: {
-    Base: {
-      upgradeDisplayName: 'name name name',
+    Bouncy: {
+      upgradeDisplayName: 'Bouncy',
       upgradeDescription: 'description description description',
     },
   },

@@ -10,7 +10,7 @@ import GrassIcon from './Vectors/GrassVector';
 import KingUpgradeIcon from './Vectors/KingUpgradeVectors';
 import SmashIcon from './Vectors/SmashVector';
 import { useStateValue } from '../../store/StateContext';
-import upgradeIcons from '../../images/upgrade/icons';
+import UpgradeIcons from './icons';
 import SendAirConsole from '../AirConsoleHandler';
 import { showUpgrade } from '../../store/actions';
 
@@ -105,7 +105,7 @@ function BubbleGroup() {
           <BigBubble
             data-class="tooltipThemeClass"
             ref={idRefUpgA}
-            bubbleImage={upgradeIcons[upgradeA_icon]}
+            bubbleImage={UpgradeIcons[upgradeA_icon]}
             bckgColor={menu.playerColor}
             notEnoughGold={match.upgradeA_price > match.money}
             data-tip={
@@ -127,7 +127,7 @@ function BubbleGroup() {
           <BigBubble
             data-class="tooltipThemeClass"
             ref={idRefUpgB}
-            bubbleImage={upgradeIcons[upgradeB_icon]}
+            bubbleImage={UpgradeIcons[upgradeB_icon]}
             bckgColor={menu.playerColor}
             notEnoughGold={match.upgradeB_price > match.money}
             data-tip={
