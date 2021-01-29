@@ -1,9 +1,9 @@
 const views = {
-  current: 'match', //default=loading
+  current: 'loading', //default=loading
 };
 const menu = {
   ready: 0,
-  playerColor: '#0ff',
+  playerColor: '#d64c66',
 
   hatID: 1,
   hatName: 'Princess Sweety Pop',
@@ -23,7 +23,7 @@ const menu = {
   scepterPremiumReqMet: false,
   scepterSpriteName: 'STAFFS_07',
 
-  firstOwner: true,
+  firstOwner: false,
   audioState: 0,
   permanentCrownCount: 44,
   tutorialIndex: 0,
@@ -43,8 +43,8 @@ const match = {
 
   upgradeA_price: 0,
   upgradeB_price: 0,
-  upgradeA_icon: 'Bouncy',
-  upgradeB_icon: 'Bouncy',
+  upgradeA_icon: '',
+  upgradeB_icon: '',
 
   ballista_loaded: true,
 

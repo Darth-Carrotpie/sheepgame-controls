@@ -88,7 +88,9 @@ function MenuView() {
                 <CrownText>
                   <CrownsTypography
                     isYellow={false}
-                    text={menu.permanentCrownCount}
+                    text={
+                      menu.permanentCrownCount ? menu.permanentCrownCount : '0'
+                    }
                     color={global.backgroundColor}
                   ></CrownsTypography>
                 </CrownText>

@@ -5,7 +5,7 @@ import FlexColumn from '../Layout/FlexColumn';
 import FlexRow from '../Layout/FlexRow';
 import { Description } from './Description';
 
-import * as achievementIcons from '../../images/post/achievement_icons';
+import * as achievementIcons from '../Post/Vectors';
 import { ACHIEVEMENTS } from './constants';
 
 import { useStateValue } from '../../store/StateContext';
@@ -13,11 +13,6 @@ import NerisBlack from '../../fonts/NerisBlack.otf';
 import { selectScoreInfo } from '../../store/actions';
 
 const Icon = styled.div`
-  background: url(${(props) => props.bckgImg});
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-
   height: 10vw;
   max-height: 100px;
   width: 10vw;
@@ -55,9 +50,7 @@ function OnClickIcon(activeIconIndex, selectedScore) {
 export default () => {
   const [selectedIcon, setSelectedIcon] = useState();
   const [scoreName, setScoreName] = useState('');
-  /*   const [description, setDescription] = useState(
-    "Tap an icon to view details..."
-  ); */
+
   const [indexSelected, setIndexSelected] = useState(0);
   const [, dispatch] = useStateValue();
   const [{ post, global }] = useStateValue();
@@ -74,11 +67,10 @@ export default () => {
       <Title textColor={global.backgroundColor}>{scoreName}</Title>
       <FlexRow justifyContent="center">
         {scoreList.slice(1).map((item, index) => {
+          var IconInList = achievementIcons[item.icon];
           return (
             <Icon
               {...global}
-              key={achievementIcons[item.icon]}
-              bckgImg={achievementIcons[item.icon]}
               selected={
                 post.selectedScore > 0 ? selectedIcon === item.icon : false
               }
@@ -99,7 +91,9 @@ export default () => {
                   setSelectedIcon(scoreList[0].icon);
                 }
               }}
-            ></Icon>
+            >
+              <IconInList color={global.backgroundColor}></IconInList>
+            </Icon>
           );
         })}
       </FlexRow>

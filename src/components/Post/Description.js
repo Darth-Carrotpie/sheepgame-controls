@@ -29,7 +29,7 @@ function ColorizeText(item) {
   for (i = 0; i < stringList.length; i++) {
     var colr = '';
     if (['[X]', '[Y]'].includes(stringList[i])) {
-      colr = '#f7931e';
+      colr = '#FFF'; //'#f7931e';
     } else {
       colr = global.backgroundColor;
     }
@@ -71,11 +71,9 @@ export function Description({ item }) {
   return (
     <Wrapper>
       <DescriptionStyle>
-        {ColorizeText(item)
-          //.slice(1)
-          .map((item) => {
-            return <span style={{ color: item.color }}>{item.content}</span>;
-          })}
+        {ColorizeText(item).map((item) => {
+          return <span style={{ color: item.color }}>{item.content}</span>;
+        })}
       </DescriptionStyle>
     </Wrapper>
   );
