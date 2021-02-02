@@ -4,7 +4,7 @@ import { useStateValue } from '../store/StateContext';
 import { infoTooltipShown } from '../store/actions';
 
 const SheepdomTooltip = ({ color }) => {
-  const [{}, dispatch] = useStateValue();
+  const [{ views }, dispatch] = useStateValue();
 
   return (
     <ReactTooltip
@@ -16,7 +16,9 @@ const SheepdomTooltip = ({ color }) => {
       backgroundColor="#4a2f8c"
       getContent={(dataTip) => `${dataTip}`}
       afterShow={() => {
-        dispatch(infoTooltipShown());
+        if (views.current == 'match') {
+          dispatch(infoTooltipShown());
+        }
       }}
     />
   );

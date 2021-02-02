@@ -9,9 +9,10 @@ import MatchView from './Views/MatchView';
 import PostView from './Views/PostView';
 import TutorialView from './Views/TutorialView';
 import { useStateValue } from '../store/StateContext';
+//import ReactTooltip from 'react-tooltip';
 
 function Router() {
-  const [{ views, menu }] = useStateValue();
+  const [{ views, menu, match }] = useStateValue();
   var view = null;
   if (menu.tutorialIndex > 0) {
     view = <TutorialView></TutorialView>;

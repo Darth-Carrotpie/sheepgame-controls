@@ -1,4 +1,4 @@
-import React, { useEffect, componentDidMount, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import ReactTooltip from 'react-tooltip';
 import LongPressable from 'react-longpressable';
 import SheepdomTooltip from '../SheepdomTooltip';
@@ -57,7 +57,7 @@ function BubbleGroup() {
   const idRefGrass = useRef(null);
   const idRefSpeed = useRef(null);
   const idRefSmash = useRef(null);
-  const [{ match, menu }, dispatch] = useStateValue();
+  const [{ views, match, menu }, dispatch] = useStateValue();
   const { upgradeA_icon, upgradeB_icon } = match;
   function onClickUpgrade(i) {
     if (upgradeA_icon != '' || upgradeB_icon != '') dispatch(showUpgrade(i));
@@ -84,8 +84,11 @@ function BubbleGroup() {
     //console.log('Long pressed.:' + e);
   }
   useEffect(() => {
-    if (match.infoTooltipShown == 0)
-      ReactTooltip.show(document.getElementById('bubleLineTop'));
+    if (views.current == 'match') {
+      if (match.infoTooltipShown == 0) {
+        ReactTooltip.show(document.getElementById('bubleLineTop'));
+      }
+    }
   }, []);
 
   return (
@@ -96,6 +99,7 @@ function BubbleGroup() {
         data-for="item_info"
         data-class="tooltipThemeClass"
         data-event="c"
+        data-place="bottom"
       >
         <LongPressable
           onShortPress={() => onClickUpgrade(upgradeA_icon)}
