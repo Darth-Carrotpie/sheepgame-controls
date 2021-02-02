@@ -27,6 +27,7 @@ const menu = {
   audioState: 0,
   permanentCrownCount: 44,
   tutorialIndex: 0,
+  tutorialSeen: 0,
 };
 const match = {
   health: 100,

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import tutorialImages from '../../components/Tutorial';
 import { useStateValue } from '../../store/StateContext';
-import { setTutorialIndex } from '../../store/actions';
+import { setTutorialIndex, tutorialSeen } from '../../store/actions';
 
 const ImageContainer = styled.div`
   height: 100vh;
@@ -31,8 +31,8 @@ function TutorialView(props) {
     dispatch(setTutorialIndex(tutorialIndex + 1));
     if (tutorialIndex >= tutorialImages.length) {
       dispatch(setTutorialIndex(0));
+      dispatch(tutorialSeen());
     }
-    console.log('click clock');
   }
   const TutImg = tutorialImages[tutorialIndex - 1];
   return (

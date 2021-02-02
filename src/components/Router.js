@@ -12,9 +12,9 @@ import { useStateValue } from '../store/StateContext';
 //import ReactTooltip from 'react-tooltip';
 
 function Router() {
-  const [{ views, menu, match }] = useStateValue();
+  const [{ views, menu }] = useStateValue();
   var view = null;
-  if (menu.tutorialIndex > 0) {
+  if (menu.tutorialIndex > 0 && menu.tutorialSeen == 0) {
     view = <TutorialView></TutorialView>;
   } else {
     switch (views.current) {

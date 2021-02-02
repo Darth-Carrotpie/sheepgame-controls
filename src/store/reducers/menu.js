@@ -1,6 +1,6 @@
 export default (state, action) => {
   switch (action.type) {
-    case "kingItems":
+    case 'kingItems':
       return {
         ...state,
         permanentCrownCount: action.permanentCrownCount,
@@ -24,41 +24,45 @@ export default (state, action) => {
         scepterSpriteName: action.newScepter.spriteName,
       };
 
-    case "ready":
+    case 'ready':
       return {
         ...state,
         ready: action.value,
       };
-    case "playerColor":
+    case 'playerColor':
       return {
         ...state,
         playerColor: action.value,
       };
-    case "playerName":
+    case 'playerName':
       //console.log("setting name:" + action.value);
       return {
         ...state,
         playerName: action.value,
       };
-    case "tutorialIndex":
+    case 'tutorialIndex':
       //console.log("setting tutorial reducer:" + action.value);
       return {
         ...state,
         tutorialIndex: action.value,
       };
-    case "firstOwner":
+    case 'firstOwner':
       //console.log("setting name:" + action.value);
       return {
         ...state,
         firstOwner: action.value,
       };
-    case "audio":
+    case 'audio':
       //console.log("setting name:" + action.value);
       return {
         ...state,
         audioState: action.value,
       };
-
+    case 'tutorialSeen':
+      return {
+        ...state,
+        tutorialSeen: action.value,
+      };
     default:
       return state;
   }
