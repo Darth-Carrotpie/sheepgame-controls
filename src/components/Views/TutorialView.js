@@ -31,17 +31,13 @@ function TutorialView(props) {
     dispatch(setTutorialIndex(tutorialIndex + 1));
     if (tutorialIndex >= tutorialImages.length) {
       dispatch(setTutorialIndex(0));
-      dispatch(tutorialSeen());
+      dispatch(tutorialSeen(1));
     }
   }
   const TutImg = tutorialImages[tutorialIndex - 1];
   return (
     <div>
-      <ImageContainer
-      //bckgImg={
-      //  tutorialImages[tutorialIndex - 1] //menu.tutorialIndex - 1
-      //}
-      >
+      <ImageContainer>
         <ButtonPosition onClick={() => onClickTutorial()} {...props}>
           <TutImg></TutImg>
         </ButtonPosition>

@@ -1,6 +1,6 @@
 import React from 'react';
 const GrassIcon = ({ color }) => {
-  var filler = '#9bce76';
+  var filler = '#739e58';
   if (color != null) {
     filler = color;
   }

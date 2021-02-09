@@ -32,7 +32,7 @@ const menu = {
 const match = {
   health: 100,
   money: 5,
-  grass: 50,
+  grass: 100,
   crowns: 77,
   priceGrass: 5,
   priceSheep: 6,

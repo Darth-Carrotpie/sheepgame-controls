@@ -42,7 +42,7 @@ function Typography(props) {
           color={props.color ? props.color : global.backgroundColor}
         ></CrownIcon>
       </Crown>
-      {props.text ? props.text : ''}
+      {props.text ? props.text : '0'}
     </Number>
   );
 }
