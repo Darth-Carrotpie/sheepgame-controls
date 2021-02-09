@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { useSwipeable } from 'react-swipeable';
 
 import ControlWheelVec from './Vectors/ArrowsVector';
 import { useStateValue } from '../../store/StateContext';
@@ -11,7 +10,6 @@ import BallistaLoaded from './Vectors/BallistaLoaded';
 import BallistEmpty from './Vectors/BallistaEmpty';
 
 var rateLimiter = new RateLimiter(window.airconsole);
-const wheelSize = 60;
 var ballista_rotation = 0;
 
 const Wrapper = styled.div`
@@ -76,9 +74,9 @@ function euler_angle(x, y) {
   var eul = (270 + deg) % 360; // folded to [0,360) domain
   return Math.floor(eul);
 }
-function SendMessage(eventData, setRotation, isDown, location) {
+function FillDataToSend(eventData, setRotation, isDown, location, eventName) {
   var dataToSend = {};
-  dataToSend['element'] = 'tap';
+  dataToSend['element'] = eventName;
   dataToSend['clicked'] = isDown;
   const offsetTop = document
     .getElementById('controlWheelImage')
@@ -95,7 +93,12 @@ function SendMessage(eventData, setRotation, isDown, location) {
   dataToSend['rotationEuler'] = ballista_rotation;
   setRotation(ballista_rotation);
   dataToSend['elementWidth'] = elementWidth;
-  SendAirConsole(dataToSend);
+  return dataToSend;
+}
+function SendMessage(eventData, setRotation, isDown, location) {
+  SendAirConsole(
+    FillDataToSend(eventData, setRotation, isDown, location, 'tap')
+  );
 }
 function OnTouchStart(eventdata, setRotation) {
   const firstTouchEvent = eventdata.touches[0];
@@ -105,6 +108,15 @@ function OnTouchStart(eventdata, setRotation) {
   };
   SendMessage(eventdata, setRotation, true, location);
 }
+function OnTouchMove(eventdata, setRotation) {
+  const firstTouchEvent = eventdata.touches[0];
+  const location = {
+    x: firstTouchEvent.clientX,
+    y: firstTouchEvent.clientY,
+  };
+  var data = FillDataToSend(eventdata, setRotation, true, location, 'swipe');
+  rateLimiter.message(window.airconsole.SCREEN, data);
+}
 function OnTouchEnd(eventdata, setRotation) {
   const firstTouchEvent = eventdata.changedTouches[0];
   const location = {
@@ -113,62 +125,18 @@ function OnTouchEnd(eventdata, setRotation) {
   };
   SendMessage(eventdata, setRotation, false, location);
 }
-function getStartRelative(rest) {
-  const elementWidth = document.getElementById('controlWheelImage').clientWidth;
-  var div = document.getElementById('controlWheelImage');
-  var rect = div.getBoundingClientRect();
-  var x = rest['initial'][0] - rect.left - elementWidth / 2.0;
-  var y = rect.top + elementWidth / 2.0 - rest['initial'][1];
-  return [x, y];
-}
+
 function ControlWheel() {
   const [{ menu, match, global }] = useStateValue();
   const [rotation, setRotation] = useState(0);
-  const swipeHandlers = useSwipeable({
-    onSwiped: (eventData) => {
-      const { event, ...rest } = eventData;
-      rest['element'] = 'swipe';
-      rest['isDelta'] = 'False';
-      rest['startRelative'] = getStartRelative(rest);
-
-      const endPointCenteredX = rest['startRelative'][0] - rest['deltaX'];
-      const endPointCenteredY = rest['startRelative'][1] + rest['deltaY'];
-      rest['endPointCentered'] = [endPointCenteredX, endPointCenteredY];
-      ballista_rotation = euler_angle(endPointCenteredX, endPointCenteredY);
-      rest['rotationEuler'] = ballista_rotation;
-      setRotation(ballista_rotation);
-      rest['elementWidth'] = document.getElementById(
-        'controlWheelImage'
-      ).clientWidth;
-      SendAirConsole(rest);
-    },
-    onSwiping: (eventData) => {
-      const { event, ...rest } = eventData;
-      rest['element'] = 'swipe';
-      rest['isDelta'] = 'True';
-      rest['startRelative'] = getStartRelative(rest);
-      const endPointCenteredX = rest['startRelative'][0] - rest['deltaX'];
-      const endPointCenteredY = rest['startRelative'][1] + rest['deltaY'];
-      rest['endPointCentered'] = [endPointCenteredX, endPointCenteredY];
-      ballista_rotation = euler_angle(endPointCenteredX, endPointCenteredY);
-      setRotation(ballista_rotation);
-      rest['rotationEuler'] = ballista_rotation;
-      rest['elementWidth'] = document.getElementById(
-        'controlWheelImage'
-      ).clientWidth;
-      rateLimiter.message(window.airconsole.SCREEN, rest);
-    },
-    delta: 2,
-    trackMouse: true,
-  });
   return (
-    <Wrapper {...swipeHandlers}>
+    <Wrapper>
       <ControlWheelBackground bckgColor={menu.playerColor} id="controlWheel">
         <WheelImage
           id="controlWheelImage"
           alt="controlWheel"
-          //onClick={(e) => SendMessage(e, setRotation)}
           onTouchStart={(e) => OnTouchStart(e, setRotation)}
+          onTouchMove={(e) => OnTouchMove(e, setRotation)}
           onTouchEnd={(e) => OnTouchEnd(e, setRotation)}
         >
           <ControlWheelVec color={global.backgroundColor} />
