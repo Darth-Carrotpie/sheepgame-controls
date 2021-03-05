@@ -89,6 +89,7 @@ function UpgradeView() {
     else dispatch(showUpgrade('Base'));
   }
   var index = match.showUpgrade;
+  console.log('match index fpor upgrade: ' + index);
   const { upgradeData } = match;
 
   return (

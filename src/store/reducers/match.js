@@ -18,7 +18,9 @@ export default (state, action) => {
       var upgrades = [];
       var upgArray = JSON.parse(action.upgrade);
       for (var i = 0; i < upgArray.length; i++) {
-        console.log('upgArray[i]:', upgArray[i]);
+        //console.log('upgArray[i]:', upgArray[i]);
+        //console.log('enumStringName:', upgArray[i].enumStringName);
+
         upgrades[upgArray[i].enumStringName] = {
           upgradeDisplayName: upgArray[i].upgradeDisplayName,
           upgradeDescription: upgArray[i].upgradeDescription,
@@ -28,14 +30,14 @@ export default (state, action) => {
           sheepTypeOutput: upgArray[i].sheepTypeOutput,
           enumStringName: upgArray[i].enumStringName,
         };
-        console.log(
+        /*console.log(
           'upgrades[upgArray[i].enumStringName]:',
           upgrades[upgArray[i].enumStringName]
-        );
+        );*/
       }
-      for (var i = 0; i < upgrades.length; i++) {
-        //console.log('upgrade:upgrades:', upgrades[upgArray[i].enumStringName]);
-      }
+      /*for (var i = 0; i < upgrades.length; i++) {
+        console.log('upgrade:upgrades:', upgrades[upgArray[i].enumStringName]);
+      }*/
       return {
         ...state,
         upgradeData: upgrades,
