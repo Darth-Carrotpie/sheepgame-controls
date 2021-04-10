@@ -6,10 +6,9 @@ const SvgImage = styled.svg`
   height: 100%;
 `;
 
-const ArrowButton = () => {
+const Coin = () => {
   return (
     <SvgImage xmlns="http://www.w3.org/2000/svg" viewBox="0 0 153.71 153.71">
-      <title>Asset 70</title>
       <g id="b07825df-871a-4dca-ace0-142ef2ddd96f" data-name="Layer 2">
         <circle
           cx="76.85"
@@ -58,4 +57,4 @@ const ArrowButton = () => {
   );
 };
 
-export default ArrowButton;
+export default Coin;

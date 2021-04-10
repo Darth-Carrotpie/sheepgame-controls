@@ -26,7 +26,7 @@ const menu = {
   firstOwner: false,
   audioState: 0,
   permanentCrownCount: 44,
-  tutorialIndex: 1,
+  tutorialIndex: 2,
   tutorialSeen: 0,
 };
 const match = {
