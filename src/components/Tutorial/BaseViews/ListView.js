@@ -19,6 +19,7 @@ const ImageContainer = styled.div`
   width: 30%;
   bottom: 0vh;
   left: 0vh;
+  top: 1vh;
 `;
 const TextRow = styled.div`
   @font-face {
@@ -26,7 +27,7 @@ const TextRow = styled.div`
     src: url(${NotoSans});
   }
   font-weight: 750;
-  font-size: clamp(8px, ${3}vh, 32px);
+  font-size: clamp(6px, calc(${2}vh + ${2}vw), 32px);
   height: ${7}vh;
   color: ${(props) => (props.textColor ? props.textColor : '#27aae1')};
   width: 70%;
@@ -34,14 +35,15 @@ const TextRow = styled.div`
   top: 50%;
   transform: translateY(-50%);
 
-  margin-left: 20vw;
+  margin-top: 2vh;
+  margin-left: 22vw;
   display: flex;
   justify-content: left;
   align-items: left;
   text-align: left;
   line-height: 85%;
-  background-color: orange;
-  opacity: 50%;
+  /*   background-color: orange;
+  opacity: 50%; */
   align-self: center;
 `;
 const TextTitle = styled.div`
@@ -50,8 +52,8 @@ const TextTitle = styled.div`
     src: url(${NotoSans});
   }
   font-weight: 750;
-  font-size: clamp(8px, ${9}vw, 32px);
-  height: ${4}vh;
+  font-size: clamp(6px, calc(${3}vh + ${3}vw), 36px);
+  /*   height: ${5}vh; */
   color: ${(props) => (props.textColor ? props.textColor : '#f7941d')};
   display: flex;
   justify-content: center;
@@ -87,6 +89,7 @@ function ListView(props) {
         </ImageContainer>
         <TextRow {...props}>{props.row3}</TextRow>
       </RowContainer>
+      <RowContainer></RowContainer>
       <TextRow {...props} textColor={'#f7941d'}>
         {props.row4}
       </TextRow>
