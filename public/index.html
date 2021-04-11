@@ -29,7 +29,10 @@
       src="https://www.airconsole.com/api/airconsole-1.7.0.js"
     ></script>
     <script>
-      window.airconsole = new AirConsole({"orientation": "portrait"});
+      window.airconsole = new AirConsole({
+        orientation: 'portrait',
+        translation: true,
+      });
     </script>
 
     <title>React App</title>
