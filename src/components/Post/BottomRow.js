@@ -6,7 +6,7 @@ import CrownsTypography from '../../components/Menu/CrownsTypography';
 import { useStateValue } from '../../store/StateContext';
 import { ACHIEVEMENTS } from './constants';
 import SendAirConsole from '../AirConsoleHandler';
-import NerisBlack from '../../fonts/NerisBlack.otf';
+import NotoSans from '../../fonts/NotoSans-Bold.ttf';
 import PlayAgainSVG from '../Post/Backgrounds/PlayAgainSVG';
 
 const TypographyPosition = styled.div`
@@ -20,9 +20,10 @@ const TypographyPosition = styled.div`
 `;
 const BottomRow = styled.div`
   @font-face {
-    font-family: NerisBlack;
-    src: url(${NerisBlack});
+    font-family: NotoSans;
+    src: url(${NotoSans});
   }
+  font-family: NotoSans;
   z-index: 1;
   display: flex;
   justify-content: space-between;
@@ -55,7 +56,7 @@ function OnClickPlay() {
   SendAirConsole(data);
 }
 export default () => {
-  const [{ menu, post, global }] = useStateValue();
+  const [{ menu, post, global, translations }] = useStateValue();
 
   var reward = '';
   if (post.selectedScore > 0) {
@@ -76,7 +77,9 @@ export default () => {
           color={post.win ? global.backgroundColor : 'black'}
         ></PlayAgainSVG>
         <Text style={{ marginTop: '5px' }}>
-          {post.playAgain ? 'waiting...' : 'play again'}
+          {post.playAgain
+            ? translations.waiting + '...'
+            : translations.play_again}
         </Text>
       </PlayAgainContainer>
       <TypographyPosition>

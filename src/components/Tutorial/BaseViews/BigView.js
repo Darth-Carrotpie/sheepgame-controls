@@ -23,6 +23,7 @@ const TextRow = styled.div`
     font-family: NotoSans;
     src: url(${NotoSans});
   }
+  font-family: NotoSans;
   font-weight: 750;
   font-size: clamp(6px, calc(${2}vh + ${2}vw), 32px);
   /*   height: ${9}vh; */
@@ -44,6 +45,7 @@ const TextTitle = styled.div`
     font-family: NotoSans;
     src: url(${NotoSans});
   }
+  font-family: NotoSans;
   font-weight: 750;
   font-size: clamp(6px, calc(${3}vh + ${3}vw), 36px);
   height: ${4}vh;

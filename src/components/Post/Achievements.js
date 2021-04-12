@@ -9,7 +9,7 @@ import * as achievementIcons from '../Post/Vectors';
 import { ACHIEVEMENTS } from './constants';
 
 import { useStateValue } from '../../store/StateContext';
-import NerisBlack from '../../fonts/NerisBlack.otf';
+import NotoSans from '../../fonts/NotoSans-Bold.ttf';
 import { selectScoreInfo } from '../../store/actions';
 
 const Icon = styled.div`
@@ -27,9 +27,10 @@ const Icon = styled.div`
 
 const Title = styled.div`
   @font-face {
-    font-family: NerisBlack;
-    src: url(${NerisBlack});
+    font-family: NotoSans;
+    src: url(${NotoSans});
   }
+  font-family: NotoSans;
   font-size: 1.2rem;
   font-weight: 1000;
   height: 5vh;

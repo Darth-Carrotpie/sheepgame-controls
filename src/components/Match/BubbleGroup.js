@@ -6,7 +6,6 @@ import BigBubble from './BigBubble';
 import SmallBubbleVector from './SmallBubbleVector';
 import styled from 'styled-components';
 import GrassIcon from './Vectors/GrassVector';
-//import sheepButton from '../../images/match/buy_sheep_icon.png';
 import KingUpgradeIcon from './Vectors/KingUpgradeVectors';
 import SmashIcon from './Vectors/SmashVector';
 import { useStateValue } from '../../store/StateContext';
@@ -57,7 +56,7 @@ function BubbleGroup() {
   const idRefGrass = useRef(null);
   const idRefSpeed = useRef(null);
   const idRefSmash = useRef(null);
-  const [{ views, match, menu }, dispatch] = useStateValue();
+  const [{ views, match, menu, translations }, dispatch] = useStateValue();
   const { upgradeA_icon, upgradeB_icon } = match;
   function onClickUpgrade(i) {
     if (upgradeA_icon != '' || upgradeB_icon != '') dispatch(showUpgrade(i));
@@ -95,7 +94,7 @@ function BubbleGroup() {
     <div>
       <BubblesInLine
         id={'bubleLineTop'}
-        data-tip="tap-hold to show an info tooltip about a button!"
+        data-tip={translations.tooltip_default}
         data-for="item_info"
         data-class="tooltipThemeClass"
         data-event="c"
@@ -114,8 +113,8 @@ function BubbleGroup() {
             notEnoughGold={match.upgradeA_price > match.money}
             data-tip={
               upgradeA_icon
-                ? 'upgrade to ' + upgradeA_icon
-                : 'upgrade not available'
+                ? translations.tooltip_upg + ' "' + upgradeA_icon + '"'
+                : translations.tooltip_upg_alt
             }
             data-for="item_info"
             data-event="c"
@@ -136,8 +135,8 @@ function BubbleGroup() {
             notEnoughGold={match.upgradeB_price > match.money}
             data-tip={
               upgradeB_icon
-                ? 'upgrade to ' + upgradeB_icon
-                : 'upgrade not available'
+                ? translations.tooltip_upg + ' "' + upgradeB_icon + '"'
+                : translations.tooltip_upg_alt
             }
             data-for="item_info"
             data-event="c"
@@ -155,14 +154,12 @@ function BubbleGroup() {
           <SmallBubbleVector
             data-class="tooltipThemeClass"
             ref={idRefGrass}
-            data-tip="fill up missing grass"
+            data-tip={translations.tooltip_grass}
             data-for="item_info"
             iconColor="#9bce76"
             data-event="c"
-            //ref={(ref) => (this.fooRef = ref)} // example from "static methods" part in https://www.npmjs.com/package/react-tooltip
             bubbleImage={GrassIcon}
             top={2}
-            //onClick={() => SendMessage('buyGrass', match.priceGrass)}
             bckgColor={'#c2e5ac'}
             notEnoughGold={
               Math.round(match.priceGrass * 10) / 10 > Math.round(match.money)
@@ -186,7 +183,7 @@ function BubbleGroup() {
             notEnoughGold={
               Math.round(match.priceSheep * 10) / 10 > Math.round(match.money)
             }
-            data-tip="upgrade king's move and attack speed"
+            data-tip={translations.tooltip_king}
             data-for="item_info"
             data-event="c"
           >
@@ -208,7 +205,7 @@ function BubbleGroup() {
             notEnoughGold={
               Math.round(match.priceSmash * 10) / 10 > Math.round(match.money)
             }
-            data-tip="smash the ground to knock all sheep"
+            data-tip={translations.tooltip_smash}
             data-for="item_info"
             data-event="c"
             iconColor="#80372d"

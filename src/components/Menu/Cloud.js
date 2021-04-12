@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-/* import cloudImgReady from "../../images/menu/play_cloud.png"; */
 import ItemName from '../../components/Menu/ItemName';
-/* import { useStateValue } from '../../store/StateContext'; */
 import { useStateValue } from '../../store/StateContext';
 import SendAirConsole from '../AirConsoleHandler';
 
@@ -23,11 +21,13 @@ const ReadyCloudBackground = styled.div`
 `;
 
 export function ReadyCloud(props) {
-  const [{ menu }] = useStateValue();
+  const [{ menu, translations }] = useStateValue();
   return (
     <ReadyCloudBackground>
       <ItemName
-        nameValue={menu.ready ? 'waiting...' : 'READY'}
+        nameValue={
+          menu.ready ? translations.waiting + '...' : translations.ready
+        }
         onClick={OnClickReady}
         fontSize={45}
         playerColor={menu.playerColor ? menu.playerColor : 'black'}

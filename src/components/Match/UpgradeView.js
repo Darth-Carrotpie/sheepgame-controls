@@ -4,7 +4,7 @@ import BigBubble, { BackBubble } from '../Match/BigBubble';
 import styled from 'styled-components';
 import UpgradeButton from '../Upgrade/UpgradeButton';
 import Sheep from '../Upgrade/Sheep';
-import NerisBlack from '../../fonts/NerisBlack.otf';
+import NotoSans from '../../fonts/NotoSans-Bold.ttf';
 import UpgradeIcons from './icons';
 import SendAirConsole from '../AirConsoleHandler';
 import { showUpgrade } from '../../store/actions';
@@ -25,10 +25,10 @@ const WhiteBackground = styled.div`
 `;
 const DescriptionStyle = styled.span`
   @font-face {
-    font-family: NerisBlack;
-    src: url(${NerisBlack});
+    font-family: NotoSans;
+    src: url(${NotoSans});
   }
-  font-family: NerisBlack;
+  font-family: NotoSans;
   font-size: 1rem;
   font-weight: 900;
   height: 80px;

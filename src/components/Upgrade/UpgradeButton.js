@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useStateValue } from '../../store/StateContext';
 import UpgradeSVG from './UpgradeButtonSVG';
 import { Text } from '../Match/Typography';
-import NerisBlack from '../../fonts/NerisBlack.otf';
+import NotoSans from '../../fonts/NotoSans-Bold.ttf';
 
 const UpgradeButtonWrapper = styled.div`
   display: flex;
@@ -31,10 +31,10 @@ const UpgradeButton = styled.div`
 
 const TextPosition = styled(Text)`
   @font-face {
-    font-family: NerisBlack;
-    src: url(${NerisBlack});
+    font-family: NotoSans;
+    src: url(${NotoSans});
   }
-  font-family: NerisBlack;
+  font-family: NotoSans;
   font-weight: 800;
   color: ${(props) =>
     props.backgroundColor ? props.backgroundColor : 'white'};

@@ -48,7 +48,7 @@ function KingArea(props) {
   }
 }
 function MenuView() {
-  const [{ menu, global }] = useStateValue();
+  const [{ menu, global, translations }] = useStateValue();
   const [
     {
       post: { win },
@@ -78,16 +78,16 @@ function MenuView() {
         <FlexRow justifyContent="center">
           <FlexColumn>
             <ItemName
-              nameValue={win ? 'victory' : 'defeat'}
+              nameValue={win ? translations.victory : translations.defeat}
               fontSize={55}
               height={7}
-              playerColor="white" //{win ? '#f7931e' : 'black'}
+              playerColor="white"
             ></ItemName>
             <ItemName
               nameValue={menu.playerName}
               fontSize={24}
               height={7}
-              playerColor={menu.playerColor} //{win ? '#f7931e' : 'black'}
+              playerColor={menu.playerColor}
             ></ItemName>
           </FlexColumn>
         </FlexRow>

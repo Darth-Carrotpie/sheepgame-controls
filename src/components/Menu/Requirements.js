@@ -40,9 +40,9 @@ export function Requirements(props) {
   const { isUnlocked, premiumReqMet, crownsReqMet, crownsReq } = props;
   if (isUnlocked)
     return <ItemName nameValue="available" fontSize={12} height={3}></ItemName>;
-  const textFirst = `${!premiumReqMet ? 'only' : ' '}${
-    !premiumReqMet && !crownsReqMet ? ', ' : ' '
-  }${!premiumReqMet && crownsReqMet ? '!' : ' '}`;
+  const textFirst = `${!premiumReqMet && !crownsReqMet ? ' & ' : ' '}${
+    !premiumReqMet && crownsReqMet ? '!' : ' '
+  }`;
   const textSecond = `${!crownsReqMet ? crownsReq : ' '}`;
   return (
     <Wrapper>

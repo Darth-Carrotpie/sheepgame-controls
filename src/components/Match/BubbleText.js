@@ -1,16 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useStateValue } from '../../store/StateContext';
-import NerisBlack from '../../fonts/NerisBlack.otf';
+import NotoSans from '../../fonts/NotoSans-Bold.ttf';
 
 const Text = styled.span`
   @font-face {
-    font-family: NerisBlack;
-    src: url(${NerisBlack});
+    font-family: NotoSans;
+    src: url(${NotoSans});
   }
   font-size: ${(props) => (props.small ? '2vh' : '4.5vh')};
   font-weight: bold;
-  font-family: NerisBlack;
+  font-family: NotoSans;
   margin-top: 0%;
   color: ${(props) =>
     props.notEnoughGold

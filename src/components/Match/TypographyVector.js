@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import NerisBlack from '../../fonts/NerisBlack.otf';
+import NotoSans from '../../fonts/NotoSans-Bold.ttf';
 
 const Wrapper = styled.div`
   display: flex;
@@ -18,9 +18,10 @@ const Icon = styled.div`
 
 export const Text = styled.span`
   @font-face {
-    font-family: NerisBlack;
-    src: url(${NerisBlack});
+    font-family: NotoSans;
+    src: url(${NotoSans});
   }
+  font-family: NotoSans;
   font-size: 6vh;
   /*   font-weight: 100; */
   font-weight: bold;

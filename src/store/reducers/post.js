@@ -1,22 +1,21 @@
 export default (state, action) => {
   switch (action.type) {
-    case "playerScores":
+    case 'playerScores':
       return {
         ...state,
         win: action.value,
         scores: action.scores,
-        totalScore: action.totalScore
+        totalScore: action.totalScore,
       };
-    case "selectedScore":
-      //console.log("reducer action.newSelection:", action.newSelection);
+    case 'selectedScore':
       return {
         ...state,
-        selectedScore: action.newSelection
+        selectedScore: action.newSelection,
       };
-    case "playAgain":
+    case 'playAgain':
       return {
         ...state,
-        playAgain: action.value
+        playAgain: action.value,
       };
     default:
       return state;

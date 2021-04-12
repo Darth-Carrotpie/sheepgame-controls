@@ -2,14 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 import CrownIcon from '../Menu/Vectors/CrownIcon';
-import NerisBlack from '../../fonts/NerisBlack.otf';
+import NotoSans from '../../fonts/NotoSans-Bold.ttf';
 import { useStateValue } from '../../store/StateContext';
 
 const Number = styled.span`
   @font-face {
-    font-family: NerisBlack;
-    src: url(${NerisBlack});
+    font-family: NotoSans;
+    src: url(${NotoSans});
   }
+  font-family: NotoSans;
   color: '#FFFFFF';
   font-size: 1.6rem;
   font-weight: 1000;

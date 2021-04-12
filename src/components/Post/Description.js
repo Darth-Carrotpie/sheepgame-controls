@@ -1,14 +1,14 @@
 import React from 'react'; //, { Text, useState }
 import styled from 'styled-components';
-import NerisBlack from '../../fonts/NerisBlack.otf';
+import NotoSans from '../../fonts/NotoSans-Bold.ttf';
 import { useStateValue } from '../../store/StateContext';
 
 const DescriptionStyle = styled.span`
   @font-face {
-    font-family: NerisBlack;
-    src: url(${NerisBlack});
+    font-family: NotoSans;
+    src: url(${NotoSans});
   }
-  font-family: NerisBlack;
+  font-family: NotoSans;
   font-size: 2vh;
   letter-spacing: 1px;
   font-weight: 900;
