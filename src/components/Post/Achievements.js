@@ -83,12 +83,12 @@ export default () => {
                 if (indexSelected !== index + 1) {
                   setIndexSelected(index + 1);
 
-                  setScoreName(item.scoreName);
+                  setScoreName(item.displayName);
                   setSelectedIcon(item.icon);
                 } else {
                   setIndexSelected(0);
 
-                  setScoreName(scoreList[0].scoreName);
+                  setScoreName(scoreList[0].displayName);
                   setSelectedIcon(scoreList[0].icon);
                 }
               }}

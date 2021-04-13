@@ -42,13 +42,13 @@ const TextPosition = styled(Text)`
   bottom: 25%;
 `;
 function UpgradeButtonFunction({ ...props }) {
-  const [{ global }] = useStateValue();
+  const [{ global, translations }] = useStateValue();
   return (
     <UpgradeButtonWrapper {...props} {...global}>
       <UpgradeButton alt="upgrade">
         <UpgradeSVG color={props.buttonColor}></UpgradeSVG>
       </UpgradeButton>
-      <TextPosition {...global}>upgrade</TextPosition>
+      <TextPosition {...global}>{translations.upgrade}</TextPosition>
     </UpgradeButtonWrapper>
   );
 }

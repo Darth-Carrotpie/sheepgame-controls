@@ -2,6 +2,7 @@ import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import BubbleText from './BubbleText';
 import BubbleIconVector from './BubbleIconVector';
+import { useStateValue } from '../../store/StateContext';
 
 const BubbleButton = styled.button`
   height: 15vh;
@@ -25,7 +26,7 @@ const BubbleButton = styled.button`
   :focus {
     outline: 0;
   }
-  opacity: ${(props) => (props.bubbleImage ? '100%' : ' 30%')};
+  opacity: ${(props) => (props.bubbleImage ? '100%' : ' 60%')};
 `;
 
 const HalfBubble = styled(BubbleButton)`
@@ -47,10 +48,11 @@ function BigBubble(props, ref) {
 }
 
 export function BackBubble({ onClick, ...props }) {
+  const [{ translations }] = useStateValue();
   return (
     <HalfBubble {...props} onClick={onClick}>
       <BubbleText {...props} small>
-        back
+        {translations.back}
       </BubbleText>
     </HalfBubble>
   );

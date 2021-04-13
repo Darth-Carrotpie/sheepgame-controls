@@ -76,6 +76,9 @@ const translations = {
   waiting: 'waiting',
   victory: 'victory',
   defeat: 'defeat',
+  back: 'back',
+  upgrade: 'upgrade',
+
   ///button tooltip translation default values
   tooltip_default: '_tap-hold to show an info tooltip about a button!',
   tooltip_upg: 'upgrade to',

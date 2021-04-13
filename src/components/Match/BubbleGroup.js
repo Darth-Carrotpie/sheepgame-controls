@@ -113,7 +113,10 @@ function BubbleGroup() {
             notEnoughGold={match.upgradeA_price > match.money}
             data-tip={
               upgradeA_icon
-                ? translations.tooltip_upg + ' "' + upgradeA_icon + '"'
+                ? translations.tooltip_upg +
+                  ' "' +
+                  match.upgradeData[upgradeA_icon].upgradeDisplayName +
+                  '"'
                 : translations.tooltip_upg_alt
             }
             data-for="item_info"
@@ -135,7 +138,10 @@ function BubbleGroup() {
             notEnoughGold={match.upgradeB_price > match.money}
             data-tip={
               upgradeB_icon
-                ? translations.tooltip_upg + ' "' + upgradeB_icon + '"'
+                ? translations.tooltip_upg +
+                  ' "' +
+                  match.upgradeData[upgradeB_icon].upgradeDisplayName +
+                  '"'
                 : translations.tooltip_upg_alt
             }
             data-for="item_info"

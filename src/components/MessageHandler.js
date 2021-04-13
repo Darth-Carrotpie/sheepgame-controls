@@ -44,6 +44,8 @@ function MessageHandler({ children }) {
       translations['waiting'] = window.airconsole.getTranslation('waiting');
       translations['victory'] = window.airconsole.getTranslation('victory');
       translations['defeat'] = window.airconsole.getTranslation('defeat');
+      translations['back'] = window.airconsole.getTranslation('back');
+      translations['upgrade'] = window.airconsole.getTranslation('upgrade');
 
       var tooltip_default = window.airconsole.getTranslation('tooltip_default');
       translations['tooltip_default'] = tooltip_default;

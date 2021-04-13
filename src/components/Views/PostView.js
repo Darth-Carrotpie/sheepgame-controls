@@ -78,7 +78,11 @@ function MenuView() {
         <FlexRow justifyContent="center">
           <FlexColumn>
             <ItemName
-              nameValue={win ? translations.victory : translations.defeat}
+              nameValue={
+                win
+                  ? translations.victory.toLowerCase()
+                  : translations.defeat.toLowerCase()
+              }
               fontSize={55}
               height={7}
               playerColor="white"
