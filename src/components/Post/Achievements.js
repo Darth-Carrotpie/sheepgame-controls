@@ -11,6 +11,7 @@ import { ACHIEVEMENTS } from './constants';
 import { useStateValue } from '../../store/StateContext';
 import NotoSans from '../../fonts/NotoSans-Bold.ttf';
 import { selectScoreInfo } from '../../store/actions';
+import translations from '../../store/reducers/translations';
 
 const Icon = styled.div`
   height: 10vw;
@@ -49,13 +50,16 @@ function OnClickIcon(activeIconIndex, selectedScore) {
 }
 
 export default () => {
+  const [{ post, global, views, translations }] = useStateValue();
+  //if (views.current != 'post') return <></>;
   const [selectedIcon, setSelectedIcon] = useState();
   const [scoreName, setScoreName] = useState('');
 
   const [indexSelected, setIndexSelected] = useState(0);
   const [, dispatch] = useStateValue();
-  const [{ post, global }] = useStateValue();
+
   const emptyItem = ACHIEVEMENTS[0];
+  ACHIEVEMENTS[0].description = translations.achievements_info;
   var scoreList = [];
   if (post.scores.length > 0) {
     scoreList = [emptyItem].concat(post.scores.slice(0)); //[emptyItem, post.scores.slice(0)];

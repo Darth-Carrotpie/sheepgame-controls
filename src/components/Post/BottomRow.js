@@ -52,7 +52,6 @@ const Text = styled.span`
 `;
 function OnClickPlay() {
   var data = { element: 'playAgain', pressed: true };
-  console.log('data send:', data);
   SendAirConsole(data);
 }
 export default () => {

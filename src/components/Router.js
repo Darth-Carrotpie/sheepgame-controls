@@ -9,7 +9,6 @@ import MatchView from './Views/MatchView';
 import PostView from './Views/PostView';
 import TutorialView from './Views/TutorialView';
 import { useStateValue } from '../store/StateContext';
-//import ReactTooltip from 'react-tooltip';
 
 function Router() {
   const [{ views, menu }] = useStateValue();
@@ -52,18 +51,16 @@ function Router() {
     }
   }
   //last solution from here: https://hackernoon.com/lazy-loading-and-preloading-components-in-react-16-6-804de091c82d
-  return (
-    <React.Suspense fallback={<div>Loading...</div>}>
-      {view}
-      {/* Preload */}
-      <React.Suspense fallback={null}>
+  /*<React.Suspense fallback={<div>Loading...</div>}>
+  {view}
+  <React.Suspense fallback={null}>
         <div hidden={true}>
           <PostView></PostView>
           <MenuView></MenuView>
           <MatchView></MatchView>
         </div>
       </React.Suspense>
-    </React.Suspense>
-  );
+  </React.Suspense>*/
+  return view;
 }
 export default Router;

@@ -78,6 +78,7 @@ const translations = {
   defeat: 'defeat',
   back: 'back',
   upgrade: 'upgrade',
+  achievements_info: 'Tap an icon to view details...',
 
   ///button tooltip translation default values
   tooltip_default: '_tap-hold to show an info tooltip about a button!',

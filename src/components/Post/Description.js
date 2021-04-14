@@ -55,13 +55,6 @@ function ColorizeText(item) {
       if (pluralY || pluralX) outputList[i].content = 's';
       else outputList[i].content = '';
     }
-    if (stringList.length <= 1) {
-      outputList.push({
-        content: item.description,
-        color: global.backgroundColor,
-      });
-      return outputList;
-    }
   }
 
   return outputList;

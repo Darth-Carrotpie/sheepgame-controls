@@ -68,7 +68,6 @@ const SheepContainer = styled.div`
 
 function OnClickBuyUpgrade(elementName, index) {
   var data = { element: elementName, pressed: true, upgradeIndex: index };
-  console.log(data);
   SendAirConsole(data);
 }
 function ShowPriceVal(inputValue) {
@@ -89,7 +88,6 @@ function UpgradeView() {
     else dispatch(showUpgrade('Base'));
   }
   var index = match.showUpgrade;
-  console.log('match index fpor upgrade: ' + index);
   const { upgradeData } = match;
 
   return (

@@ -49,7 +49,7 @@ function GetImage(props) {
 }
 function OnClickAudio() {
   var data = { element: 'audio-button', value: true };
-  console.log(data);
+  console.log('audio-button:' + data);
   SendAirConsole(data);
 }
 export function AudioButton(props) {

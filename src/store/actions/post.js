@@ -1,7 +1,6 @@
-export const selectScoreInfo = value => {
-  //console.log("selectScoreInfo input value:", value);
+export const selectScoreInfo = (value) => {
   return {
-    type: "selectedScore",
-    newSelection: value
+    type: 'selectedScore',
+    newSelection: value,
   };
 };

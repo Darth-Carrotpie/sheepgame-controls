@@ -35,25 +35,21 @@ export default (state, action) => {
         playerColor: action.value,
       };
     case 'playerName':
-      //console.log("setting name:" + action.value);
       return {
         ...state,
         playerName: action.value,
       };
     case 'tutorialIndex':
-      //console.log("setting tutorial reducer:" + action.value);
       return {
         ...state,
         tutorialIndex: action.value,
       };
     case 'firstOwner':
-      //console.log("setting name:" + action.value);
       return {
         ...state,
         firstOwner: action.value,
       };
     case 'audio':
-      //console.log("setting name:" + action.value);
       return {
         ...state,
         audioState: action.value,

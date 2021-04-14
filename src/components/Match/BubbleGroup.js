@@ -80,7 +80,6 @@ function BubbleGroup() {
         ReactTooltip.show(idRefSmash.current);
         break;
     }
-    //console.log('Long pressed.:' + e);
   }
   useEffect(() => {
     if (views.current == 'match') {
