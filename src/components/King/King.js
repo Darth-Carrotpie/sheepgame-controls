@@ -58,7 +58,7 @@ const StaffLock = styled(KingImage)`
   width: ${calculatePositionInVh(60)}vh;
   height: ${calculatePositionInVh(60)}vh;
 `;
-function GetLockImage(unlocked, reqHero, isHero) {
+function GetLockImage(unlocked, reqHero) {
   if (!reqHero && !unlocked) return LockedNormal;
   if (reqHero && !unlocked) return LockedHero;
   return null;
@@ -70,21 +70,13 @@ const King = (props) => {
       <CrownImg bckgImg={kingItems[menu.hatSpriteName]}></CrownImg>
       {props.showLocks && (
         <CrownLock
-          bckgImg={GetLockImage(
-            menu.hatUnlocked,
-            menu.hatPremiumReq,
-            menu.hatPremiumReqMet //`staff${menu.scepterID}`
-          )}
+          bckgImg={GetLockImage(menu.hatUnlocked, menu.hatPremiumReq)}
         ></CrownLock>
       )}
       <StaffImg bckgImg={kingItems[menu.scepterSpriteName]}></StaffImg>
       {props.showLocks && (
         <StaffLock
-          bckgImg={GetLockImage(
-            menu.scepterUnlocked,
-            menu.scepterPremiumReq,
-            menu.scepterPremiumReqMet
-          )}
+          bckgImg={GetLockImage(menu.scepterUnlocked, menu.scepterPremiumReq)}
         ></StaffLock>
       )}
       <KingContainer>

@@ -10,7 +10,7 @@ import ItemName from '../../components/Menu/ItemName';
 import Margined from '../Layout/Margined';
 
 import CrownsTypography from '../../components/Menu/CrownsTypography';
-import Wave from '../../components/Menu/Background/Wave';
+import Wave from '../../components/Menu/Background/wave';
 import King from '../King';
 import ItemSelection from '../Menu/ItemSelection';
 import ReadyCloud from '../Menu/Cloud';

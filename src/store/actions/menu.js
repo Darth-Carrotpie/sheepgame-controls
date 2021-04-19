@@ -4,7 +4,7 @@ export const setTutorialIndex = (input) => {
     value: input,
   };
 };
-export const tutorialSeen = (input) => {
+export const setTutorialSeen = (input) => {
   return {
     type: 'tutorialSeen',
     value: input,

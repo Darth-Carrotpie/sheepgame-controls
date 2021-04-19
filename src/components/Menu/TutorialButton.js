@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import TutorialIcon from '../Menu/Vectors/TutorialIcon';
 import { useStateValue } from '../../store/StateContext';
-import { setTutorialIndex, tutorialSeen } from '../../store/actions';
+import { setTutorialIndex, setTutorialSeen } from '../../store/actions';
 const ButtonStyle = styled.button`
   height: 7vh;
   width: 7vh;
@@ -41,7 +41,7 @@ export function TutorialButton(props) {
   const [{ global }, dispatch] = useStateValue();
   function onClickTutorial() {
     dispatch(setTutorialIndex(1));
-    dispatch(tutorialSeen(0));
+    dispatch(setTutorialSeen(0));
   }
 
   return (

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import tutorialImages from '../../components/Tutorial';
 import { useStateValue } from '../../store/StateContext';
-import { setTutorialIndex, tutorialSeen } from '../../store/actions';
+import { setTutorialIndex, setTutorialSeen } from '../../store/actions';
 
 const ImageContainer = styled.div`
   height: 100vh;
@@ -31,7 +31,7 @@ function TutorialView(props) {
     dispatch(setTutorialIndex(tutorialIndex + 1));
     if (tutorialIndex >= tutorialImages.length) {
       dispatch(setTutorialIndex(0));
-      dispatch(tutorialSeen(1));
+      dispatch(setTutorialSeen(1));
     }
   }
   const TutImg = tutorialImages[tutorialIndex - 1];
