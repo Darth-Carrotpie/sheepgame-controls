@@ -80,6 +80,12 @@ const translations = {
   upgrade: 'upgrade',
   achievements_info: 'Tap an icon to view details...',
 
+  //info view messages
+  max_players: 'no thrones available',
+  in_game: 'game already in progress',
+  disconnected: 'disconnected',
+  loading: 'loading',
+
   ///button tooltip translation default values
   tooltip_default: '_tap-hold to show an info tooltip about a button!',
   tooltip_upg: 'upgrade to',

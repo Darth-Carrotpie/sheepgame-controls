@@ -35,7 +35,7 @@ function MessageHandler({ children }) {
         }
       }
     };
-    window.airconsole.onReady = function (_from, _data) {
+    window.airconsole.onReady = function (_data) {
       console.log('window.airconsole.onReady');
       console.log(window.airconsole.translations);
       var translations = window.airconsole.translations;
@@ -45,6 +45,14 @@ function MessageHandler({ children }) {
         }
       });
       dispatch({ type: 'translations', value: translations });
+    };
+    window.airconsole.onDisconnect = function (device_id) {
+      console.log('window.airconsole.onDisconnect:' + device_id);
+      if (device_id == 0) console.log('screen disconnected!');
+      var data = {};
+      data['type'] = 'changeView';
+      data['value'] = 'disconnected';
+      dispatch(data);
     };
   }, []);
 

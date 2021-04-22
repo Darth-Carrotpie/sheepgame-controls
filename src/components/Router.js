@@ -11,20 +11,33 @@ import TutorialView from './Views/TutorialView';
 import { useStateValue } from '../store/StateContext';
 
 function Router() {
-  const [{ views, menu }] = useStateValue();
+  const [{ views, menu, translations }] = useStateValue();
   var view = null;
   if (menu.tutorialIndex > 0 && menu.tutorialSeen == 0) {
     view = <TutorialView></TutorialView>;
   } else {
     switch (views.current) {
       case 'loading':
-        view = <InfoView infoImg={Loading} infoText={'loading'}></InfoView>;
+        view = (
+          <InfoView
+            infoImg={Loading}
+            infoText={translations.loading}
+          ></InfoView>
+        );
+        break;
+      case 'disconnected':
+        view = (
+          <InfoView
+            infoImg={Loading}
+            infoText={translations.disconnected}
+          ></InfoView>
+        );
         break;
       case 'in_game':
         view = (
           <InfoView
             infoImg={InProgress}
-            infoText={'game already in progress'}
+            infoText={translations.in_game}
           ></InfoView>
         );
         break;
@@ -33,7 +46,7 @@ function Router() {
           <InfoView
             opacity={'100%'}
             infoImg={TooManyPlayers}
-            infoText={'no thrones available'}
+            infoText={translations.max_players}
           ></InfoView>
         );
         break;
