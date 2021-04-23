@@ -44,20 +44,28 @@ const match = {
 
   upgradeA_price: 0,
   upgradeB_price: 0,
-  upgradeA_icon: '',
-  upgradeB_icon: '',
+  upgradeA_icon: 'Small',
+  upgradeB_icon: 'Armored',
 
   ballista_loaded: true,
 
   upgradeData: {
-    Bouncy: {
-      upgradeDisplayName: 'Bouncy',
-      upgradeDescription: 'description description description',
+    Base: {
+      upgradeDisplayName: 'Base',
+      upgradeDescription: '<description>',
+    },
+    Small: {
+      upgradeDisplayName: 'Small',
+      upgradeDescription: '<description>',
+    },
+    Armored: {
+      upgradeDisplayName: 'Armored',
+      upgradeDescription: '<description>',
     },
   },
   showUpgrade: '',
   infoTooltipShown: 0,
-  currentUpgradeIcon: 'Bouncy',
+  currentUpgradeIcon: 'Small',
 };
 const post = {
   totalScore: 909,

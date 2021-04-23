@@ -16,7 +16,7 @@ const BubbleButton = styled.button`
   top: 0vh;
   border: ${(props) =>
     props.selected || props.notEnoughGold ? '3px solid' : 'none'};
-  border-color: ${(props) => (props.notEnoughGold ? 'red' : '#134c13')};
+  border-color: ${(props) => (props.notEnoughGold ? 'red' : '#ffffff')};
   border-radius: 100%;
   padding: 0;
   &:active {

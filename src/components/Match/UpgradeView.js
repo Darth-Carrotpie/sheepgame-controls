@@ -102,7 +102,7 @@ function UpgradeView() {
           ></BackBubble>
           <BigBubble
             notEnoughGold={match.upgradeA_price > match.money}
-            selected={match.upgradeA_icon === match.selectedUpgradeIcon}
+            selected={match.upgradeA_icon === index}
             bubbleImage={UpgradeIcons[match.upgradeA_icon]}
             bckgColor={menu.playerColor}
             onClick={() => onClickUpgrade(upgradeA_icon)}
@@ -111,7 +111,7 @@ function UpgradeView() {
           </BigBubble>
           <BigBubble
             notEnoughGold={match.upgradeB_price > match.money}
-            selected={match.upgradeB_icon === match.selectedUpgradeIcon}
+            selected={match.upgradeB_icon === index}
             bubbleImage={UpgradeIcons[match.upgradeB_icon]}
             bckgColor={menu.playerColor}
             onClick={() => onClickUpgrade(upgradeB_icon)}
@@ -136,10 +136,7 @@ function UpgradeView() {
         </UpgradeDescriptionText>
         <Wrapper>
           <SheepContainer>
-            <Sheep
-              selectedSheep={match.currentUpgradeIcon}
-              color={menu.playerColor}
-            ></Sheep>
+            <Sheep selectedSheep={index} color={menu.playerColor}></Sheep>
           </SheepContainer>
         </Wrapper>
         <UpgradeButtonPosition>
