@@ -10,17 +10,15 @@ const ImageStyle = styled.div`
   background-repeat: no-repeat;
   background-position: center;*/
 
-  height: 20vw;
-  width: 20vw;
+  height: clamp(6px, calc(${5}vh + ${7}vw), 200px);
+  width: clamp(6px, calc(${5}vh + ${7}vw), 200px);
 
-  max-height: 50px;
-  max-width: 100%;
   ${(props) => props.left && 'transform: rotate(180deg)'};
   &:active {
     filter: brightness(50%);
   }
-  margin-right: 3vh;
-  margin-left: 3vh;
+  margin-right: 3vw;
+  margin-left: 3vw;
   z-index: inherit;
 `;
 

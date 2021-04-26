@@ -48,11 +48,13 @@ function MessageHandler({ children }) {
     };
     window.airconsole.onDisconnect = function (device_id) {
       console.log('window.airconsole.onDisconnect:' + device_id);
-      if (device_id == 0) console.log('screen disconnected!');
-      var data = {};
-      data['type'] = 'changeView';
-      data['value'] = 'disconnected';
-      dispatch(data);
+      if (device_id == 0) {
+        console.log('screen disconnected!');
+        var data = {};
+        data['type'] = 'changeView';
+        data['value'] = 'disconnected';
+        dispatch(data);
+      }
     };
   }, []);
 

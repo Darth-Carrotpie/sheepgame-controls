@@ -18,6 +18,7 @@ import ReadyCloud from '../Menu/Cloud';
 const KingPosition = styled.div`
   align-items: center;
   margin-top: -6vh;
+  pointer-events: none;
 `;
 
 const ContentContainer = styled.div`

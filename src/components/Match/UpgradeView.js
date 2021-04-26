@@ -32,10 +32,8 @@ const DescriptionStyle = styled.span`
   font-size: 1rem;
   font-weight: 900;
   height: 80px;
-  margin-left: 20px;
-  margin-right: 20px;
-  text-align: center;
   color: white;
+  display: inline-block;
 `;
 
 const BubblesInLine = styled.div`
@@ -45,12 +43,21 @@ const BubblesInLine = styled.div`
   margin-top: 10vh;
 `;
 const UpgradeTitleText = styled.div`
+  @font-face {
+    font-family: NotoSans;
+    src: url(${NotoSans});
+  }
+  color: white;
+  font-family: NotoSans;
+  font-size: clamp(6px, calc(${2}vh + ${2}vw), 32px);
+  font-weight: 900;
   letter-spacing: 1px;
-  margin: 3vh;
+  margin: 2vh;
   text-align: center;
 `;
 const UpgradeDescriptionText = styled.div`
-  margin: 3vh;
+  margin: clamp(6px, calc(${1.5}vh + ${1.5}vw), 40px);
+  letter-spacing: 1px;
   text-align: center;
 `;
 const UpgradeButtonPosition = styled.div`
@@ -62,7 +69,6 @@ const UpgradeButtonPosition = styled.div`
 `;
 const SheepContainer = styled.div`
   width: 30vh;
-  margin-top: -5vh;
   z-index: inherit;
 `;
 
@@ -125,9 +131,7 @@ function UpgradeView() {
           ></BackBubble>
         </BubblesInLine>
         <UpgradeTitleText>
-          <DescriptionStyle>
-            {upgradeData[index].upgradeDisplayName}
-          </DescriptionStyle>
+          {upgradeData[index].upgradeDisplayName}
         </UpgradeTitleText>
         <UpgradeDescriptionText>
           <DescriptionStyle>

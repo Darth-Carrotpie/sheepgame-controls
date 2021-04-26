@@ -42,7 +42,7 @@ const TextRow = styled.div`
   justify-content: left;
   align-items: left;
   text-align: left;
-  line-height: 85%;
+  line-height: 100%;
   /*   background-color: orange;
   opacity: 50%; */
   align-self: center;

@@ -62,6 +62,22 @@ const match = {
       upgradeDisplayName: 'Armored',
       upgradeDescription: '<description>',
     },
+    Bouncy: {
+      upgradeDisplayName: 'Bouncy',
+      upgradeDescription: '<description>',
+    },
+    Greedy: {
+      upgradeDisplayName: 'Greedy',
+      upgradeDescription: '<description>',
+    },
+    Tank: {
+      upgradeDisplayName: 'Tank',
+      upgradeDescription: '<description>',
+    },
+    Trench: {
+      upgradeDisplayName: 'Trench',
+      upgradeDescription: '<description>',
+    },
   },
   showUpgrade: '',
   infoTooltipShown: 0,

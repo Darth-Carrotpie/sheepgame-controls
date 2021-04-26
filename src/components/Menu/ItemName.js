@@ -17,7 +17,10 @@ const Text = styled.div`
     ${(props) => (props.fontSize ? props.fontSize / 4 : 1)}vw,
     32px
   );
-  height: ${(props) => (props.height ? props.height : 4)}vh;
+  font-size: clamp(6px, calc(${2}vh + ${2}vw), 32px);
+
+  /*   height: ${(props) => (props.height ? props.height : 4)}vh; */
+  height: 100%;
   /*   font-weight: 500; */
   color: ${(props) =>
     props.playerColor ? props.playerColor : props.backgroundColor};
@@ -26,7 +29,7 @@ const Text = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  line-height: 85%;
+  line-height: 100%;
   /*   background-color:orange;
   opacity: 50%; */
   align-self: center;

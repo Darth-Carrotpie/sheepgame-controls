@@ -26,6 +26,7 @@ const Wrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  height: 6vh;
 `;
 
 const CrownSvgPosition = styled.div`
@@ -51,7 +52,7 @@ export function Requirements(props) {
           <ImageStyle bckgImg={heroIcon} alt="(%hero)" />
         </React.Fragment>
       ) : null}
-      <ItemName nameValue={textFirst} fontSize={12} height={3}></ItemName>
+      <ItemName nameValue={textFirst} fontSize={12} height={2.5}></ItemName>
       {!crownsReqMet ? (
         <React.Fragment>
           <CrownSvgPosition>
@@ -62,7 +63,7 @@ export function Requirements(props) {
           </CrownSvgPosition>
         </React.Fragment>
       ) : null}
-      <ItemName nameValue={textSecond} fontSize={12} height={3}></ItemName>
+      <ItemName nameValue={textSecond} fontSize={12} height={2.5}></ItemName>
     </Wrapper>
   );
 }

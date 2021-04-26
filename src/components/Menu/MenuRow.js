@@ -8,5 +8,6 @@ const MenuRow = styled.div`
   background-color: ${(props) => (props.bckgColor ? props.bckgColor : 'none')};
   ${(props) => (props.transparent ? 'opacity: 0.5;' : '')}
   z-index: inherit;
+  align-items: center;
 `;
 export default MenuRow;
