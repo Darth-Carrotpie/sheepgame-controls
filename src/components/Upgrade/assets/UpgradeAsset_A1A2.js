@@ -1,8 +1,20 @@
 import React from 'react';
+import styled from 'styled-components';
 
+const SvgImage = styled.svg`
+  width: 100%;
+  height: 100%;
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;
+`;
 const A1A2 = ({ color }) => {
   return (
-    <svg viewBox="0 0 1756 1728">
+    <SvgImage viewBox="0 0 1756 1728">
       <g id="Layer_6" data-name="Layer 6">
         <path
           fill="#FFEA94"
@@ -185,7 +197,7 @@ const A1A2 = ({ color }) => {
 			S398,1242.1,398,1242.1z"
         />
       </g>
-    </svg>
+    </SvgImage>
   );
 };
 

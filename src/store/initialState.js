@@ -81,7 +81,7 @@ const match = {
   },
   showUpgrade: '',
   infoTooltipShown: 0,
-  currentUpgradeIcon: 'Small',
+  currentUpgradeIcon: 'Base',
 };
 const post = {
   totalScore: 909,

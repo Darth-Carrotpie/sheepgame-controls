@@ -51,6 +51,7 @@ const BallistaImage = styled.div`
 `;
 const SheepContainer = styled.div`
   position: absolute;
+  height: 25%;
   width: 25%;
   pointer-events: none;
 `;
