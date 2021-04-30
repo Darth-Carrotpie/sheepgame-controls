@@ -73,7 +73,7 @@ function MenuView() {
           <Margined>
             <ItemName
               nameValue={menu.playerName}
-              fontSize={24}
+              fontSize={1.5}
               height={7}
               playerColor={menu.playerColor ? menu.playerColor : 'black'}
             ></ItemName>

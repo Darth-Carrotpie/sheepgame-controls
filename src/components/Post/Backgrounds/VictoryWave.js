@@ -3,10 +3,10 @@ import styled from 'styled-components';
 
 const SvgImage = styled.svg`
   width: 100%;
-  height: 200%;
+  height: 250%;
   position: absolute;
   z-index: -1;
-  top: -10vh;
+  top: -5vh;
 `;
 const VictoryWave = ({ color }) => {
   return (

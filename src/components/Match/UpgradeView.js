@@ -35,7 +35,11 @@ const DescriptionStyle = styled.span`
   color: white;
   display: inline-block;
 `;
-
+const UpgradeDescriptionText = styled.div`
+  margin: clamp(6px, calc(${1.5}vh + ${1.5}vw), 40px);
+  letter-spacing: 1px;
+  text-align: center;
+`;
 const BubblesInLine = styled.div`
   flex: 1;
   display: flex;
@@ -55,11 +59,7 @@ const UpgradeTitleText = styled.div`
   margin: 2vh;
   text-align: center;
 `;
-const UpgradeDescriptionText = styled.div`
-  margin: clamp(6px, calc(${1.5}vh + ${1.5}vw), 40px);
-  letter-spacing: 1px;
-  text-align: center;
-`;
+
 const UpgradeButtonPosition = styled.div`
   position: absolute;
   bottom: -3px;

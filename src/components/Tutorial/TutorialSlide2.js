@@ -15,7 +15,7 @@ function TutorialSlide2(props) {
         image1={coin}
         row1={translations.slide2_row1}
         image2={target}
-        row2={translations.slide2_row3}
+        row2={translations.slide2_row2}
         image3={crown}
         row3={translations.slide2_row3}
         row4={translations.slide2_row4}

@@ -11,13 +11,14 @@ const Text = styled.div`
   font-family: NotoSans;
   font-weight: 750;
   letter-spacing: 2px;
-  font-size: 12px;
   font-size: clamp(
-    8px,
-    ${(props) => (props.fontSize ? props.fontSize / 4 : 1)}vw,
-    32px
+    6px,
+    calc(
+      ${(props) => 2 * (props.fontSize ? props.fontSize : 1)}vh +
+        ${(props) => 2 * (props.fontSize ? props.fontSize : 1)}vw
+    ),
+    48px
   );
-  font-size: clamp(6px, calc(${2}vh + ${2}vw), 32px);
 
   /*   height: ${(props) => (props.height ? props.height : 4)}vh; */
   height: 100%;

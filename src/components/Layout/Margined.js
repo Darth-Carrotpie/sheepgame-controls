@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Margined = styled.div`
-  margin: 10px;
+  margin: clamp(3px, 3vh, 15px);
 `;
 
 export default Margined;

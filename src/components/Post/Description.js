@@ -13,13 +13,12 @@ const DescriptionStyle = styled.span`
   letter-spacing: 1px;
   font-weight: 900;
   height: 80px;
-  margin-left: 20px;
-  margin-right: 20px;
-  text-align: center;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  display: inline-block;
 `;
 const Wrapper = styled.div`
-  display: flex;
-  justify-content: flex-start;
+  text-align: center;
 `;
 function ColorizeText(item) {
   const [{ global }] = useStateValue();

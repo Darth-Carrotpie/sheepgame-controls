@@ -25,11 +25,7 @@ function ItemSelection() {
           left
         ></ArrowButton>
         <FlexColumn id="FlexColumn">
-          <ItemName
-            nameValue={menu.hatName}
-            fontSize={20}
-            height={5}
-          ></ItemName>
+          <ItemName nameValue={menu.hatName} height={5}></ItemName>
           <Requirements
             isUnlocked={menu.hatUnlocked}
             premiumReqMet={menu.hatPremiumReqMet}
@@ -50,11 +46,7 @@ function ItemSelection() {
           left
         ></ArrowButton>
         <FlexColumn id="FlexColumn">
-          <ItemName
-            nameValue={menu.scepterName}
-            fontSize={20}
-            height={5}
-          ></ItemName>
+          <ItemName nameValue={menu.scepterName} height={5}></ItemName>
           <Requirements
             isUnlocked={menu.scepterUnlocked}
             premiumReqMet={menu.scepterPremiumReqMet}

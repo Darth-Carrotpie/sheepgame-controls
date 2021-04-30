@@ -3,10 +3,10 @@ import styled from 'styled-components';
 
 const SvgImage = styled.svg`
   width: 100%;
-  height: 200%;
+  height: 250%;
   position: absolute;
   z-index: -1;
-  top: -5vh;
+  top: -3.5vh;
 `;
 const DefeatWave = ({ color }) => {
   return (

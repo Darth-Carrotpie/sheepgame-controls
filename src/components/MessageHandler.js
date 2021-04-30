@@ -45,6 +45,9 @@ function MessageHandler({ children }) {
         }
       });
       dispatch({ type: 'translations', value: translations });
+      var tr_alt = {};
+      tr_alt['ready'] = window.airconsole.getTranslation('ready') + '_';
+      dispatch({ type: 'translations', value: tr_alt });
     };
     window.airconsole.onDisconnect = function (device_id) {
       console.log('window.airconsole.onDisconnect:' + device_id);

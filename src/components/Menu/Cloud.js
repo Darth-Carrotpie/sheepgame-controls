@@ -29,7 +29,7 @@ export function ReadyCloud(props) {
           menu.ready ? translations.waiting + '...' : translations.ready
         }
         onClick={OnClickReady}
-        fontSize={45}
+        fontSize={2}
         playerColor={menu.playerColor ? menu.playerColor : 'black'}
       ></ItemName>
     </ReadyCloudBackground>

@@ -40,7 +40,14 @@ export function Requirements(props) {
   const [{ global }] = useStateValue();
   const { isUnlocked, premiumReqMet, crownsReqMet, crownsReq } = props;
   if (isUnlocked)
-    return <ItemName nameValue="available" fontSize={12} height={3}></ItemName>;
+    return (
+      <ItemName
+        nameValue="available"
+        height={2.5}
+        fontSize={0.7}
+        playerColor={'#e5e5e5'}
+      ></ItemName>
+    );
   const textFirst = `${!premiumReqMet && !crownsReqMet ? ' & ' : ' '}${
     !premiumReqMet && crownsReqMet ? '!' : ' '
   }`;
@@ -52,18 +59,25 @@ export function Requirements(props) {
           <ImageStyle bckgImg={heroIcon} alt="(%hero)" />
         </React.Fragment>
       ) : null}
-      <ItemName nameValue={textFirst} fontSize={12} height={2.5}></ItemName>
+      <ItemName
+        nameValue={textFirst}
+        height={2.5}
+        fontSize={0.7}
+        playerColor={'#e5e5e5'}
+      ></ItemName>
       {!crownsReqMet ? (
         <React.Fragment>
           <CrownSvgPosition>
-            <CrownIcon
-              color={global.backgroundColor}
-              alt="(%crowns)"
-            ></CrownIcon>
+            <CrownIcon color={'#e5e5e5'} alt="(%crowns)"></CrownIcon>
           </CrownSvgPosition>
         </React.Fragment>
       ) : null}
-      <ItemName nameValue={textSecond} fontSize={12} height={2.5}></ItemName>
+      <ItemName
+        nameValue={textSecond}
+        height={2.5}
+        fontSize={0.7}
+        playerColor={'#e5e5e5'}
+      ></ItemName>
     </Wrapper>
   );
 }

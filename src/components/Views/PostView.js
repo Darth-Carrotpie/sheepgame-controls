@@ -23,7 +23,7 @@ const BottomRowPosition = styled.div`
 `;
 const AchievementsPosition = styled.div`
   position: absolute;
-  top: 60vh;
+  top: 55vh;
   height: 20vh;
   z-index: 1;
 `;
@@ -83,13 +83,12 @@ function MenuView() {
                   ? translations.victory.toLowerCase()
                   : translations.defeat.toLowerCase()
               }
-              fontSize={55}
+              fontSize={1.5}
               height={7}
               playerColor="white"
             ></ItemName>
             <ItemName
               nameValue={menu.playerName}
-              fontSize={24}
               height={7}
               playerColor={menu.playerColor}
             ></ItemName>
