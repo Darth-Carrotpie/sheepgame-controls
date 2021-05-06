@@ -37,12 +37,12 @@ const CrownSvgPosition = styled.div`
 `;
 
 export function Requirements(props) {
-  const [{ global }] = useStateValue();
+  const [{ global, translations }] = useStateValue();
   const { isUnlocked, premiumReqMet, crownsReqMet, crownsReq } = props;
   if (isUnlocked)
     return (
       <ItemName
-        nameValue="available"
+        nameValue={translations.available}
         height={2.5}
         fontSize={0.7}
         playerColor={'#e5e5e5'}

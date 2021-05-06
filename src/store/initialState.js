@@ -102,6 +102,7 @@ const translations = {
   defeat: 'defeat',
   back: 'back',
   upgrade: 'upgrade',
+  available: 'available',
   achievements_info: 'Tap an icon to view details...',
 
   //info view messages

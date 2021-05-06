@@ -17,6 +17,17 @@ function ReplyImportant(elementValue) {
   window.airconsole.message(window.airconsole.SCREEN, data);
 }
 
+function GetTranslations(dispatch) {
+  var translations = window.airconsole.translations;
+  console.log(window.airconsole.translations);
+  Object.entries(translations).forEach((key, value) => {
+    if (value === '') {
+      delete translations[key];
+    }
+  });
+  dispatch({ type: 'translations', value: translations });
+}
+
 function MessageHandler({ children }) {
   const [, dispatch] = useStateValue();
   useEffect(() => {
@@ -33,22 +44,17 @@ function MessageHandler({ children }) {
             ReplyImportant(data);
           }
         }
+        if (data['type'] === 'translationsReady') {
+          console.log('translationsReady trigger');
+          GetTranslations(dispatch);
+        }
       }
     };
-    window.airconsole.onReady = function (_data) {
-      console.log('window.airconsole.onReady');
+    /*    window.airconsole.onReady = function (_data) {
+             console.log('window.airconsole.onReady');
       console.log(window.airconsole.translations);
-      var translations = window.airconsole.translations;
-      Object.entries(translations).forEach((key, value) => {
-        if (value === '') {
-          delete translations[key];
-        }
-      });
-      dispatch({ type: 'translations', value: translations });
-      var tr_alt = {};
-      tr_alt['ready'] = window.airconsole.getTranslation('ready') + '_';
-      dispatch({ type: 'translations', value: tr_alt });
-    };
+      GetTranslations(dispatch);
+    }; */
     window.airconsole.onDisconnect = function (device_id) {
       console.log('window.airconsole.onDisconnect:' + device_id);
       if (device_id == 0) {
