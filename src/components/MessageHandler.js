@@ -19,7 +19,6 @@ function ReplyImportant(elementValue) {
 
 function GetTranslations(dispatch) {
   var translations = window.airconsole.translations;
-  console.log(window.airconsole.translations);
   Object.entries(translations).forEach((key, value) => {
     if (value === '') {
       delete translations[key];
@@ -34,8 +33,6 @@ function MessageHandler({ children }) {
     window.airconsole.onMessage = function (from, data) {
       if (from === window.AirConsole.SCREEN) {
         if (data['type'] !== null && data['type'] !== '') {
-          //if (data['type'] !== 'playerProfile')
-          //console.log('MessageHandler', from, data);
           dispatch(data);
         }
         if (data['type'] === 'changeView') SendViewMessage(data['value']);
@@ -45,7 +42,6 @@ function MessageHandler({ children }) {
           }
         }
         if (data['type'] === 'translationsReady') {
-          console.log('translationsReady trigger');
           GetTranslations(dispatch);
         }
       }
@@ -56,9 +52,7 @@ function MessageHandler({ children }) {
       GetTranslations(dispatch);
     }; */
     window.airconsole.onDisconnect = function (device_id) {
-      console.log('window.airconsole.onDisconnect:' + device_id);
       if (device_id == 0) {
-        console.log('screen disconnected!');
         var data = {};
         data['type'] = 'changeView';
         data['value'] = 'disconnected';
