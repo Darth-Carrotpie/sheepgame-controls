@@ -26,7 +26,6 @@ const TextRow = styled.div`
   font-family: NotoSans;
   font-weight: 750;
   font-size: clamp(6px, calc(${2}vh + ${2}vw), 32px);
-  /*   height: ${9}vh; */
   color: ${(props) => (props.textColor ? props.textColor : '#27aae1')};
   width: calc(70% + ${(props) => (props.botImage ? 0 : 10)}%);
   margin-top: 2vh;

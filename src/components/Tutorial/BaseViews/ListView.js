@@ -4,14 +4,16 @@ import NotoSans from '../../../fonts/NotoSans-Bold.ttf';
 
 const RowContainer = styled.div`
   width: 70%;
-  height: 10vh;
-  /*   background-color: orange;
-  opacity: 50%; */
+  height: 15vh;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
   margin-top: 5vh;
   margin-bottom: 5vh;
+`;
+const RowInsert = styled.div`
+  height: 5vh;
+  position: relative;
 `;
 const ImageContainer = styled.div`
   position: absolute;
@@ -55,7 +57,6 @@ const TextTitle = styled.div`
   font-family: NotoSans;
   font-weight: 750;
   font-size: clamp(6px, calc(${3}vh + ${3}vw), 36px);
-  /*   height: ${5}vh; */
   color: ${(props) => (props.textColor ? props.textColor : '#f7941d')};
   display: flex;
   justify-content: center;
@@ -91,7 +92,7 @@ function ListView(props) {
         </ImageContainer>
         <TextRow {...props}>{props.row3}</TextRow>
       </RowContainer>
-      <RowContainer></RowContainer>
+      <RowInsert></RowInsert>
       <TextRow {...props} textColor={'#f7941d'}>
         {props.row4}
       </TextRow>
