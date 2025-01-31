@@ -2,17 +2,26 @@
   "name": "air-console-game",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "dependencies": {
+    "git": "^0.1.5",
+    "long-press-event": "^2.4.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-longpressable": "^1.1.1",
     "react-scripts": "3.2.0",
+    "react-swipeable": "^5.5.1",
+    "react-tooltip": "^4.2.13",
     "styled-components": "^4.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "unity-build": "react-scripts build && sh unity-build.sh",
+    "unity-build-home": "react-scripts build && sh unity-build-home.sh",
+    "unity": "sh unity-build.sh"
   },
   "eslintConfig": {
     "extends": "react-app"

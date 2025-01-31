@@ -1,18 +1,15 @@
 import React from 'react';
-import Healthbar from './components/Healthbar';
-import Bubble from './components/Bubble';
-import BubbleGroup from './components/BubbleGroup';
-import ControlWheel from './components/ControlWheel';
-import Recources from './components/Recources';
+import Router from './components/Router';
+import { StateProvider } from './store/StateContext';
+import MessageHandler from './components/MessageHandler';
 
 function App() {
   return (
-    <div>
-      <Healthbar></Healthbar>
-      <Recources></Recources>
-      <BubbleGroup></BubbleGroup>
-      <ControlWheel></ControlWheel>
-    </div>
+    <StateProvider>
+      <MessageHandler>
+        <Router></Router>
+      </MessageHandler>
+    </StateProvider>
   );
 }
 
